@@ -6,16 +6,16 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const SITES = [
-  '01-valora-finance',
-  '02-chrononet-salaire',
-  '03-dossierpur-pdf',
-  '04-cabineok-voyage',
-  '05-wattclair-energie',
-  '06-trajectoire-auto',
-  '07-pattesclaires-animaux',
-  '08-tablelibre-evenements',
-  '09-comptabrut-freelance',
-  '10-voixnette-audio',
+  'valora',
+  'chrononet',
+  'dossierpur',
+  'cabineok',
+  'wattclair',
+  'trajectoire',
+  'pattesclaires',
+  'tablelibre',
+  'comptabrut',
+  'voixnette',
 ];
 
 function walk(dir) {

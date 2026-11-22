@@ -166,18 +166,44 @@
 
         <div id="conflict-banner" class="conflict-banner" role="alert"></div>
 
+        <!-- Mode d'emploi visuel en 3 étapes ultra-claires -->
+        <div class="tl-steps-guide no-print">
+          <div class="tl-step-item">
+            <span class="tl-step-num">1</span>
+            <div>
+              <strong>Ajoutez vos tables &amp; invités</strong>
+              <span>Collez votre liste à gauche (ou testez avec le mariage pré-rempli).</span>
+            </div>
+          </div>
+          <div class="tl-step-item">
+            <span class="tl-step-num">2</span>
+            <div>
+              <strong>Cliquez sur une chaise « + Place »</strong>
+              <span>Ou cliquez sur <em>Placement Auto par Affinités</em> pour tout remplir en 1 seconde.</span>
+            </div>
+          </div>
+          <div class="tl-step-item">
+            <span class="tl-step-num">3</span>
+            <div>
+              <strong>Exportez votre plan</strong>
+              <span>Basculez entre la Vue Tables &amp; Chaises, la Vue Affiche d'Entrée et l'Export PNG HD.</span>
+            </div>
+          </div>
+        </div>
+
         <!-- Barre d'actions principale -->
         <div class="seating-toolbar no-print">
-          <div class="seating-toolbar__group" style="flex:1;min-width:240px;">
+          <div class="seating-toolbar__group" style="flex:1;min-width:220px;">
             <label for="event-title" class="sr-only" style="position:absolute;left:-9999px;">Nom de l'événement</label>
-            <input type="text" id="event-title" class="input" style="max-width:340px;font-weight:600;" value="Mariage de Camille & Thomas" placeholder="Nom de votre événement">
+            <input type="text" id="event-title" class="input" style="max-width:310px;font-weight:600;" value="Mariage de Camille & Thomas" placeholder="Nom de votre événement">
           </div>
-          <div class="seating-toolbar__group">
-            <button type="button" id="load-sample-btn" class="btn btn--secondary btn--sm">Charger un mariage exemple (48 invités)</button>
-            <button type="button" id="arrange-tables-btn" class="btn btn--ghost btn--sm">Réaligner la salle</button>
-            <button type="button" id="share-url-btn" class="btn btn--secondary btn--sm">Copier le lien partage</button>
+          <div class="seating-toolbar__group" style="display:flex;flex-wrap:wrap;gap:8px;">
+            <button type="button" id="auto-seat-btn" class="btn btn--primary btn--sm">✨ Placement Auto par Affinités</button>
+            <button type="button" id="unseat-all-btn" class="btn btn--ghost btn--sm">Libérer les chaises</button>
+            <button type="button" id="load-sample-btn" class="btn btn--secondary btn--sm">Exemple 42 invités</button>
+            <button type="button" id="share-url-btn" class="btn btn--secondary btn--sm">Lien partage</button>
             <button type="button" id="export-png-btn" class="btn btn--primary btn--sm">Exporter PNG HD</button>
-            <button type="button" id="clear-plan-btn" class="btn btn--danger btn--sm">Vider</button>
+            <button type="button" id="clear-plan-btn" class="btn btn--danger btn--sm">Nouveau</button>
           </div>
         </div>
 
@@ -281,12 +307,17 @@
 
           <!-- Plan de salle interactif -->
           <div class="room-stage-wrap">
-            <div class="room-stage-bar">
-              <span><strong>Plan de salle interactif</strong> — Glissez un invité sur une table, ou maintenez l'en-tête d'une table pour la déplacer.</span>
-              <span class="mono" style="font-size:0.76rem;color:var(--ink-tertiary);">Astuce mobile : cliquez « + » sur un invité puis sur une table</span>
+            <div class="room-stage-bar" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;">
+              <div>
+                <strong>Cliquez directement sur n'importe quelle chaise</strong> autour d'une table pour asseoir, déplacer ou retirer un invité.
+              </div>
+              <div class="tl-view-switcher" role="group" aria-label="Choisir le mode d'affichage">
+                <button type="button" class="tl-view-btn is-active" data-view-mode="visual">Vue Tables &amp; Chaises</button>
+                <button type="button" class="tl-view-btn" data-view-mode="cards">Vue Affiche / Chevalets</button>
+              </div>
             </div>
-            <div class="room-stage">
-              <div id="room-grid" class="room-grid-inner"></div>
+            <div class="room-stage" style="overflow:visible;min-height:auto;background:var(--bg-parchment);padding:24px;">
+              <div id="room-grid"></div>
             </div>
           </div>
         </div>
