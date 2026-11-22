@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact & Signalement — ChronoNet</title>
+  <meta name="description" content="Contactez l'équipe éditoriale ChronoNet pour suggérer un nouvel outil, signaler une évolution de barème 2026 ou exercer vos droits RGPD.">
+  <link rel="canonical" href="https://chrononet.fr/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span><span>CHRONONET</span><span class="brand-tag">CONTACT</span></a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="outils/vrai-salaire-horaire.html" class="nav-link">Vrai Salaire</a>
+        <a href="outils/prix-en-heures-de-vie.html" class="nav-link">Prix / Heures</a>
+        <a href="outils/teletravail-vs-presentiel.html" class="nav-link">Télétravail</a>
+        <a href="outils/brut-en-net-2026.html" class="nav-link">Brut / Net</a>
+        <a href="outils/rupture-conventionnelle.html" class="nav-link">Rupture</a>
+        <a href="outils/tjm-freelance-vs-cdi.html" class="nav-link">TJM vs CDI</a>
+      </nav>
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-secondary btn-sm">Accueil</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Navigation</div>
+      <a href="index.html"><span>Accueil</span><span class="mono">→</span></a>
+      <a href="a-propos.html"><span>À propos</span><span class="mono">→</span></a>
+      <a href="mentions-legales.html"><span>Mentions légales</span><span class="mono">→</span></a>
+      <a href="confidentialite.html"><span>Confidentialité</span><span class="mono">→</span></a>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container"><ol><li><a href="index.html">Accueil</a></li><li aria-current="page">Contact</li></ol></div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span>SUPPORT ÉDITORIAL &amp; TECHNIQUE</span></div>
+          <h1 style="margin-top:16px;">Contacter ChronoNet</h1>
+          <p class="hero-lead" style="margin-top:16px;">
+            Une suggestion de simulateur, une précision sur un barème 2026 ou une question liée à vos données ? Écrivez directement à notre équipe.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <span>EMAIL : CONTACT@CHRONONET.FR</span>
+          <span>DÉLAI MOYEN : 48 H OUVRÉES</span>
+          <span>FRANCE MÉTROPOLITAINE</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:32px;">
+      <div class="container editorial-layout">
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Formulaire de message</span>
+            <span class="instrument-led">OUVERT</span>
+          </div>
+
+          <form id="contact-form" novalidate>
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="c-nom" class="field-label">Nom ou prénom *</label></div>
+                <input type="text" id="c-nom" class="input-control" required placeholder="Camille Laurent">
+              </div>
+              <div>
+                <div class="field-head"><label for="c-email" class="field-label">Adresse e-mail *</label></div>
+                <input type="email" id="c-email" class="input-control" required placeholder="camille@exemple.fr">
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="c-sujet" class="field-label">Objet</label></div>
+              <select id="c-sujet" class="select-control">
+                <option value="Suggestion d'outil">Suggestion d'un nouvel outil</option>
+                <option value="Mise à jour barème">Signalement d'une mise à jour de barème</option>
+                <option value="Partenariat / Presse">Demande presse ou éditoriale</option>
+                <option value="RGPD">Question confidentialité / RGPD</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="c-message" class="field-label">Votre message *</label></div>
+              <textarea id="c-message" class="textarea-control" rows="5" required placeholder="Précisez l'outil concerné ou votre question..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg">Préparer l'envoi du message</button>
+            <p id="c-feedback" class="field-hint" style="margin-top:16px; display:none; color:var(--success); font-weight:600;"></p>
+          </form>
+        </div>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <div class="panel-title">Rappel important</div>
+            <p style="margin-top:12px; font-size:14px; margin-bottom:0;">
+              ChronoNet ne fournit pas de conseil juridique, fiscal ou comptable personnalisé. Pour un litige prud'homal ou un contrôle URSSAF, adressez-vous à un professionnel habilité.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand"><span class="eyebrow-dot" aria-hidden="true"></span><span>CHRONONET</span></a>
+          <p class="footer-desc">Instruments indépendants de mesure du vrai salaire horaire, du temps de vie et de la rémunération en France.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="outils/vrai-salaire-horaire.html">Vrai salaire horaire</a></li>
+            <li><a href="outils/prix-en-heures-de-vie.html">Prix en heures de vie</a></li>
+            <li><a href="outils/teletravail-vs-presentiel.html">Économies télétravail</a></li>
+            <li><a href="outils/brut-en-net-2026.html">Brut en Net 2026</a></li>
+            <li><a href="outils/rupture-conventionnelle.html">Rupture conventionnelle</a></li>
+            <li><a href="outils/tjm-freelance-vs-cdi.html">TJM Freelance vs CDI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides</div>
+          <ul class="footer-links">
+            <li><a href="guides/negocier-salaire-2026.html">Négocier son salaire 2026</a></li>
+            <li><a href="guides/bareme-frais-kilometriques-2026.html">Barème kilométrique 2026</a></li>
+            <li><a href="a-propos.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Cadre légal</div>
+          <ul class="footer-links">
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ChronoNet (chrononet.fr)</span>
+        <button type="button" class="footer-cookie-btn" data-open-cookies>Gérer les cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const feedback = document.getElementById('c-feedback');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const nom = document.getElementById('c-nom').value.trim();
+        const email = document.getElementById('c-email').value.trim();
+        const sujet = document.getElementById('c-sujet').value;
+        const msg = document.getElementById('c-message').value.trim();
+        if (!nom || !email || email.indexOf('@') === -1 || !msg) {
+          feedback.style.display = 'block';
+          feedback.style.color = 'var(--accent)';
+          feedback.textContent = 'Merci de renseigner votre nom, une adresse e-mail valide et votre message.';
+          return;
+        }
+        const body = encodeURIComponent('De : ' + nom + ' (' + email + ')\n\n' + msg);
+        const subject = encodeURIComponent('[ChronoNet] ' + sujet);
+        feedback.style.display = 'block';
+        feedback.style.color = 'var(--success)';
+        feedback.innerHTML = 'Message prêt : <a href="mailto:contact@chrononet.fr?subject=' + subject + '&body=' + body + '" style="text-decoration:underline; color:var(--text-primary);">cliquez ici pour ouvrir votre messagerie vers contact@chrononet.fr</a>.';
+        if (window.ChronoNet) window.ChronoNet.toast('Message validé et prêt à être envoyé.');
+      });
+    })();
+  </script>
+</body>
+</html>

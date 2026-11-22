@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mon Inflation Personnelle (2019–2026) &amp; Négociation Salariale — Valora</title>
+  <meta name="description" content="Calculez votre taux d'inflation personnelle 2019–2026 selon vos 6 postes de dépenses (INSEE), mesurez votre perte ou gain de pouvoir d'achat et copiez un argumentaire chiffré pour négocier votre salaire.">
+  <link rel="canonical" href="https://valora-finance.fr/outils/inflation-personnelle.html">
+  <meta property="og:title" content="Mon Inflation Personnelle (2019–2026) &amp; Négociation Salariale — Valora">
+  <meta property="og:description" content="Indices INSEE par poste (Logement, Alimentation, Énergie, Transports, Loisirs) et générateur d'argumentaire chiffré en 1 clic.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur d'Inflation Personnelle 2019-2026 & Négociation Salariale",
+        "url": "https://valora-finance.fr/outils/inflation-personnelle.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://valora-finance.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://valora-finance.fr/#tous-les-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Mon Inflation Personnelle", "item": "https://valora-finance.fr/outils/inflation-personnelle.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi mon inflation personnelle diffère-t-elle de l'IPC officiel de l'INSEE ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'IPC de l'INSEE utilise des pondérations moyennes nationales (environ 16 % pour l'alimentation et 6 % pour les loyers effectifs). Un ménage qui consacre 25 % de son budget aux courses et 14 % à l'énergie subit mécaniquement une hausse cumulée supérieure à la moyenne nationale." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi la part du logement dans l'IPC INSEE semble-t-elle faible ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'INSEE exclut les mensualités de crédit immobilier (considérées comme un investissement patrimonial) et pondère les loyers sur l'ensemble des ménages, propriétaires compris. Dans votre budget personnel, indiquer votre vraie part de loyer ou charges corrige ce biais." }
+          },
+          {
+            "@type": "Question",
+            "name": "Dois-je utiliser mon salaire net avant impôt ou super-net ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Utilisez de préférence le salaire net avant prélèvement à la source (ou le salaire brut annuel sur les deux années) afin de neutraliser les changements de situation familiale ou de taux d'imposition sur le revenu." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment utiliser efficacement l'argumentaire chiffré en entretien annuel ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'inflation justifie la base de maintien du pouvoir d'achat, mais les employeurs récompensent avant tout la création de valeur. Présentez l'écart d'inflation comme un constat objectif d'équilibre, puis adossez votre demande d'augmentation à vos réalisations mesurables." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que faire si la somme de mes pondérations ne fait pas exactement 100 % ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le moteur normalise automatiquement vos pondérations sur 100 % en temps réel. Vous pouvez également cliquer sur le bouton « Rééquilibrer à 100 % » pour ajuster les curseurs à l'entier exact." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>OUTIL 02 • POUVOIR D'ACHAT &amp; INDICES INSEE COICOP</span>
+      <span>SÉRIES CUMULÉES 2018–2026 PAR POSTE BUDGÉTAIRE</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="abonnements-etf.html">Abonnements &amp; ETF</a>
+        <a href="inflation-personnelle.html" class="active">Inflation perso</a>
+        <a href="interets-composes-pea.html">PEA vs CTO</a>
+        <a href="../guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="../a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="../index.html">Accueil</a>
+      <a href="abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="objectif-independance.html">06. Objectif FIRE France</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#tous-les-outils">Outils</a></li>
+        <li aria-current="page">Mon Inflation Personnelle (2019–2026)</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header-grid">
+        <div>
+          <span class="eyebrow">Outil 02 • Pouvoir d'achat &amp; Salaires</span>
+          <h1>Mon Inflation Personnelle (2019–2026) &amp; Négociation Salariale</h1>
+          <p class="text-secondary" style="margin-top:8px;max-width:66ch;">Comparez l'évolution de votre salaire net face à l'inflation réelle de votre panier de dépenses pondéré par poste INSEE, et générez un argumentaire chiffré prêt pour votre entretien annuel.</p>
+        </div>
+        <div class="tool-header-meta">
+          <strong>Source :</strong> Séries d'indices des prix à la consommation (IPC France) par fonction de consommation COICOP, recalibrées base 100 = 2018.
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Colonne gauche : entrées -->
+        <div class="panel">
+          <div class="panel-title">1. Vos revenus &amp; année de référence</div>
+
+          <div class="field">
+            <label for="inf-base-year">Année de référence à comparer avec 2026</label>
+            <select id="inf-base-year" class="select">
+              <option value="2018">2018 → 2026</option>
+              <option value="2019" selected>2019 → 2026 (pré-Covid)</option>
+              <option value="2020">2020 → 2026</option>
+              <option value="2021">2021 → 2026</option>
+              <option value="2022">2022 → 2026</option>
+              <option value="2023">2023 → 2026</option>
+              <option value="2024">2024 → 2026</option>
+              <option value="2025">2025 → 2026</option>
+            </select>
+          </div>
+
+          <div class="field-row field-row-2">
+            <div class="field">
+              <label for="inf-sal-base">Salaire net (année réf.)</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="inf-sal-base" class="input input-mono" value="2400" min="500" max="50000" step="50">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="inf-sal-now">Salaire net en 2026</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="inf-sal-now" class="input input-mono" value="2750" min="500" max="50000" step="50">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-title" style="margin-top:24px;">
+            <span>2. Structure de votre budget (6 postes)</span>
+          </div>
+
+          <div class="preset-row">
+            <button type="button" class="preset-btn" data-profile="moyen">Ménage moyen</button>
+            <button type="button" class="preset-btn" data-profile="urbain">Urbain locataire</button>
+            <button type="button" class="preset-btn" data-profile="famille">Famille périurbaine</button>
+            <button type="button" class="preset-btn" id="btn-normalize-weights">Rééquilibrer à 100 %</button>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="w-logement">Logement (loyer, charges, eau)</label>
+              <span class="field-value" id="w-val-logement">30 %</span>
+            </div>
+            <input type="range" id="w-logement" min="0" max="60" step="1" value="30">
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="w-alimentation">Alimentation &amp; courses</label>
+              <span class="field-value" id="w-val-alimentation">20 %</span>
+            </div>
+            <input type="range" id="w-alimentation" min="0" max="50" step="1" value="20">
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="w-energie">Énergie (électricité, gaz, chauffage)</label>
+              <span class="field-value" id="w-val-energie">10 %</span>
+            </div>
+            <input type="range" id="w-energie" min="0" max="35" step="1" value="10">
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="w-transports">Transports &amp; carburant</label>
+              <span class="field-value" id="w-val-transports">15 %</span>
+            </div>
+            <input type="range" id="w-transports" min="0" max="40" step="1" value="15">
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="w-loisirs">Loisirs, culture &amp; restauration</label>
+              <span class="field-value" id="w-val-loisirs">12 %</span>
+            </div>
+            <input type="range" id="w-loisirs" min="0" max="40" step="1" value="12">
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="w-autres">Autres (santé, télécoms, équipement)</label>
+              <span class="field-value" id="w-val-autres">13 %</span>
+            </div>
+            <input type="range" id="w-autres" min="0" max="40" step="1" value="13">
+          </div>
+
+          <p class="field-hint mono" id="inf-weight-sum" style="margin-top:16px;">Somme des pondérations : 100 % (équilibré)</p>
+        </div>
+
+        <!-- Colonne droite : résultats, graphique, argumentaire -->
+        <div>
+          <div class="kpi-grid kpi-grid-3">
+            <div class="kpi-card">
+              <div class="kpi-label">Mon inflation cumulée</div>
+              <div class="kpi-value" id="kpi-inf-perso">+22,8 %</div>
+              <div class="kpi-sub" id="kpi-inf-ipc">IPC INSEE : +18,9 %</div>
+            </div>
+            <div class="kpi-card kpi-card-danger" id="kpi-delta-card">
+              <div class="kpi-label">Pouvoir d'achat réel</div>
+              <div class="kpi-value" id="kpi-delta-month">-197 € / mois</div>
+              <div class="kpi-sub" id="kpi-delta-year">-2 364 € / an</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Salaire équivalent 2026</div>
+              <div class="kpi-value" id="kpi-sal-equiv">2 947 €</div>
+              <div class="kpi-sub" id="kpi-sal-sub">Rattrapage nécessaire : +7,2 %</div>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-header">
+              <span class="chart-title">Inflation cumulée : votre panier vs IPC INSEE et détail par poste</span>
+            </div>
+            <div class="canvas-wrap canvas-wrap-tall">
+              <canvas id="inf-chart" aria-label="Graphique comparant l'inflation personnelle à l'IPC INSEE et aux 6 postes de dépenses"></canvas>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Poste de dépense</th>
+                  <th class="num">Poids</th>
+                  <th class="num">Hausse cumulée</th>
+                  <th class="num">Contribution</th>
+                </tr>
+              </thead>
+              <tbody id="inf-table-body"></tbody>
+            </table>
+          </div>
+
+          <!-- Bloc argumentaire copiable -->
+          <div class="panel" style="margin-top:24px;">
+            <div class="panel-title">
+              <span>Argumentaire chiffré pour entretien d'augmentation</span>
+              <div class="segmented" style="width:auto;" role="group" aria-label="Ton de l'argumentaire">
+                <button type="button" class="active" data-tone="rh">Formel / RH</button>
+                <button type="button" data-tone="manager">Direct / Manager</button>
+              </div>
+            </div>
+            <div class="pitch-box" id="inf-pitch"></div>
+            <div style="margin-top:16px;display:flex;justify-content:flex-end;">
+              <button type="button" class="btn btn-primary" id="btn-copy-pitch">Copier l'argumentaire en 1 clic</button>
+            </div>
+          </div>
+
+          <!-- Emplacement AdSense 1 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Format adaptatif anti-CLS)</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenu éditorial expert -->
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <article class="prose">
+          <h2>Pourquoi l'inflation moyenne officielle ne reflète pas votre ticket de caisse</h2>
+          <p>Lorsque l'INSEE annonce une inflation cumulée d'environ 18,9 % entre 2019 et 2026, ce chiffre agrège près de 200 000 relevés de prix pondérés selon la consommation moyenne de l'ensemble de la population française. Or, personne ne consomme exactement comme le « ménage moyen » statistique.</p>
+          <p>La vague inflationniste 2022–2024 a frappé de manière très asymétrique : les <strong>produits alimentaires</strong> (+28 % à +30 % cumulés depuis 2019) et l'<strong>énergie domestique</strong> (électricité et gaz, autour de +45 %) ont progressé deux à trois fois plus vite que les télécommunications, l'habillement ou les biens manufacturés. Plus un ménage consacre une fraction importante de son revenu net à ces dépenses contraintes, plus son inflation personnelle dépasse l'IPC officiel.</p>
+
+          <h3>Méthodologie de calcul et formule transparente</h3>
+          <p>Pour chaque poste de dépense <code>k</code> (Logement, Alimentation, Énergie, Transports, Loisirs, Autres), nous calculons la variation cumulée entre l'année de référence <code>t0</code> et 2026 à partir des indices recalibrés sur les séries COICOP de l'INSEE, puis nous les pondérons par votre structure budgétaire normalisée <code>w_k</code> :</p>
+          <div class="formula-box">
+            Hausse_k = (Indice_k(2026) / Indice_k(t0)) − 1<br>
+            Inflation_perso = Σ (w_k × Hausse_k)<br>
+            Salaire_equivalent = Salaire_t0 × (1 + Inflation_perso)<br>
+            Gain_ou_Perte_reel = Salaire_2026 − Salaire_equivalent
+          </div>
+          <p>Le pourcentage de rattrapage affiché correspond à la hausse nécessaire sur votre salaire actuel pour revenir exactement au pouvoir d'achat de l'année de référence : <code>(Salaire_equivalent / Salaire_2026) − 1</code>.</p>
+
+          <h3>Trois profils types comparés sur 2019–2026</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profil type (salaire 2019 : 2 400 € → 2026 : 2 750 €)</th>
+                  <th class="num">Inflation perso</th>
+                  <th class="num">Salaire équivalent</th>
+                  <th class="num">Écart mensuel réel</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Urbain locataire sans voiture</strong> (Logement 38 %, Transports 7 %)</td>
+                  <td class="num">+21,1 %</td>
+                  <td class="num">2 906 €</td>
+                  <td class="num text-danger"><strong>−156 € / mois</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Ménage moyen France</strong> (Logement 30 %, Alim. 20 %, Énergie 10 %)</td>
+                  <td class="num">+22,9 %</td>
+                  <td class="num">2 950 €</td>
+                  <td class="num text-danger"><strong>−200 € / mois</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Famille périurbaine</strong> (Alim. 26 %, Énergie 14 %, Transports 18 %)</td>
+                  <td class="num">+25,4 %</td>
+                  <td class="num">3 010 €</td>
+                  <td class="num text-danger"><strong>−260 € / mois</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Pièges fréquents lors d'une négociation salariale</h3>
+          <ul>
+            <li><strong>Confondre augmentation nominale et hausse de pouvoir d'achat :</strong> obtenir +12 % en 6 ans donne l'illusion d'une progression, mais si vos dépenses ont grimpé de +22 %, votre niveau de vie a reculé de près de 8 %.</li>
+            <li><strong>N'invoquer que l'inflation devant son employeur :</strong> une entreprise ne paie pas votre loyer mais votre contribution économique. Utilisez l'inflation comme <em>plancher objectif</em> de discussion, puis démontrez l'augmentation de votre périmètre et de vos résultats.</li>
+            <li><strong>Oublier les éléments périphériques :</strong> si l'enveloppe de salaire fixe est contrainte, négociez sur le variable, l'intéressement, l'abondement PEE/PERCO ou la prise en charge des frais de transport et titres-restaurant.</li>
+          </ul>
+
+          <!-- Emplacement AdSense 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Rectangle éditorial anti-CLS)</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Pourquoi mon inflation personnelle diffère-t-elle de l'IPC officiel ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>L'IPC agrège les dépenses de tous les Français, y compris les ménages propriétaires sans loyer et les hauts revenus dont la part alimentaire est réduite. Pondérer selon votre vrai budget corrige ces moyennes nationales.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Les mensualités de crédit immobilier sont-elles incluses dans le poste Logement ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Un prêt immobilier à taux fixe contracté avant 2022 voit sa mensualité rester stable en euros courants : c'est un bouclier anti-inflation. Si vous êtes propriétaire à taux fixe, réduisez le curseur Logement à la seule part de vos charges de copropriété, taxe foncière et entretien.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Quel salaire saisir : net avant impôt ou net payé après prélèvement à la source ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Saisissez idéalement votre salaire net imposable (avant prélèvement à la source) sur les deux années afin que les variations de quotient familial ou de barème fiscal ne faussent pas la comparaison de votre rémunération.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>D'où proviennent les indices 2026 utilisés par le simulateur ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Les années 2018 à 2025 reflètent les séries annuelles publiées par l'INSEE par poste COICOP, complétées pour 2026 par les projections consensuelles de la Banque de France et de l'INSEE (inflation tendancielle proche de 1,7 %). Consultez notre <a href="../guides/methodologie-inflation-pouvoir-achat.html">guide méthodologique complet sur l'inflation</a>.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Puis-je utiliser cet argumentaire pour un changement de poste ou de mission freelance ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Oui. Pour un freelance, remplacez le salaire net par votre TJM (Taux Journalier Moyen) : si votre TJM est resté figé à 500 € depuis 2019, son pouvoir d'achat réel a baissé de près de 20 % et une révision tarifaire est pleinement justifiée.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="sidebar-box">
+            <h3>Autres outils Valora</h3>
+            <ul class="sidebar-links">
+              <li><a href="abonnements-etf.html"><span>01. Abonnements → ETF</span><span>→</span></a></li>
+              <li><a href="interets-composes-pea.html"><span>03. PEA vs AV vs CTO</span><span>→</span></a></li>
+              <li><a href="epargne-securite.html"><span>04. Matelas de Sécurité</span><span>→</span></a></li>
+              <li><a href="cout-credit-conso.html"><span>05. Vrai Coût Crédit Conso</span><span>→</span></a></li>
+              <li><a href="objectif-independance.html"><span>06. Calculateur FIRE France</span><span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Dossier recommandé</h3>
+            <p class="text-secondary" style="font-size:0.9rem;">Tout comprendre sur le calcul de l'IPC, l'effet qualité et la préservation de votre pouvoir d'achat.</p>
+            <a href="../guides/methodologie-inflation-pouvoir-achat.html" class="btn btn-secondary btn-sm btn-block">Lire le guide Inflation &amp; Pouvoir d'achat</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale calibrés sur la fiscalité française.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="../guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="../guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance — Estimations basées sur les indices INSEE publics.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/inflation-personnelle.js"></script>
+</body>
+</html>

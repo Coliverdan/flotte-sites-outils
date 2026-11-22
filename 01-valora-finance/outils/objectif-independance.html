@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur FIRE / Indépendance Financière (Adaptation France) — Valora</title>
+  <meta name="description" content="Calculez votre taux d'épargne, votre capital cible FIRE et la date exacte d'indépendance financière adaptés à la fiscalité française (taux de retrait sûr 3,5 %, PEA 17,2 % et PFU 30 %).">
+  <link rel="canonical" href="https://valora-finance.fr/outils/objectif-independance.html">
+  <meta property="og:title" content="Calculateur FIRE / Indépendance Financière (Adaptation France) — Valora">
+  <meta property="og:description" content="Trajectoire patrimoniale, taux de retrait sûr 3,0 %–4,5 %, fiscalité de sortie France et matrice de sensibilité.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur FIRE / Indépendance Financière Adaptation France",
+        "url": "https://valora-finance.fr/outils/objectif-independance.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://valora-finance.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://valora-finance.fr/#tous-les-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Calculateur FIRE France", "item": "https://valora-finance.fr/outils/objectif-independance.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi utiliser un taux de retrait sûr de 3,5 % par défaut plutôt que la règle américaine des 4 % ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La règle des 4 % (Trinity Study) a été calibrée sur des retraites de 30 ans aux États-Unis sans prélèvements sociaux ni cotisation PUMa. Pour une indépendance précoce en France sur 40 à 50 ans, un taux de retrait de 3,25 % à 3,5 % offre une marge de sécurité nettement supérieure face au risque de séquence des rendements." }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que la taxe PUMa en France pour un rentier FIRE ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La Cotisation Subsidiaire Maladie (PUMa) s'applique aux résidents français qui perçoivent moins de 20 % du PASS en revenus d'activité professionnelle tout en tirant des revenus du capital supérieurs à 50 % du PASS (taux de 6,5 % sur la fraction excédentaire). Elle justifie souvent de conserver une petite activité freelance ou de viser un taux de retrait prudent." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi la fiscalité de sortie ne s'applique-t-elle pas à la totalité de mes retraits ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En France (PEA, CTO, Assurance-Vie), seuls les gains (plus-values) inclus dans chaque retrait sont imposés, jamais la fraction correspondant à votre capital initialement versé. Notre simulateur calcule dynamiquement la part de plus-value au moment de l'indépendance." }
+          },
+          {
+            "@type": "Question",
+            "name": "Dois-je inclure ma résidence principale dans le patrimoine investi ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Votre résidence principale ne génère pas de flux financiers liquides. En revanche, une fois le crédit immobilier remboursé, vos dépenses mensuelles de logement chutent drastiquement, ce qui réduit d'autant le capital FIRE nécessaire." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi réduire ses dépenses de 150 €/mois accélère-t-il autant l'indépendance que gagner plus ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Réduire une dépense structurelle de 150 €/mois produit un double effet de levier : cela augmente immédiatement votre épargne mensuelle de 150 €, tout en réduisant le capital cible FIRE nécessaire d'environ 51 400 € (à 3,5 % de taux de retrait)." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>OUTIL 06 • INDÉPENDANCE FINANCIÈRE (FIRE FRANCE)</span>
+      <span>TAUX DE RETRAIT SÛR 3,5 % &amp; FISCALITÉ PLUS-VALUES</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="abonnements-etf.html">Abonnements &amp; ETF</a>
+        <a href="inflation-personnelle.html">Inflation perso</a>
+        <a href="interets-composes-pea.html">PEA vs CTO</a>
+        <a href="../guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="../a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="../index.html">Accueil</a>
+      <a href="abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="objectif-independance.html">06. Objectif FIRE France</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#tous-les-outils">Outils</a></li>
+        <li aria-current="page">Calculateur FIRE / Indépendance Financière</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header-grid">
+        <div>
+          <span class="eyebrow">Outil 06 • Trajectoire patrimoniale</span>
+          <h1>Calculateur FIRE / Indépendance Financière (Adaptation France)</h1>
+          <p class="text-secondary" style="margin-top:8px;max-width:66ch;">Déterminez votre taux d'épargne, le capital financier net requis en intégrant l'imposition française sur les plus-values de sortie, et la date précise de votre indépendance.</p>
+        </div>
+        <div class="tool-header-meta">
+          <strong>Calibrage France :</strong> Rendement exprimé <em>net d'inflation</em> (euros constants) et taux de retrait sûr par défaut à <strong>3,5 %</strong>.
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Entrées -->
+        <div class="panel">
+          <div class="panel-title">Vos flux &amp; hypothèses de retrait</div>
+
+          <div class="field-row field-row-2">
+            <div class="field">
+              <label for="fire-income">Revenus mensuels nets</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="fire-income" class="input input-mono" value="3400" min="500" max="50000" step="100">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="fire-expenses">Dépenses mensuelles</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="fire-expenses" class="input input-mono" value="2000" min="400" max="30000" step="50">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="fire-current">Patrimoine financier déjà investi</label>
+            <div class="input-suffix-wrap">
+              <input type="number" id="fire-current" class="input input-mono" value="30000" min="0" max="5000000" step="1000">
+              <span class="input-suffix">€</span>
+            </div>
+            <span class="field-hint">PEA, CTO, Assurance-Vie, épargne financière productrice (hors résidence principale).</span>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="fire-return">Rendement annuel net d'inflation (réel)</label>
+              <span class="field-value" id="fire-return-val">5,5 % réel</span>
+            </div>
+            <input type="range" id="fire-return" min="2" max="9" step="0.5" value="5.5">
+            <div class="range-ticks"><span>2 %</span><span>5,5 % (≈ 7,5 % − 2 % inf.)</span><span>9 %</span></div>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="fire-swr">Taux de retrait sûr (SWR)</label>
+              <span class="field-value" id="fire-swr-val">3,50 %</span>
+            </div>
+            <input type="range" id="fire-swr" min="3.0" max="4.5" step="0.1" value="3.5">
+            <div class="range-ticks"><span>3,0 % (très sûr)</span><span>3,5 % (FR)</span><span>4,0 % (US)</span><span>4,5 %</span></div>
+          </div>
+
+          <div class="field">
+            <label style="margin-bottom:8px;">Fiscalité dominante sur les plus-values à la sortie</label>
+            <div class="segmented" role="group" aria-label="Fiscalité de sortie">
+              <button type="button" class="active" data-exit-tax="0.172">PEA (17,2 %)</button>
+              <button type="button" data-exit-tax="0.22">Mixte (22 %)</button>
+              <button type="button" data-exit-tax="0.30">CTO (30 %)</button>
+            </div>
+            <span class="field-hint">Impôt appliqué uniquement à la fraction de plus-value contenue dans vos retraits annuels.</span>
+          </div>
+        </div>
+
+        <!-- Résultats -->
+        <div>
+          <div class="kpi-grid kpi-grid-3">
+            <div class="kpi-card">
+              <div class="kpi-label">Taux d'épargne</div>
+              <div class="kpi-value" id="kpi-savings-rate">41,2 %</div>
+              <div class="kpi-sub" id="kpi-savings-sub">1 400 € épargnés / mois</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Capital cible FIRE (FR)</div>
+              <div class="kpi-value" id="kpi-target-fire">750 000 €</div>
+              <div class="kpi-sub" id="kpi-target-sub">Ajusté fiscalité de sortie</div>
+            </div>
+            <div class="kpi-card kpi-card-accent" id="kpi-time-card">
+              <div class="kpi-label">Horizon estimé</div>
+              <div class="kpi-value" id="kpi-time">20 ans</div>
+              <div class="kpi-sub" id="kpi-date">Novembre 2046</div>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-header">
+              <span class="chart-title">Trajectoire du patrimoine investi (euros constants) vs Cible FIRE</span>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#0F5132;"></span>Patrimoine investi</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#A62C2B;"></span>Objectif FIRE France</span>
+              </div>
+            </div>
+            <div class="canvas-wrap canvas-wrap-tall">
+              <canvas id="fire-chart" aria-label="Graphique de trajectoire patrimoniale vers l'objectif FIRE France"></canvas>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">Matrice de sensibilité : quels leviers gagnent le plus d'années ?</div>
+            <div class="table-wrap" style="margin:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Scénario testé</th>
+                    <th class="num">Cible FIRE</th>
+                    <th class="num">Délai</th>
+                    <th class="num">Temps gagné</th>
+                  </tr>
+                </thead>
+                <tbody id="fire-sens-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Emplacement AdSense 1 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Format adaptatif anti-CLS)</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Éditorial -->
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <article class="prose">
+          <h2>Adapter le mouvement FIRE à la réalité fiscale et sociale française</h2>
+          <p>Né aux États-Unis autour de l'étude <em>Trinity Study</em>, le concept <strong>FIRE</strong> (<em>Financial Independence, Retire Early</em>) repose sur une équation limpide : vous devenez financièrement indépendant dès que votre patrimoine productif finance durablement vos dépenses annuelles grâce à un taux de retrait maîtrisé.</p>
+          <p>Toutefois, transposer naïvement la « règle des 4 % » (25 fois les dépenses annuelles) en France conduit à sous-estimer le capital nécessaire. Deux spécificités françaises doivent être modélisées : d'une part les <strong>prélèvements sociaux (17,2 %) et le PFU (30 %)</strong> prélevés sur la part de plus-values lors de chaque retrait ; d'autre part la question de la <strong>protection sociale (PUMa)</strong> et de la durée de vie du portefeuille lorsque l'on cesse de travailler avant 55 ans.</p>
+
+          <h3>Formule d'indépendance financière ajustée France</h3>
+          <p>Toutes les projections sont exprimées en <strong>euros constants</strong> (rendement réel net d'inflation) afin que votre niveau de dépenses reste directement lisible en pouvoir d'achat d'aujourd'hui :</p>
+          <div class="formula-box">
+            Taux_epargne = (Revenus_nets − Dépenses) / Revenus_nets<br>
+            Part_plus_value_retrait = (Patrimoine − Versements_cumulés) / Patrimoine<br>
+            Retrait_brut_annuel = (Dépenses × 12) / (1 − Part_plus_value_retrait × Taux_impôt)<br>
+            Capital_cible_FIRE_FR = Retrait_brut_annuel / SWR
+          </div>
+
+          <h3>Influence décisive du taux d'épargne (départ à 0 €, rendement réel 5,5 %, SWR 3,5 % en PEA)</h3>
+          <p>La variable la plus puissante d'une trajectoire FIRE n'est pas le niveau absolu de salaire, mais le <strong>taux d'épargne</strong>, car il agit simultanément sur la vitesse d'accumulation et sur la taille du capital requis :</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Taux d'épargne</th>
+                  <th class="num">Dépenses (% du revenu)</th>
+                  <th class="num">Horizon estimé (PEA)</th>
+                  <th>Stratégie correspondante</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>15 %</strong></td>
+                  <td class="num">85 %</td>
+                  <td class="num">~37 ans</td>
+                  <td>Complément de retraite classique</td>
+                </tr>
+                <tr>
+                  <td><strong>30 %</strong></td>
+                  <td class="num">70 %</td>
+                  <td class="num">~26 ans</td>
+                  <td>Liberté financière à mi-cinquantaine</td>
+                </tr>
+                <tr>
+                  <td><strong>45 %</strong></td>
+                  <td class="num">55 %</td>
+                  <td class="num text-accent"><strong>~18 ans</strong></td>
+                  <td>Barista FIRE / Indépendance précoce</td>
+                </tr>
+                <tr>
+                  <td><strong>60 %</strong></td>
+                  <td class="num">40 %</td>
+                  <td class="num text-accent"><strong>~12 ans</strong></td>
+                  <td>FIRE accéléré (revenus élevés + sobriété)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Pièges fréquents d'un plan FIRE en France</h3>
+          <ul>
+            <li><strong>Ignorer le risque de séquence des rendements :</strong> subir un krach de −35 % durant les trois premières années de retrait peut compromettre un portefeuille à 4 % de retrait. Conserver 2 ans de dépenses en <a href="epargne-securite.html">livrets réglementés</a> comme tampon amortit ce risque.</li>
+            <li><strong>Oublier la pension de retraite légale française :</strong> contrairement aux modèles américains, un salarié ayant cotisé 20 à 30 ans en France percevra tout de même une pension de base et complémentaire à l'âge légal, réduisant le besoin de retraits patrimoniaux après 64–67 ans.</li>
+            <li><strong>Sous-estimer le Barista FIRE :</strong> générer ne serait-ce que 900 € nets/mois par une activité choisie à temps partiel divise quasiment par deux le capital nécessaire et annule le risque de cotisation subsidiaire maladie (PUMa).</li>
+          </ul>
+
+          <!-- Emplacement AdSense 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Rectangle éditorial anti-CLS)</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Pourquoi retenir 3,5 % de taux de retrait sûr plutôt que 4 % ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>L'étude Trinity Study (4 %) portait sur un horizon de 30 ans uniquement. Pour un épargnant français qui vise 40 à 50 ans d'indépendance, les simulations historiques montrent qu'un taux compris entre 3,25 % et 3,5 % offre un taux de survie proche de 100 % sur toutes les périodes historiques.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Comment éviter la cotisation PUMa en France ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>La cotisation PUMa (6,5 %) ne s'applique pas si l'un des conjoints perçoit un revenu d'activité supérieur à 20 % du Plafond Annuel de la Sécurité Sociale (environ 9 400 € par an), ou si vous exercez une petite activité indépendante/salariée dépassant ce seuil.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Pourquoi le simulateur raisonne-t-il en rendement « réel » (net d'inflation) ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Parce que 2 000 €/mois aujourd'hui ne correspondront pas à 2 000 € nominaux dans 20 ans. En retirant l'inflation du rendement (par exemple 7,5 % nominal − 2 % d'inflation = 5,5 % réel), tous les montants affichés restent directement comparables à votre pouvoir d'achat actuel.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Comment optimiser la fiscalité des retraits entre PEA, Assurance-Vie et CTO ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>En phase d'accumulation, saturez d'abord le PEA (150 000 € de versements par adulte), puis complétez en CTO ou Assurance-Vie selon votre horizon. Comparez précisément ces supports sur notre <a href="interets-composes-pea.html">simulateur PEA vs Assurance-Vie vs CTO</a>.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Qu'est-ce que le « Coast FIRE » ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Le Coast FIRE est atteint dès que votre capital déjà investi est suffisant pour atteindre votre objectif de retraite par le seul jeu des intérêts composés sans plus jamais épargner un euro : vous n'avez alors plus besoin que de couvrir vos dépenses courantes.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="sidebar-box">
+            <h3>Autres outils Valora</h3>
+            <ul class="sidebar-links">
+              <li><a href="abonnements-etf.html"><span>01. Abonnements → ETF</span><span>→</span></a></li>
+              <li><a href="inflation-personnelle.html"><span>02. Mon Inflation Personnelle</span><span>→</span></a></li>
+              <li><a href="interets-composes-pea.html"><span>03. PEA vs AV vs CTO</span><span>→</span></a></li>
+              <li><a href="epargne-securite.html"><span>04. Matelas de Sécurité</span><span>→</span></a></li>
+              <li><a href="cout-credit-conso.html"><span>05. Vrai Coût Crédit Conso</span><span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Dossier recommandé</h3>
+            <p class="text-secondary" style="font-size:0.9rem;">Maîtrisez la fiscalité de vos enveloppes ETF avant de bâtir votre stratégie d'accumulation et de retrait.</p>
+            <a href="../guides/fiscalite-etf-pea-2026.html" class="btn btn-secondary btn-sm btn-block">Guide Fiscalité ETF &amp; PEA 2026</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale calibrés sur la fiscalité française.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="../guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="../guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance — Projections pédagogiques hors conseil en gestion de patrimoine.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/objectif-independance.js"></script>
+</body>
+</html>

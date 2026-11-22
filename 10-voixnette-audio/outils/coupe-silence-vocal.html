@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coupe-Silence Automatique Vocal (WhatsApp, Cours &amp; Podcast) — VoixNette</title>
+  <meta name="description" content="Supprimez automatiquement les silences et blancs d'une note vocale WhatsApp (OPUS/OGG), d'un cours ou d'un podcast dans votre navigateur. Zéro upload serveur, export WAV immédiat.">
+  <link rel="canonical" href="https://voixnette.fr/outils/coupe-silence-vocal.html">
+  <meta property="og:title" content="Coupe-Silence Automatique pour Notes Vocales &amp; Cours — VoixNette">
+  <meta property="og:description" content="Détection visuelle des silences sur forme d'onde, réglage fin en dB, écoute avant/après et export WAV PCM 16-bit 100 % local.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://voixnette.fr/outils/coupe-silence-vocal.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "VoixNette VN-01 — Coupe-Silence Automatique Vocal",
+        "url": "https://voixnette.fr/outils/coupe-silence-vocal.html",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Tous navigateurs modernes (WebAudio API)",
+        "inLanguage": "fr-FR",
+        "isAccessibleForFree": true,
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "description": "Outil 100 % navigateur permettant de détecter et supprimer automatiquement les silences dans les notes vocales WhatsApp, cours audio et podcasts."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://voixnette.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils Studio", "item": "https://voixnette.fr/#rack-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Coupe-Silence Vocal", "item": "https://voixnette.fr/outils/coupe-silence-vocal.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mes notes vocales WhatsApp sont-elles envoyées sur un serveur ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Le décodage du fichier, l'analyse RMS par fenêtre de 10 ms et l'encodage WAV PCM 16-bit s'exécutent exclusivement dans la mémoire locale de votre navigateur via la WebAudio API. Aucun octet audio ne transite sur Internet."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel seuil en dB choisir pour une note vocale WhatsApp ou un cours ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Dans une pièce calme, un seuil compris entre -38 dB et -32 dB détecte précisément les pauses sans couper les consonnes douces. Si l'enregistrement comporte un bruit de fond urbain ou un ventilateur, remontez progressivement le seuil vers -28 dB ou -24 dB."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "À quoi sert le paramètre de marge conservée (padding en ms) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La marge conservée (entre 60 ms et 120 ms) préserve l'attaque naturelle des premiers mots et la respiration finale de chaque phrase. Elle évite l'effet robotique de phrases collées brutalement les unes aux autres."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi l'outil exporte-t-il en format WAV PCM 16-bit ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le format WAV PCM 16-bit est non compressé, instantané à générer localement en JavaScript pur et évite toute perte de qualité liée à une double compression MP3. Il est lu nativement sur Windows, macOS, Android, iOS et tous les logiciels de montage."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Les coupes créent-elles des clics ou craquements audibles ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non. Le moteur VoixNette applique systématiquement un micro-fondu d'entrée et de sortie de 5 millisecondes à chaque point de raccordement pour ramener l'onde à zéro et éliminer tout clic numérique."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-link" aria-label="VoixNette Accueil">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+        <span>VoixNette</span>
+        <span class="brand-tag">DSP Local</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="nav-dropdown-wrap">
+          <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            Outils Studio <span class="mono" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="coupe-silence-vocal.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Coupe-Silence Vocal</span><span class="nav-dropdown-sub">Supprimer les blancs WhatsApp &amp; cours</span></span>
+              <span class="nav-dropdown-code">VN-01</span>
+            </a>
+            <a href="normaliseur-volume.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Normaliseur de Volume</span><span class="nav-dropdown-sub">Peak dBFS, -14 LUFS &amp; anti-saturation</span></span>
+              <span class="nav-dropdown-code">VN-02</span>
+            </a>
+            <a href="decoupeur-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Découpeur Audio Visuel</span><span class="nav-dropdown-sub">Rognage précis 0,01 s + Fade-In/Out</span></span>
+              <span class="nav-dropdown-code">VN-03</span>
+            </a>
+            <a href="vitesse-pitch-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Accélérateur 0,5× à 3,0×</span><span class="nav-dropdown-sub">Écoute rapide cours &amp; export WAV</span></span>
+              <span class="nav-dropdown-code">VN-04</span>
+            </a>
+            <a href="carte-onde-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Carte Onde Audiogramme</span><span class="nav-dropdown-sub">Visuel waveform HD 1:1, 9:16, 16:9</span></span>
+              <span class="nav-dropdown-code">VN-05</span>
+            </a>
+            <a href="analyseur-micro-bruit.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Analyseur Micro &amp; Bruit</span><span class="nav-dropdown-sub">VU-mètre, FFT direct &amp; test 10 s</span></span>
+              <span class="nav-dropdown-code">VN-06</span>
+            </a>
+          </div>
+        </div>
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="nav-link">Guides Audio</a>
+        <a href="../a-propos.html" class="nav-link">Méthodologie</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="status-pill">
+          <span class="led-dot is-green" aria-hidden="true"></span>
+          <span>100 % LOCAL · ZÉRO UPLOAD</span>
+        </span>
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="mono">≡</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Navigation mobile">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Rack Outils Studio</div>
+      <div class="mobile-nav-list">
+        <a href="coupe-silence-vocal.html" class="mobile-nav-link"><span>Coupe-Silence Vocal</span><span class="mono">VN-01</span></a>
+        <a href="normaliseur-volume.html" class="mobile-nav-link"><span>Normaliseur de Volume</span><span class="mono">VN-02</span></a>
+        <a href="decoupeur-audio.html" class="mobile-nav-link"><span>Découpeur Audio Visuel</span><span class="mono">VN-03</span></a>
+        <a href="vitesse-pitch-audio.html" class="mobile-nav-link"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a>
+        <a href="carte-onde-audio.html" class="mobile-nav-link"><span>Carte Onde Audiogramme</span><span class="mono">VN-05</span></a>
+        <a href="analyseur-micro-bruit.html" class="mobile-nav-link"><span>Analyseur Micro &amp; Bruit</span><span class="mono">VN-06</span></a>
+      </div>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Guides &amp; Studio</div>
+      <div class="mobile-nav-list">
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="mobile-nav-link"><span>Optimiser son podcast sans logiciel</span><span class="mono">→</span></a>
+        <a href="../guides/formats-audio-ogg-opus-mp3-wav.html" class="mobile-nav-link"><span>Formats OGG/OPUS, MP3 &amp; WAV</span><span class="mono">→</span></a>
+        <a href="../a-propos.html" class="mobile-nav-link"><span>Méthodologie &amp; À propos</span><span class="mono">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <nav class="breadcrumb container" aria-label="Fil d'Ariane">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li><a href="../index.html#rack-outils">Outils Studio</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="breadcrumb-current" aria-current="page">VN-01 · Coupe-Silence Vocal</li>
+      </ol>
+    </nav>
+
+    <!-- Hero Asymétrique 8/4 -->
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="hardware-badge is-rec">MODULE VN-01</span>
+            <span>DÉTECTION RMS 10 MS · MICRO-FONDU ANTI-CLIC</span>
+          </div>
+          <h1>Coupe-Silence Automatique pour Notes Vocales &amp; Cours</h1>
+          <p class="tool-hero-desc">
+            Importez une note vocale WhatsApp, un cours magistral ou un enregistrement brut. VoixNette repère visuellement chaque blanc sur la forme d'onde, reconstruit la piste sans les pauses inutiles et vous permet de télécharger le fichier WAV nettoyé instantanément.
+          </p>
+        </div>
+
+        <div class="tool-spec-card">
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Formats lus</span>
+            <span class="spec-item-val">MP3 · WAV · OPUS</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Seuil Gate</span>
+            <span class="spec-item-val">-50 à -15 dB</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Anti-clic</span>
+            <span class="spec-item-val">Fondu 5 ms</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Confidentialité</span>
+            <span class="spec-item-val">100 % RAM locale</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Console Interactive VN-01 -->
+    <section class="container">
+      <div class="console-panel">
+        <div class="console-header">
+          <div class="console-title-group">
+            <span class="led-dot is-red" aria-hidden="true"></span>
+            <span class="console-model">VN-01 · SILENCE GATE ENGINE</span>
+          </div>
+          <span class="console-meta" id="cs-file-meta">Aucun fichier chargé</span>
+        </div>
+
+        <div class="console-body">
+          <div class="audio-loader-bar">
+            <label class="dropzone" id="cs-dropzone" for="cs-file-input">
+              <input type="file" id="cs-file-input" accept="audio/*,.opus,.ogg,.m4a,.mp3,.wav,.webm">
+              <span class="dropzone-copy">
+                <span class="dropzone-title">Déposez un fichier audio ici ou cliquez pour parcourir</span>
+                <span class="dropzone-sub">MP3, WAV, OGG/OPUS (WhatsApp), M4A, WebM — traitement 100 % local</span>
+              </span>
+              <span class="btn btn-secondary btn-sm">Choisir un fichier</span>
+            </label>
+            <button type="button" class="btn btn-secondary" id="cs-demo-btn">
+              Charger un audio démo avec silences
+            </button>
+          </div>
+
+          <div class="status-banner" id="cs-status" role="status" aria-live="polite">
+            Chargement de la piste vocale de démonstration locale...
+          </div>
+
+          <!-- Forme d'onde originale avec zones rouges -->
+          <div class="waveform-stage">
+            <div class="waveform-toolbar">
+              <div class="waveform-legend">
+                <span class="legend-chip"><span class="legend-swatch" style="background:#F3F1EC;"></span> Voix conservée</span>
+                <span class="legend-chip"><span class="legend-swatch" style="background:#E12D39;"></span> Silences coupés</span>
+                <span class="legend-chip"><span class="legend-swatch" style="background:#F59E0B;"></span> Seuil dB</span>
+              </div>
+              <span id="cs-preview-stats" class="mono">Analyse en attente...</span>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="cs-waveform-original" class="waveform-canvas" height="200" aria-label="Forme d'onde originale avec détection des silences en rouge"></canvas>
+            </div>
+          </div>
+
+          <!-- Faders de contrôle -->
+          <div class="controls-grid">
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="cs-threshold" class="control-label">Seuil de silence</label>
+                <span id="cs-threshold-val" class="control-value">-34 dB</span>
+              </div>
+              <input type="range" id="cs-threshold" min="-50" max="-15" step="1" value="-34">
+              <span class="control-hint">Tout signal sous ce seuil est classé comme silence (-36 dB calme, -26 dB bruité).</span>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="cs-min-duration" class="control-label">Durée minimale du silence</label>
+                <span id="cs-min-duration-val" class="control-value">0,50 s</span>
+              </div>
+              <input type="range" id="cs-min-duration" min="0.20" max="2.00" step="0.05" value="0.50">
+              <span class="control-hint">Les pauses plus courtes que cette valeur restent intactes pour garder un rythme naturel.</span>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="cs-padding" class="control-label">Marge conservée (padding)</label>
+                <span id="cs-padding-val" class="control-value">80 ms</span>
+              </div>
+              <input type="range" id="cs-padding" min="0" max="300" step="10" value="80">
+              <span class="control-hint">Tampon gardé avant et après chaque prise de parole pour ne jamais raboter les consonnes.</span>
+            </div>
+          </div>
+
+          <div class="console-actions">
+            <div class="action-cluster">
+              <button type="button" class="btn btn-primary" id="cs-process-btn" disabled>
+                Supprimer les silences
+              </button>
+              <button type="button" class="btn btn-ghost" id="cs-reset-btn" disabled>
+                Réinitialiser les faders
+              </button>
+            </div>
+            <span class="console-meta">Export WAV PCM 16-bit non compressé</span>
+          </div>
+
+          <!-- Panneau Résultats & Comparaison Avant/Après -->
+          <div class="results-panel hidden" id="cs-results-panel">
+            <div class="results-header">
+              <div class="console-title-group">
+                <span class="led-dot is-green" aria-hidden="true"></span>
+                <h2 style="font-size: 1.2rem; margin: 0;">Résultat du nettoyage audio</h2>
+              </div>
+              <div class="action-cluster">
+                <span class="console-meta" id="cs-download-meta">WAV PCM 16-bit</span>
+                <button type="button" class="btn btn-success btn-sm" id="cs-download-btn">
+                  Télécharger le WAV nettoyé
+                </button>
+              </div>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi-card">
+                <span class="kpi-label">Durée initiale</span>
+                <span class="kpi-value" id="cs-kpi-initial">0,0 s</span>
+                <span class="kpi-sub">Piste source</span>
+              </div>
+              <div class="kpi-card is-green">
+                <span class="kpi-label">Durée nettoyée</span>
+                <span class="kpi-value" id="cs-kpi-cleaned">0,0 s</span>
+                <span class="kpi-sub">Piste reconstruite</span>
+              </div>
+              <div class="kpi-card is-highlight">
+                <span class="kpi-label">Temps gagné</span>
+                <span class="kpi-value" id="cs-kpi-saved">-0 %</span>
+                <span class="kpi-sub">Réduction de durée</span>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Coupes appliquées</span>
+                <span class="kpi-value" id="cs-kpi-count">0</span>
+                <span class="kpi-sub">Silences retirés</span>
+              </div>
+            </div>
+
+            <div class="ab-players">
+              <div class="player-card">
+                <div class="player-card-head">
+                  <span>PISTE A · ORIGINAL</span>
+                  <span class="hardware-badge">BRUT</span>
+                </div>
+                <audio id="cs-player-original" controls preload="metadata"></audio>
+              </div>
+              <div class="player-card">
+                <div class="player-card-head">
+                  <span>PISTE B · SANS SILENCES</span>
+                  <span class="hardware-badge is-green">NETTOYÉ</span>
+                </div>
+                <audio id="cs-player-cleaned" controls preload="metadata"></audio>
+              </div>
+            </div>
+
+            <div class="canvas-wrap">
+              <canvas id="cs-waveform-cleaned" class="waveform-canvas" height="140" aria-label="Forme d'onde finale après suppression des silences"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emplacement Publicitaire 1 (discret, anti-CLS, sous la console) -->
+      <aside class="ad-slot" aria-label="Espace publicitaire">
+        <span class="ad-slot-label">Espace publicitaire</span>
+        <p class="ad-slot-note">Emplacement réservé anti-CLS — VoixNette finance ses outils gratuits sans aucun envoi de vos fichiers audio.</p>
+      </aside>
+    </section>
+
+    <!-- Contenu Éditorial Approfondi + Sidebar Maillage -->
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Comment fonctionne la détection de silence sur VoixNette ?</h2>
+          <p>
+            Dans une note vocale spontanée, une interview ou l'enregistrement d'un cours en amphithéâtre, entre <strong>25 % et 48 % de la durée totale</strong> correspond en réalité à des pauses, des hésitations, des changements de diapositive ou des moments où l'intervenant cherche ses mots. Retirer ces blancs manuellement dans un logiciel de montage multipiste prend souvent deux à trois fois la durée de l'enregistrement.
+          </p>
+          <p>
+            Le module <strong>VN-01</strong> automatise cette opération directement dans la mémoire de votre navigateur grâce à la <strong>WebAudio API</strong>. Dès que le fichier est décodé en tableau d'échantillons flottants 32 bits, l'algorithme découpe la piste en fenêtres successives de <strong>10 millisecondes</strong> (soit 441 échantillons par fenêtre à 44,1 kHz) et calcule pour chacune la valeur efficace <strong>RMS (Root Mean Square)</strong> convertie en décibels pleine échelle (dBFS) :
+          </p>
+
+          <div class="formula-box">
+            RMS(fenêtre) = √[ (1 / N) · Σ x[n]² ]<br>
+            Niveau (dBFS) = 20 · log10( RMS )<br>
+            Condition de silence : Niveau &lt; Seuil_dB pendant t ≥ Durée_minimale
+          </div>
+
+          <p>
+            Contrairement à un détecteur basé uniquement sur la valeur crête instantanée (Peak), l'analyse RMS ignore les petits bruits parasites brefs (un clic de souris ou un frottement de papier d'une milliseconde) et évalue fidèlement l'énergie acoustique perçue par l'oreille humaine. Une fois les plages de silence validées, le moteur applique votre <strong>marge conservée (padding)</strong> de part et d'autre de chaque prise de parole, puis reconstruit un nouvel <code>AudioBuffer</code> avec un micro-fondu de 5 ms à chaque jonction pour garantir des raccords parfaitement silencieux.
+          </p>
+
+          <h2>Réglages recommandés selon le type d'enregistrement</h2>
+          <p>
+            Il n'existe pas un seuil unique valable pour tous les environnements acoustiques. Un studio traité présente un bruit de fond inférieur à -55 dBFS, tandis qu'une note vocale enregistrée en marchant dans la rue peut maintenir un fond sonore autour de -28 dBFS. Utilisez ce tableau de référence pour calibrer vos faders en quelques secondes :
+          </p>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Source audio</th>
+                  <th>Seuil recommandé</th>
+                  <th>Durée min.</th>
+                  <th>Marge (Padding)</th>
+                  <th>Gain de temps moyen</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Note vocale WhatsApp (intérieur)</strong></td>
+                  <td class="mono">-34 dB</td>
+                  <td class="mono">0,45 s</td>
+                  <td class="mono">70 ms</td>
+                  <td class="mono">-30 % à -45 %</td>
+                </tr>
+                <tr>
+                  <td><strong>Note vocale en extérieur / rue</strong></td>
+                  <td class="mono">-24 dB</td>
+                  <td class="mono">0,60 s</td>
+                  <td class="mono">90 ms</td>
+                  <td class="mono">-20 % à -35 %</td>
+                </tr>
+                <tr>
+                  <td><strong>Cours magistral / Conférence</strong></td>
+                  <td class="mono">-32 dB</td>
+                  <td class="mono">0,80 s</td>
+                  <td class="mono">110 ms</td>
+                  <td class="mono">-25 % à -40 %</td>
+                </tr>
+                <tr>
+                  <td><strong>Podcast / Voix-off au micro statique</strong></td>
+                  <td class="mono">-40 dB</td>
+                  <td class="mono">0,50 s</td>
+                  <td class="mono">100 ms</td>
+                  <td class="mono">-18 % à -30 %</td>
+                </tr>
+                <tr>
+                  <td><strong>Mémo rapide / Script vidéo court</strong></td>
+                  <td class="mono">-30 dB</td>
+                  <td class="mono">0,30 s</td>
+                  <td class="mono">50 ms</td>
+                  <td class="mono">-35 % à -50 %</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Les 3 pièges fréquents lors de la suppression des silences</h2>
+          <ul>
+            <li>
+              <strong>Mettre une marge (padding) à 0 ms :</strong> les consonnes plosives et sifflantes en début ou fin de mot (« s », « f », « t », « p ») possèdent une énergie bien plus faible que les voyelles. Sans marge de 60 à 100 ms, les fins de mots semblent « avalées ».
+            </li>
+            <li>
+              <strong>Couper sur une piste non normalisée :</strong> si l'intervenant chuchote ou se tient loin du micro, le niveau de la voix peut descendre à -32 dBFS, juste sous le seuil de coupe. Passez d'abord votre fichier dans le <a href="normaliseur-volume.html" style="text-decoration: underline;">Normaliseur de Volume (VN-02)</a> si le signal est très faible.
+            </li>
+            <li>
+              <strong>Une durée minimale trop courte (0,20 s) sur un podcast narratif :</strong> les silences de 0,3 à 0,5 seconde font partie de la ponctuation naturelle du discours. En dessous de 0,45 s, le débit devient haletant et fatigant sur une écoute longue.
+            </li>
+          </ul>
+
+          <!-- Emplacement Publicitaire 2 (entre méthodologie et FAQ) -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Espace publicitaire</span>
+            <p class="ad-slot-note">Annonce non intrusive — hauteur fixe anti-CLS.</p>
+          </aside>
+
+          <h2>Questions fréquentes sur le Coupe-Silence Vocal</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Mes notes vocales WhatsApp sont-elles envoyées sur un serveur ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Non. L'intégralité du traitement — décodage du fichier <code>.opus</code> ou <code>.ogg</code>, calcul RMS, découpe et encodage WAV PCM 16-bit — se déroule localement dans la RAM de votre navigateur. Aucun fichier audio n'est transféré, stocké ou analysé sur un serveur distant.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quel seuil en dB choisir pour une note vocale WhatsApp ou un cours ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Commencez à <strong>-34 dB</strong> et observez la ligne pointillée ambre sur la forme d'onde. Si des zones calmes ne sont pas surlignées en rouge, montez progressivement vers -28 dB. Si la fin de vos phrases passe en rouge, descendez vers -38 dB ou augmentez le padding.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>À quoi sert le paramètre de marge conservée (padding en ms) ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Le padding laisse un coussin de respiration de quelques dizaines de millisecondes juste avant le début de chaque phrase et juste après sa fin. Un réglage entre <strong>70 ms et 110 ms</strong> préserve la musicalité naturelle de la voix humaine tout en supprimant les longs blancs.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi le téléchargement se fait-il au format WAV PCM 16-bit ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Le WAV PCM 16-bit est un format studio universel sans perte. Il évite de dégrader une seconde fois un fichier déjà compressé en MP3 ou OPUS, se génère en quelques millisecondes dans le navigateur et s'importe proprement dans Audacity, Premiere Pro, CapCut ou WhatsApp.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Les coupes créent-elles des clics ou craquements audibles entre les phrases ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Non. Chaque segment vocal conservé reçoit un micro-fondu d'entrée et de sortie de <strong>5 millisecondes</strong>. Cette rampe imperceptible garantit que l'amplitude passe toujours par zéro au point de raccordement, ce qui supprime les clics numériques.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <h3>Chaîne de traitement recommandée</h3>
+            <p style="font-size: 0.9rem;">Enchaînez vos outils localement pour un rendu broadcast complet :</p>
+            <ul class="sidebar-links">
+              <li><a href="normaliseur-volume.html"><span>1. Normaliser à -14 LUFS</span><span class="mono">VN-02</span></a></li>
+              <li><a href="decoupeur-audio.html"><span>2. Rogner intro / outro</span><span class="mono">VN-03</span></a></li>
+              <li><a href="vitesse-pitch-audio.html"><span>3. Accélérer un cours 1,5×</span><span class="mono">VN-04</span></a></li>
+              <li><a href="carte-onde-audio.html"><span>4. Créer un audiogramme</span><span class="mono">VN-05</span></a></li>
+              <li><a href="analyseur-micro-bruit.html"><span>5. Tester votre micro</span><span class="mono">VN-06</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Guides associés</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html"><span>Optimiser un podcast sans logiciel</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html"><span>Comprendre OPUS, MP3 &amp; WAV</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand-link mb-2">
+            <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+            <span>VoixNette</span>
+          </a>
+          <p style="font-size: 0.92rem; max-width: 34ch;">
+            Studio d'utilitaires audio gratuits propulsé par la WebAudio API. Tous vos enregistrements vocaux restent strictement sur votre appareil.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Instruments Studio</div>
+          <ul class="footer-links">
+            <li><a href="coupe-silence-vocal.html">VN-01 · Coupe-Silence Vocal</a></li>
+            <li><a href="normaliseur-volume.html">VN-02 · Normaliseur de Volume</a></li>
+            <li><a href="decoupeur-audio.html">VN-03 · Découpeur Audio Visuel</a></li>
+            <li><a href="vitesse-pitch-audio.html">VN-04 · Accélérateur 0,5× à 3,0×</a></li>
+            <li><a href="carte-onde-audio.html">VN-05 · Carte Onde Audiogramme</a></li>
+            <li><a href="analyseur-micro-bruit.html">VN-06 · Analyseur Micro &amp; Bruit</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ressources Audio</div>
+          <ul class="footer-links">
+            <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html">Optimiser son podcast sans logiciel</a></li>
+            <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html">Guide OGG/OPUS, MP3 &amp; WAV</a></li>
+            <li><a href="../a-propos.html">Méthodologie DSP &amp; À propos</a></li>
+            <li><a href="../contact.html">Signaler un bug / Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Transparence &amp; Légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="#" data-open-cookie-banner>Gérer mes préférences cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VoixNette (voixnette.fr) — Traitement audio 100 % navigateur via WebAudio API.</span>
+        <span class="mono">PCM 16-BIT · 0 BYTE SERVER UPLOAD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/audio-engine.js" defer></script>
+  <script src="../assets/js/tools/coupe-silence-vocal.js" defer></script>
+</body>
+</html>

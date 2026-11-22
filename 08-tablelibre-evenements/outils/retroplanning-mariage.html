@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de Rétroplanning Mariage Personnalisé (J-12 mois au Jour J) — TableLibre</title>
+  <meta name="description" content="Entrez la date de votre mariage et obtenez votre rétroplanning personnalisé aux dates exactes : 38 étapes cochables de J-12 mois au Jour J, ajout de tâches, sauvegarde locale et vue imprimable.">
+  <link rel="canonical" href="https://tablelibre.fr/outils/retroplanning-mariage.html">
+  <meta property="og:title" content="Générateur de Rétroplanning Mariage Personnalisé — TableLibre">
+  <meta property="og:description" content="Calculez automatiquement toutes les échéances de votre mariage avec 38 tâches concrètes cochables et imprimables gratuitement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tablelibre.fr/outils/retroplanning-mariage.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Générateur de Rétroplanning Mariage TableLibre",
+      "url": "https://tablelibre.fr/outils/retroplanning-mariage.html",
+      "applicationCategory": "LifestyleApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Générateur de rétroplanning mariage personnalisé calculant automatiquement les dates calendaires exactes de chaque étape de J-12 mois au Jour J."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://tablelibre.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Rétroplanning Mariage", "item": "https://tablelibre.fr/outils/retroplanning-mariage.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Combien de temps à l'avance faut-il commencer à organiser son mariage ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'idéal est de débuter 12 à 14 mois avant la date souhaitée afin d'avoir le choix des lieux de réception et des meilleurs traiteurs et photographes, surtout pour un samedi d'été." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quand faut-il déposer le dossier de mariage en mairie ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le dossier complet doit être déposé entre 2 et 4 mois avant le mariage civil (les actes de naissance doivent dater de moins de 3 mois au moment du dépôt). La publication des bans dure au minimum 10 jours." }
+        },
+        {
+          "@type": "Question",
+          "name": "À quel moment envoyer les faire-part de mariage ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Envoyez les Save the Date entre J-10 et J-8 mois, puis les faire-part officiels entre J-4 et J-3 mois en demandant une réponse RSVP au plus tard à J-45 jours." }
+        },
+        {
+          "@type": "Question",
+          "name": "Peut-on organiser un mariage en 6 mois avec ce rétroplanning ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui : les étapes de J-12 et J-9 apparaîtront avec la mention « À rattraper », ce qui vous permet de condenser les réservations prioritaires (lieu, traiteur, mairie, tenues) sur les 4 premières semaines." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment imprimer ma checklist personnalisée proprement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Cliquez sur le bouton « Imprimer / PDF » : la feuille de style d'impression masque automatiquement les menus et bandeaux afin de produire un planning épuré prêt à glisser dans votre classeur." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">T</span>
+        <span class="brand__name">TableLibre</span>
+        <span class="brand__tag">Atelier Réceptions</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="plan-de-table.html" class="site-nav__link">Plan de table</a>
+        <a href="calculateur-boissons-reception.html" class="site-nav__link">Boissons</a>
+        <a href="budget-mariage.html" class="site-nav__link">Budget</a>
+        <a href="calculateur-traiteur-portions.html" class="site-nav__link">Traiteur</a>
+        <a href="retroplanning-mariage.html" class="site-nav__link is-active">Rétroplanning</a>
+        <a href="partage-frais-evjf-groupe.html" class="site-nav__link">Frais EVJF</a>
+        <a href="../guides/reussir-plan-de-table-mariage.html" class="site-nav__link">Guides</a>
+      </nav>
+      <div class="site-header__actions">
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu__group" style="margin-bottom:0;">
+        <div class="mobile-menu__title">Navigation TableLibre</div>
+        <ul class="mobile-menu__list">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="plan-de-table.html">01. Plan de table</a></li>
+          <li><a href="calculateur-boissons-reception.html">02. Calculateur boissons</a></li>
+          <li><a href="budget-mariage.html">03. Budget mariage</a></li>
+          <li><a href="calculateur-traiteur-portions.html">04. Traiteur &amp; buffet</a></li>
+          <li><a href="retroplanning-mariage.html">05. Rétroplanning</a></li>
+          <li><a href="partage-frais-evjf-groupe.html">06. Partage frais EVJF</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb__list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb__current" aria-current="page">Rétroplanning Mariage Personnalisé</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero__grid">
+        <div>
+          <span class="eyebrow">Outil 05 • Calendrier &amp; Checklist</span>
+          <h1>Générateur de Rétroplanning Mariage Personnalisé</h1>
+          <p class="tool-hero__lead">
+            Sélectionnez la date de votre mariage : nous calculons les dates calendaires exactes de vos 7 grands jalons et de 38 tâches concrètes, avec sauvegarde automatique et mise en page imprimable.
+          </p>
+        </div>
+        <div class="tool-hero__meta">
+          <span class="badge badge--sage">38 tâches cochables</span>
+          <span class="badge">Ajout libre</span>
+          <span class="badge">Vue imprimable</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" id="retro-app">
+      <div class="container">
+        <!-- Barre de date & actions -->
+        <div class="panel no-print" style="margin-bottom:24px;">
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;">
+            <div class="field" style="min-width:220px;">
+              <label class="field__label" for="retro-date">Date de votre mariage</label>
+              <input type="date" id="retro-date" class="input input--mono">
+            </div>
+
+            <div class="field" style="min-width:260px;">
+              <span class="field__label">Afficher les tâches</span>
+              <div class="segmented" role="group" aria-label="Filtrer les tâches">
+                <button type="button" class="segmented__btn is-active" data-retro-filter="all">Toutes</button>
+                <button type="button" class="segmented__btn" data-retro-filter="todo">À faire</button>
+                <button type="button" class="segmented__btn" data-retro-filter="done">Terminées</button>
+              </div>
+            </div>
+
+            <div style="display:flex;gap:8px;">
+              <button type="button" id="retro-print-btn" class="btn btn--primary btn--sm">Imprimer / PDF</button>
+              <button type="button" id="retro-reset-btn" class="btn btn--ghost btn--sm">Tout décocher</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid kpi-grid--3">
+          <div class="kpi-box kpi-box--accent">
+            <div class="kpi-box__label">Compte à rebours</div>
+            <div class="kpi-box__value" id="kpi-days-left">J - 365</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-box__label">Étapes validées</div>
+            <div class="kpi-box__value" id="kpi-tasks-done">0 / 38</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-box__label">Avancement global</div>
+            <div class="kpi-box__value" id="kpi-tasks-pct">0 %</div>
+          </div>
+        </div>
+
+        <div class="progress-track" style="margin-bottom:24px;">
+          <div id="retro-progress-fill" class="progress-fill" style="width:0%;"></div>
+        </div>
+
+        <!-- Ajout d'une tâche personnalisée -->
+        <div class="panel panel--muted no-print" style="margin-bottom:24px;padding:20px;">
+          <form id="retro-add-form" style="display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;">
+            <div class="field" style="flex:1;min-width:240px;">
+              <label class="field__label" for="retro-custom-text">Ajouter une tâche personnalisée</label>
+              <input type="text" id="retro-custom-text" class="input" placeholder="Ex. Réserver la baby-sitter ou le food-truck du brunch">
+            </div>
+            <div class="field" style="min-width:180px;">
+              <label class="field__label" for="retro-custom-milestone">Étape cible</label>
+              <select id="retro-custom-milestone" class="select">
+                <option value="m12">J - 12 mois</option>
+                <option value="m9">J - 9 mois</option>
+                <option value="m6">J - 6 mois</option>
+                <option value="m3" selected>J - 3 mois</option>
+                <option value="m1">J - 1 mois</option>
+                <option value="m7d">J - 7 jours</option>
+                <option value="m0">Jour J</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn--secondary btn--sm" style="height:44px;">+ Ajouter</button>
+          </form>
+        </div>
+
+        <!-- Timeline générée -->
+        <div id="retro-timeline"></div>
+
+        <!-- AdSense Slot 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot__label">Publicité — Partenaire AdSense</span>
+          <span class="ad-slot__note">Emplacement réservé anti-CLS.</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--bordered">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <span class="eyebrow">Sérénité &amp; Cadence</span>
+          <h2>Réussir son rétroplanning de mariage sans surcharge mentale</h2>
+          <p>
+            Le stress des préparatifs de mariage provient rarement du volume de travail lui-même, mais de l'accumulation de tâches repoussées dans les trente derniers jours. En découpant l'organisation en <strong>sept jalons calendaires nets</strong>, vous verrouillez d'abord les prestataires à disponibilité unique (un lieu ou un photographe ne peut assurer qu'un seul mariage par samedi) avant de passer aux choix créatifs et logistiques.
+          </p>
+
+          <h3>Ordre de priorité des réservations prestataires</h3>
+          <div class="table-wrap" style="margin:24px 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Échéance</th>
+                  <th>Priorité absolue</th>
+                  <th>Pourquoi ne pas attendre</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="num"><strong>J - 12 à 15 mois</strong></td>
+                  <td>Lieu de réception &amp; Traiteur</td>
+                  <td>Les samedis de mai à septembre se réservent plus d'un an à l'avance.</td>
+                </tr>
+                <tr>
+                  <td class="num"><strong>J - 10 à 9 mois</strong></td>
+                  <td>Photographe, DJ &amp; Robe de mariée</td>
+                  <td>Délais de confection et retouches de 6 à 8 mois en atelier.</td>
+                </tr>
+                <tr>
+                  <td class="num"><strong>J - 6 mois</strong></td>
+                  <td>Fleuriste, Alliances &amp; Faire-part</td>
+                  <td>Temps de gravure, impression papeterie et validation dégustation.</td>
+                </tr>
+                <tr>
+                  <td class="num"><strong>J - 3 mois</strong></td>
+                  <td>Dossier mairie &amp; Commande boissons</td>
+                  <td>Validité légale de 3 mois des actes de naissance pour le mariage civil.</td>
+                </tr>
+                <tr>
+                  <td class="num"><strong>J - 1 mois</strong></td>
+                  <td>Plan de table &amp; Feuille de route Jour J</td>
+                  <td>Effectif définitif exigé par le traiteur entre J-15 et J-10.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>La règle d'or du dernier mois : déléguer le Jour J</h3>
+          <p>
+            Deux semaines avant la cérémonie, rédigez une feuille de route chronologique sur une seule page (horaires des livraisons, contacts téléphoniques de chaque prestataire, heure du discours, entrée en salle). Confiez ce document à vos deux témoins de confiance : le matin du mariage, mettez votre téléphone en mode avion. Un rétroplanning bien exécuté a un seul but ultime : vous permettre de vivre pleinement votre fête.
+          </p>
+
+          <!-- AdSense Slot 2 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot__label">Publicité — Partenaire AdSense</span>
+            <span class="ad-slot__note">Espace éditorial séparé.</span>
+          </aside>
+
+          <h2>Questions fréquentes sur le rétroplanning mariage</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Combien de temps à l'avance faut-il démarrer les préparatifs ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Une période de 12 mois constitue le rythme le plus confortable : environ 2 à 3 tâches par mois, sans précipitation. Pour un domaine très prisé en été, anticiper à 15 ou 18 mois offre une plus grande liberté de dates.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Quand déposer le dossier officiel de mariage en mairie ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Préparez les pièces justificatives à J-4 mois et déposez le dossier complet à J-3 ou J-2 mois. Attention : les copies intégrales d'actes de naissance doivent dater de moins de 3 mois le jour du dépôt.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Quelle date limite de réponse (RSVP) indiquer sur le faire-part ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Fixez la date limite de réponse 6 à 8 semaines avant le mariage. Cela vous laisse 2 semaines pour relancer les retardataires et finaliser sereinement votre plan de table avant l'échéance traiteur.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Peut-on ajouter ses propres tâches au rétroplanning ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Oui, le formulaire « Ajouter une tâche personnalisée » vous permet d'insérer n'importe quelle étape propre à votre événement (cérémonie religieuse, navettes, brunch, déco DIY) dans le jalon de votre choix.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Mes cases cochées sont-elles enregistrées automatiquement ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Oui. La date choisie, les tâches cochées et vos tâches ajoutées restent sauvegardées sur votre appareil dans le stockage local du navigateur, sans aucune création de compte.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="related-box">
+          <h3 class="related-box__title">Enchaîner avec nos outils</h3>
+          <ul class="related-list">
+            <li><a href="budget-mariage.html"><span>03. Définir votre budget mariage</span><span class="mono">→</span></a></li>
+            <li><a href="plan-de-table.html"><span>01. Éditeur de plan de table</span><span class="mono">→</span></a></li>
+            <li><a href="calculateur-boissons-reception.html"><span>02. Calculateur boissons &amp; vin</span><span class="mono">→</span></a></li>
+            <li><a href="calculateur-traiteur-portions.html"><span>04. Calculateur buffet &amp; traiteur</span><span class="mono">→</span></a></li>
+            <li><a href="partage-frais-evjf-groupe.html"><span>06. Organiser l'EVJF / EVG</span><span class="mono">→</span></a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">TableLibre</div>
+          <p class="site-footer__text">Atelier français d'organisation de mariages et réceptions, 100 % gratuit et sans création de compte.</p>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Outils gratuits</h3>
+          <ul class="site-footer__links">
+            <li><a href="plan-de-table.html">Éditeur de plan de table</a></li>
+            <li><a href="calculateur-boissons-reception.html">Calculateur boissons &amp; vin</a></li>
+            <li><a href="budget-mariage.html">Simulateur budget mariage</a></li>
+            <li><a href="calculateur-traiteur-portions.html">Calculateur traiteur &amp; buffet</a></li>
+            <li><a href="retroplanning-mariage.html">Rétroplanning personnalisé</a></li>
+            <li><a href="partage-frais-evjf-groupe.html">Partage frais EVJF / groupe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Guides pratiques</h3>
+          <ul class="site-footer__links">
+            <li><a href="../guides/reussir-plan-de-table-mariage.html">Réussir son plan de table</a></li>
+            <li><a href="../guides/quantites-boissons-reception-guide.html">Guide quantités boissons</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Informations légales</h3>
+          <ul class="site-footer__links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© <span data-current-year>2026</span> TableLibre (tablelibre.fr)</span>
+        <span>Données sauvegardées localement sur votre appareil.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/retroplanning-mariage.js"></script>
+</body>
+</html>

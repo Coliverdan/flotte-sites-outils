@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur HT / TTC / TVA Multiple &amp; Taux de Marge vs Marque — ComptaBrut</title>
+  <meta name="description" content="Convertisseur HT / TVA / TTC instantané à tous les taux français (20 %, 10 %, 5,5 %, 2,1 % ou libre) et calculateur commercial complet : marge brute, taux de marge, taux de marque et coefficient multiplicateur.">
+  <link rel="canonical" href="https://comptabrut.fr/outils/calculateur-tva-marge.html">
+  <meta property="og:title" content="Calculateur HT / TTC / TVA &amp; Marge vs Marque — ComptaBrut">
+  <meta property="og:description" content="Calcul bidirectionnel HT/TTC multi-taux et module complet Taux de Marge vs Taux de Marque avec graphique exportable.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur HT / TTC / TVA Multiple & Taux de Marge vs Marque",
+        "url": "https://comptabrut.fr/outils/calculateur-tva-marge.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Calculateur local bidirectionnel HT/TTC/TVA et simulateur commercial de marge brute, taux de marge, taux de marque et coefficient multiplicateur."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://comptabrut.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Calculateur TVA & Marge", "item": "https://comptabrut.fr/outils/calculateur-tva-marge.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre taux de marge et taux de marque ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le taux de marge rapporte la marge brute au prix d'achat HT (Marge / PA HT × 100), tandis que le taux de marque la rapporte au prix de vente HT (Marge / PV HT × 100). Le taux de marque est toujours inférieur à 100 % et plus faible que le taux de marge." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment passer rapidement d'un prix TTC à un prix HT à 20 % ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il ne faut jamais retirer 20 % du prix TTC (ce qui fausse le calcul), mais diviser le prix TTC par 1,20. Par exemple, 120 € TTC ÷ 1,20 = 100 € HT (soit 20 € de TVA)." }
+          },
+          {
+            "@type": "Question",
+            "name": "À quoi sert le coefficient multiplicateur en commerce ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le coefficient multiplicateur relie directement le prix d'achat HT au prix de vente TTC (PV TTC ÷ PA HT). Un commerçant qui applique un coefficient de 2,4 sur un achat à 50 € HT vend le produit 120 € TTC." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels sont les 4 taux de TVA officiels en France métropolitaine ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En France métropolitaine, les taux officiels sont : 20 % (taux normal), 10 % (taux intermédiaire : restauration, travaux rénovation, transports), 5,5 % (taux réduit : alimentation essentielle, livres, énergie) et 2,1 % (taux super-réduit : presse, médicaments remboursables)." }
+          },
+          {
+            "@type": "Question",
+            "name": "La marge commerciale se calcule-t-elle sur le HT ou sur le TTC ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour une entreprise assujettie à la TVA, la marge commerciale se calcule toujours en Hors Taxes (HT), car la TVA collectée appartient à l'État et la TVA sur achats est récupérable." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand"><span class="brand-mark">CB</span><span>ComptaBrut</span><span class="brand-tag">2026</span></a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="inspecteur-factur-x.html" class="nav-link">Factur-X</a>
+        <a href="simulateur-urssaf-micro-2026.html" class="nav-link">URSSAF 2026</a>
+        <a href="suivi-seuils-tva-ca.html" class="nav-link">Seuils TVA</a>
+        <a href="generateur-facture-devis.html" class="nav-link">Factures</a>
+        <a href="calculateur-tva-marge.html" class="nav-link is-active">TVA &amp; Marge</a>
+        <a href="verificateur-iban-siret.html" class="nav-link">IBAN / SIREN</a>
+        <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="inspecteur-factur-x.html" class="header-cta">Inspecter un Factur-X</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">Outils 100 % locaux</div>
+      <ul class="mobile-nav-list">
+        <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+        <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+        <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+        <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+        <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+        <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Calculateur TVA Multiple &amp; Marge / Marque</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <span class="eyebrow">Outil 05 · Bidirectionnel &amp; Pricing Commercial</span>
+          <h1>Calculateur HT / TTC / TVA Multiple &amp; Taux de Marge vs Marque</h1>
+          <p class="hero-lead" style="margin-top:12px;margin-bottom:0;">
+            Convertissez instantanément n’importe quel montant HT, TVA ou TTC à tous les taux français et pilotez votre rentabilité commerciale (marge brute, taux de marge, taux de marque, coefficient multiplicateur).
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="meta-row"><span>Taux France métro</span><span>20 % · 10 % · 5,5 % · 2,1 %</span></div>
+          <div class="meta-row"><span>Mode de saisie</span><span>Bidirectionnel temps réel</span></div>
+          <div class="meta-row"><span>Module Pricing</span><span>Marge / Marque / Coeff</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <!-- MODULE 1 : HT / TVA / TTC -->
+        <div class="card" style="margin-bottom:32px;">
+          <div class="panel-title">
+            <span>1. Convertisseur Bidirectionnel HT / TVA / TTC</span>
+            <button type="button" class="btn btn-secondary btn-sm" id="tm-copy-summary">Copier le résultat</button>
+          </div>
+
+          <div class="grid-asymmetric">
+            <div>
+              <div class="form-group">
+                <span class="form-label">Taux de TVA</span>
+                <div class="segmented" style="margin-bottom:12px;">
+                  <button type="button" class="segmented-btn is-active" data-vat-rate="20">20 %</button>
+                  <button type="button" class="segmented-btn" data-vat-rate="10">10 %</button>
+                  <button type="button" class="segmented-btn" data-vat-rate="5.5">5,5 %</button>
+                  <button type="button" class="segmented-btn" data-vat-rate="2.1">2,1 %</button>
+                </div>
+                <div class="input-with-unit">
+                  <input type="number" id="tm-custom-rate" class="input input-mono" step="0.1" min="0" max="100" value="20" aria-label="Taux TVA libre">
+                  <span class="input-unit">% libre</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tm-ht" class="form-label">Montant Hors Taxes (HT)</label>
+                <div class="input-with-unit">
+                  <input type="number" id="tm-ht" class="input input-mono" step="0.01" value="1000">
+                  <span class="input-unit">€ HT</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="tm-tva" class="form-label">Montant de TVA</label>
+                <div class="input-with-unit">
+                  <input type="number" id="tm-tva" class="input input-mono" step="0.01" value="200">
+                  <span class="input-unit">€ TVA</span>
+                </div>
+              </div>
+
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="tm-ttc" class="form-label">Montant Toutes Taxes Comprises (TTC)</label>
+                <div class="input-with-unit">
+                  <input type="number" id="tm-ttc" class="input input-mono" step="0.01" value="1200">
+                  <span class="input-unit">€ TTC</span>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="kpi-grid">
+                <div class="kpi-box">
+                  <span class="kpi-label">Montant HT</span>
+                  <span class="kpi-value" id="tm-kpi-ht">—</span>
+                </div>
+                <div class="kpi-box">
+                  <span class="kpi-label">Montant TVA</span>
+                  <span class="kpi-value" id="tm-kpi-tva">—</span>
+                  <span class="kpi-sub" id="tm-kpi-rate">—</span>
+                </div>
+                <div class="kpi-box kpi-accent">
+                  <span class="kpi-label">Total TTC</span>
+                  <span class="kpi-value" id="tm-kpi-ttc">—</span>
+                </div>
+              </div>
+
+              <div class="table-wrap" style="margin-top:0;margin-bottom:0;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Comparatif multi-taux</th>
+                      <th class="num">HT</th>
+                      <th class="num">TVA</th>
+                      <th class="num">TTC</th>
+                    </tr>
+                  </thead>
+                  <tbody id="tm-multi-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULE 2 : MARGE VS MARQUE -->
+        <div class="card">
+          <div class="panel-title">2. Calculateur Commercial : Marge Brute, Taux de Marge vs Taux de Marque</div>
+          <div class="grid-asymmetric">
+            <div>
+              <div class="form-group">
+                <label for="mg-pa" class="form-label">Coût d’achat / revient HT (€)</label>
+                <div class="input-with-unit">
+                  <input type="number" id="mg-pa" class="input input-mono" min="0" step="1" value="120">
+                  <span class="input-unit">€ HT</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mg-pv" class="form-label">Prix de vente HT (€)</label>
+                <div class="input-with-unit">
+                  <input type="number" id="mg-pv" class="input input-mono" min="0" step="1" value="200">
+                  <span class="input-unit">€ HT</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="mg-vat" class="form-label">TVA applicable à la vente</label>
+                <select id="mg-vat" class="select input-mono">
+                  <option value="20">20 % (Normal)</option>
+                  <option value="10">10 % (Intermédiaire)</option>
+                  <option value="5.5">5,5 % (Réduit)</option>
+                  <option value="0">0 % (Franchise art. 293 B)</option>
+                </select>
+              </div>
+
+              <div class="card-subtle" style="margin-top:16px;">
+                <label for="mg-target-marque" class="form-label" style="font-size:0.85rem;">Fixer un prix par objectif de taux de marque</label>
+                <div style="display:flex;gap:8px;">
+                  <div class="input-with-unit" style="flex:1;">
+                    <input type="number" id="mg-target-marque" class="input input-mono" min="1" max="95" step="1" value="40">
+                    <span class="input-unit">%</span>
+                  </div>
+                  <button type="button" class="btn btn-primary btn-sm" id="mg-apply-target">Appliquer</button>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div class="kpi-grid kpi-grid-2">
+                <div class="kpi-box kpi-accent" id="mg-kpi-marge-box">
+                  <span class="kpi-label">Marge brute unitaire</span>
+                  <span class="kpi-value" id="mg-kpi-marge">—</span>
+                  <span class="kpi-sub" id="mg-kpi-marge-sub">—</span>
+                </div>
+                <div class="kpi-box">
+                  <span class="kpi-label">Coefficient multiplicateur</span>
+                  <span class="kpi-value" id="mg-kpi-coeff">—</span>
+                  <span class="kpi-sub" id="mg-kpi-coeff-sub">—</span>
+                </div>
+                <div class="kpi-box">
+                  <span class="kpi-label">Taux de marge (sur achat)</span>
+                  <span class="kpi-value" id="mg-kpi-taux-marge">—</span>
+                  <span class="kpi-sub">Marge ÷ Coût achat HT</span>
+                </div>
+                <div class="kpi-box">
+                  <span class="kpi-label">Taux de marque (sur vente)</span>
+                  <span class="kpi-value" id="mg-kpi-taux-marque">—</span>
+                  <span class="kpi-sub">Marge ÷ Prix vente HT</span>
+                </div>
+              </div>
+
+              <div class="chart-wrap">
+                <div class="chart-header">
+                  <strong>Décomposition du prix de vente TTC</strong>
+                  <button type="button" class="btn btn-secondary btn-sm" id="mg-export-png">Exporter PNG</button>
+                </div>
+                <canvas id="mg-chart" style="width:100%;height:220px;display:block;" aria-label="Graphique de décomposition prix de vente"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADSENSE 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-inner">Emplacement publicitaire réactif — format horizontal (728×90 / fluide)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL -->
+    <section class="section section-bordered editorial-section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="editorial">
+          <h2>Maîtriser les formules HT / TTC, taux de marge et taux de marque</h2>
+          <p>
+            Dans la gestion commerciale d’une TPE, d’un e-commerce ou d’une activité de revente en micro-entreprise, confondre le <strong>taux de marge</strong> et le <strong>taux de marque</strong> ou retirer 20 % directement sur un prix TTC sont deux erreurs de calcul qui érodent silencieusement la trésorerie. Voici les formules comptables exactes appliquées par ComptaBrut.
+          </p>
+
+          <h3>Formules officielles HT / TTC et rentabilité</h3>
+          <div class="formula-box">
+            Prix TTC = Prix HT × (1 + Taux TVA)  |  Prix HT = Prix TTC ÷ (1 + Taux TVA)<br>
+            Taux de marge = (PV HT − PA HT) ÷ PA HT × 100<br>
+            Taux de marque = (PV HT − PA HT) ÷ PV HT × 100<br>
+            Prix de vente HT cible = PA HT ÷ (1 − Taux de marque souhaité)
+          </div>
+
+          <h3>Exemple concret : pourquoi un taux de marge de 66,7 % vaut 40 % de marque</h3>
+          <p>
+            Prenons un article acheté <strong>120 € HT</strong> auprès d’un fournisseur et revendu <strong>200 € HT</strong> (soit 240 € TTC avec une TVA à 20 %) :
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Indicateur</th>
+                  <th>Calcul détaillé</th>
+                  <th class="num">Résultat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Marge brute HT</td>
+                  <td>200 € − 120 €</td>
+                  <td class="num"><strong>80,00 €</strong></td>
+                </tr>
+                <tr>
+                  <td>Taux de marge (coût)</td>
+                  <td>80 € ÷ 120 € × 100</td>
+                  <td class="num"><strong>66,67 %</strong></td>
+                </tr>
+                <tr>
+                  <td>Taux de marque (vente)</td>
+                  <td>80 € ÷ 200 € × 100</td>
+                  <td class="num"><strong>40,00 %</strong></td>
+                </tr>
+                <tr>
+                  <td>Coefficient multiplicateur TTC</td>
+                  <td>240 € TTC ÷ 120 € HT</td>
+                  <td class="num"><strong>× 2,000</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Piège spécifique au micro-entrepreneur acheteur-revendeur</h3>
+          <p>
+            Si vous achetez-revendez en micro-entreprise (BIC marchandises, cotisations URSSAF <strong>12,3 %</strong> sur le CA brut encaissé), vérifiez toujours que votre <strong>taux de marque</strong> couvre largement vos 12,3 % d’URSSAF, vos frais de port, vos commissions de plateforme et votre impôt. Avec un taux de marque inférieur à 25 %, le régime réel (où les charges s’appliquent uniquement sur le bénéfice net) devient souvent indispensable. Testez l’impact exact avec notre <a href="simulateur-urssaf-micro-2026.html">simulateur URSSAF 2026</a>.
+          </p>
+
+          <!-- ADSENSE 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-inner">Emplacement publicitaire — format rectangle (336×280 / fluide)</div>
+          </aside>
+
+          <h2>Questions fréquentes sur la TVA et les marges</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Quelle est la différence entre taux de marge et taux de marque ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Le taux de marge mesure votre gain par rapport au prix d’achat HT (il peut dépasser 100 %). Le taux de marque mesure la part de marge contenue dans le prix de vente HT (il est toujours strictement inférieur à 100 %) et sert de référence dans la distribution et la négociation de remises.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi ne faut-il pas faire −20 % sur un prix TTC pour retrouver le HT ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Parce que la TVA s’ajoute au HT : 20 % de 100 € HT font 120 € TTC, mais 20 % de 120 € font 24 € (et non 20 €). Pour retrouver le HT depuis un TTC à 20 %, il faut diviser par <code>1,20</code> (ce qui revient à retirer 16,67 % du TTC).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment calculer le prix de vente HT pour obtenir 35 % de taux de marque ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Divisez votre prix d’achat HT par <code>(1 − 0,35)</code>, soit <code>0,65</code>. Pour un achat à 65 € HT, vous obtenez exactement <code>65 ÷ 0,65 = 100 € HT</code> (marge de 35 € = 35 % du prix de vente).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quels sont les taux de TVA en vigueur en Corse et dans les DROM ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                En Guadeloupe, Martinique et à La Réunion, le taux normal est de 8,5 % et le taux réduit de 2,1 % (TVA non applicable en Guyane et à Mayotte). En Corse, des taux particuliers existent (10 %, 13 %, 2,1 %, 0,9 %). Saisissez n’importe lequel de ces taux dans le champ « % libre » de notre calculateur.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>À partir de quel taux de remise risque-t-on la vente à perte ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Une remise supérieure à votre <strong>taux de marque</strong> fait passer votre prix de vente net en dessous de votre prix d’achat effectif (vente à perte, interdite hors soldes/liquidations par l’article L442-5 du Code de commerce).
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight section-bordered related-section">
+      <div class="container">
+        <h2 style="font-size:1.35rem;">Outils complémentaires ComptaBrut</h2>
+        <div class="related-grid">
+          <a href="suivi-seuils-tva-ca.html" class="related-card">
+            <strong>Prorata &amp; Seuils TVA</strong>
+            <span>Anticipez votre passage à la TVA et son impact sur vos tarifs B2B/B2C.</span>
+          </a>
+          <a href="generateur-facture-devis.html" class="related-card">
+            <strong>Générateur Facture &amp; Devis</strong>
+            <span>Créez une facture multi-taux TVA (20 %, 10 %, 5,5 %) avec totaux automatiques.</span>
+          </a>
+          <a href="simulateur-urssaf-micro-2026.html" class="related-card">
+            <strong>Simulateur URSSAF 2026</strong>
+            <span>Vérifiez ce qu’il reste après cotisations 12,3 % ou 26,1 %.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="../index.html" class="brand" style="margin-bottom:12px;"><span class="brand-mark">CB</span><span>ComptaBrut</span></a>
+          <p style="font-size:0.9rem;">Outils financiers et conformité Factur-X 2026–2027, 100 % locaux dans votre navigateur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils Facturation &amp; TVA</h4>
+          <ul class="footer-links">
+            <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+            <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Charges &amp; Guides</h4>
+          <ul class="footer-links">
+            <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+            <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+            <li><a href="../guides/reforme-facturation-electronique-2026-2027.html">Guide Réforme 2026–2027</a></li>
+            <li><a href="../guides/seuils-micro-entreprise-tva-2026.html">Guide Seuils Micro 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ComptaBrut (comptabrut.fr)</span>
+        <span class="mono">100 % LOCAL · FRANCE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/calculateur-tva-marge.js"></script>
+</body>
+</html>

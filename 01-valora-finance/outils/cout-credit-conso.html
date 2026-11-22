@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vrai Coût d'un Crédit Conso &amp; Paiement en 4× / 10× / 24× — Valora</title>
+  <meta name="description" content="Calculez le vrai coût d'un crédit consommation ou d'un paiement fractionné (4x, 10x, 24x) : mensualité actuarielle, intérêts totaux, assurance, taux d'endettement, coût d'opportunité et tableau d'amortissement.">
+  <link rel="canonical" href="https://valora-finance.fr/outils/cout-credit-conso.html">
+  <meta property="og:title" content="Vrai Coût d'un Crédit Conso &amp; Paiement en 4× / 10× / 24× — Valora">
+  <meta property="og:description" content="Simulez mensualité, surcoût réel, taux d'endettement et amortissement complet mois par mois.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Vrai Coût Crédit Conso & Paiement en 4x / 10x / 24x",
+        "url": "https://valora-finance.fr/outils/cout-credit-conso.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://valora-finance.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://valora-finance.fr/#tous-les-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Vrai Coût Crédit Conso", "item": "https://valora-finance.fr/outils/cout-credit-conso.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi un paiement en 4 fois avec 2,2 % de frais équivaut-il à près de 20 % de TAEG ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Parce que le prêt ne dure que 90 jours et que vous remboursez une première échéance dès l'achat. Ramenés sur une base annuelle actuarielle, des frais apparemment modestes de 2,2 % sur 3 mois représentent un TAEG annuel proche de 19 % à 21 %." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'assurance emprunteur est-elle obligatoire pour un crédit à la consommation ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Contrairement aux idées reçues, l'assurance sur un crédit à la consommation est légalement facultative en France. Sur un petit montant ou une durée courte, elle peut représenter 25 % à 40 % du surcoût total du crédit." }
+          },
+          {
+            "@type": "Question",
+            "name": "Un crédit conso réduit-il ma capacité d'emprunt immobilier ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, fortement. Selon les normes HCSF, toutes vos mensualités (immobilier + crédits conso + LOA/LLD) ne doivent pas dépasser 35 % de vos revenus nets. Une mensualité auto de 300 €/mois ampute votre capacité d'emprunt immobilier d'environ 55 000 € à 60 000 € sur 25 ans." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment est calculée la mensualité dans le simulateur ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Nous appliquons la méthode actuarielle française du Code de la consommation (taux mensuel équivalent i = (1 + TAEG)^(1/12) − 1), puis la formule d'amortissement constant P = C × i / (1 − (1+i)^−n)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Un crédit à 0 % est-il vraiment gratuit ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Si le TAEG est réellement de 0,0 % sans frais de dossier ni assurance, le crédit ne coûte rien en intérêts. Vérifiez toutefois que le prix du bien n'a pas été gonflé par rapport au prix négocié comptant et que la mensualité ne fragilise pas votre budget." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>OUTIL 05 • AUDIT CRÉDIT CONSOMMATION &amp; PAIEMENT FRACTIONNÉ</span>
+      <span>MÉTHODE ACTUARIELLE TAEG &amp; AMORTISSEMENT MENSUEL</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="abonnements-etf.html">Abonnements &amp; ETF</a>
+        <a href="inflation-personnelle.html">Inflation perso</a>
+        <a href="interets-composes-pea.html">PEA vs CTO</a>
+        <a href="../guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="../a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="../index.html">Accueil</a>
+      <a href="abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="objectif-independance.html">06. Objectif FIRE France</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#tous-les-outils">Outils</a></li>
+        <li aria-current="page">Vrai Coût Crédit Conso &amp; Paiement 4× / 10× / 24×</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header-grid">
+        <div>
+          <span class="eyebrow">Outil 05 • Décryptage du crédit</span>
+          <h1>Vrai Coût d'un Crédit Conso &amp; Paiement en 4× / 10× / 24×</h1>
+          <p class="text-secondary" style="margin-top:8px;max-width:66ch;">Dévoilez le surcoût réel d'un prêt personnel ou d'un paiement fractionné : mensualité exacte, intérêts, frais, taux d'endettement, coût d'opportunité et tableau d'amortissement complet.</p>
+        </div>
+        <div class="tool-header-meta">
+          <strong>Alerte HCSF :</strong> Comparez instantanément le coût de l'achat à crédit face à la même mensualité épargnée au préalable.
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Entrées -->
+        <div class="panel">
+          <div class="panel-title">Paramètres du financement</div>
+
+          <div class="preset-row">
+            <button type="button" class="preset-btn" data-credit-preset="4x">Paiement 4×</button>
+            <button type="button" class="preset-btn" data-credit-preset="10x">Paiement 10×</button>
+            <button type="button" class="preset-btn active" data-credit-preset="24x">Crédit 24×</button>
+            <button type="button" class="preset-btn" data-credit-preset="auto">Auto 48 mois</button>
+            <button type="button" class="preset-btn" data-credit-preset="travaux">Travaux 60 mois</button>
+          </div>
+
+          <div class="field">
+            <label for="cc-amount">Montant emprunté / Prix financé</label>
+            <div class="input-suffix-wrap">
+              <input type="number" id="cc-amount" class="input input-mono" value="4500" min="100" max="75000" step="100">
+              <span class="input-suffix">€</span>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="cc-months">Durée de remboursement</label>
+              <span class="field-value" id="cc-months-val">24 mois</span>
+            </div>
+            <input type="range" id="cc-months" min="3" max="84" step="1" value="24">
+            <div class="range-ticks"><span>3 m.</span><span>12 m.</span><span>36 m.</span><span>60 m.</span><span>84 m.</span></div>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="cc-taeg">Taux annuel (TAEG)</label>
+              <span class="field-value" id="cc-taeg-val">11,9 %</span>
+            </div>
+            <input type="range" id="cc-taeg" min="0" max="22" step="0.1" value="11.9">
+            <div class="range-ticks"><span>0 %</span><span>6 %</span><span>12 %</span><span>22 % (usure)</span></div>
+          </div>
+
+          <div class="field-row field-row-2">
+            <div class="field">
+              <label for="cc-fees">Frais de dossier</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="cc-fees" class="input input-mono" value="45" min="0" max="2000" step="10">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cc-ins">Assurance facultative</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="cc-ins" class="input input-mono" value="0.35" min="0" max="3" step="0.05">
+                <span class="input-suffix">%/an</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-row field-row-2" style="padding-top:16px;border-top:1px solid var(--border);">
+            <div class="field">
+              <label for="cc-income">Revenu mensuel net</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="cc-income" class="input input-mono" value="2600" min="500" max="50000" step="50">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="cc-alt-rate">Taux épargne alternatif</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="cc-alt-rate" class="input input-mono" value="3.5" min="0" max="10" step="0.5">
+                <span class="input-suffix">%/an</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Résultats -->
+        <div>
+          <div class="kpi-grid kpi-grid-2">
+            <div class="kpi-card">
+              <div class="kpi-label">Mensualité totale</div>
+              <div class="kpi-value" id="kpi-monthly">211,76 €</div>
+              <div class="kpi-sub" id="kpi-monthly-sub">Hors frais de dossier</div>
+            </div>
+            <div class="kpi-card kpi-card-danger">
+              <div class="kpi-label">Coût total du crédit</div>
+              <div class="kpi-value" id="kpi-cost">+627 €</div>
+              <div class="kpi-sub" id="kpi-cost-sub">Surcoût total</div>
+            </div>
+            <div class="kpi-card" id="kpi-debt-card">
+              <div class="kpi-label">Poids sur revenu net</div>
+              <div class="kpi-value" id="kpi-debt">8,1 %</div>
+              <div class="kpi-sub" id="kpi-debt-sub">Part de ce crédit seul</div>
+            </div>
+            <div class="kpi-card kpi-card-accent">
+              <div class="kpi-label">Gain si épargné avant achat</div>
+              <div class="kpi-value" id="kpi-opp">784 €</div>
+              <div class="kpi-sub" id="kpi-opp-sub">Intérêts évités + intérêts gagnés</div>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-header">
+              <span class="chart-title">Comparaison : Prix cash vs Achat à crédit vs Épargne préalable</span>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#0F5132;"></span>Capital / Cash</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#A62C2B;"></span>Intérêts crédit</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#8A6116;"></span>Frais &amp; Assurance</span>
+              </div>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="cc-chart" aria-label="Graphique comparant le prix cash, le coût total du crédit et le scénario épargne"></canvas>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">
+              <span>Tableau d'amortissement mensuel</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-schedule">Afficher toutes les mensualités</button>
+            </div>
+            <div class="table-wrap" style="margin:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th class="num">Mois</th>
+                    <th class="num">Mensualité</th>
+                    <th class="num">Capital</th>
+                    <th class="num">Intérêts</th>
+                    <th class="num">Assurance</th>
+                    <th class="num">Restant dû</th>
+                  </tr>
+                </thead>
+                <tbody id="cc-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Emplacement AdSense 1 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Format adaptatif anti-CLS)</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Éditorial -->
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <article class="prose">
+          <h2>Pourquoi le crédit à la consommation coûte bien plus cher que son taux affiché</h2>
+          <p>Du paiement en 4 fois en caisse au prêt personnel pour un véhicule ou de l'équipement domestique, le crédit à la consommation lisse la douleur psychologique de l'achat en la découpant en mensualités modestes. En contrepartie, il cumule trois coûts que les offres commerciales mettent rarement en évidence simultanément : les <strong>intérêts composés en sens inverse</strong>, les <strong>frais annexes</strong> (dossier, assurance facultative) et le <strong>coût d'opportunité patrimonial</strong>.</p>
+          <p>Alors qu'un crédit immobilier finance un actif durable, le crédit à la consommation finance presque toujours un bien qui se déprécie immédiatement (voiture, électronique, électroménager). Vous payez donc des intérêts à 6 % – 20 % sur un objet dont la valeur diminue chaque année.</p>
+
+          <h3>Formule actuarielle française (Code de la consommation)</h3>
+          <p>En France (article R.314-3 du Code de la consommation), le Taux Annuel Effectif Global (TAEG) est défini selon la méthode actuarielle. Pour un capital <code>C</code> remboursé sur <code>n</code> mois au TAEG annuel <code>T</code> :</p>
+          <div class="formula-box">
+            Taux_mensuel_equivalent i = (1 + T)^(1/12) − 1<br>
+            Mensualité_hors_assurance P = C × i / (1 − (1 + i)^−n)<br>
+            Assurance_mensuelle = C × (Taux_assurance / 12)<br>
+            Coût_total_réel = (P × n − C) + (Assurance_mensuelle × n) + Frais_dossier
+          </div>
+
+          <h3>Comparatif concret de quatre financements courants</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Scénario type</th>
+                  <th class="num">Montant</th>
+                  <th class="num">Durée / TAEG</th>
+                  <th class="num">Mensualité</th>
+                  <th class="num">Surcoût total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Électronique en 10×</strong></td>
+                  <td class="num">2 500 €</td>
+                  <td class="num">10 m. / 17,5 %</td>
+                  <td class="num">268,94 €</td>
+                  <td class="num text-danger"><strong>+189 € (+7,6 %)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Équipement en 24× + ass.</strong></td>
+                  <td class="num">4 500 €</td>
+                  <td class="num">24 m. / 11,9 %</td>
+                  <td class="num">211,76 €</td>
+                  <td class="num text-danger"><strong>+627 € (+13,9 %)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Prêt Auto 48 mois</strong></td>
+                  <td class="num">15 000 €</td>
+                  <td class="num">48 m. / 6,4 %</td>
+                  <td class="num">358,79 €</td>
+                  <td class="num text-danger"><strong>+2 372 € (+15,8 %)</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Crédit Travaux 60 mois</strong></td>
+                  <td class="num">25 000 €</td>
+                  <td class="num">60 m. / 5,8 %</td>
+                  <td class="num">486,43 €</td>
+                  <td class="num text-danger"><strong>+4 386 € (+17,5 %)</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Les 3 pièges les plus coûteux à éviter</h3>
+          <ul>
+            <li><strong>Le crédit renouvelable (revolving) :</strong> souvent dissimulé derrière une carte de fidélité magasin, son TAEG frôle le taux d'usure légal (plus de 21 % sur les petits montants). À éviter systématiquement.</li>
+            <li><strong>La sur-assurance facultative :</strong> vendue par défaut lors de la souscription en ligne, l'assurance emprunteur sur un crédit de 5 000 € est rarement pertinente si vous disposez déjà d'un <a href="epargne-securite.html">matelas de sécurité</a>.</li>
+            <li><strong>L'empilement des paiements en 4× (BNPL) :</strong> cumuler trois ou quatre achats en 4 fois crée une charge mensuelle invisible qui fait basculer le compte courant dans le découvert autorisé (facturé entre 15 % et 20 % d'agios).</li>
+          </ul>
+
+          <!-- Emplacement AdSense 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Rectangle éditorial anti-CLS)</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Pourquoi un paiement en 4 fois à 2,2 % de frais affiche-t-il près de 20 % de TAEG ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Le TAEG exprime le coût du crédit ramené sur une année pleine. Comme vous remboursez 25 % le jour même et le solde sur 90 jours seulement, la durée moyenne de prêt est très courte : 2,2 % facturés sur un prêt aussi bref équivalent à un taux annuel d'environ 19 % à 21 %.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Puis-je rembourser un crédit à la consommation par anticipation sans pénalité ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Oui. En France, le remboursement anticipé d'un crédit à la consommation est totalement gratuit tant que le montant remboursé sur 12 mois ne dépasse pas 10 000 €. Au-delà de 10 000 €, l'indemnité est légalement plafonnée à 0,5 % ou 1 % selon la durée restante.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Quel est l'impact d'un prêt auto de 350 €/mois sur un futur projet immobilier ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Les banques intègrent toutes les mensualités en cours dans le plafond HCSF des 35 % d'endettement. Une mensualité de 350 € réduit votre capacité d'emprunt immobilier d'environ 65 000 € sur 25 ans à 3,5 %. Solder vos crédits conso avant de déposer un dossier immobilier est souvent décisif.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Quelle est la différence entre taux débiteur fixe et TAEG ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Le taux débiteur ne mesure que les intérêts purs du prêt. Le TAEG (Taux Annuel Effectif Global) inclut obligatoirement les intérêts, les frais de dossier et les éventuels frais obligatoires, ce qui en fait le seul indicateur fiable pour comparer deux offres.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Faut-il puiser dans son Livret A plutôt que de prendre un crédit auto à 6 % ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Financièrement, emprunter à 6 % alors que votre excédent d'épargne rapporte 2,4 % nets sur Livret A vous fait perdre 3,6 % par an de différentiel. Utilisez votre excédent au-dessus de votre matelas de sécurité, puis reconstituez vos livrets sans payer d'intérêts.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="sidebar-box">
+            <h3>Autres outils Valora</h3>
+            <ul class="sidebar-links">
+              <li><a href="abonnements-etf.html"><span>01. Abonnements → ETF</span><span>→</span></a></li>
+              <li><a href="inflation-personnelle.html"><span>02. Mon Inflation Personnelle</span><span>→</span></a></li>
+              <li><a href="interets-composes-pea.html"><span>03. PEA vs AV vs CTO</span><span>→</span></a></li>
+              <li><a href="epargne-securite.html"><span>04. Matelas de Sécurité</span><span>→</span></a></li>
+              <li><a href="objectif-independance.html"><span>06. Calculateur FIRE France</span><span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Éviter le crédit</h3>
+            <p class="text-secondary" style="font-size:0.9rem;">Constituer une réserve de 4 à 6 mois sur LEP et Livret A élimine le recours au crédit conso d'urgence.</p>
+            <a href="epargne-securite.html" class="btn btn-secondary btn-sm btn-block">Calculer mon matelas de sécurité</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale calibrés sur la fiscalité française.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="../guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="../guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance — Un crédit vous engage et doit être remboursé.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/cout-credit-conso.js"></script>
+</body>
+</html>

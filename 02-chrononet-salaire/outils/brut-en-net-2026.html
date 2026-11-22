@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertisseur Salaire Brut en Net & Super-Brut 2026 — ChronoNet</title>
+  <meta name="description" content="Convertissez instantanément votre salaire brut en net et super-brut 2026 (horaire, mensuel, annuel). Statuts Cadre, Non-cadre, Fonction publique, Libéral, Portage, 13e mois et prélèvement à la source.">
+  <link rel="canonical" href="https://chrononet.fr/outils/brut-en-net-2026.html">
+  <meta property="og:title" content="Convertisseur Salaire Brut ↔ Net ↔ Super-Brut 2026 — ChronoNet">
+  <meta property="og:description" content="Calculateur salarial bidirectionnel 2026 avec barème de prélèvement à la source par tranches et décomposition visuelle des cotisations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrononet.fr/outils/brut-en-net-2026.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convertisseur Salaire Brut en Net 2026 — ChronoNet",
+      "url": "https://chrononet.fr/outils/brut-en-net-2026.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "inLanguage": "fr-FR",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://chrononet.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Brut en Net 2026", "item": "https://chrononet.fr/outils/brut-en-net-2026.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la différence entre salaire brut, net avant impôt, net après impôt et super-brut ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le super-brut est le coût total pour l'employeur (brut + cotisations patronales). Le brut est inscrit sur le contrat. Le net avant impôt correspond au brut moins les cotisations salariales (~22 % non-cadre, ~25 % cadre). Le net après impôt est la somme réellement virée sur votre compte après prélèvement à la source." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi un cadre cotise-t-il légèrement plus qu'un non-cadre ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les cadres cotisent généralement à l'APEC et à une prévoyance obligatoire renforcée ainsi que sur la tranche 2 Agirc-Arrco au-delà du plafond Sécurité sociale, ce qui porte le taux moyen de cotisations salariales autour de 25 % contre 22 % pour un non-cadre." }
+        },
+        {
+          "@type": "Question",
+          "name": "Un salaire sur 13 mois est-il plus avantageux que le même annuel sur 12 mois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. À salaire annuel brut identique (ex. 42 000 €), un versement sur 13 mois réduit simplement la mensualité courante (3 231 € brut au lieu de 3 500 €) pour verser un treizième mois en fin d'année. Le total annuel et l'impôt restent strictement identiques." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment fonctionne le barème 2026 du prélèvement à la source ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le barème progressif applique des taux par tranches (0 %, 11 %, 30 %, 41 %, 45 %) sur votre revenu net imposable après abattement de 10 % pour frais professionnels. Notre calculateur applique automatiquement ce barème pour 1 part fiscale ou votre taux personnalisé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi le net imposable est-il supérieur au net à payer avant impôt ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La CSG non déductible (2,4 %) et la CRDS (0,5 %), ainsi que la part patronale de la mutuelle obligatoire, sont réintégrées dans la base fiscale. Le net imposable dépasse donc en moyenne le net avant impôt d'environ 3 à 4 %." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>CHRONONET</span>
+        <span class="brand-tag">REF. CN-04</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="vrai-salaire-horaire.html" class="nav-link">Vrai Salaire</a>
+        <a href="prix-en-heures-de-vie.html" class="nav-link">Prix / Heures</a>
+        <a href="teletravail-vs-presentiel.html" class="nav-link">Télétravail</a>
+        <a href="brut-en-net-2026.html" class="nav-link active">Brut / Net</a>
+        <a href="rupture-conventionnelle.html" class="nav-link">Rupture</a>
+        <a href="tjm-freelance-vs-cdi.html" class="nav-link">TJM vs CDI</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../guides/negocier-salaire-2026.html" class="btn btn-secondary btn-sm">Négocier</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 instruments</div>
+      <a href="vrai-salaire-horaire.html"><span>01 — Vrai salaire horaire</span><span class="mono">→</span></a>
+      <a href="prix-en-heures-de-vie.html"><span>02 — Prix en heures de vie</span><span class="mono">→</span></a>
+      <a href="teletravail-vs-presentiel.html"><span>03 — Économies télétravail</span><span class="mono">→</span></a>
+      <a href="brut-en-net-2026.html"><span>04 — Brut ↔ Net 2026</span><span class="mono">→</span></a>
+      <a href="rupture-conventionnelle.html"><span>05 — Rupture conventionnelle</span><span class="mono">→</span></a>
+      <a href="tjm-freelance-vs-cdi.html"><span>06 — TJM Freelance vs CDI</span><span class="mono">→</span></a>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Convertisseur Brut ↔ Net ↔ Super-Brut 2026</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span>INSTRUMENT CN-04 • BARÈME FRANCE 2026</span></div>
+          <h1 style="margin-top:16px;">Convertisseur Salaire Brut ↔ Net ↔ Super-Brut</h1>
+          <p class="hero-lead" style="margin-top:16px;">
+            Saisissez n'importe quel montant (horaire, mensuel ou annuel, en brut ou en net) : tous les autres champs, les cotisations patronales et le prélèvement à la source 2026 se synchronisent à la milliseconde.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <span>5 STATUTS PROFESSIONNELS</span>
+          <span>12 À 14 MOIS + TRANCHES IR 2026</span>
+          <span>DÉCOMPOSITION SUPER-BRUT</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workbench-section">
+      <div class="container">
+        <div class="workbench">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Statut &amp; Saisie bidirectionnelle</span>
+              <span class="instrument-led">SYNCHRO</span>
+            </div>
+
+            <div class="field">
+              <div class="field-label" style="margin-bottom:8px;">Votre statut</div>
+              <div class="preset-grid" role="group" aria-label="Choix du statut professionnel">
+                <button type="button" class="preset-btn" data-statut="non-cadre" aria-pressed="false">Non-cadre <span class="preset-price">~22 %</span></button>
+                <button type="button" class="preset-btn active" data-statut="cadre" aria-pressed="true">Cadre <span class="preset-price">~25 %</span></button>
+                <button type="button" class="preset-btn" data-statut="fonction-publique" aria-pressed="false">Public <span class="preset-price">~15 %</span></button>
+                <button type="button" class="preset-btn" data-statut="liberale" aria-pressed="false">Libéral <span class="preset-price">~44 %</span></button>
+                <button type="button" class="preset-btn" data-statut="portage" aria-pressed="false">Portage <span class="preset-price">~48 %</span></button>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="bn-brut-mensuel" class="field-label">Brut mensuel</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="bn-brut-mensuel" class="input-control mono-input input-has-unit" value="3500" min="0" max="50000" step="50">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="bn-net-mensuel" class="field-label">Net mensuel (avant IR)</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="bn-net-mensuel" class="input-control mono-input input-has-unit" value="2625" min="0" max="40000" step="50">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="bn-brut-annuel" class="field-label">Brut annuel</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="bn-brut-annuel" class="input-control mono-input input-has-unit" value="42000" min="0" max="600000" step="500">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="bn-net-annuel" class="field-label">Net annuel (avant IR)</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="bn-net-annuel" class="input-control mono-input input-has-unit" value="31500" min="0" max="500000" step="500">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="bn-brut-horaire" class="field-label">Brut horaire</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="bn-brut-horaire" class="input-control mono-input input-has-unit" value="23.08" min="0" max="500" step="0.5">
+                  <span class="input-unit">€/h</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="bn-heures-sem" class="field-label">Temps hebdo</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="bn-heures-sem" class="input-control mono-input input-has-unit" value="35" min="10" max="60" step="1">
+                  <span class="input-unit">h/s</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="bn-nb-mois" class="field-label">Versement (mois/an)</label></div>
+                <select id="bn-nb-mois" class="select-control">
+                  <option value="12" selected>12 mois</option>
+                  <option value="13">13 mois (prime incluse)</option>
+                  <option value="13.5">13,5 mois</option>
+                  <option value="14">14 mois</option>
+                </select>
+              </div>
+              <div>
+                <div class="field-head"><label for="bn-pas-mode" class="field-label">Prélèvement à la source</label></div>
+                <select id="bn-pas-mode" class="select-control">
+                  <option value="auto" selected>Barème 2026 (1 part)</option>
+                  <option value="custom">Taux personnalisé (%)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" id="bn-pas-custom-wrap" style="display:none;">
+              <div class="field-head"><label for="bn-pas-custom" class="field-label">Votre taux PAS personnalisé</label></div>
+              <div class="input-wrap">
+                <input type="number" id="bn-pas-custom" class="input-control mono-input input-has-unit" value="7.5" min="0" max="45" step="0.1">
+                <span class="input-unit">%</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Décomposition fiscale &amp; sociale 2026</span>
+              <span class="mono" id="bn-out-ratio" style="font-size:12px; color:var(--accent); font-weight:600;">47,5 % du super-brut</span>
+            </div>
+
+            <div class="kpi-hero-row">
+              <div class="kpi-box highlight">
+                <div class="kpi-label">Net après impôt (viré)</div>
+                <div class="kpi-value" id="bn-out-net-apres-ir">2 365 € / mois</div>
+                <div class="kpi-sub" id="bn-out-net-apres-ir-an">28 380 € / an</div>
+              </div>
+              <div class="kpi-box">
+                <div class="kpi-label">Coût total employeur (Super-brut)</div>
+                <div class="kpi-value" id="bn-out-superbrut-mois">5 075 € / mois</div>
+                <div class="kpi-sub" id="bn-out-superbrut-an">60 900 € / an</div>
+              </div>
+            </div>
+
+            <div class="kpi-mini-grid cols-3">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Cotisations salariales</div>
+                <div class="kpi-mini-value" id="bn-out-cot-sal">875 € / mois</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Cotisations patronales</div>
+                <div class="kpi-mini-value" id="bn-out-cot-pat">1 575 € / mois</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Impôt PAS estimé</div>
+                <div class="kpi-mini-value" id="bn-out-impot-mois">260 € / mois</div>
+                <div class="field-hint" id="bn-out-taux-pas" style="margin-top:4px;">9,9 %</div>
+              </div>
+            </div>
+
+            <div style="margin-bottom:24px;">
+              <div class="chart-title" style="margin-bottom:8px;">Répartition de 100 % du coût employeur</div>
+              <div class="stacked-bar" aria-label="Barre de répartition du super-brut">
+                <div id="bn-seg-net" class="stacked-seg" style="background-color:#D9381E; width:46%;"></div>
+                <div id="bn-seg-ir" class="stacked-seg" style="background-color:#141413; width:6%;"></div>
+                <div id="bn-seg-sal" class="stacked-seg" style="background-color:#55554F; width:17%;"></div>
+                <div id="bn-seg-pat" class="stacked-seg" style="background-color:#B8B8B0; width:31%;"></div>
+              </div>
+              <div class="legend-row">
+                <span class="legend-item"><span class="legend-swatch" style="background:#D9381E;"></span>Net en poche</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#141413;"></span>Impôt (PAS)</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#55554F;"></span>Cotis. salariales</span>
+                <span class="legend-item"><span class="legend-swatch" style="background:#B8B8B0;"></span>Cotis. patronales</span>
+              </div>
+            </div>
+
+            <div class="chart-box" style="margin-bottom:0;">
+              <div class="chart-header">
+                <span class="chart-title">Comparaison mensuelle Super-brut → Net viré (€)</span>
+              </div>
+              <div class="canvas-frame">
+                <canvas id="bn-chart" aria-label="Graphique comparatif super-brut, brut, net avant impôt et net après impôt"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+          <span class="ad-slot-note">Format adaptatif horizontal — Hauteur stabilisée anti-CLS</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container editorial-layout">
+        <article class="editorial-article">
+          <h2>Du super-brut au net viré : lire sa rémunération comme un directeur financier</h2>
+          <p>
+            En France, le salaire affiché sur un contrat de travail — le <strong>salaire brut</strong> — n'est qu'une grandeur intermédiaire. Pour votre employeur, le coût budgétaire réel correspond au <strong>super-brut</strong> (brut majoré d'environ 42 % à 45 % de cotisations patronales hors allègements bas salaires). Pour vous, seul le <strong>net après impôt</strong> finance vos dépenses courantes et votre épargne. Comprendre cette chaîne complète est indispensable avant de négocier un poste, de comparer une offre salariée avec un statut indépendant ou de vérifier votre bulletin de paie.
+          </p>
+
+          <h2>Formules de passage par statut et barème IR 2026</h2>
+          <div class="formula-box">
+            Net avant impôt = Salaire brut × (1 − Taux cotisations salariales)<br>
+            Super-brut employeur = Salaire brut × (1 + Taux cotisations patronales)<br>
+            Revenu imposable (1 part) = Net imposable − Abattement 10 % (495 € min, 14 426 € max)<br>
+            Net après impôt = Net avant impôt − Impôt sur le revenu (barème progressif 2026)
+          </div>
+
+          <p>
+            Le barème progressif 2026 appliqué aux revenus d'un célibataire (1 part fiscale) retient cinq tranches : <strong>0 %</strong> jusqu'à 11 497 €, <strong>11 %</strong> de 11 498 € à 29 315 €, <strong>30 %</strong> de 29 316 € à 83 823 €, <strong>41 %</strong> de 83 824 € à 180 294 € et <strong>45 %</strong> au-delà. N'oubliez jamais qu'une tranche marginale à 30 % ne taxe que la portion de revenu qui dépasse 29 315 €, jamais la totalité de votre salaire.
+          </p>
+
+          <h2>Table de conversion rapide Brut ↔ Net ↔ Super-Brut (Cadre 2026)</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Brut annuel</th>
+                  <th class="num">Brut / mois (12m)</th>
+                  <th class="num">Net avant IR / mois</th>
+                  <th class="num">Net après IR / mois*</th>
+                  <th class="num">Super-brut annuel</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>30 000 €</td>
+                  <td class="num">2 500 €</td>
+                  <td class="num">1 875 €</td>
+                  <td class="num">1 785 €</td>
+                  <td class="num">43 500 €</td>
+                </tr>
+                <tr>
+                  <td>38 000 €</td>
+                  <td class="num">3 167 €</td>
+                  <td class="num">2 375 €</td>
+                  <td class="num">2 185 €</td>
+                  <td class="num">55 100 €</td>
+                </tr>
+                <tr>
+                  <td><strong>45 000 €</strong></td>
+                  <td class="num">3 750 €</td>
+                  <td class="num">2 813 €</td>
+                  <td class="num" style="color:var(--accent); font-weight:600;">2 518 €</td>
+                  <td class="num">65 250 €</td>
+                </tr>
+                <tr>
+                  <td>60 000 €</td>
+                  <td class="num">5 000 €</td>
+                  <td class="num">3 750 €</td>
+                  <td class="num">3 195 €</td>
+                  <td class="num">87 000 €</td>
+                </tr>
+                <tr>
+                  <td>80 000 €</td>
+                  <td class="num">6 667 €</td>
+                  <td class="num">5 000 €</td>
+                  <td class="num">4 090 €</td>
+                  <td class="num">116 000 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="field-hint">*Estimations indicatives pour un cadre célibataire (1 part, taux salarial moyen 25 %, abattement forfaitaire 10 %, hors mutuelle/titres-restaurant).</p>
+
+          <h2>Trois erreurs fréquentes lors d'un entretien d'embauche</h2>
+          <ul>
+            <li><strong>Confondre 12 et 13 mois :</strong> demandez toujours si le package annuel annoncé inclut un 13e mois ou une prime de vacances conventionnelle (ex. Syntec), afin de connaître exactement votre virement mensuel ordinaire.</li>
+            <li><strong>Négliger les avantages périphériques non chargés :</strong> intéressement, participation sur PEE, abondement employeur et prise en charge transport échappent en grande partie aux cotisations sociales et à l'impôt.</li>
+            <li><strong>Oublier l'étape suivante :</strong> une fois votre net mensuel connu, calculez votre <a href="vrai-salaire-horaire.html" style="text-decoration:underline; color:var(--accent);">vrai salaire horaire</a> après trajets et frais professionnels, ou comparez-le à un <a href="tjm-freelance-vs-cdi.html" style="text-decoration:underline; color:var(--accent);">TJM freelance</a>.</li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+            <span class="ad-slot-note">Placement éditorial non intrusif</span>
+          </aside>
+
+          <h2>Questions fréquentes sur le Brut / Net 2026</h2>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Quelle est la différence entre brut, net avant impôt, net après impôt et super-brut ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Le super-brut est la dépense totale de l'entreprise. En retirant les cotisations patronales on obtient le brut contractuel ; en retirant les cotisations salariales on obtient le net avant impôt ; en retirant le prélèvement à la source on obtient le net viré sur votre compte bancaire.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi un cadre cotise-t-il légèrement plus qu'un non-cadre ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Le statut cadre comporte des cotisations spécifiques (APEC, prévoyance cadre obligatoire et tranches supérieures de retraite complémentaire Agirc-Arrco), ce qui porte les prélèvements salariaux autour de 25 % contre environ 22 % pour un non-cadre.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Un salaire sur 13 mois est-il plus avantageux que le même annuel sur 12 mois ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                À brut annuel égal, le montant total perçu sur l'année est identique. Le 13e mois n'est un gain réel que s'il s'ajoute en plus d'un mensuel déjà négocié sur 12 mois.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment fonctionne le barème 2026 du prélèvement à la source ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Chaque euro de revenu net imposable est taxé uniquement au taux de la tranche dans laquelle il se situe (0 %, 11 %, 30 %, 41 % ou 45 %). Le taux moyen affiché sur votre fiche de paie est toujours inférieur à votre tranche marginale.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi le net imposable est-il supérieur au net à payer avant impôt ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Une fraction de la CSG (2,4 %), la CRDS (0,5 %) ainsi que la part patronale de la complémentaire santé obligatoire ne sont pas déductibles fiscalement et s'ajoutent donc à la base imposable.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <div class="panel-title">Outils associés</div>
+            <ul class="sidebar-list">
+              <li><a href="vrai-salaire-horaire.html"><span>Vrai Salaire Horaire</span><span class="mono">→</span></a></li>
+              <li><a href="tjm-freelance-vs-cdi.html"><span>Convertisseur TJM Freelance vs CDI</span><span class="mono">→</span></a></li>
+              <li><a href="rupture-conventionnelle.html"><span>Indemnité Rupture Conventionnelle</span><span class="mono">→</span></a></li>
+              <li><a href="teletravail-vs-presentiel.html"><span>Économies du Télétravail</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/negocier-salaire-2026.html"><span>Guide négociation salariale 2026</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand"><span class="eyebrow-dot" aria-hidden="true"></span><span>CHRONONET</span></a>
+          <p class="footer-desc">Instruments indépendants de mesure du vrai salaire horaire, du temps de vie et de la rémunération en France.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="vrai-salaire-horaire.html">Vrai salaire horaire</a></li>
+            <li><a href="prix-en-heures-de-vie.html">Prix en heures de vie</a></li>
+            <li><a href="teletravail-vs-presentiel.html">Économies télétravail</a></li>
+            <li><a href="brut-en-net-2026.html">Brut en Net 2026</a></li>
+            <li><a href="rupture-conventionnelle.html">Rupture conventionnelle</a></li>
+            <li><a href="tjm-freelance-vs-cdi.html">TJM Freelance vs CDI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides</div>
+          <ul class="footer-links">
+            <li><a href="../guides/negocier-salaire-2026.html">Négocier son salaire 2026</a></li>
+            <li><a href="../guides/bareme-frais-kilometriques-2026.html">Barème kilométrique 2026</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Cadre légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ChronoNet (chrononet.fr) — Simulations indicatives, calculs 100 % locaux.</span>
+        <button type="button" class="footer-cookie-btn" data-open-cookies>Gérer les cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/brut-en-net-2026.js"></script>
+</body>
+</html>

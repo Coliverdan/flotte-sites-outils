@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Âge Chien &amp; Chat en Âge Humain Réel (Formule UCSD) — PattesClaires</title>
+  <meta name="description" content="Convertissez l'âge de votre chien ou chat en âge humain grâce à la formule scientifique UCSD (16 × ln(âge) + 31) ajustée au gabarit et à la courbe féline réelle. Découvrez pourquoi « ×7 » est faux.">
+  <link rel="canonical" href="https://pattesclaires.fr/outils/age-humain-reel.html">
+  <meta property="og:title" content="Âge Humain Réel Chien &amp; Chat — Formule Scientifique UCSD">
+  <meta property="og:description" content="Fini le mythe « ×7 » : calculez le véritable âge biologique de votre chien selon son gabarit ou de votre chat avec frise de stade de vie.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pattesclaires.fr/outils/age-humain-reel.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur Âge Chien et Chat en Âge Humain Réel",
+        "url": "https://pattesclaires.fr/outils/age-humain-reel.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Convertisseur scientifique de l'âge du chien (formule épigénétique UCSD 16 × ln(âge) + 31 ajustée au gabarit) et du chat (courbe ISFM/AAFP)."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://pattesclaires.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Âge Humain Réel", "item": "https://pattesclaires.fr/outils/age-humain-reel.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi la règle « multiplier par 7 » pour calculer l'âge d'un chien est-elle fausse ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Parce que le vieillissement canin n'est pas linéaire : un chien atteint sa maturité sexuelle et physique dès 1 an (impossible pour un enfant humain de 7 ans), puis son horloge épigénétique ralentit nettement à l'âge adulte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "D'où vient la formule 16 × ln(âge) + 31 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Elle provient d'une étude génétique publiée en 2020 dans la revue Cell Systems par des chercheurs de l'Université de Californie à San Diego (UCSD), qui ont comparé la méthylation de l'ADN de 104 Labradors à celle de 320 humains."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi les grands chiens vieillissent-ils plus vite que les petits chiens ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les races géantes connaissent une croissance cellulaire extrêmement rapide pilotée par l'hormone IGF-1, ce qui accélère l'usure métabolique et les pathologies dégénératives dès 6 ou 7 ans, alors qu'un petit chien reste souvent vigoureux jusqu'à 14 ou 16 ans."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment calcule-t-on l'âge humain d'un chat ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon le consensus félin AAFP/ISFM, la première année du chat équivaut à 15 ans humains, la deuxième année ajoute 9 ans (soit 24 ans à 2 ans), puis chaque année supplémentaire correspond à environ 4 années humaines."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "À partir de quel âge un chien ou un chat est-il considéré comme senior ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un chien géant entre en phase senior dès 6 ans, un grand chien vers 7–8 ans, un petit chien vers 9–10 ans et un chat autour de 10–11 ans. C'est le moment recommandé pour instaurer un bilan sanguin annuel."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-base="../">
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.2"/><circle cx="16" cy="7" r="2.2"/><circle cx="4.5" cy="12" r="1.9"/><circle cx="19.5" cy="12" r="1.9"/><path d="M12 11c-3 0-5.2 2.4-5.2 5.2 0 1.8 1.4 3.3 3.3 3.3 1.2 0 1.4-.5 1.9-.5s.7.5 1.9.5c1.9 0 3.3-1.5 3.3-3.3C17.2 13.4 15 11 12 11z"/></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">PattesClaires</span>
+          <span class="brand-tag">Budget &amp; Santé Animale</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="budget-chien-chat-race.html">Budget Race</a></li>
+          <li><a href="ration-croquettes.html">Ration</a></li>
+          <li><a href="age-humain-reel.html" aria-current="page">Âge Réel</a></li>
+          <li><a href="aliments-toxiques.html">Toxiques</a></li>
+          <li><a href="comparateur-mutuelle-epargne.html">Mutuelle</a></li>
+          <li><a href="checklist-adoption.html">Adoption</a></li>
+          <li><a href="../guides/budget-adoption-chien-chat-2026.html">Guides</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="mobile-menu-toggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="budget-chien-chat-race.html">Budget par Race (42 Races)</a></li>
+        <li><a href="ration-croquettes.html">Ration de Croquettes (g/j)</a></li>
+        <li><a href="age-humain-reel.html" aria-current="page">Âge Humain Réel</a></li>
+        <li><a href="aliments-toxiques.html">Aliments Toxiques &amp; Chocolat</a></li>
+        <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs Auto-Assurance</a></li>
+        <li><a href="checklist-adoption.html">Checklist Adoption 1er Mois</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#outils">Outils</a></li>
+        <li aria-current="page">Âge Humain Scientifique</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Outil 03 · Étude épigénétique UCSD (Cell Systems)</div>
+          <h1>Calculateur Âge Chien &amp; Chat en Âge Humain Réel</h1>
+          <p class="lead">
+            Oubliez l’idée reçue du « ×7 » : nos chiens et chats vieillissent très vite les deux premières années avant de ralentir. Calculez son véritable âge biologique selon son gabarit et visualisez son stade de vie.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="tool-hero-meta-row"><span>Modèle chien</span><span>16 × ln(âge) + 31</span></div>
+          <div class="tool-hero-meta-row"><span>Modèle chat</span><span>Courbe ISFM / AAFP</span></div>
+          <div class="tool-hero-meta-row"><span>Gabarits gérés</span><span>Petit à Géant</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Paramètres -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Âge de votre compagnon</h2>
+            <span class="badge badge-accent">Logarithmique</span>
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">Espèce</span>
+            <div class="segmented" role="group" aria-label="Choisir l'espèce">
+              <button type="button" class="is-active" data-age-species="chien">Chien</button>
+              <button type="button" data-age-species="chat">Chat</button>
+            </div>
+          </div>
+
+          <div class="form-group" id="dog-size-group">
+            <span class="field-label">Gabarit adulte du chien</span>
+            <div class="pill-group" role="group" aria-label="Gabarit du chien">
+              <button type="button" class="pill-btn" data-dog-size="petit">Petit (&lt; 10 kg)</button>
+              <button type="button" class="pill-btn" data-dog-size="moyen">Moyen (10–25 kg)</button>
+              <button type="button" class="pill-btn is-active" data-dog-size="grand">Grand (25–45 kg)</button>
+              <button type="button" class="pill-btn" data-dog-size="geant">Géant (&gt; 45 kg)</button>
+            </div>
+            <div class="field-hint">La référence UCSD originale a été mesurée sur des Labradors (gabarit Grand).</div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="age-years">Âge en années</label>
+              <span id="age-years-val" class="label-value">4 ans</span>
+            </div>
+            <input type="range" id="age-years" min="0" max="16" step="1" value="4">
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="age-months">Mois supplémentaires</label>
+              <span id="age-months-val" class="label-value">0 mois</span>
+            </div>
+            <input type="range" id="age-months" min="0" max="11" step="1" value="0">
+          </div>
+
+          <div class="callout" style="margin-top:24px;">
+            <div class="callout-title" id="out-stage-name">Adulte mature</div>
+            <p id="out-stage-advice" style="margin:0;font-size:0.94rem;"></p>
+          </div>
+        </div>
+
+        <!-- Résultats & Frise -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Équivalence biologique réelle</h2>
+            <span class="badge">vs Mythe ×7</span>
+          </div>
+
+          <div class="kpi-grid kpi-grid-2">
+            <div class="kpi-box kpi-box-accent">
+              <div class="kpi-label">Âge humain scientifique</div>
+              <div id="out-human-age" class="kpi-value">—</div>
+              <div id="out-myth-diff" class="kpi-sub">—</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">Selon le mythe « ×7 » (faux)</div>
+              <div id="out-myth-age" class="kpi-value">—</div>
+              <div class="kpi-sub">Sous-estime les jeunes, surestime souvent les petits seniors</div>
+            </div>
+          </div>
+
+          <div class="formula-box" id="out-age-formula" style="font-size:0.86rem;"></div>
+
+          <!-- Frise interactive des 5 stades de vie -->
+          <div>
+            <div class="field-label" style="margin-bottom:8px;">Frise des stades de vie</div>
+            <div class="stage-track" aria-label="Stades de vie de l'animal">
+              <div class="stage-step" data-stage-step="0">
+                <span class="stage-step-name">Chiot / Chaton</span>
+                <span class="stage-step-age">&lt; 1 an</span>
+              </div>
+              <div class="stage-step" data-stage-step="1">
+                <span class="stage-step-name">Jeune adulte</span>
+                <span class="stage-step-age">1 – 3 ans</span>
+              </div>
+              <div class="stage-step" data-stage-step="2">
+                <span class="stage-step-name">Adulte mature</span>
+                <span class="stage-step-age">3 – 7/9 ans</span>
+              </div>
+              <div class="stage-step" data-stage-step="3">
+                <span class="stage-step-name">Senior</span>
+                <span class="stage-step-age">Bilan annuel</span>
+              </div>
+              <div class="stage-step" data-stage-step="4">
+                <span class="stage-step-name">Super-Senior</span>
+                <span class="stage-step-age">Suivi 6 mois</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-box" style="margin-top:24px;margin-bottom:0;">
+            <canvas id="age-chart" aria-label="Comparaison entre la courbe d'âge scientifique et le mythe fois 7"></canvas>
+            <div class="chart-caption">La courbe terracotta illustre la maturation rapide des premières années puis le ralentissement logarithmique, comparée à la droite erronée « ×7 ».</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format responsive horizontal</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu éditorial expert -->
+    <section class="section section-subtle">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <h2>Pourquoi le célèbre calcul « 1 an = 7 ans humains » est biologiquement faux</h2>
+          <p>
+            L’expression populaire qui consiste à multiplier l’âge d’un chien par sept trouve son origine dans les années 1950 : on divisait simplement l’espérance de vie humaine de l’époque (70 ans) par celle d’un chien moyen (10 ans). Cette règle linéaire ne résiste pas à l’observation biologique la plus élémentaire : à <strong>1 an</strong>, un chien a déjà perdu ses dents de lait, achevé l’essentiel de sa croissance et peut se reproduire — ce qui n’a rien à voir avec un enfant humain de 7 ans.
+          </p>
+          <p>
+            En juillet 2020, une équipe de généticiens de l’<strong>Université de Californie à San Diego (UCSD)</strong> menée par Tina Wang et Trey Ideker (publiée dans <em>Cell Systems</em>) a mesuré l’horloge épigénétique (méthylation de l’ADN) sur 104 Labradors Retrievers âgés de quelques semaines à 16 ans et l’a comparée à celle de 320 humains. Le résultat a bouleversé les anciennes tables : le vieillissement suit une <strong>courbe logarithmique</strong> extrêmement pentue au départ, qui s’aplatit ensuite.
+          </p>
+
+          <div class="formula-box">
+            Âge humain (référence UCSD — Labrador) = 16 × ln(âge du chien en années) + 31
+          </div>
+
+          <p>
+            Selon cette équation épigénétique, un chien de <strong>1 an</strong> présente déjà des marqueurs cellulaires équivalents à <strong>31 ans humains</strong>, un chien de <strong>2 ans</strong> atteint environ <strong>42 ans</strong>, puis le vieillissement ralentit nettement : à <strong>7 ans</strong>, il correspond à <strong>62 ans</strong> et à <strong>12 ans</strong> à <strong>71 ans</strong>.
+          </p>
+
+          <h2>Tableau comparatif réel : petit chien, grand chien, géant et chat</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Âge chronologique</th>
+                  <th class="td-num">Mythe ×7</th>
+                  <th class="td-num">Chien Petit (&lt;10 kg)</th>
+                  <th class="td-num">Chien Grand (UCSD)</th>
+                  <th class="td-num">Chien Géant (&gt;45 kg)</th>
+                  <th class="td-num">Chat (ISFM)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1 an</strong></td>
+                  <td class="td-num">7 ans</td>
+                  <td class="td-num">27 ans</td>
+                  <td class="td-num">31 ans</td>
+                  <td class="td-num">31 ans</td>
+                  <td class="td-num">15 ans</td>
+                </tr>
+                <tr>
+                  <td><strong>2 ans</strong></td>
+                  <td class="td-num">14 ans</td>
+                  <td class="td-num">37 ans</td>
+                  <td class="td-num">42 ans</td>
+                  <td class="td-num">42 ans</td>
+                  <td class="td-num">24 ans</td>
+                </tr>
+                <tr>
+                  <td><strong>5 ans</strong></td>
+                  <td class="td-num">35 ans</td>
+                  <td class="td-num">50 ans</td>
+                  <td class="td-num">57 ans</td>
+                  <td class="td-num">62 ans</td>
+                  <td class="td-num">36 ans</td>
+                </tr>
+                <tr>
+                  <td><strong>8 ans</strong></td>
+                  <td class="td-num">56 ans</td>
+                  <td class="td-num">58 ans</td>
+                  <td class="td-num">64 ans</td>
+                  <td class="td-num">75 ans</td>
+                  <td class="td-num">48 ans</td>
+                </tr>
+                <tr>
+                  <td><strong>10 ans</strong></td>
+                  <td class="td-num">70 ans</td>
+                  <td class="td-num">61 ans</td>
+                  <td class="td-num">68 ans</td>
+                  <td class="td-num">83 ans</td>
+                  <td class="td-num">56 ans</td>
+                </tr>
+                <tr>
+                  <td><strong>14 ans</strong></td>
+                  <td class="td-num">98 ans</td>
+                  <td class="td-num">68 ans</td>
+                  <td class="td-num">73 ans</td>
+                  <td class="td-num">95 ans</td>
+                  <td class="td-num">72 ans</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Que faire concrètement de cet âge biologique pour sa santé ?</h2>
+          <ul>
+            <li><strong>Ne tardez pas sur le bilan senior :</strong> un Saint-Bernard ou un Boxer de 7 ans est déjà l’équivalent d’un humain de 68 à 72 ans. Un bilan sanguin annuel (reins, foie, glycémie) permet de détecter une anomalie avant tout symptôme visible.</li>
+            <li><strong>Adaptez sa ration dès la bascule senior :</strong> le métabolisme ralentit mais les besoins en protéines digestibles restent essentiels pour préserver la masse musculaire (sarcopénie). Recalculez sa dose avec notre <a href="ration-croquettes.html">calculateur de ration croquettes</a>.</li>
+            <li><strong>Anticipez les dépenses des dernières années :</strong> les 3 dernières années concentrent souvent 40 % des frais de santé d’une vie. Simulez cet impact dans le <a href="budget-chien-chat-race.html">simulateur de budget par race</a>.</li>
+          </ul>
+
+          <div class="callout callout-caution">
+            <div class="callout-title">Note méthodologique transparente</div>
+            <p style="margin:0;">
+              Les équivalences biologiques donnent un repère fiable de maturité et de vieillissement cellulaire, mais l’état de santé réel d’un chien ou d’un chat dépend aussi de sa génétique, de son poids de forme et de sa prévention vétérinaire.
+            </p>
+          </div>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format in-article</div>
+          </aside>
+
+          <h2>Questions fréquentes sur l’âge réel des chiens et des chats</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="afaq-1">
+                <span>Pourquoi les chiens de petite taille vivent-ils beaucoup plus longtemps ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="afaq-1" class="faq-panel">
+                C’est un paradoxe propre aux canidés : au sein de l’espèce canine, les très grandes races grandissent à un rythme cellulaire extrême (taux élevé d’hormone de croissance IGF-1), ce qui accélère le stress oxydatif et l’apparition précoce de cancers ou de troubles cardiaques. Un Chihuahua atteint couramment 15–17 ans contre 8–10 ans pour un Saint-Bernard.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="afaq-2">
+                <span>La formule UCSD s’applique-t-elle aussi aux chiots de moins de 1 an ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="afaq-2" class="faq-panel">
+                Mathématiquement, le logarithme devient négatif en dessous de 0,14 an (~7 semaines). Notre calculateur raccorde donc proprement la période 0 à 6 mois aux jalons de développement du chiot (dentition, croissance, puberté) avant de suivre exactement la courbe logarithmique UCSD.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="afaq-3">
+                <span>Un chat d’intérieur vieillit-il différemment d’un chat qui sort ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="afaq-3" class="faq-panel">
+                Son horloge biologique reste identique, mais son espérance de vie statistique est nettement supérieure (15 à 18 ans en intérieur sécurisé contre 8 à 12 ans en extérieur libre, à cause des accidents de la route, bagarres et virus FIV/FeLV).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="afaq-4">
+                <span>Mon vétérinaire parle de « senior » à 7 ans alors que mon chien court encore partout, est-ce normal ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="afaq-4" class="faq-panel">
+                Oui ! Un grand chien de 7 ans a l’âge biologique d’un humain de 62 ans : il peut être très dynamique tout en commençant une arthrose silencieuse ou une baisse rénale débutante. Le terme senior sert surtout à déclencher la prévention précoce.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="afaq-5">
+                <span>Quel est le record de longévité connu chez le chien et le chat ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="afaq-5" class="faq-panel">
+                Chez le chat, Crème Puff a vécu 38 ans (équivalent à plus de 165 ans humains selon la courbe ISFM). Chez le chien, Bluey (Bouvier Australien) a atteint 29 ans et 5 mois. En pratique, atteindre 15 ans pour un chien moyen ou 18 ans pour un chat représente déjà un superbe parcours.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside aria-label="Outils complémentaires">
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">Autres calculateurs</div>
+            <ul class="sidebar-links">
+              <li><a href="budget-chien-chat-race.html">Budget vie entière (42 races) <span>→</span></a></li>
+              <li><a href="ration-croquettes.html">Ration croquettes par âge <span>→</span></a></li>
+              <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs Cagnotte <span>→</span></a></li>
+              <li><a href="aliments-toxiques.html">Aliments toxiques (64) <span>→</span></a></li>
+              <li><a href="checklist-adoption.html">Checklist Adoption <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name" style="color:var(--text-on-dark);margin-bottom:12px;">PattesClaires</div>
+          <p style="color:var(--text-on-dark-muted);font-size:0.92rem;">Outils gratuits et dossiers documentés sur le budget, la nutrition et la sécurité des chiens et des chats.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="budget-chien-chat-race.html">Budget par race (42 races)</a></li>
+            <li><a href="ration-croquettes.html">Ration de croquettes (g/j)</a></li>
+            <li><a href="age-humain-reel.html">Âge humain scientifique</a></li>
+            <li><a href="aliments-toxiques.html">Aliments toxiques &amp; chocolat</a></li>
+            <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs auto-assurance</a></li>
+            <li><a href="checklist-adoption.html">Checklist adoption 1er mois</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides Pratiques</div>
+          <ul class="footer-links">
+            <li><a href="../guides/budget-adoption-chien-chat-2026.html">Budget adoption 2026</a></li>
+            <li><a href="../guides/comprendre-ration-croquettes-chien.html">Comprendre la ration croquettes</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Informations Légales</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><button type="button" data-cookie-settings>Gérer mes cookies</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PattesClaires (pattesclaires.fr)</span>
+        <span>Outil pédagogique — ne remplace pas un avis vétérinaire.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/age-humain-reel.js"></script>
+</body>
+</html>

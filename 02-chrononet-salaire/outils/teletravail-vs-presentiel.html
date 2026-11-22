@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Économies du Télétravail (0 à 5 jours/semaine) — ChronoNet</title>
+  <meta name="description" content="Calculez l'économie nette annuelle de vos jours de télétravail, l'équivalent en augmentation de salaire brut, les heures de vie récupérées et le CO₂ évité.">
+  <link rel="canonical" href="https://chrononet.fr/outils/teletravail-vs-presentiel.html">
+  <meta property="og:title" content="Simulateur Économies du Télétravail vs Présentiel — ChronoNet">
+  <meta property="og:description" content="Combien rapporte vraiment 1, 2 ou 3 jours de télétravail par semaine ? Chiffrez carburant, repas, équivalent salaire brut et CO₂ évité.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrononet.fr/outils/teletravail-vs-presentiel.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulateur Économies du Télétravail — ChronoNet",
+      "url": "https://chrononet.fr/outils/teletravail-vs-presentiel.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "inLanguage": "fr-FR",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://chrononet.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Économies du Télétravail", "item": "https://chrononet.fr/outils/teletravail-vs-presentiel.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Pourquoi convertir l'économie du télétravail en équivalent augmentation de salaire brut ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Une économie de frais (carburant, déjeuner) est un gain net d'impôt et de cotisations. Pour obtenir 1 500 € nets supplémentaires via une augmentation de salaire classique, un salarié doit généralement obtenir environ 2 270 € bruts annuels de plus." }
+        },
+        {
+          "@type": "Question",
+          "name": "Le surcoût de chauffage et d'électricité à domicile est-il pris en compte ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Notre simulateur déduit par défaut 2,50 € par jour télétravaillé (paramétrable) afin de refléter honnêtement la consommation électrique et thermique supplémentaire en hiver." }
+        },
+        {
+          "@type": "Question",
+          "name": "Mon employeur peut-il verser une indemnité télétravail exonérée en 2026 ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, l'URSSAF autorise une allocation forfaitaire exonérée de cotisations et d'impôt jusqu'à environ 2,70 € par jour de télétravail (plafonnée mensuellement selon le nombre de jours hebdomadaires), ou davantage si un accord collectif le prévoit." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment est estimé le CO₂ évité en voiture ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le calcul multiplie les kilomètres évités sur 47 semaines par la consommation de votre véhicule et un facteur d'émission moyen de 2,4 kg de CO₂ par litre de carburant brûlé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Ai-je toujours droit aux titres-restaurant en télétravail ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. La jurisprudence et l'URSSAF confirment que les salariés en télétravail bénéficient exactement des mêmes droits aux titres-restaurant que les salariés présents sur site lorsque leurs horaires incluent une pause déjeuner." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>CHRONONET</span>
+        <span class="brand-tag">REF. CN-03</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="vrai-salaire-horaire.html" class="nav-link">Vrai Salaire</a>
+        <a href="prix-en-heures-de-vie.html" class="nav-link">Prix / Heures</a>
+        <a href="teletravail-vs-presentiel.html" class="nav-link active">Télétravail</a>
+        <a href="brut-en-net-2026.html" class="nav-link">Brut / Net</a>
+        <a href="rupture-conventionnelle.html" class="nav-link">Rupture</a>
+        <a href="tjm-freelance-vs-cdi.html" class="nav-link">TJM vs CDI</a>
+      </nav>
+      <div class="header-actions">
+        <a href="vrai-salaire-horaire.html" class="btn btn-primary btn-sm">Vrai salaire</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 instruments</div>
+      <a href="vrai-salaire-horaire.html"><span>01 — Vrai salaire horaire</span><span class="mono">→</span></a>
+      <a href="prix-en-heures-de-vie.html"><span>02 — Prix en heures de vie</span><span class="mono">→</span></a>
+      <a href="teletravail-vs-presentiel.html"><span>03 — Économies télétravail</span><span class="mono">→</span></a>
+      <a href="brut-en-net-2026.html"><span>04 — Brut ↔ Net 2026</span><span class="mono">→</span></a>
+      <a href="rupture-conventionnelle.html"><span>05 — Rupture conventionnelle</span><span class="mono">→</span></a>
+      <a href="tjm-freelance-vs-cdi.html"><span>06 — TJM Freelance vs CDI</span><span class="mono">→</span></a>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Simulateur Économies du Télétravail</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span>INSTRUMENT CN-03 • ARBITRAGE HYBRIDE</span></div>
+          <h1 style="margin-top:16px;">Simulateur Économies du Télétravail</h1>
+          <p class="hero-lead" style="margin-top:16px;">
+            Chiffrez précisément ce que représentent 1 à 5 jours de télétravail par semaine en pouvoir d'achat net, en équivalent augmentation de salaire brut, en temps libéré et en CO₂ évité.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <span>MODES : VOITURE OU TRANSPORTS</span>
+          <span>BASE : 47 SEMAINES OUVRÉES / AN</span>
+          <span>SURCOÛT ÉNERGIE DOMICILE INCLUS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workbench-section">
+      <div class="container">
+        <div class="workbench">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Paramètres trajet &amp; rythme</span>
+              <span class="mono" id="tt-jours-readout" style="font-size:13px; color:var(--accent); font-weight:600;">2 jours / semaine</span>
+            </div>
+
+            <div class="field">
+              <div class="field-head">
+                <label for="tt-jours" class="field-label">Jours de télétravail / semaine (0 à 5)</label>
+              </div>
+              <div class="input-wrap">
+                <input type="number" id="tt-jours" class="input-control mono-input input-has-unit" value="2" min="0" max="5" step="1">
+                <span class="input-unit">j/s</span>
+              </div>
+              <input type="range" id="tt-jours-range" class="range-control" min="0" max="5" step="1" value="2" aria-label="Curseur jours de télétravail">
+            </div>
+
+            <div class="field">
+              <div class="segmented" role="group" aria-label="Mode de transport principal">
+                <button type="button" class="segmented-btn active" data-tt-mode="voiture" aria-pressed="true">Voiture personnelle</button>
+                <button type="button" class="segmented-btn" data-tt-mode="transport" aria-pressed="false">Transports en commun</button>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head">
+                <label for="tt-distance" class="field-label">Distance domicile → travail (aller simple)</label>
+              </div>
+              <div class="input-wrap">
+                <input type="number" id="tt-distance" class="input-control mono-input input-has-unit" value="22" min="0" max="250" step="1">
+                <span class="input-unit">km</span>
+              </div>
+              <input type="range" id="tt-distance-range" class="range-control" min="0" max="100" step="1" value="22" aria-label="Curseur distance aller">
+            </div>
+
+            <div id="tt-box-voiture">
+              <div class="field field-row">
+                <div>
+                  <div class="field-head"><label for="tt-conso" class="field-label">Conso moyenne</label></div>
+                  <div class="input-wrap">
+                    <input type="number" id="tt-conso" class="input-control mono-input input-has-unit" value="6.2" min="0" max="20" step="0.1">
+                    <span class="input-unit">L/100</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="field-head"><label for="tt-prix-carburant" class="field-label">Carburant</label></div>
+                  <div class="input-wrap">
+                    <input type="number" id="tt-prix-carburant" class="input-control mono-input input-has-unit" value="1.80" min="0.5" max="4" step="0.05">
+                    <span class="input-unit">€/L</span>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field-head"><label for="tt-usure-km" class="field-label">Usure, entretien, pneus &amp; décote</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="tt-usure-km" class="input-control mono-input input-has-unit" value="0.12" min="0" max="0.6" step="0.01">
+                  <span class="input-unit">€/km</span>
+                </div>
+              </div>
+            </div>
+
+            <div id="tt-box-transport" style="display:none;">
+              <div class="field">
+                <div class="field-head"><label for="tt-abo-mensuel" class="field-label">Abonnement mensuel total (avant prise en charge 50 %)</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="tt-abo-mensuel" class="input-control mono-input input-has-unit" value="88.8" min="0" max="600" step="1">
+                  <span class="input-unit">€/m</span>
+                </div>
+                <div class="field-hint">En 100 % télétravail (5j/s), l'abonnement est économisé (50 % reste à charge salarié).</div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="tt-trajet-min" class="field-label">Temps trajet aller-retour / jour</label></div>
+              <div class="input-wrap">
+                <input type="number" id="tt-trajet-min" class="input-control mono-input input-has-unit" value="65" min="0" max="300" step="5">
+                <span class="input-unit">min</span>
+              </div>
+              <input type="range" id="tt-trajet-min-range" class="range-control" min="0" max="180" step="5" value="65" aria-label="Curseur temps de trajet">
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="tt-repas-site" class="field-label">Déjeuner sur site</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="tt-repas-site" class="input-control mono-input input-has-unit" value="11" min="0" max="40" step="0.5">
+                  <span class="input-unit">€/j</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="tt-repas-maison" class="field-label">Déjeuner maison</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="tt-repas-maison" class="input-control mono-input input-has-unit" value="4" min="0" max="25" step="0.5">
+                  <span class="input-unit">€/j</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="tt-energie-jour" class="field-label">Surcoût énergie domicile / jour télétravaillé</label></div>
+              <div class="input-wrap">
+                <input type="number" id="tt-energie-jour" class="input-control mono-input input-has-unit" value="2.5" min="0" max="15" step="0.5">
+                <span class="input-unit">€/j</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Bilan annuel du télétravail</span>
+              <span class="instrument-led">COMPARATIF 0–5 J</span>
+            </div>
+
+            <div class="kpi-hero-row">
+              <div class="kpi-box success-box">
+                <div class="kpi-label">Économie nette annuelle</div>
+                <div class="kpi-value" id="tt-out-eco-an">1 378 € / an</div>
+                <div class="kpi-sub" id="tt-out-eco-mois">115 € / mois nets</div>
+              </div>
+              <div class="kpi-box highlight">
+                <div class="kpi-label">Équivalent augmentation brut</div>
+                <div class="kpi-value" id="tt-out-aug-brut">+ 2 088 € brut/an</div>
+                <div class="kpi-sub">Avant cotisations &amp; impôt marginal</div>
+              </div>
+            </div>
+
+            <div class="kpi-mini-grid cols-3">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Heures de vie gagnées</div>
+                <div class="kpi-mini-value" id="tt-out-heures">102 h / an</div>
+                <div class="field-hint" id="tt-out-jours24" style="margin-top:4px;">4,2 jours de 24h</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">CO₂ évité / an</div>
+                <div class="kpi-mini-value" id="tt-out-co2">615 kg CO₂</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Distance évitée</div>
+                <div class="kpi-mini-value" id="tt-out-km">4 136 km / an</div>
+              </div>
+            </div>
+
+            <div class="chart-box">
+              <div class="chart-header">
+                <span class="chart-title">Économie nette annuelle selon le nombre de jours télétravaillés</span>
+              </div>
+              <div class="canvas-frame">
+                <canvas id="tt-chart" aria-label="Graphique barres économie nette annuelle de 0 à 5 jours de télétravail"></canvas>
+              </div>
+            </div>
+
+            <div class="callout" style="margin:0;">
+              <div class="callout-title">Argument de négociation</div>
+              <p style="margin:0; font-size:15px;">
+                Si une entreprise vous impose un retour en présentiel complet à salaire identique, elle réduit mécaniquement votre rémunération nette réelle du montant indiqué ci-dessus. Utilisez l'équivalent brut pour chiffrer la compensation salariale nécessaire.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+          <span class="ad-slot-note">Format adaptatif horizontal — Hauteur stabilisée anti-CLS</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container editorial-layout">
+        <article class="editorial-article">
+          <h2>Pourquoi le télétravail agit comme une augmentation de salaire exonérée d'impôt</h2>
+          <p>
+            Lorsqu'un employeur vous accorde <strong>2 000 € bruts d'augmentation annuelle</strong>, environ 23 % partent immédiatement en cotisations sociales salariales et 11 % à 30 % supplémentaires en impôt sur le revenu selon votre tranche marginale. Au final, il reste entre 1 080 € et 1 360 € disponibles sur votre compte bancaire. À l'inverse, chaque euro économisé en carburant, en entretien automobile ou en déjeuner sur site reste à <strong>100 % dans votre poche</strong>, sans alourdir votre revenu fiscal de référence.
+          </p>
+          <p>
+            À cette dimension financière s'ajoute une variable encore plus rare : le temps libéré. Deux journées de télétravail par semaine pour un trajet d'une heure aller-retour restituent près de <strong>100 heures de vie par an</strong>, soit l'équivalent de près de trois semaines de travail complètes ou quatre journées de 24 heures gagnées sur les embouteillages et les quais de gare.
+          </p>
+
+          <h2>Formules détaillées du simulateur</h2>
+          <div class="formula-box">
+            Jours télétravaillés / an = Jours TT par semaine × 47 semaines<br>
+            Économie transport (voiture) = (Distance A/R × Jours TT/an) × [(Conso/100 × Prix/L) + Usure/km]<br>
+            Économie repas = (Coût déjeuner site − Coût déjeuner domicile) × Jours TT/an<br>
+            Surcoût domicile = Énergie quotidienne × Jours TT/an<br><br>
+            <strong>Économie nette annuelle = Transport + Repas − Énergie</strong><br>
+            <strong>Équivalent augmentation brut = Économie nette / (1 − 0,34)</strong>
+          </div>
+
+          <h2>Exemples chiffrés : présentiel vs 2 jours vs 4 jours de télétravail</h2>
+          <p>
+            Prenons un salarié parcourant 25 km aller (50 km A/R, 65 min/jour) en voiture (6,2 L/100 km à 1,80 €/L + 0,12 €/km d'usure), avec un écart déjeuner de 7 €/jour et un surcoût énergie de 2,50 €/jour :
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Rythme télétravail</th>
+                  <th class="num">Km évités / an</th>
+                  <th class="num">Économie nette</th>
+                  <th class="num">Éq. brut / an</th>
+                  <th class="num">Temps libéré</th>
+                  <th class="num">CO₂ évité</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1 jour / semaine</td>
+                  <td class="num">2 350 km</td>
+                  <td class="num">756 €</td>
+                  <td class="num">+ 1 145 €</td>
+                  <td class="num">51 h</td>
+                  <td class="num">350 kg</td>
+                </tr>
+                <tr>
+                  <td><strong>2 jours / semaine</strong></td>
+                  <td class="num">4 700 km</td>
+                  <td class="num" style="color:var(--success); font-weight:600;">1 512 €</td>
+                  <td class="num">+ 2 291 €</td>
+                  <td class="num">102 h</td>
+                  <td class="num">699 kg</td>
+                </tr>
+                <tr>
+                  <td>3 jours / semaine</td>
+                  <td class="num">7 050 km</td>
+                  <td class="num">2 269 €</td>
+                  <td class="num">+ 3 438 €</td>
+                  <td class="num">153 h</td>
+                  <td class="num">1 049 kg</td>
+                </tr>
+                <tr>
+                  <td>4 jours / semaine</td>
+                  <td class="num">9 400 km</td>
+                  <td class="num" style="color:var(--success); font-weight:600;">3 025 €</td>
+                  <td class="num">+ 4 583 €</td>
+                  <td class="num">204 h</td>
+                  <td class="num">1 399 kg</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Attention aux angles morts du télétravail</h2>
+          <ul>
+            <li><strong>Abonnement transport fixe :</strong> si vous prenez le train ou le métro avec un pass mensuel (ex. Navigo), 2 ou 3 jours de télétravail ne réduisent pas la facture d'abonnement (contrairement à la voiture), mais libèrent tout de même des dizaines d'heures de trajet et réduisent vos dépenses de déjeuner.</li>
+            <li><strong>Frais réels aux impôts :</strong> si vous déduisez vos <a href="../guides/bareme-frais-kilometriques-2026.html" style="text-decoration:underline; color:var(--accent);">frais kilométriques au réel</a>, seuls les jours effectivement travaillés sur site peuvent être comptabilisés. Gardez un relevé mensuel exact de vos présences.</li>
+            <li><strong>Équipement ergonomique :</strong> pensez à amortir l'achat éventuel d'un bon siège et d'un écran externe, souvent cofinancés par les entreprises dans le cadre des chartes télétravail.</li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+            <span class="ad-slot-note">Placement éditorial non intrusif</span>
+          </aside>
+
+          <h2>Questions fréquentes sur les économies du télétravail</h2>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Pourquoi convertir l'économie du télétravail en équivalent augmentation de salaire brut ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Une dépense évitée est un gain net immédiat, sans cotisations salariales ni impôt sur le revenu. Pour obtenir le même pouvoir d'achat via un salaire brut, il faut diviser l'économie nette par environ 0,66 (soit environ +51 % en brut).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Le surcoût de chauffage et d'électricité à domicile est-il pris en compte ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Oui, le simulateur intègre un paramètre de surcoût énergétique quotidien (2,50 €/jour par défaut) directement déduit de vos économies brutes.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Mon employeur peut-il verser une indemnité télétravail exonérée en 2026 ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Oui, dans le cadre des barèmes URSSAF, une indemnité forfaitaire journalière ou mensuelle peut être versée en franchise de cotisations sociales et d'impôt sur le revenu pour couvrir vos frais de connexion et d'énergie.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment est estimé le CO₂ évité en voiture ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Nous multiplions les litres de carburant non consommés par 2,4 kg de CO₂ par litre (moyenne essence/diesel en France). Pour un véhicule électrique, mettez la consommation à 0 ou ajustez selon votre mix énergétique.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Ai-je toujours droit aux titres-restaurant en télétravail ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Oui. Selon le principe d'égalité de traitement confirmé par la Cour de cassation et l'URSSAF, un télétravailleur a droit aux mêmes titres-restaurant qu'un salarié sur site dès lors que sa journée comprend une pause repas.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <div class="panel-title">Outils complémentaires</div>
+            <ul class="sidebar-list">
+              <li><a href="vrai-salaire-horaire.html"><span>Vrai Salaire Horaire (+ Carte PNG)</span><span class="mono">→</span></a></li>
+              <li><a href="brut-en-net-2026.html"><span>Convertisseur Brut ↔ Net 2026</span><span class="mono">→</span></a></li>
+              <li><a href="prix-en-heures-de-vie.html"><span>Convertisseur Prix en Heures de Vie</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/bareme-frais-kilometriques-2026.html"><span>Barème kilométrique 2026</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/negocier-salaire-2026.html"><span>Guide : négocier son salaire</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand"><span class="eyebrow-dot" aria-hidden="true"></span><span>CHRONONET</span></a>
+          <p class="footer-desc">Instruments indépendants de mesure du vrai salaire horaire, du temps de vie et de la rémunération en France.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="vrai-salaire-horaire.html">Vrai salaire horaire</a></li>
+            <li><a href="prix-en-heures-de-vie.html">Prix en heures de vie</a></li>
+            <li><a href="teletravail-vs-presentiel.html">Économies télétravail</a></li>
+            <li><a href="brut-en-net-2026.html">Brut en Net 2026</a></li>
+            <li><a href="rupture-conventionnelle.html">Rupture conventionnelle</a></li>
+            <li><a href="tjm-freelance-vs-cdi.html">TJM Freelance vs CDI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides</div>
+          <ul class="footer-links">
+            <li><a href="../guides/negocier-salaire-2026.html">Négocier son salaire 2026</a></li>
+            <li><a href="../guides/bareme-frais-kilometriques-2026.html">Barème kilométrique 2026</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Cadre légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ChronoNet (chrononet.fr) — Simulations indicatives, calculs 100 % locaux.</span>
+        <button type="button" class="footer-cookie-btn" data-open-cookies>Gérer les cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/teletravail-vs-presentiel.js"></script>
+</body>
+</html>

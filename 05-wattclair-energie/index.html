@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr" data-root-prefix="">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WattClair — Simulateurs Énergie, EDF Tempo &amp; Solaire Balcon Plug &amp; Play</title>
+  <meta name="description" content="Calculez gratuitement la rentabilité d'un kit solaire balcon, comparez EDF Base, HC/HP et Tempo, mesurez le coût réel de vos appareils et estimez votre facture DPE.">
+  <link rel="canonical" href="https://wattclair.fr/">
+  <meta property="og:title" content="WattClair — Simulateurs Énergie, EDF Tempo &amp; Solaire Balcon">
+  <meta property="og:description" content="6 calculateurs transparents sans inscription pour optimiser votre facture d'électricité et votre autoconsommation en France.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wattclair.fr/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "WattClair",
+    "url": "https://wattclair.fr/",
+    "inLanguage": "fr-FR",
+    "description": "Simulateurs indépendants d'économie d'énergie, tarifs EDF Tempo et kits solaires balcon Plug & Play pour les particuliers en France."
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="WattClair — Accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/>
+          </svg>
+        </span>
+        <span>WattClair<span class="brand-dot">.</span></span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="outils/solaire-balcon-plug-play.html" class="nav-link">Solaire balcon</a>
+        <a href="outils/comparateur-tempo-hc-base.html" class="nav-link">EDF Tempo</a>
+        <a href="outils/cout-appareil-edf-tempo.html" class="nav-link">Coût appareil</a>
+        <a href="outils/calculateur-chauffage-piece.html" class="nav-link">Chauffage</a>
+        <a href="outils/simulateur-dpe-facture.html" class="nav-link">DPE</a>
+        <a href="guides/guide-edf-tempo-2026.html" class="nav-link">Guides</a>
+        <a href="outils/solaire-balcon-plug-play.html" class="nav-cta">Simuler mon kit</a>
+      </nav>
+
+      <button type="button" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Menu mobile">
+    <p class="mobile-nav-group">Les 6 simulateurs</p>
+    <ul class="mobile-nav-list">
+      <li><a href="outils/solaire-balcon-plug-play.html">Kit Solaire Balcon Plug &amp; Play</a></li>
+      <li><a href="outils/cout-appareil-edf-tempo.html">Coût réel d'un appareil (36 profils)</a></li>
+      <li><a href="outils/comparateur-tempo-hc-base.html">Comparateur Base vs HC/HP vs Tempo</a></li>
+      <li><a href="outils/calculateur-chauffage-piece.html">Dimensionnement chauffage par pièce</a></li>
+      <li><a href="outils/detecteur-veilles-fantomes.html">Audit consommation fantôme (veilles)</a></li>
+      <li><a href="outils/simulateur-dpe-facture.html">Estimateur facture par classe DPE</a></li>
+    </ul>
+    <p class="mobile-nav-group">Guides &amp; Transparence</p>
+    <ul class="mobile-nav-list">
+      <li><a href="guides/guide-edf-tempo-2026.html">Guide complet EDF Tempo 2026</a></li>
+      <li><a href="guides/reglementation-solaire-balcon-plug-play.html">Réglementation solaire balcon Plug &amp; Play</a></li>
+      <li><a href="a-propos.html">À propos &amp; méthodologie</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenu-principal">
+    <!-- Hero asymétrique 7 / 5 -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Outils indépendants · Barèmes TRVE France</span>
+          <h1>Chiffrez chaque kilowatt-heure avant de décider.</h1>
+          <p class="hero-lead">
+            Solaire de balcon Plug &amp; Play, option EDF Tempo, coût réel d'un sèche-linge en Jour Rouge ou rénovation DPE : nos six calculateurs s'appuient sur les barèmes officiels et les données d'irradiation des 96 départements français, sans publicité déguisée ni collecte de données personnelles.
+          </p>
+          <div class="hero-actions">
+            <a href="outils/solaire-balcon-plug-play.html" class="btn btn-primary">Calculer mon kit solaire balcon</a>
+            <a href="outils/comparateur-tempo-hc-base.html" class="btn btn-secondary">Comparer Base, HC/HP &amp; Tempo</a>
+          </div>
+          <div class="hero-meta-strip">
+            <div class="hero-meta-item">
+              <strong>96 dép.</strong>
+              <span>Irradiation solaire PVGIS intégrée</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>0,2016 €</strong>
+              <span>Tarif Bleu Base TTC de référence</span>
+            </div>
+            <div class="hero-meta-item">
+              <strong>100 % local</strong>
+              <span>Calculs instantanés dans votre navigateur</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aperçu interactif immédiat à droite -->
+        <aside class="card card-lg" aria-label="Aperçu rapide de votre potentiel d'économies">
+          <div class="panel-title">
+            <h2>Diagnostic express</h2>
+            <span class="tempo-badge tempo-blue"><span class="tempo-dot"></span>TRVE 2026</span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="hero-kwh" class="form-label">Votre consommation électrique annuelle</label>
+              <span id="hero-kwh-val" class="form-value-badge">7 500 kWh / an</span>
+            </div>
+            <input type="range" id="hero-kwh" class="range-slider" min="2000" max="16000" step="250" value="7500">
+            <div class="range-scale">
+              <span>2 000 kWh (studio)</span>
+              <span>7 500 kWh (maison)</span>
+              <span>16 000 kWh</span>
+            </div>
+          </div>
+
+          <div class="kpi-grid-2">
+            <div class="kpi-box">
+              <div class="kpi-box-label">Facture Tarif Base (9 kVA)</div>
+              <div id="hero-out-base" class="kpi-box-value">1 719 €</div>
+              <div class="kpi-box-note">Abonnement + kWh TTC</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-box-label">Estimation EDF Tempo</div>
+              <div id="hero-out-tempo" class="kpi-box-value">1 478 €</div>
+              <div class="kpi-box-note">40 % HC · effacement modéré</div>
+            </div>
+          </div>
+
+          <div class="verdict-box is-positive" style="margin-bottom: 16px;">
+            <div class="verdict-title">Gains cumulables estimés</div>
+            <p style="font-size: 0.9375rem; margin: 0;">
+              Passage à EDF Tempo : <strong id="hero-out-save" class="mono">−241 € / an</strong><br>
+              Ajout d'un kit solaire 800 Wc : <strong id="hero-out-solar" class="mono">−145 € / an</strong>
+            </p>
+          </div>
+
+          <a href="outils/comparateur-tempo-hc-base.html" class="btn btn-secondary" style="width: 100%;">Affiner avec mon chauffage &amp; mes heures creuses</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Grille des 6 outils -->
+    <section class="section" aria-labelledby="titre-outils">
+      <div class="container">
+        <div class="page-header-grid" style="margin-bottom: 32px;">
+          <div>
+            <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Boîte à outils complète</span>
+            <h2 id="titre-outils">Six simulateurs conçus pour décider sur pièces</h2>
+          </div>
+          <p style="color: var(--text-muted); margin: 0;">
+            Chaque outil détaille ses formules, ses hypothèses tarifaires TTC et ses cas concrets chiffrés.
+          </p>
+        </div>
+
+        <div class="tools-grid">
+          <a href="outils/solaire-balcon-plug-play.html" class="tool-card">
+            <div>
+              <div class="tool-card-top">
+                <span class="tool-index">01</span>
+                <span class="tool-tag">96 DÉPARTEMENTS</span>
+              </div>
+              <h3>Rentabilité Kit Solaire Balcon Plug &amp; Play</h3>
+              <p>Production mois par mois (400 W à 1 600 W), inclinaison garde-corps 90° ou 30°, ombrage, amortissement exact et gain net sur 20 ans.</p>
+            </div>
+            <div class="tool-card-footer">
+              <span>Ouvrir le simulateur</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="outils/cout-appareil-edf-tempo.html" class="tool-card">
+            <div>
+              <div class="tool-card-top">
+                <span class="tool-index">02</span>
+                <span class="tool-tag">36 APPAREILS</span>
+              </div>
+              <h3>Coût réel d'un appareil (Base vs HC/HP vs Tempo)</h3>
+              <p>Comparez en un clic un cycle de sèche-linge, four, ballon ou recharge voiture entre Tarif Base, Heures Creuses et Jour Rouge HP.</p>
+            </div>
+            <div class="tool-card-footer">
+              <span>Comparer les appareils</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="outils/comparateur-tempo-hc-base.html" class="tool-card">
+            <div>
+              <div class="tool-card-top">
+                <span class="tool-index">03</span>
+                <span class="tool-tag">EDF TRVE 2026</span>
+              </div>
+              <h3>Comparateur Tarif Base vs HC/HP vs EDF Tempo</h3>
+              <p>Modélisation hivernale réaliste selon votre chauffage (radiateurs, PAC, gaz/bois), votre part d'heures creuses et votre effacement les 22 jours rouges.</p>
+            </div>
+            <div class="tool-card-footer">
+              <span>Comparer les 3 offres</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="outils/calculateur-chauffage-piece.html" class="tool-card">
+            <div>
+              <div class="tool-card-top">
+                <span class="tool-index">04</span>
+                <span class="tool-tag">ZONES H1 / H2 / H3</span>
+              </div>
+              <h3>Dimensionnement &amp; coût chauffage par pièce</h3>
+              <p>Calculez la puissance en Watts nécessaire selon le volume et l'isolation, le coût d'hiver mensuel et l'économie exacte de −1 °C (−7 %).</p>
+            </div>
+            <div class="tool-card-footer">
+              <span>Dimensionner ma pièce</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="outils/detecteur-veilles-fantomes.html" class="tool-card">
+            <div>
+              <div class="tool-card-top">
+                <span class="tool-index">05</span>
+                <span class="tool-tag">EXPORT PNG</span>
+              </div>
+              <h3>Audit « Consommation Fantôme » (Veilles)</h3>
+              <p>Recensez box fibre, décodeur TV, console et chargeurs en veille pour chiffrer les kWh gaspillés sur 1 et 10 ans et télécharger votre carte bilan.</p>
+            </div>
+            <div class="tool-card-footer">
+              <span>Lancer l'audit veilles</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+
+          <a href="outils/simulateur-dpe-facture.html" class="tool-card">
+            <div>
+              <div class="tool-card-top">
+                <span class="tool-index">06</span>
+                <span class="tool-tag">CLASSES A À G</span>
+              </div>
+              <h3>Estimateur facture par classe DPE (A à G)</h3>
+              <p>Traduisez une étiquette DPE en facture annuelle réelle (électricité, PAC, gaz, fioul, bois) et simulez le gain sur 10 ans après rénovation.</p>
+            </div>
+            <div class="tool-card-footer">
+              <span>Estimer ma facture DPE</span>
+              <span aria-hidden="true">&rarr;</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides piliers -->
+    <section class="section section-alt" aria-labelledby="titre-guides">
+      <div class="container">
+        <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Dossiers de fond</span>
+        <h2 id="titre-guides" style="margin-bottom: 32px;">Nos guides pratiques vérifiés pour 2026</h2>
+
+        <div class="guides-grid">
+          <article class="guide-card">
+            <div>
+              <span class="tempo-badge tempo-red" style="margin-bottom: 16px;"><span class="tempo-dot"></span>Tarification EDF</span>
+              <h3><a href="guides/guide-edf-tempo-2026.html">Guide complet EDF Tempo 2026 : grille tarifaire, calendrier des 22 jours rouges et stratégies d'effacement</a></h3>
+              <p style="color: var(--text-muted); margin-top: 8px;">
+                Tout comprendre au mécanisme Tempo : les 6 prix du kWh TTC, les plages horaires 6h–22h / 22h–6h, comment éviter le piège des pointes rouges à 0,6586 €/kWh et pour quels logements l'offre est imbattable.
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border);">
+              <span class="mono" style="font-size: 0.8125rem; color: var(--text-subtle);">Temps de lecture : 7 min</span>
+              <a href="guides/guide-edf-tempo-2026.html" style="font-weight: 600;">Lire le guide &rarr;</a>
+            </div>
+          </article>
+
+          <article class="guide-card">
+            <div>
+              <span class="tempo-badge badge-positive" style="margin-bottom: 16px;"><span class="tempo-dot" style="background: var(--positive);"></span>Autoconsommation</span>
+              <h3><a href="guides/reglementation-solaire-balcon-plug-play.html">Réglementation kit solaire balcon Plug &amp; Play en France : Enedis CACSI, copropriété, norme NF C 15-100 et assurance</a></h3>
+              <p style="color: var(--text-muted); margin-top: 8px;">
+                Démarches exactes avant de brancher votre station solaire sur une prise 230 V : convention CACSI gratuite, règle des 1,80 m en urbanisme, accord de syndic, plafond 800 W sur prise domestique et déclaration assureur.
+              </p>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border);">
+              <span class="mono" style="font-size: 0.8125rem; color: var(--text-subtle);">Temps de lecture : 8 min</span>
+              <a href="guides/reglementation-solaire-balcon-plug-play.html" style="font-weight: 600;">Lire le guide &rarr;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Méthodologie & Transparence (Asymétrique 7 / 5) -->
+    <section class="section" aria-labelledby="titre-methode">
+      <div class="container editorial-layout">
+        <div class="prose">
+          <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Méthodologie ouverte</span>
+          <h2 id="titre-methode">Pourquoi nos estimations s'approchent de votre facture réelle</h2>
+          <p>
+            La majorité des simulateurs d'énergie en ligne poursuivent un objectif commercial — vendre un kit photovoltaïque surdimensionné ou orienter vers un fournisseur partenaire — en masquant des paramètres décisifs comme l'inclinaison verticale d'un balcon, la pondération hivernale des jours rouges EDF Tempo ou le facteur d'énergie primaire du DPE.
+          </p>
+          <p>
+            Chez <strong>WattClair</strong>, chaque formule est explicitée sous le calculateur afin que vous puissiez vérifier les ordres de grandeur sur votre propre compteur Linky ou sur l'espace client Enedis. Nos modèles s'appuient sur trois socles publics vérifiables :
+          </p>
+          <ul>
+            <li><strong>Les tarifs réglementés de vente (TRVE) publiés par la CRE</strong> : option Base à 0,2016 €/kWh TTC, Heures Creuses à 0,1696 €/kWh, Heures Pleines à 0,2146 €/kWh, et les six plages officielles EDF Tempo jusqu'à 0,6586 €/kWh en Jour Rouge HP.</li>
+            <li><strong>Les données d'irradiation solaire européenne PVGIS (JRC)</strong> ramenées aux 96 départements métropolitains avec un ratio de performance réaliste de 0,80 (pertes micro-onduleur, câbles et échauffement incluses).</li>
+            <li><strong>Les références thermiques ADEME</strong> : règle du −7 % par degré abaissé, coefficients de conversion énergie primaire / finale du DPE et puissances de veille mesurées sur équipements domestiques récents.</li>
+          </ul>
+        </div>
+
+        <aside class="card card-alt">
+          <h3 style="margin-bottom: 16px;">Barème TRVE de référence utilisé</h3>
+          <div class="table-wrap" style="margin: 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Option EDF</th>
+                  <th class="num">€/kWh TTC</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tarif Bleu Base</td>
+                  <td class="num">0,2016 €</td>
+                </tr>
+                <tr>
+                  <td>HC / HP — Creuses</td>
+                  <td class="num">0,1696 €</td>
+                </tr>
+                <tr>
+                  <td>HC / HP — Pleines</td>
+                  <td class="num">0,2146 €</td>
+                </tr>
+                <tr class="row-positive">
+                  <td>Tempo Bleu HC</td>
+                  <td class="num">0,1288 €</td>
+                </tr>
+                <tr>
+                  <td>Tempo Bleu HP</td>
+                  <td class="num">0,1552 €</td>
+                </tr>
+                <tr>
+                  <td>Tempo Blanc HP</td>
+                  <td class="num">0,1792 €</td>
+                </tr>
+                <tr class="row-danger">
+                  <td>Tempo Rouge HP</td>
+                  <td class="num"><strong>0,6586 €</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 16px;">
+            Indépendant de tout fournisseur d'énergie et de tout fabricant de panneaux solaires. <a href="a-propos.html">Consulter notre charte éditoriale</a>.
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="footer-brand">
+            <span class="brand-mark" aria-hidden="true" style="background: var(--accent);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square">
+                <path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/>
+              </svg>
+            </span>
+            <span>WattClair<span class="brand-dot">.</span></span>
+          </a>
+          <p class="footer-desc">
+            Simulateurs indépendants et transparents pour comprendre votre facture d'électricité, optimiser EDF Tempo et évaluer l'autoconsommation solaire en France.
+          </p>
+        </div>
+
+        <div>
+          <p class="footer-heading">Simulateurs</p>
+          <ul class="footer-links">
+            <li><a href="outils/solaire-balcon-plug-play.html">Solaire balcon Plug &amp; Play</a></li>
+            <li><a href="outils/cout-appareil-edf-tempo.html">Coût d'un appareil (Tempo)</a></li>
+            <li><a href="outils/comparateur-tempo-hc-base.html">Base vs HC/HP vs Tempo</a></li>
+            <li><a href="outils/calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+            <li><a href="outils/detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+            <li><a href="outils/simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">Guides pratiques</p>
+          <ul class="footer-links">
+            <li><a href="guides/guide-edf-tempo-2026.html">Guide complet EDF Tempo 2026</a></li>
+            <li><a href="guides/reglementation-solaire-balcon-plug-play.html">Réglementation solaire balcon</a></li>
+            <li><a href="a-propos.html">Méthodologie &amp; sources</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <p class="footer-heading">Informations légales</p>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">À propos de WattClair</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="contact.html">Contact &amp; signalement</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 WattClair (wattclair.fr) — Outils informatifs indépendants d'EDF et d'Enedis.</span>
+        <button type="button" data-open-consent>Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/tools/home-preview.js"></script>
+</body>
+</html>

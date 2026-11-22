@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr" data-root-prefix="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audit « Consommation Fantôme » : Calculateur Appareils en Veille + Bilan PNG — WattClair</title>
+  <meta name="description" content="Auditez vos appareils en veille (box fibre, décodeur TV, TV OLED, PS5, PC, chargeurs), chiffrez les kWh gaspillés sur 1 an et 10 ans et téléchargez votre carte bilan PNG.">
+  <link rel="canonical" href="https://wattclair.fr/outils/detecteur-veilles-fantomes.html">
+  <meta property="og:title" content="Audit Consommation Fantôme (Appareils en Veille) — WattClair">
+  <meta property="og:description" content="Calculez combien vous coûtent vos appareils en veille sur 1 an et 10 ans et exportez votre carte bilan PNG.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wattclair.fr/outils/detecteur-veilles-fantomes.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://wattclair.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Audit consommation fantôme (veilles)", "item": "https://wattclair.fr/outils/detecteur-veilles-fantomes.html" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Audit Consommation Fantôme et Appareils en Veille",
+        "url": "https://wattclair.fr/outils/detecteur-veilles-fantomes.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Combien coûte la consommation fantôme moyenne d'un foyer en France ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Selon l'ADEME, les appareils laissés en veille représentent 300 à 550 kWh par an dans un foyer français équipé (soit environ 65 à 115 € par an au Tarif Bleu Base, ou près de 1 000 € perdus sur 10 ans)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il couper sa box internet la nuit ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Couper la box fibre 8 heures par nuit fait économiser environ 10 à 12 €/an. En revanche, couper complètement le décodeur TV (souvent 10 à 14 W en veille réseau) ou ne l'allumer que devant la télé génère une économie équivalente sans perturber les mises à jour ou la téléphonie fixe." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi une console PS5 ou Xbox consomme-t-elle autant en veille ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En mode « démarrage rapide » ou « repos avec réseau actif », une console reste alimentée à hauteur de 10 à 15 W en continu (environ 20 € par an). Passer dans les paramètres en mode économie d'énergie fait tomber sa veille sous 0,5 W." }
+          },
+          {
+            "@type": "Question",
+            "name": "Les chargeurs de téléphone branchés à vide consomment-ils vraiment ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un chargeur récent seul consomme peu (0,1 à 0,5 W à vide, jusqu'à 1,5 W pour certains blocs PC anciens). L'enjeu est surtout le cumul sur un foyer comportant 4 à 6 chargeurs branchés toute l'année, et la réduction du risque d'échauffement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment mesurer le talon électrique exact de mon logement ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Relevez la puissance apparente en VA directement sur l'écran de votre compteur Linky la nuit, lorsque le chauffe-eau, le chauffage et le lave-linge sont éteints : ce chiffre correspond à votre consommation fantôme permanente (réfrigérateur + box + veilles)." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="WattClair — Accueil">
+        <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg></span>
+        <span>WattClair<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="solaire-balcon-plug-play.html" class="nav-link">Solaire balcon</a>
+        <a href="comparateur-tempo-hc-base.html" class="nav-link">EDF Tempo</a>
+        <a href="cout-appareil-edf-tempo.html" class="nav-link">Coût appareil</a>
+        <a href="calculateur-chauffage-piece.html" class="nav-link">Chauffage</a>
+        <a href="simulateur-dpe-facture.html" class="nav-link">DPE</a>
+        <a href="../guides/guide-edf-tempo-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Menu mobile">
+    <p class="mobile-nav-group">Les 6 simulateurs</p>
+    <ul class="mobile-nav-list">
+      <li><a href="solaire-balcon-plug-play.html">Kit Solaire Balcon Plug &amp; Play</a></li>
+      <li><a href="cout-appareil-edf-tempo.html">Coût réel d'un appareil</a></li>
+      <li><a href="comparateur-tempo-hc-base.html">Comparateur Base vs HC/HP vs Tempo</a></li>
+      <li><a href="calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+      <li><a href="detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+      <li><a href="simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenu-principal" class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Audit « Consommation Fantôme » (Appareils en Veille)</li>
+      </ol>
+    </nav>
+
+    <header class="page-header">
+      <div class="page-header-grid">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Outil 05 · Chasse au gaspillage + Export PNG</span>
+          <h1>Audit « Consommation Fantôme » (Appareils en Veille)</h1>
+          <p class="page-intro">
+            Indiquez le nombre d'équipements restant en veille dans votre logement : calculez les kilowattheures perdus chaque année, la facture cumulée sur 10 ans et générez votre carte bilan téléchargeable en PNG.
+          </p>
+        </div>
+        <div class="tariff-stamp">
+          <span class="tariff-stamp-label">Repère ADEME France</span>
+          <strong>Jusqu'à 10 % de la facture hors chauffage</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="tool-workspace-wide" aria-label="Audit des appareils en veille">
+      <!-- Colonne gauche : liste interactive -->
+      <div class="card">
+        <div class="panel-title">
+          <h2>Votre inventaire d'appareils en veille</h2>
+          <div style="display: flex; gap: 8px;">
+            <button type="button" id="veille-preset-avg" class="btn btn-ghost">Foyer moyen</button>
+            <button type="button" id="veille-reset" class="btn btn-ghost">Zéro</button>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 16px;">
+          <label for="veille-tariff" class="form-label">Votre prix du kWh électrique (€ TTC)</label>
+          <input type="number" id="veille-tariff" class="input input-mono" min="0.08" max="0.80" step="0.001" value="0.2016">
+        </div>
+
+        <div id="veille-list" class="standby-list"></div>
+      </div>
+
+      <!-- Colonne droite : résultats + carte bilan PNG -->
+      <div>
+        <div class="kpi-hero">
+          <div class="kpi-hero-label">Coût annuel de vos veilles fantômes</div>
+          <div id="veille-out-cost1" class="kpi-hero-number is-accent">119 €</div>
+          <div id="veille-out-sub" class="kpi-hero-sub">15 appareils en veille · Puissance continue : 73,5 W</div>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="kpi-box">
+            <div class="kpi-box-label">Énergie gaspillée / an</div>
+            <div id="veille-out-kwh" class="kpi-box-value">591 kWh</div>
+            <div id="veille-out-kwh-note" class="kpi-box-note">514 cycles lave-vaisselle</div>
+          </div>
+          <div class="kpi-box" style="border-top: 3px solid var(--tempo-red);">
+            <div class="kpi-box-label">Perte sur 10 ans</div>
+            <div id="veille-out-cost10" class="kpi-box-value" style="color: var(--tempo-red);">1 364 €</div>
+            <div id="veille-out-cost10-note" class="kpi-box-note">avec +3 %/an tarif</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-box-label">Émissions évitables</div>
+            <div id="veille-out-co2" class="kpi-box-value">30,7 kg CO₂</div>
+            <div id="veille-out-co2-note" class="kpi-box-note">mix électrique FR</div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 style="font-size: 1rem;">Aperçu de votre carte bilan téléchargeable</h3>
+            <button type="button" id="veille-download-png" class="btn btn-primary">Télécharger ma carte bilan (PNG)</button>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="veille-card-canvas" width="800" height="440" aria-label="Carte bilan de votre consommation fantôme téléchargeable au format PNG"></canvas>
+          </div>
+          <p class="form-hint" style="margin-top: 12px;">
+            Cette image est générée instantanément dans votre navigateur : aucune donnée n'est envoyée sur un serveur.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="ad-slot" aria-label="Espace publicitaire">
+      <span class="ad-slot-label">Publicité</span>
+      <span class="ad-slot-note">Emplacement réservé AdSense — Format adaptatif horizontal</span>
+    </aside>
+
+    <section class="section-tight editorial-layout">
+      <article class="prose">
+        <h2>Qu'est-ce que la « consommation fantôme » ou bruit de fond ?</h2>
+        <p>
+          La consommation fantôme désigne l'ensemble de l'électricité appelée en permanence par des équipements éteints en apparence, mais maintenus en veille active (veille réseau Wi-Fi, démarrage instantané, afficheurs numériques, transformateurs alimentés à vide). Chaque appareil pris isolément ne consomme que quelques watts — une somme presque imperceptible sur une journée —, mais multipliée par <strong>8 000 à 8 760 heures par an</strong>, la facture finit par peser lourd.
+        </p>
+
+        <div class="formula-box">
+          kWh gaspillés / an = &Sigma; [ Quantité &times; Puissance veille (W) &times; Heures de veille / jour &times; 365 ] / 1 000<br>
+          Règle mémotechnique : 1 Watt branché 24h/24 coûte environ 1,77 € / an au Tarif Base (8,76 kWh/an).
+        </div>
+
+        <h2>Classement des plus gros postes cachés d'un foyer équipé</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Équipement en veille</th>
+                <th class="num">Puissance type</th>
+                <th class="num">kWh / an</th>
+                <th class="num">Coût / an (Base)</th>
+                <th class="num">Coût sur 10 ans</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-danger">
+                <td>Box Fibre + Décodeur TV (24h/24)</td>
+                <td class="num">18 W</td>
+                <td class="num">158 kWh</td>
+                <td class="num">31,8 €</td>
+                <td class="num">364 €</td>
+              </tr>
+              <tr>
+                <td>Serveur NAS domestique (24h/24)</td>
+                <td class="num">14 W</td>
+                <td class="num">123 kWh</td>
+                <td class="num">24,7 €</td>
+                <td class="num">283 €</td>
+              </tr>
+              <tr>
+                <td>Console PS5 / Xbox (démarrage rapide)</td>
+                <td class="num">11 W</td>
+                <td class="num">88 kWh</td>
+                <td class="num">17,8 €</td>
+                <td class="num">204 €</td>
+              </tr>
+              <tr>
+                <td>PC fixe + 2 écrans en veille</td>
+                <td class="num">9 W</td>
+                <td class="num">59 kWh</td>
+                <td class="num">11,9 €</td>
+                <td class="num">136 €</td>
+              </tr>
+              <tr>
+                <td>Répéteur Wi-Fi / boîtier CPL</td>
+                <td class="num">5,5 W</td>
+                <td class="num">48 kWh</td>
+                <td class="num">9,7 €</td>
+                <td class="num">111 €</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Trois actions à 20 € pour supprimer 65 % des veilles sans inconfort</h2>
+        <ul>
+          <li><strong>Installer deux multiprises à interrupteur (ou maître-esclave) :</strong> l'une derrière le meuble TV (téléviseur, décodeur TV, barre de son, console), l'autre sous le bureau informatique (tour, écrans, imprimante, enceintes). Coût d'achat : 15 à 25 €, amorti en moins de six mois.</li>
+          <li><strong>Désactiver les modes « Démarrage rapide » :</strong> sur TV connectées (OLED/QLED), PS5 et Xbox, ce réglage maintient le processeur et le Wi-Fi actifs 24h/24 pour gagner 5 secondes à l'allumage. Le mode éco divise la veille par 15.</li>
+          <li><strong>Dimensionner un petit kit solaire balcon sur votre bruit de fond :</strong> les veilles incompressibles (box fibre, VMC, réfrigérateur) forment votre talon permanent, idéal pour être effacé la journée par un <a href="solaire-balcon-plug-play.html">kit solaire 400 Wc ou 800 Wc</a>.</li>
+        </ul>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <span class="ad-slot-note">Emplacement réservé AdSense — In-article</span>
+        </aside>
+
+        <h2>Questions fréquentes sur les consommations en veille</h2>
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-trigger" aria-expanded="true">
+              <span>Débrancher un téléviseur OLED tous les soirs risque-t-il de l'abîmer ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Point de vigilance important : les téléviseurs OLED lancent automatiquement un cycle court de maintenance des pixels (5 à 10 minutes) juste après l'extinction par télécommande. Attendez une dizaine de minutes après l'arrêt avant de couper la multiprise, ou désactivez uniquement le « démarrage rapide » dans les menus du téléviseur.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Une prise connectée Wi-Fi consomme-t-elle plus qu'elle ne fait économiser ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Une prise connectée Wi-Fi consomme environ 0,8 à 1,2 W en permanence (soit ~2 €/an). Elle est donc très rentable pour couper un bloc TV + décodeur + console (25 à 35 W), mais inutile sur un simple chargeur de téléphone.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>La directive européenne Écoconception n'a-t-elle pas déjà limité les veilles à 0,5 W ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              La réglementation européenne impose 0,5 W en veille simple, mais accorde des plafonds beaucoup plus élevés (jusqu'à 8 à 12 W) dès qu'un appareil maintient une connexion réseau (« veille réseau » : box, décodeurs, enceintes vocales, imprimantes Wi-Fi, consoles).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Comment vérifier la valeur réelle de mon propre bruit de fond ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Appuyez sur la touche « + » de votre compteur Linky jusqu'à l'écran « PUISS APP » (en VA) tard le soir, une fois tous les gros appareils coupés. Vous lirez instantanément la puissance totale absorbée en continu par votre logement.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>L'impact des veilles change-t-il si je suis chez EDF Tempo ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Oui : comme les veilles tournent 24h/24, elles subissent aussi les 16 heures de Jour Rouge HP à 0,6586 €/kWh. Un bruit de fond de 100 W consomme 1,6 kWh par journée rouge, soit plus d'un euro par jour rouge uniquement pour des appareils inutilisés.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar-stack">
+        <div class="card">
+          <h3>Poursuivre votre diagnostic</h3>
+          <ul class="related-list">
+            <li><a href="solaire-balcon-plug-play.html"><span>Effacer ce talon au solaire balcon</span><span>&rarr;</span></a></li>
+            <li><a href="cout-appareil-edf-tempo.html"><span>Coût des appareils actifs (36 profils)</span><span>&rarr;</span></a></li>
+            <li><a href="comparateur-tempo-hc-base.html"><span>Base vs HC/HP vs EDF Tempo</span><span>&rarr;</span></a></li>
+            <li><a href="simulateur-dpe-facture.html"><span>Facture énergétique par DPE</span><span>&rarr;</span></a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand">
+            <span class="brand-mark" aria-hidden="true" style="background: var(--accent);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg></span>
+            <span>WattClair<span class="brand-dot">.</span></span>
+          </a>
+          <p class="footer-desc">Simulateurs indépendants d'économie d'énergie, tarifs EDF Tempo et kits solaires balcon en France.</p>
+        </div>
+        <div>
+          <p class="footer-heading">Simulateurs</p>
+          <ul class="footer-links">
+            <li><a href="solaire-balcon-plug-play.html">Solaire balcon Plug &amp; Play</a></li>
+            <li><a href="cout-appareil-edf-tempo.html">Coût d'un appareil (Tempo)</a></li>
+            <li><a href="comparateur-tempo-hc-base.html">Base vs HC/HP vs Tempo</a></li>
+            <li><a href="calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+            <li><a href="detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+            <li><a href="simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Guides pratiques</p>
+          <ul class="footer-links">
+            <li><a href="../guides/guide-edf-tempo-2026.html">Guide EDF Tempo 2026</a></li>
+            <li><a href="../guides/reglementation-solaire-balcon-plug-play.html">Réglementation solaire balcon</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; sources</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Informations légales</p>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 WattClair (wattclair.fr) — Outils informatifs indépendants d'EDF et d'Enedis.</span>
+        <button type="button" data-open-consent>Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/detecteur-veilles-fantomes.js"></script>
+</body>
+</html>

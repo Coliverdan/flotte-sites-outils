@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur du Vrai Salaire Horaire (Trajets + Frais) — ChronoNet 2026</title>
+  <meta name="description" content="Calculez votre vrai salaire horaire net en intégrant vos heures réelles, votre temps de trajet quotidien, vos frais de transport et de repas. Téléchargez votre Carte Bilan PNG.">
+  <link rel="canonical" href="https://chrononet.fr/outils/vrai-salaire-horaire.html">
+  <meta property="og:title" content="Calculateur du Vrai Salaire Horaire — ChronoNet">
+  <meta property="og:description" content="Taux horaire affiché vs vrai taux horaire net après trajets, heures supplémentaires non payées et frais professionnels. Export Carte Bilan PNG 1080×1350.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrononet.fr/outils/vrai-salaire-horaire.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculateur du Vrai Salaire Horaire — ChronoNet",
+      "url": "https://chrononet.fr/outils/vrai-salaire-horaire.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "inLanguage": "fr-FR",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://chrononet.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Vrai Salaire Horaire", "item": "https://chrononet.fr/outils/vrai-salaire-horaire.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment calcule-t-on le vrai salaire horaire net ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le vrai salaire horaire divise votre revenu net annuel diminué de vos frais professionnels (transport, repas, tenue, garde liée au travail) par le total des heures réellement consacrées à votre emploi sur l'année (heures travaillées effectives, trajets aller-retour et préparation quotidienne)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi le taux horaire affiché sur la fiche de paie est-il trompeur ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le bulletin de paie ne compte que les heures contractuelles (151,67 h par mois pour un 35h) et ignore les heures supplémentaires non rémunérées, le temps de transport domicile-travail ainsi que les dépenses obligatoires générées par l'exercice du poste." }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de semaines travaillées par an sont retenues dans le calcul ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "ChronoNet retient 47 semaines travaillées par an, ce qui correspond aux 52 semaines calendaires moins les 5 semaines légales de congés payés en France." }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il inclure les titres-restaurant ou la prise en charge Navigo ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui : indiquez uniquement votre reste à charge mensuel réel (par exemple 50 % du pass Navigo ou la différence entre le prix de vos déjeuners professionnels et ce que vous dépenseriez à domicile)." }
+        },
+        {
+          "@type": "Question",
+          "name": "Les données saisies dans la Carte Bilan PNG sont-elles stockées ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Non. L'image PNG 1080×1350 est générée instantanément dans votre navigateur grâce à l'API HTML5 Canvas. Aucun salaire n'est transmis à un serveur." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>CHRONONET</span>
+        <span class="brand-tag">REF. CN-01</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="vrai-salaire-horaire.html" class="nav-link active">Vrai Salaire</a>
+        <a href="prix-en-heures-de-vie.html" class="nav-link">Prix / Heures</a>
+        <a href="teletravail-vs-presentiel.html" class="nav-link">Télétravail</a>
+        <a href="brut-en-net-2026.html" class="nav-link">Brut / Net</a>
+        <a href="rupture-conventionnelle.html" class="nav-link">Rupture</a>
+        <a href="tjm-freelance-vs-cdi.html" class="nav-link">TJM vs CDI</a>
+      </nav>
+      <div class="header-actions">
+        <a href="../guides/negocier-salaire-2026.html" class="btn btn-secondary btn-sm">Guide 2026</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 instruments</div>
+      <a href="vrai-salaire-horaire.html"><span>01 — Vrai salaire horaire</span><span class="mono">→</span></a>
+      <a href="prix-en-heures-de-vie.html"><span>02 — Prix en heures de vie</span><span class="mono">→</span></a>
+      <a href="teletravail-vs-presentiel.html"><span>03 — Économies télétravail</span><span class="mono">→</span></a>
+      <a href="brut-en-net-2026.html"><span>04 — Brut ↔ Net 2026</span><span class="mono">→</span></a>
+      <a href="rupture-conventionnelle.html"><span>05 — Rupture conventionnelle</span><span class="mono">→</span></a>
+      <a href="tjm-freelance-vs-cdi.html"><span>06 — TJM Freelance vs CDI</span><span class="mono">→</span></a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides</div>
+      <a href="../guides/negocier-salaire-2026.html"><span>Négocier son salaire 2026</span><span class="mono">→</span></a>
+      <a href="../guides/bareme-frais-kilometriques-2026.html"><span>Barème kilométrique 2026</span><span class="mono">→</span></a>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Calculateur du Vrai Salaire Horaire</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span>INSTRUMENT CN-01 • TEMPS &amp; REVENU RÉEL</span></div>
+          <h1 style="margin-top:16px;">Calculateur du Vrai Salaire Horaire</h1>
+          <p class="hero-lead" style="margin-top:16px;">
+            Mesurez l'écart exact entre le taux horaire affiché sur votre contrat et ce que vous gagnez réellement une fois les heures invisibles, les trajets et les frais liés au travail déduits.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <span>BASE : 47 SEMAINES / AN (5 SEM. CP)</span>
+          <span>EXPORT : CARTE PNG 1080×1350</span>
+          <span>CONFIDENTIALITÉ : 100 % LOCAL</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workbench-section">
+      <div class="container">
+        <div class="workbench">
+          <!-- COLONNE CONTRÔLES -->
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Paramètres de votre poste</span>
+              <button type="button" id="vsh-reset" class="btn btn-secondary btn-sm">Réinitialiser</button>
+            </div>
+
+            <div class="field">
+              <div class="field-head">
+                <label for="vsh-salaire-net" class="field-label">Salaire net mensuel perçu</label>
+                <span class="field-hint" style="margin:0;">Net versé / mois</span>
+              </div>
+              <div class="input-wrap">
+                <input type="number" id="vsh-salaire-net" class="input-control mono-input input-has-unit" value="2600" min="500" max="25000" step="50">
+                <span class="input-unit">€</span>
+              </div>
+              <input type="range" id="vsh-salaire-net-range" class="range-control" min="1200" max="8000" step="50" value="2600" aria-label="Curseur salaire net mensuel">
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head">
+                  <label for="vsh-heures-contrat" class="field-label">Heures contrat / sem.</label>
+                </div>
+                <div class="input-wrap">
+                  <input type="number" id="vsh-heures-contrat" class="input-control mono-input input-has-unit" value="35" min="10" max="60" step="1">
+                  <span class="input-unit">h</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head">
+                  <label for="vsh-heures-reelles" class="field-label">Heures réelles / sem.</label>
+                </div>
+                <div class="input-wrap">
+                  <input type="number" id="vsh-heures-reelles" class="input-control mono-input input-has-unit" value="42" min="10" max="80" step="1">
+                  <span class="input-unit">h</span>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <input type="range" id="vsh-heures-reelles-range" class="range-control" min="20" max="65" step="1" value="42" aria-label="Curseur heures réelles par semaine">
+              <div class="field-hint">Incluez les heures supplémentaires non rémunérées et les débordements quotidiens.</div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head">
+                  <label for="vsh-trajet-min" class="field-label">Trajet A/R quotidien</label>
+                </div>
+                <div class="input-wrap">
+                  <input type="number" id="vsh-trajet-min" class="input-control mono-input input-has-unit" value="70" min="0" max="300" step="5">
+                  <span class="input-unit">min</span>
+                </div>
+                <input type="range" id="vsh-trajet-min-range" class="range-control" min="0" max="180" step="5" value="70" aria-label="Curseur temps de trajet aller-retour">
+              </div>
+              <div>
+                <div class="field-head">
+                  <label for="vsh-jours-site" class="field-label">Jours sur site / sem.</label>
+                </div>
+                <div class="input-wrap">
+                  <input type="number" id="vsh-jours-site" class="input-control mono-input input-has-unit" value="4" min="0" max="6" step="1">
+                  <span class="input-unit">j</span>
+                </div>
+                <input type="range" id="vsh-jours-site-range" class="range-control" min="0" max="6" step="1" value="4" aria-label="Curseur jours sur site">
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head">
+                <label for="vsh-prep-min" class="field-label">Préparation quotidienne liée au travail</label>
+              </div>
+              <div class="input-wrap">
+                <input type="number" id="vsh-prep-min" class="input-control mono-input input-has-unit" value="25" min="0" max="120" step="5">
+                <span class="input-unit">min</span>
+              </div>
+              <div class="field-hint">Habillage pro, préparation repas, mails hors horaires ou décompression obligatoire.</div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="vsh-frais-transport" class="field-label">Transport / mois</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="vsh-frais-transport" class="input-control mono-input input-has-unit" value="160" min="0" max="2000" step="10">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="vsh-frais-repas" class="field-label">Repas pro / mois</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="vsh-frais-repas" class="input-control mono-input input-has-unit" value="140" min="0" max="1500" step="10">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="vsh-frais-autres" class="field-label">Tenue, garde d'enfants pro, parking / mois</label></div>
+              <div class="input-wrap">
+                <input type="number" id="vsh-frais-autres" class="input-control mono-input input-has-unit" value="60" min="0" max="2500" step="10">
+                <span class="input-unit">€</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLONNE RÉSULTATS -->
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Diagnostic horaire réel</span>
+              <span class="instrument-led">CALIBRÉ</span>
+            </div>
+
+            <div class="kpi-hero-row">
+              <div class="kpi-box">
+                <div class="kpi-label">Taux horaire affiché</div>
+                <div class="kpi-value" id="out-taux-affiche">17,14 € / h</div>
+                <div class="kpi-sub">Basé sur votre contrat officiel</div>
+              </div>
+              <div class="kpi-box highlight">
+                <div class="kpi-label">Vrai taux horaire net</div>
+                <div class="kpi-value" id="out-taux-vrai">11,45 € / h</div>
+                <div class="kpi-sub" id="out-ecart-pct">-33,2 % par rapport au taux affiché</div>
+              </div>
+            </div>
+
+            <div class="kpi-mini-grid cols-3">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Transport perdu / an</div>
+                <div class="kpi-mini-value" id="out-trajet-heures">219 h / an</div>
+                <div class="field-hint" id="out-trajet-jours" style="margin-top:4px;">Soit 9,1 jours de 24h</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Frais liés au poste / an</div>
+                <div class="kpi-mini-value" id="out-frais-an">4 320 € / an</div>
+                <div class="field-hint" id="out-revenu-reel-mois" style="margin-top:4px;">2 240 € / mois réel</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Temps total engagé</div>
+                <div class="kpi-mini-value" id="out-heures-tot-mois">191 h / mois</div>
+                <div class="field-hint" style="margin-top:4px;">Travail + trajets + prép.</div>
+              </div>
+            </div>
+
+            <div class="chart-box">
+              <div class="chart-header">
+                <span class="chart-title">Cascade d'érosion du taux horaire (€/h)</span>
+              </div>
+              <div class="canvas-frame">
+                <canvas id="vsh-chart" aria-label="Graphique comparatif entre taux affiché et vrai taux horaire net"></canvas>
+              </div>
+            </div>
+
+            <div class="callout" style="margin-top:0; margin-bottom:24px;">
+              <div class="callout-title">Lecture ChronoNet</div>
+              <p id="out-verdict" style="margin:0; font-size:15px;"></p>
+            </div>
+
+            <button type="button" id="vsh-export-png" class="btn btn-primary btn-lg btn-block">
+              Télécharger ma Carte Bilan (PNG 1080×1350)
+            </button>
+          </div>
+        </div>
+
+        <!-- EMPLACEMENT ADSENSE 1 (SOUS LE BLOC RÉSULTAT, ANTI-CLS) -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+          <span class="ad-slot-note">Format adaptatif horizontal — Hauteur stabilisée anti-CLS</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL 750+ MOTS + SIDEBAR -->
+    <section class="section" style="padding-top:0;">
+      <div class="container editorial-layout">
+        <article class="editorial-article">
+          <h2>Pourquoi votre vrai salaire horaire est très inférieur au taux affiché</h2>
+          <p>
+            En France, la grande majorité des salariés évaluent leur niveau de rémunération à partir d'un chiffre mensuel net ou d'un salaire annuel brut. Pourtant, deux personnes touchant exactement <strong>2 600 € nets par mois</strong> peuvent vivre des réalités économiques radicalement opposées. Si la première travaille 35 heures à dix minutes à pied de son domicile et déjeune chez elle, tandis que la seconde effectue 42 heures effectives, passe 1 h 10 par jour dans les transports et dépense 360 € mensuels en carburant, parking et cantine, leur valeur horaire réelle diffère de plus de <strong>35 %</strong>.
+          </p>
+          <p>
+            Ce décalage porte un nom en économie du travail : le <strong>coût marginal d'exercice de l'emploi</strong>. Chaque heure de trajet, chaque plein d'essence dédié aux déplacements professionnels et chaque débordement non payé au forfait-jours vient diluer le rendement financier de votre temps de vie. Calculer son vrai salaire horaire permet de comparer objectivement deux offres d'emploi, de chiffrer l'intérêt d'un passage en télétravail ou de préparer une négociation annuelle avec des faits incontestables.
+          </p>
+
+          <h2>Méthodologie et formules exactes utilisées par ChronoNet</h2>
+          <p>
+            Pour éviter les approximations courantes, notre calculateur sépare strictement le <strong>taux horaire contractuel</strong> (ce que vous pensez gagner) du <strong>vrai taux horaire net</strong> (ce qui reste réellement disponible par heure mobilisée par votre activité professionnelle).
+          </p>
+
+          <div class="formula-box">
+            Taux affiché = Salaire net mensuel / (Heures contrat × 52 / 12)<br><br>
+            Revenu net réel annuel = (Salaire net mensuel × 12) − (Frais mensuels liés au poste × 12)<br>
+            Temps total engagé / an = (Heures réelles + Trajets A/R + Préparation) × 47 semaines<br><br>
+            <strong>Vrai taux horaire net = Revenu net réel annuel / Temps total engagé annuel</strong>
+          </div>
+
+          <p>
+            Nous retenons une base annuelle de <strong>47 semaines travaillées</strong> (52 semaines moins 5 semaines légales de congés payés). Les frais mensuels ne doivent inclure que le <em>surcoût</em> induit par le travail : reste à charge du pass Navigo (après remboursement employeur de 50 %), carburant et usure véhicule sur les kilomètres domicile-travail, surcoût des déjeuners pris à l'extérieur, pressing ou garde périscolaire rendue nécessaire par vos horaires.
+          </p>
+
+          <h2>Exemples chiffrés comparatifs (profils types en France)</h2>
+          <p>
+            Le tableau ci-dessous illustre comment les paramètres logistiques transforment un même salaire mensuel ou un salaire supérieur en apparence.
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profil salarié</th>
+                  <th class="num">Net / mois</th>
+                  <th class="num">Taux affiché</th>
+                  <th class="num">Trajet / an</th>
+                  <th class="num">Frais / an</th>
+                  <th class="num">Vrai taux net</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Cadre francilien (5j site, 44h, 90 min A/R)</strong></td>
+                  <td class="num">3 400 €</td>
+                  <td class="num">22,42 €/h</td>
+                  <td class="num">353 h (14,7 j)</td>
+                  <td class="num">4 800 €</td>
+                  <td class="num" style="color:var(--accent); font-weight:600;">14,26 €/h</td>
+                </tr>
+                <tr>
+                  <td><strong>Salarié hybride (2j site, 38h, 50 min A/R)</strong></td>
+                  <td class="num">2 600 €</td>
+                  <td class="num">17,14 €/h</td>
+                  <td class="num">78 h (3,3 j)</td>
+                  <td class="num">2 040 €</td>
+                  <td class="num" style="color:var(--success); font-weight:600;">14,83 €/h</td>
+                </tr>
+                <tr>
+                  <td><strong>Périurbain voiture (5j site, 39h, 60 min A/R)</strong></td>
+                  <td class="num">2 150 €</td>
+                  <td class="num">14,18 €/h</td>
+                  <td class="num">235 h (9,8 j)</td>
+                  <td class="num">5 160 €</td>
+                  <td class="num" style="color:var(--accent); font-weight:600;">9,66 €/h</td>
+                </tr>
+                <tr>
+                  <td><strong>Full remote (0j site, 37h, 15 min prép.)</strong></td>
+                  <td class="num">2 800 €</td>
+                  <td class="num">18,46 €/h</td>
+                  <td class="num">0 h (0 j)</td>
+                  <td class="num">720 €</td>
+                  <td class="num" style="color:var(--success); font-weight:600;">18,29 €/h</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            Le constat saute aux yeux : dans cet exemple, le salarié hybride payé <strong>2 600 € nets</strong> obtient un vrai salaire horaire supérieur au cadre payé <strong>3 400 € nets</strong> qui subit 90 minutes de transport quotidien et des semaines de 44 heures. Avant d'accepter une promotion éloignée de votre domicile, passez systématiquement l'offre au crible du temps de vie.
+          </p>
+
+          <h2>Les 4 pièges qui faussent l'évaluation d'une offre d'emploi</h2>
+          <ul>
+            <li><strong>Oublier l'usure réelle de la voiture :</strong> ne compter que le carburant sous-estime de moitié le coût réel d'un trajet automobile. Pneus, révisions, décote et assurance représentent en moyenne 0,12 € à 0,20 € supplémentaires par kilomètre (voir notre <a href="../guides/bareme-frais-kilometriques-2026.html" style="text-decoration:underline; color:var(--accent);">barème kilométrique 2026</a>).</li>
+            <li><strong>Confondre forfait-jours et 35 heures :</strong> un cadre au forfait 218 jours payé 45 000 € brut qui travaille 46 heures par semaine gagne souvent moins à l'heure qu'un technicien payé 36 000 € brut à 35 heures strictes.</li>
+            <li><strong>Sous-estimer les micro-dépenses quotidiennes :</strong> un café, un sandwich et un ticket de parking totalisent facilement 14 € par jour sur site, soit plus de 2 600 € nets par an qui disparaissent sans enrichir votre patrimoine.</li>
+            <li><strong>Ignorer l'impact fiscal d'une augmentation :</strong> si une hausse de 200 € bruts vous oblige à faire 40 km de plus par jour, l'impôt marginal et le carburant peuvent rendre l'opération déficitaire en net réel.</li>
+          </ul>
+
+          <!-- EMPLACEMENT ADSENSE 2 (ENTRE MÉTHODOLOGIE ET FAQ) -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+            <span class="ad-slot-note">Placement éditorial non intrusif</span>
+          </aside>
+
+          <h2>Questions fréquentes sur le vrai salaire horaire</h2>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Comment calcule-t-on le vrai salaire horaire net ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                On soustrait d'abord vos frais annuels liés au travail (transport, repas pro, tenue, garde) de votre revenu net annuel, puis on divise ce revenu net réel par la somme de toutes les heures mobilisées sur 47 semaines : heures effectivement travaillées, temps de trajet aller-retour et temps de préparation quotidienne.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi le taux horaire affiché sur la fiche de paie est-il trompeur ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Le bulletin de paie divise votre salaire par la durée légale mensuelle (151,67 h pour 35 h/semaine). Il ne comptabilise ni les heures supplémentaires non rémunérées, ni les centaines d'heures annuelles passées dans les transports, ni les dépenses obligatoires supportées pour venir travailler.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Combien de semaines travaillées par an sont retenues dans le calcul ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                ChronoNet utilise 47 semaines par an (52 semaines calendaires moins les 5 semaines légales de congés payés). Si vous bénéficiez de RTT, votre temps annuel réel sera légèrement inférieur, ce qui renforce l'intérêt de comparer vos heures hebdomadaires moyennes.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Faut-il inclure les titres-restaurant ou la prise en charge Navigo ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Oui, pour obtenir une mesure honnête, renseignez uniquement votre reste à charge net. Par exemple, si votre abonnement transport coûte 88,80 € et que votre employeur rembourse 50 %, saisissez 44 € dans le champ transport.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Les données saisies dans la Carte Bilan PNG sont-elles stockées ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Jamais. La Carte Bilan 1080×1350 est dessinée localement dans votre navigateur via HTML5 Canvas. Aucun montant n'est envoyé sur nos serveurs ni partagé avec un tiers.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <div class="panel-title">Prolongez votre analyse</div>
+            <ul class="sidebar-list">
+              <li><a href="prix-en-heures-de-vie.html"><span>Convertir vos achats en heures de vie</span><span class="mono">→</span></a></li>
+              <li><a href="teletravail-vs-presentiel.html"><span>Chiffrer vos économies en télétravail</span><span class="mono">→</span></a></li>
+              <li><a href="brut-en-net-2026.html"><span>Convertisseur Brut ↔ Net 2026</span><span class="mono">→</span></a></li>
+              <li><a href="rupture-conventionnelle.html"><span>Simulateur rupture conventionnelle</span><span class="mono">→</span></a></li>
+              <li><a href="tjm-freelance-vs-cdi.html"><span>Convertisseur TJM Freelance vs CDI</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="panel-title">Guides recommandés</div>
+            <ul class="sidebar-list">
+              <li><a href="../guides/negocier-salaire-2026.html"><span>Négocier son salaire en 2026</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/bareme-frais-kilometriques-2026.html"><span>Barème frais kilométriques 2026</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand"><span class="eyebrow-dot" aria-hidden="true"></span><span>CHRONONET</span></a>
+          <p class="footer-desc">Instruments indépendants de mesure du vrai salaire horaire, du temps de vie et de la rémunération en France.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="vrai-salaire-horaire.html">Vrai salaire horaire</a></li>
+            <li><a href="prix-en-heures-de-vie.html">Prix en heures de vie</a></li>
+            <li><a href="teletravail-vs-presentiel.html">Économies télétravail</a></li>
+            <li><a href="brut-en-net-2026.html">Brut en Net 2026</a></li>
+            <li><a href="rupture-conventionnelle.html">Rupture conventionnelle</a></li>
+            <li><a href="tjm-freelance-vs-cdi.html">TJM Freelance vs CDI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides</div>
+          <ul class="footer-links">
+            <li><a href="../guides/negocier-salaire-2026.html">Négocier son salaire 2026</a></li>
+            <li><a href="../guides/bareme-frais-kilometriques-2026.html">Barème kilométrique 2026</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Cadre légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ChronoNet (chrononet.fr) — Simulations indicatives, calculs 100 % locaux.</span>
+        <button type="button" class="footer-cookie-btn" data-open-cookies>Gérer les cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/vrai-salaire-horaire.js"></script>
+</body>
+</html>

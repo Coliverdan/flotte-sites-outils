@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="fr" data-root-prefix="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Tarif Bleu Base vs Heures Creuses vs EDF Tempo 2026 — WattClair</title>
+  <meta name="description" content="Comparez gratuitement votre facture annuelle EDF entre l'option Base, Heures Creuses/Pleines et EDF Tempo selon votre compteur (6, 9, 12 kVA), votre chauffage et vos 22 jours rouges.">
+  <link rel="canonical" href="https://wattclair.fr/outils/comparateur-tempo-hc-base.html">
+  <meta property="og:title" content="Simulateur EDF Tarif Base vs Heures Creuses vs Tempo — WattClair">
+  <meta property="og:description" content="Quel contrat EDF est le moins cher pour votre logement ? Comparaison complète abonnement + kWh avec pondération hivernale réaliste.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wattclair.fr/outils/comparateur-tempo-hc-base.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://wattclair.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Comparateur Base vs HC/HP vs EDF Tempo", "item": "https://wattclair.fr/outils/comparateur-tempo-hc-base.html" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Tarif Bleu Base vs Heures Creuses vs EDF Tempo",
+        "url": "https://wattclair.fr/outils/comparateur-tempo-hc-base.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "EDF Tempo est-il rentable avec un chauffage 100 % électrique ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Avec des radiateurs électriques sans poêle ni chauffage d'appoint, Tempo reste rentable uniquement si vous parvenez à abaisser la consigne pendant les 22 jours rouges en journée (6h–22h). Sans aucun effacement, le surcoût hivernal peut annuler l'avantage des 300 jours bleus." }
+          },
+          {
+            "@type": "Question",
+            "name": "À partir de quel pourcentage d'Heures Creuses l'option HC/HP bat-elle l'option Base ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Avec les tarifs réglementés actuels (Base 0,2016 €, HC 0,1696 €, HP 0,2146 €), le seuil d'équilibre se situe autour de 30 % à 32 % de consommation en heures creuses, en tenant compte du léger surcoût d'abonnement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il un compteur Linky pour souscrire à EDF Tempo ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, l'option Tempo nécessite un compteur communicant Linky d'une puissance minimale de 6 kVA (les compteurs 3 kVA ne sont pas éligibles)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on avoir des Jours Rouges le week-end ou un jour férié ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Les 22 jours rouges tombent exclusivement du lundi au vendredi, entre le 1er novembre et le 31 mars, jamais un samedi, un dimanche ni un jour férié. Il ne peut pas non plus y avoir plus de 5 jours rouges consécutifs." }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien coûte le changement d'option tarifaire chez EDF ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Avec un compteur Linky télé-opérable, le changement d'option tarifaire (Base vers Tempo ou HC/HP) est réalisé à distance gratuitement sous 24 à 48 heures ouvrées." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="WattClair — Accueil">
+        <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg></span>
+        <span>WattClair<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="solaire-balcon-plug-play.html" class="nav-link">Solaire balcon</a>
+        <a href="comparateur-tempo-hc-base.html" class="nav-link is-active">EDF Tempo</a>
+        <a href="cout-appareil-edf-tempo.html" class="nav-link">Coût appareil</a>
+        <a href="calculateur-chauffage-piece.html" class="nav-link">Chauffage</a>
+        <a href="simulateur-dpe-facture.html" class="nav-link">DPE</a>
+        <a href="../guides/guide-edf-tempo-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Menu mobile">
+    <p class="mobile-nav-group">Les 6 simulateurs</p>
+    <ul class="mobile-nav-list">
+      <li><a href="solaire-balcon-plug-play.html">Kit Solaire Balcon Plug &amp; Play</a></li>
+      <li><a href="cout-appareil-edf-tempo.html">Coût réel d'un appareil</a></li>
+      <li><a href="comparateur-tempo-hc-base.html">Comparateur Base vs HC/HP vs Tempo</a></li>
+      <li><a href="calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+      <li><a href="detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+      <li><a href="simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenu-principal" class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Comparateur Base vs Heures Creuses vs EDF Tempo</li>
+      </ol>
+    </nav>
+
+    <header class="page-header">
+      <div class="page-header-grid">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Outil 03 · Comparateur TRVE</span>
+          <h1>Simulateur Tarif Bleu Base vs Heures Creuses vs EDF Tempo</h1>
+          <p class="page-intro">
+            Estimez votre facture annuelle totale (abonnement + kWh TTC) sur les trois options réglementées d'EDF en intégrant le poids réel de l'hiver selon votre chauffage et votre effacement les 22 jours rouges.
+          </p>
+        </div>
+        <div class="tariff-stamp">
+          <span class="tariff-stamp-label">Calendrier annuel Tempo</span>
+          <strong>300 Bleus · 43 Blancs · 22 Rouges</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="tool-workspace" aria-label="Paramètres de comparaison tarifaire">
+      <form id="cmp-form" class="card" onsubmit="return false;">
+        <div class="panel-title">
+          <h2>Profil de votre foyer</h2>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label" style="margin-bottom: 8px;">Puissance de votre compteur (kVA)</span>
+          <div class="segmented" role="group" aria-label="Puissance compteur">
+            <button type="button" class="seg-btn" data-kva="6" aria-pressed="false">6 kVA</button>
+            <button type="button" class="seg-btn is-active" data-kva="9" aria-pressed="true">9 kVA</button>
+            <button type="button" class="seg-btn" data-kva="12" aria-pressed="false">12 kVA</button>
+          </div>
+          <span class="form-hint">L'option EDF Tempo démarre à 6 kVA minimum (compteur Linky requis).</span>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="cmp-conso" class="form-label">Consommation annuelle totale</label>
+            <span id="cmp-conso-val" class="form-value-badge">8 500 kWh</span>
+          </div>
+          <input type="range" id="cmp-conso" class="range-slider" min="1500" max="20000" step="250" value="8500">
+          <div class="range-scale">
+            <span>1 500 kWh</span>
+            <span>8 500 kWh</span>
+            <span>20 000 kWh</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label" style="margin-bottom: 8px;">Type de chauffage principal</span>
+          <div class="segmented" role="group" aria-label="Type de chauffage">
+            <button type="button" class="seg-btn" data-heat="elec" aria-pressed="false">Électrique</button>
+            <button type="button" class="seg-btn is-active" data-heat="pac" aria-pressed="true">Pompe à chaleur</button>
+            <button type="button" class="seg-btn" data-heat="gaz_bois" aria-pressed="false">Gaz / Bois</button>
+          </div>
+          <span class="form-hint">Un chauffage électrique concentre davantage de kWh sur les journées froides Blanches et Rouges.</span>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="cmp-hc" class="form-label">Part de consommation déportable en Heures Creuses</label>
+            <span id="cmp-hc-val" class="form-value-badge">42 %</span>
+          </div>
+          <input type="range" id="cmp-hc" class="range-slider" min="15" max="75" step="1" value="42">
+          <div class="range-scale">
+            <span>15 % (peu d'efforts)</span>
+            <span>42 % (ballon + lave-linge)</span>
+            <span>75 % (VE nuit)</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="cmp-red" class="form-label">Effacement pendant les 22 Jours Rouges (6h–22h)</label>
+            <span id="cmp-red-val" class="form-value-badge">35 %</span>
+          </div>
+          <input type="range" id="cmp-red" class="range-slider" min="0" max="80" step="5" value="35">
+          <div class="range-scale">
+            <span>0 % (rien changé)</span>
+            <span>35 % (baisse + report)</span>
+            <span>80 % (poêle bois)</span>
+          </div>
+          <span class="form-hint">Réduction de vos appels de puissance entre 6h et 22h lors des 22 jours rouges (poêle, baisse consigne, zéro lavage en journée).</span>
+        </div>
+      </form>
+
+      <div>
+        <div class="kpi-hero">
+          <div class="kpi-hero-label">Option recommandée pour votre profil</div>
+          <div style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px;">
+            <div id="cmp-winner-name" class="kpi-hero-number is-accent">EDF Tempo</div>
+            <div id="cmp-winner-total" class="kpi-hero-number">1 638 € / an</div>
+          </div>
+          <div id="cmp-winner-sub" class="kpi-hero-sub"></div>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="kpi-box">
+            <div class="kpi-box-label">Tarif Bleu Base</div>
+            <div id="cmp-base-total" class="kpi-box-value">1 921 €</div>
+            <div id="cmp-base-detail" class="kpi-box-note">Abo + Conso</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-box-label">Heures Creuses / Pleines</div>
+            <div id="cmp-hchp-total" class="kpi-box-value">1 878 €</div>
+            <div id="cmp-hchp-detail" class="kpi-box-note">Abo + Conso</div>
+          </div>
+          <div class="kpi-box" style="border-top: 3px solid var(--accent);">
+            <div class="kpi-box-label">EDF Tempo</div>
+            <div id="cmp-tempo-total" class="kpi-box-value" style="color: var(--accent);">1 638 €</div>
+            <div id="cmp-tempo-detail" class="kpi-box-note">Dont Jours Rouges</div>
+          </div>
+        </div>
+
+        <div id="cmp-verdict" class="verdict-box is-positive">
+          <div id="cmp-verdict-title" class="verdict-title">EDF Tempo est nettement le plus avantageux</div>
+          <p id="cmp-verdict-text" style="font-size: 0.9375rem; margin: 0;"></p>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 style="font-size: 1rem;">Facture annuelle TTC (Abonnement + Consommation)</h3>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-swatch" style="background: #C9C1B0;"></span>Abonnement</span>
+              <span class="legend-item"><span class="legend-swatch" style="background: #C86D0A;"></span>Meilleure offre</span>
+              <span class="legend-item"><span class="legend-swatch" style="background: #1A211E;"></span>Autres options</span>
+            </div>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="cmp-chart" width="640" height="260" aria-label="Comparaison graphique des factures annuelles Base, Heures Creuses et EDF Tempo"></canvas>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+            <span class="tempo-badge tempo-blue"><span class="tempo-dot"></span>300 j Bleus : <strong id="cmp-t-bleu"></strong></span>
+            <span class="tempo-badge tempo-white"><span class="tempo-dot"></span>43 j Blancs : <strong id="cmp-t-blanc"></strong></span>
+            <span class="tempo-badge tempo-red"><span class="tempo-dot"></span>22 j Rouges : <strong id="cmp-t-rouge"></strong></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="ad-slot" aria-label="Espace publicitaire">
+      <span class="ad-slot-label">Publicité</span>
+      <span class="ad-slot-note">Emplacement réservé AdSense — Format adaptatif horizontal</span>
+    </aside>
+
+    <section class="section-tight editorial-layout">
+      <article class="prose">
+        <h2>Méthodologie : pourquoi la pondération hivernale change tout</h2>
+        <p>
+          De nombreux comparateurs simplistes divisent votre consommation annuelle par 365 jours, comme si un foyer consommait autant un 15 juillet qu'un 18 janvier par &minus;4 °C. Cette erreur fausse gravement l'évaluation d'EDF Tempo : les 43 jours blancs et les 22 jours rouges sont déclenchés par RTE précisément lors des vagues de froid hivernales, quand un chauffage électrique ou une pompe à chaleur fonctionne à plein régime.
+        </p>
+
+        <div class="formula-box">
+          Poids journalier moyen par saisonnalité :<br>
+          • Gaz / Bois : Bleu = 1,00 &times; | Blanc = 1,12 &times; | Rouge = 1,15 &times;<br>
+          • Pompe à chaleur (PAC) : Bleu = 1,00 &times; | Blanc = 1,55 &times; | Rouge = 1,85 &times;<br>
+          • Radiateurs électriques : Bleu = 1,00 &times; | Blanc = 1,90 &times; | Rouge = 2,35 &times;
+        </div>
+
+        <p>
+          Votre curseur d'effacement des jours rouges ajuste ensuite la consommation entre 6h et 22h : nous considérons que 65 % de l'effort correspond à une baisse réelle de consommation (poêle à bois/granulés, abaissement de 2 °C, report au week-end) et 35 % à un report vers la plage nocturne Rouge HC (22h–6h à 0,1518 €/kWh).
+        </p>
+
+        <h2>Barème complet des tarifs réglementés EDF TTC utilisés (réf. 2025–2026)</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Option tarifaire EDF</th>
+                <th class="num">Abo 6 kVA / an</th>
+                <th class="num">Abo 9 kVA / an</th>
+                <th class="num">Abo 12 kVA / an</th>
+                <th class="num">Prix kWh HC</th>
+                <th class="num">Prix kWh HP / Base</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Tarif Bleu Base</strong></td>
+                <td class="num">164,64 €</td>
+                <td class="num">207,48 €</td>
+                <td class="num">250,44 €</td>
+                <td class="num">—</td>
+                <td class="num">0,2016 €</td>
+              </tr>
+              <tr>
+                <td><strong>Option HC / HP</strong></td>
+                <td class="num">168,48 €</td>
+                <td class="num">214,68 €</td>
+                <td class="num">258,72 €</td>
+                <td class="num">0,1696 €</td>
+                <td class="num">0,2146 €</td>
+              </tr>
+              <tr class="row-positive">
+                <td><strong>Tempo — 300 Jours Bleus</strong></td>
+                <td class="num">167,88 €</td>
+                <td class="num">209,52 €</td>
+                <td class="num">252,12 €</td>
+                <td class="num">0,1288 €</td>
+                <td class="num">0,1552 €</td>
+              </tr>
+              <tr>
+                <td><strong>Tempo — 43 Jours Blancs</strong></td>
+                <td class="num">idem</td>
+                <td class="num">idem</td>
+                <td class="num">idem</td>
+                <td class="num">0,1447 €</td>
+                <td class="num">0,1792 €</td>
+              </tr>
+              <tr class="row-danger">
+                <td><strong>Tempo — 22 Jours Rouges</strong></td>
+                <td class="num">idem</td>
+                <td class="num">idem</td>
+                <td class="num">idem</td>
+                <td class="num">0,1518 €</td>
+                <td class="num"><strong>0,6586 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Trois profils types : qui gagne vraiment avec Tempo ?</h2>
+        <ul>
+          <li><strong>Chauffage gaz, bois ou collectif (3 000 à 6 000 kWh/an) :</strong> Tempo est quasi systématiquement gagnant (150 à 320 € d'économies par an), car le chauffage ne pèse pas sur les jours rouges et il suffit d'éviter four et sèche-linge 22 jours dans l'année.</li>
+          <li><strong>Pompe à chaleur + poêle d'appoint ou véhicule électrique (8 000 à 14 000 kWh/an) :</strong> l'économie atteint régulièrement 300 à 600 €/an, notamment grâce à la recharge du VE en Tempo Bleu HC à 0,1288 €/kWh.</li>
+          <li><strong>Tout-électrique mal isolé sans chauffage alternatif :</strong> prudence. Si votre maison consomme 70 kWh par jour en pointe de froid, chaque jour rouge peut vous coûter plus de 30 € en 16 heures. Utilisez d'abord notre <a href="simulateur-dpe-facture.html">estimateur DPE</a> ou <a href="calculateur-chauffage-piece.html">calculateur de chauffage</a> avant de basculer.</li>
+        </ul>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <span class="ad-slot-note">Emplacement réservé AdSense — In-article</span>
+        </aside>
+
+        <h2>Questions fréquentes sur le choix Base, HC/HP ou Tempo</h2>
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-trigger" aria-expanded="true">
+              <span>Comment suis-je prévenu de l'arrivée d'un Jour Rouge EDF Tempo ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              RTE détermine la couleur du lendemain chaque matin vers 10h30–11h00. EDF envoie alors une notification par SMS, e-mail et sur l'application EDF &amp; Moi afin de vous laisser près de 19 heures pour organiser votre journée du lendemain (de 6h00 à 22h00).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>L'option Heures Creuses classique vaut-elle encore le coup en 2026 ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Elle reste pertinente si vous consommez plus de 32 % de votre électricité en heures creuses (ballon d'eau chaude électrique + lave-linge/lave-vaisselle programmés, ou voiture électrique) ET que vous ne souhaitez pas gérer la contrainte des 22 jours rouges. En dessous de 30 % d'heures creuses, l'option Base est moins chère.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Puis-je résilier EDF Tempo en plein hiver si cela ne me convient pas ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Les contrats d'électricité résidentiels en France sont sans engagement : vous pouvez changer d'option ou de fournisseur à tout moment sans frais. En revanche, EDF limite généralement les allers-retours saisonniers (il faut attendre un an avant de revenir vers Tempo après l'avoir quitté).
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>L'option Tempo fonctionne-t-elle avec des panneaux solaires sur balcon ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Oui, parfaitement. Les journées anticycloniques très froides d'hiver qui déclenchent les jours rouges sont souvent très ensoleillées : vos panneaux produisent au moment précis où le kWh coûte 0,6586 €.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Pourquoi faut-il un compteur d'au moins 6 kVA pour EDF Tempo ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              La grille tarifaire officielle du TRVE Tempo ne propose pas de puissance 3 kVA : elle couvre les puissances de 6 kVA à 36 kVA. Si vous êtes en 3 kVA, passer en 6 kVA coûte environ 30 à 40 € d'abonnement supplémentaire par an, ce qui reste souvent compensé dès 2 500 kWh de consommation annuelle.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar-stack">
+        <div class="card">
+          <h3>Outils associés</h3>
+          <ul class="related-list">
+            <li><a href="cout-appareil-edf-tempo.html"><span>Coût par appareil en Jour Rouge</span><span>&rarr;</span></a></li>
+            <li><a href="solaire-balcon-plug-play.html"><span>Kit solaire balcon Plug &amp; Play</span><span>&rarr;</span></a></li>
+            <li><a href="calculateur-chauffage-piece.html"><span>Dimensionnement chauffage</span><span>&rarr;</span></a></li>
+            <li><a href="detecteur-veilles-fantomes.html"><span>Audit veilles fantômes</span><span>&rarr;</span></a></li>
+          </ul>
+        </div>
+
+        <div class="card card-alt">
+          <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Guide pilier</span>
+          <h3 style="margin-bottom: 8px;">Maîtriser EDF Tempo en 2026</h3>
+          <p style="font-size: 0.9375rem; color: var(--text-muted); margin-bottom: 16px;">
+            Historique des jours rouges, calendrier 1er septembre – 31 août et check-list d'effacement pour diviser la facture sans perte de confort.
+          </p>
+          <a href="../guides/guide-edf-tempo-2026.html" class="btn btn-secondary" style="width: 100%;">Lire le guide complet</a>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand">
+            <span class="brand-mark" aria-hidden="true" style="background: var(--accent);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg></span>
+            <span>WattClair<span class="brand-dot">.</span></span>
+          </a>
+          <p class="footer-desc">Simulateurs indépendants d'économie d'énergie, tarifs EDF Tempo et kits solaires balcon en France.</p>
+        </div>
+        <div>
+          <p class="footer-heading">Simulateurs</p>
+          <ul class="footer-links">
+            <li><a href="solaire-balcon-plug-play.html">Solaire balcon Plug &amp; Play</a></li>
+            <li><a href="cout-appareil-edf-tempo.html">Coût d'un appareil (Tempo)</a></li>
+            <li><a href="comparateur-tempo-hc-base.html">Base vs HC/HP vs Tempo</a></li>
+            <li><a href="calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+            <li><a href="detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+            <li><a href="simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Guides pratiques</p>
+          <ul class="footer-links">
+            <li><a href="../guides/guide-edf-tempo-2026.html">Guide EDF Tempo 2026</a></li>
+            <li><a href="../guides/reglementation-solaire-balcon-plug-play.html">Réglementation solaire balcon</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; sources</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Informations légales</p>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 WattClair (wattclair.fr) — Outils informatifs indépendants d'EDF et d'Enedis.</span>
+        <button type="button" data-open-consent>Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/comparateur-tempo-hc-base.js"></script>
+</body>
+</html>

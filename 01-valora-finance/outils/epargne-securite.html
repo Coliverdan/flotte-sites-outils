@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Matelas de Sécurité &amp; Allocation LEP, Livret A, LDDS — Valora</title>
+  <meta name="description" content="Calculez votre épargne de précaution idéale selon votre statut (CDI, freelance, fonctionnaire, famille), vérifiez votre éligibilité au LEP et répartissez automatiquement entre LEP, Livret A et LDDS.">
+  <link rel="canonical" href="https://valora-finance.fr/outils/epargne-securite.html">
+  <meta property="og:title" content="Calculateur Matelas de Sécurité &amp; Livrets Réglementés — Valora">
+  <meta property="og:description" content="Montant cible (3 à 9 mois), test d'éligibilité LEP selon votre RFR et répartition automatique des plafonds LEP, Livret A et LDDS.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur Matelas de Sécurité & Allocation Livrets Réglementés",
+        "url": "https://valora-finance.fr/outils/epargne-securite.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://valora-finance.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://valora-finance.fr/#tous-les-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Matelas de Sécurité & Livrets", "item": "https://valora-finance.fr/outils/epargne-securite.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle différence entre dépenses totales et dépenses incompressibles ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les dépenses incompressibles couvrent uniquement ce que vous devez payer même en cas de perte de revenus : loyer ou crédit, charges, alimentation de base, énergie, assurances obligatoires et déplacements essentiels. Les loisirs et vacances en sont exclus." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le plafond de versement du LEP, du Livret A et du LDDS ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les plafonds légaux de versement par personne sont de 10 000 € pour le LEP, 22 950 € pour le Livret A et 12 000 € pour le LDDS. Les intérêts capitalisés peuvent toutefois faire dépasser ces plafonds." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment vérifier mon éligibilité au LEP ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'éligibilité dépend de votre Revenu Fiscal de Référence (RFR) figurant sur votre avis d'imposition N-1 ou N-2 et de votre nombre de parts fiscales. En France métropolitaine, le seuil pour une part s'établit autour de 22 823 € (+ 6 096 € par demi-part supplémentaire)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Est-ce une erreur de laisser trop d'argent sur le Livret A ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Au-delà de votre matelas de sécurité (3 à 9 mois) et de vos projets court terme (< 3 ans), laisser un excédent dormant sur des livrets réglementés expose votre patrimoine à un rendement réel faible par rapport à une allocation diversifiée de long terme en PEA." }
+          },
+          {
+            "@type": "Question",
+            "name": "Les intérêts du LEP, du Livret A et du LDDS sont-ils imposables ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Les trois livrets réglementés sont intégralement exonérés d'impôt sur le revenu et de prélèvements sociaux (0 % d'impôt), avec une liquidité immédiate garantie par l'État." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>OUTIL 04 • ÉPARGNE DE PRÉCAUTION &amp; LIVRETS RÉGLEMENTÉS</span>
+      <span>LEP 10 000 € • LIVRET A 22 950 € • LDDS 12 000 €</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="abonnements-etf.html">Abonnements &amp; ETF</a>
+        <a href="inflation-personnelle.html">Inflation perso</a>
+        <a href="interets-composes-pea.html">PEA vs CTO</a>
+        <a href="../guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="../a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="../index.html">Accueil</a>
+      <a href="abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="objectif-independance.html">06. Objectif FIRE France</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#tous-les-outils">Outils</a></li>
+        <li aria-current="page">Matelas de Sécurité &amp; Livrets Réglementés</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header-grid">
+        <div>
+          <span class="eyebrow">Outil 04 • Fondation patrimoniale</span>
+          <h1>Calculateur Matelas de Sécurité &amp; Allocation Livrets Réglementés</h1>
+          <p class="text-secondary" style="margin-top:8px;max-width:66ch;">Dimensionnez précisément votre réserve de sécurité selon votre profil professionnel, vérifiez votre accès au LEP et obtenez la répartition optimale entre LEP, Livret A et LDDS.</p>
+        </div>
+        <div class="tool-header-meta">
+          <strong>Cascade optimale :</strong> 1. LEP (3,5 % net, plafond 10 k€) → 2. Livret A (2,4 %, 22 950 €) → 3. LDDS (2,4 %, 12 k€).
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Entrées -->
+        <div class="panel">
+          <div class="panel-title">Votre profil &amp; vos charges fixes</div>
+
+          <div class="field">
+            <label style="margin-bottom:8px;">Statut professionnel / familial</label>
+            <div class="preset-row" style="margin-bottom:8px;">
+              <button type="button" class="preset-btn" data-status-prof="fonctionnaire">Fonctionnaire (3 mois)</button>
+              <button type="button" class="preset-btn active" data-status-prof="cdi">Salarié CDI (4 mois)</button>
+              <button type="button" class="preset-btn" data-status-prof="famille">Famille (6 mois)</button>
+              <button type="button" class="preset-btn" data-status-prof="freelance">Freelance (8 mois)</button>
+            </div>
+            <span class="field-hint" id="es-rationale">Un coussin de 4 à 5 mois sécurise une transition professionnelle ou une dépense lourde imprévue.</span>
+          </div>
+
+          <div class="field">
+            <label for="es-expenses">Dépenses mensuelles incompressibles</label>
+            <div class="input-suffix-wrap">
+              <input type="number" id="es-expenses" class="input input-mono" value="1800" min="300" max="20000" step="50">
+              <span class="input-suffix">€/mois</span>
+            </div>
+            <span class="field-hint">Loyer/crédit, nourriture, énergie, assurances, transports essentiels.</span>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="es-months">Nombre de mois de sécurité visé</label>
+              <span class="field-value" id="es-months-val">4 mois</span>
+            </div>
+            <input type="range" id="es-months" min="2" max="12" step="1" value="4">
+            <div class="range-ticks"><span>2 mois</span><span>4 mois</span><span>6 mois</span><span>9 mois</span><span>12 mois</span></div>
+          </div>
+
+          <div class="panel-title" style="margin-top:24px;">Éligibilité LEP &amp; situation actuelle</div>
+
+          <div class="field-row field-row-2">
+            <div class="field">
+              <label for="es-rfr">Revenu Fiscal de Réf. (RFR)</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="es-rfr" class="input input-mono" value="21500" min="0" max="250000" step="500">
+                <span class="input-suffix">€/an</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="es-parts">Parts fiscales du foyer</label>
+              <select id="es-parts" class="select input-mono">
+                <option value="1" selected>1,0 part (célibataire)</option>
+                <option value="1.5">1,5 part</option>
+                <option value="2">2,0 parts (couple)</option>
+                <option value="2.5">2,5 parts (couple + 1 enf.)</option>
+                <option value="3">3,0 parts (couple + 2 enf.)</option>
+                <option value="3.5">3,5 parts</option>
+                <option value="4">4,0 parts</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom:24px;">
+            <span class="badge badge-accent" id="es-lep-status">Éligible au LEP</span>
+          </div>
+
+          <div class="field-row field-row-2">
+            <div class="field">
+              <label for="es-current">Épargne liquide actuelle</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="es-current" class="input input-mono" value="4200" min="0" max="200000" step="100">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="es-save-month">Épargne mensuelle possible</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="es-save-month" class="input input-mono" value="350" min="0" max="10000" step="25">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Résultats -->
+        <div>
+          <div class="kpi-grid kpi-grid-3">
+            <div class="kpi-card kpi-card-accent">
+              <div class="kpi-label">Matelas cible</div>
+              <div class="kpi-value" id="kpi-target">7 200 €</div>
+              <div class="kpi-sub" id="kpi-target-sub">4 mois × 1 800 €/mois</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Intérêts annuels nets</div>
+              <div class="kpi-value" id="kpi-interest">+252 € / an</div>
+              <div class="kpi-sub" id="kpi-interest-sub">Rendement net d'impôt</div>
+            </div>
+            <div class="kpi-card kpi-card-danger" id="kpi-gap-card">
+              <div class="kpi-label">Reste à constituer</div>
+              <div class="kpi-value" id="kpi-gap-val">3 000 €</div>
+              <div class="kpi-sub" id="kpi-gap-sub">Atteint dans 9 mois</div>
+            </div>
+          </div>
+
+          <div class="panel" style="margin-bottom:24px;">
+            <div class="panel-title">Allocation recommandée par livret</div>
+            <div class="alloc-bar-track" id="es-alloc-bar"></div>
+            <div class="table-wrap" style="margin:16px 0 0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Support</th>
+                    <th class="num">Taux</th>
+                    <th class="num">Plafond</th>
+                    <th class="num">Montant alloué</th>
+                    <th class="num">Intérêts / an</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody id="es-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <div class="chart-header">
+              <span class="chart-title">Utilisation des plafonds de vos livrets réglementés</span>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#0F5132;"></span>Capital alloué</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#F1EDE4;border:1px solid #CCC5B5;"></span>Plafond légal</span>
+              </div>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="es-chart" aria-label="Graphique de répartition de l'épargne de sécurité sur LEP, Livret A et LDDS"></canvas>
+            </div>
+          </div>
+
+          <!-- Emplacement AdSense 1 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Format adaptatif anti-CLS)</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Éditorial -->
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <article class="prose">
+          <h2>Pourquoi le matelas de sécurité est la première brique de tout patrimoine</h2>
+          <p>Avant d'investir le moindre euro en bourse, sur un PEA ou dans l'immobilier locatif, tout conseiller patrimonial rigoureux exige la constitution d'une <strong>épargne de précaution liquide et garantie</strong>. Son rôle n'est pas de maximiser le rendement, mais d'éviter deux erreurs destructrices : contracter un crédit à la consommation à 12 % TAEG face à une panne de véhicule, ou être contraint de vendre ses ETF au pire moment d'une baisse boursière.</p>
+          <p>En France, les épargnants disposent d'un avantage unique en Europe : trois livrets réglementés totalement défiscalisés (0 % d'impôt sur le revenu, 0 % de prélèvements sociaux) dont les fonds sont disponibles à tout moment sous 24 à 48 heures.</p>
+
+          <h3>Règle de dimensionnement et ordre de remplissage</h3>
+          <div class="formula-box">
+            Matelas_cible = Dépenses_incompressibles_mensuelles × Nombre_de_mois_statut<br>
+            Plafond_RFR_LEP(parts) = 22 823 € + max(0, (parts − 1) × 2) × 6 096 €<br>
+            Ordre optimal : 1. LEP (max 10 000 €) → 2. Livret A (max 22 950 €) → 3. LDDS (max 12 000 €)
+          </div>
+          <p>Si votre épargne liquide actuelle dépasse votre matelas cible (et que vous n'avez pas d'apport immobilier prévu à moins de 3 ans), l'excédent constitue une <strong>épargne sur-liquide</strong> qui gagne à être redéployée vers un support long terme plus rémunérateur comme le PEA.</p>
+
+          <h3>Exemples d'allocation optimale selon le profil</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profil foyer</th>
+                  <th class="num">Charges fixes</th>
+                  <th class="num">Cible</th>
+                  <th>Répartition optimale</th>
+                  <th class="num">Intérêts nets / an</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Jeune CDI éligible LEP</strong></td>
+                  <td class="num">1 400 €</td>
+                  <td class="num">5 600 € (4 m.)</td>
+                  <td>100 % LEP (5 600 €)</td>
+                  <td class="num text-accent"><strong>+196 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Cadre CDI non éligible LEP</strong></td>
+                  <td class="num">2 200 €</td>
+                  <td class="num">8 800 € (4 m.)</td>
+                  <td>100 % Livret A (8 800 €)</td>
+                  <td class="num text-accent"><strong>+211 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Freelance (2 parts, RFR 34 k€)</strong></td>
+                  <td class="num">3 100 €</td>
+                  <td class="num">24 800 € (8 m.)</td>
+                  <td>LEP 10 000 € + Livret A 14 800 €</td>
+                  <td class="num text-accent"><strong>+705 €</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Les pièges fréquents à éviter</h3>
+          <ul>
+            <li><strong>Ignorer son éligibilité au LEP :</strong> près d'un Français éligible sur deux n'a pas ouvert de Livret d'Épargne Populaire. Or, son taux dépasse systématiquement celui du Livret A d'environ 1 point, entièrement net d'impôt.</li>
+            <li><strong>Laisser dormir 15 000 € sur son compte courant :</strong> un compte courant rapporte 0 %. Gardez-y l'équivalent d'un mois de dépenses + 500 € de marge de confort, et basculez automatiquement le reste sur vos livrets le lendemain de la paie.</li>
+            <li><strong>Oublier la règle des quinzaines :</strong> les intérêts des livrets réglementés sont calculés les 1<sup>er</sup> et 16 de chaque mois. Effectuez vos dépôts juste avant le 15 ou la fin du mois, et vos retraits juste après le 1<sup>er</sup> ou le 16.</li>
+          </ul>
+
+          <!-- Emplacement AdSense 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Rectangle éditorial anti-CLS)</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Comment calculer précisément mes dépenses incompressibles ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Additionnez vos trois derniers relevés bancaires en ne gardant que les dépenses vitales et contractuelles : logement, alimentation de base, factures d'énergie, assurances, forfaits essentiels, transports domicile-travail et garde d'enfants. Retirez les restaurants, voyages et achats plaisirs.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Un couple peut-il détenir deux LEP, deux Livrets A et deux LDDS ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Oui. Chaque contribuable majeur peut détenir un Livret A (22 950 €), un LDDS (12 000 €) et, sous condition de RFR du foyer, un LEP (10 000 €), soit jusqu'à 89 900 € de plafonds cumulés défiscalisés pour un couple.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Que se passe-t-il si mon revenu dépasse le plafond du LEP l'année suivante ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>La réglementation prévoit une année de tolérance : vous ne perdez votre LEP que si votre Revenu Fiscal de Référence dépasse le plafond deux années consécutives. Le cas échéant, le solde est simplement transféré vers un autre livret.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Où placer mon épargne une fois le matelas de sécurité complet ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Pour un horizon supérieur à 8 ans, le Plan d'Épargne en Actions (PEA) investi en ETF diversifiés offre historiquement un rendement nettement supérieur aux livrets. Simulez votre projection avec notre <a href="interets-composes-pea.html">calculateur PEA vs Assurance-Vie vs CTO</a>.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Les taux des livrets réglementés peuvent-ils évoluer ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Oui, la Banque de France et le ministère de l'Économie révisent les taux du Livret A, du LDDS et du LEP deux fois par an (au 1<sup>er</sup> février et au 1<sup>er</sup> août) en fonction de l'inflation et des taux monétaires européens (€STR).</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="sidebar-box">
+            <h3>Autres outils Valora</h3>
+            <ul class="sidebar-links">
+              <li><a href="abonnements-etf.html"><span>01. Abonnements → ETF</span><span>→</span></a></li>
+              <li><a href="inflation-personnelle.html"><span>02. Mon Inflation Personnelle</span><span>→</span></a></li>
+              <li><a href="interets-composes-pea.html"><span>03. PEA vs AV vs CTO</span><span>→</span></a></li>
+              <li><a href="cout-credit-conso.html"><span>05. Vrai Coût Crédit Conso</span><span>→</span></a></li>
+              <li><a href="objectif-independance.html"><span>06. Calculateur FIRE France</span><span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Étape suivante</h3>
+            <p class="text-secondary" style="font-size:0.9rem;">Votre épargne de précaution est prête ? Découvrez comment investir l'excédent sans surpayer d'impôts.</p>
+            <a href="../guides/fiscalite-etf-pea-2026.html" class="btn btn-secondary btn-sm btn-block">Guide Fiscalité ETF &amp; PEA 2026</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale calibrés sur la fiscalité française.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="../guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="../guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance — Plafonds réglementaires France métropolitaine.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/epargne-securite.js"></script>
+</body>
+</html>

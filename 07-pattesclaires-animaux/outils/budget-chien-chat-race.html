@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Budget Chien &amp; Chat par Race (42 Races) — PattesClaires</title>
+  <meta name="description" content="Calculez gratuitement le coût mensuel, annuel et vie entière de votre chien ou chat parmi 42 races (Berger Australien, Golden, Bouledogue, Maine Coon...). Exportez votre Fiche Budget PNG.">
+  <link rel="canonical" href="https://pattesclaires.fr/outils/budget-chien-chat-race.html">
+  <meta property="og:title" content="Simulateur Budget Annuel &amp; Vie Entière par Race — PattesClaires">
+  <meta property="og:description" content="42 races chiens et chats : estimez la vraie facture sur 10 à 16 ans (croquettes, mutuelle, toilettage, garde, adoption) et téléchargez la fiche PNG.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pattesclaires.fr/outils/budget-chien-chat-race.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Budget Annuel & Vie Entière par Race",
+        "url": "https://pattesclaires.fr/outils/budget-chien-chat-race.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Calculateur du coût mensuel, annuel et vie entière d'un chien ou d'un chat sur 42 races avec ventilation graphique et export PNG."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://pattesclaires.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Budget Chien & Chat par Race", "item": "https://pattesclaires.fr/outils/budget-chien-chat-race.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Combien coûte un chien sur toute sa vie en France ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Selon le gabarit, la race et la gamme d'alimentation, un chien coûte entre 14 000 € (petit chien robuste adopté en refuge) et plus de 32 000 € (grande race ou race brachycéphale à forts frais vétérinaires) sur 10 à 15 ans."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Un chat coûte-t-il vraiment moins cher qu'un chien ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sur une base mensuelle oui (souvent 60 € à 110 €/mois contre 90 € à 200 €/mois pour un chien), mais un chat vit plus longtemps (14 à 17 ans) et nécessite de la litière chaque mois ainsi qu'un suivi rénal senior."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles races génèrent les frais vétérinaires les plus élevés ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les races brachycéphales (Bouledogue Français, Carlin, Persan), les chiens géants (Saint-Bernard, Cane Corso) et certaines races à prédisposition cardiaque ou rachidienne (Cavalier King Charles, Teckel) présentent les budgets santé les plus lourds."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il inclure une mutuelle dans son budget annuel ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si vous ne disposez pas d'une épargne de précaution immédiate de 2 500 € à 3 500 €, ou si vous adoptez une race classée 4/5 ou 5/5 en risque vétérinaire, la mutuelle permet de lisser les accidents et maladies chroniques."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment réduire le budget sans sacrifier la santé de l'animal ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Acheter des croquettes Premium en grands sacs (12 kg pour un chien) réduit le prix au kilo de 25 à 35 %, adopter en refuge économise 1 000 € à 1 800 € au départ, et peser la ration prévient l'obésité et ses complications coûteuses."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-base="../">
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.2"/><circle cx="16" cy="7" r="2.2"/><circle cx="4.5" cy="12" r="1.9"/><circle cx="19.5" cy="12" r="1.9"/><path d="M12 11c-3 0-5.2 2.4-5.2 5.2 0 1.8 1.4 3.3 3.3 3.3 1.2 0 1.4-.5 1.9-.5s.7.5 1.9.5c1.9 0 3.3-1.5 3.3-3.3C17.2 13.4 15 11 12 11z"/></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">PattesClaires</span>
+          <span class="brand-tag">Budget &amp; Santé Animale</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="budget-chien-chat-race.html" aria-current="page">Budget Race</a></li>
+          <li><a href="ration-croquettes.html">Ration</a></li>
+          <li><a href="age-humain-reel.html">Âge Réel</a></li>
+          <li><a href="aliments-toxiques.html">Toxiques</a></li>
+          <li><a href="comparateur-mutuelle-epargne.html">Mutuelle</a></li>
+          <li><a href="checklist-adoption.html">Adoption</a></li>
+          <li><a href="../guides/budget-adoption-chien-chat-2026.html">Guides</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="mobile-menu-toggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="budget-chien-chat-race.html" aria-current="page">Budget par Race (42 Races)</a></li>
+        <li><a href="ration-croquettes.html">Ration de Croquettes (g/j)</a></li>
+        <li><a href="age-humain-reel.html">Âge Humain Réel</a></li>
+        <li><a href="aliments-toxiques.html">Aliments Toxiques &amp; Chocolat</a></li>
+        <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs Auto-Assurance</a></li>
+        <li><a href="checklist-adoption.html">Checklist Adoption 1er Mois</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#outils">Outils</a></li>
+        <li aria-current="page">Simulateur Budget par Race</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Outil 01 · Base 42 races (30 chiens &amp; 12 chats)</div>
+          <h1>Simulateur Budget Annuel &amp; Vie Entière par Race</h1>
+          <p class="lead">
+            Sélectionnez votre race de chien ou de chat, ajustez l’alimentation, la mutuelle, le toilettage et la garde vacances pour connaître la facture exacte par mois, par an et sur toute sa durée de vie.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="tool-hero-meta-row"><span>Base référencée</span><span>42 races</span></div>
+          <div class="tool-hero-meta-row"><span>Tarifs de référence</span><span>France 2026</span></div>
+          <div class="tool-hero-meta-row"><span>Export visuel</span><span>Fiche PNG HD</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Colonne gauche : Paramètres -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Paramètres de simulation</h2>
+            <span class="badge">Temps réel</span>
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">Espèce</span>
+            <div class="segmented" role="group" aria-label="Filtrer par espèce">
+              <button type="button" class="is-active" data-species-filter="tous">Toutes (42)</button>
+              <button type="button" data-species-filter="chien">Chiens (30)</button>
+              <button type="button" data-species-filter="chat">Chats (12)</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="breed-search">Rechercher une race rapidement</label>
+            <input type="search" id="breed-search" placeholder="Ex. Berger Australien, Maine Coon, Bouledogue...">
+          </div>
+
+          <div class="form-group">
+            <label for="breed-select">Race sélectionnée</label>
+            <select id="breed-select"></select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="food-tier">Gamme d’alimentation</label>
+              <select id="food-tier">
+                <option value="standard">Standard (grande surface)</option>
+                <option value="premium" selected>Premium vétérinaire</option>
+                <option value="sans_cereales">Sans céréales haute protéine</option>
+                <option value="barf">BARF / Ration ménagère</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="adoption-mode">Mode d’adoption</label>
+              <select id="adoption-mode">
+                <option value="elevage" selected>Élevage (LOF / LOOF)</option>
+                <option value="refuge">Refuge / SPA / Association</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="insurance-tier">Mutuelle santé animale</label>
+              <select id="insurance-tier">
+                <option value="aucune" selected>Aucune (auto-financement)</option>
+                <option value="essentielle">Formule Essentielle (accidents)</option>
+                <option value="confort">Formule Confort (80 %)</option>
+                <option value="integrale">Formule Intégrale (90–100 %)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="grooming-freq">Fréquence de toilettage</label>
+              <select id="grooming-freq">
+                <option value="maison">Entretien maison uniquement</option>
+                <option value="faible" selected>2 séances / an (standard)</option>
+                <option value="regulier">4 séances / an</option>
+                <option value="intensif">6+ séances / an (poil long/frisé)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="boarding-days">Jours de garde / pension vacances par an</label>
+              <span id="boarding-days-val" class="label-value">7 j/an</span>
+            </div>
+            <input type="range" id="boarding-days" min="0" max="30" step="1" value="7">
+            <div class="field-hint">Tarif moyen constaté : 26 €/jour pour un chien en pension/pet-sitter, 16 €/jour pour une visite chat.</div>
+          </div>
+        </div>
+
+        <!-- Colonne droite : Résultats & Graphique -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h2 id="out-breed-name" class="panel-title">Berger Australien</h2>
+              <div id="out-breed-specs" style="font-size:0.86rem;color:var(--text-secondary);margin-top:4px;"></div>
+            </div>
+            <span id="out-risk-badge" class="badge badge-caution">Risque véto 3/5</span>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <div class="kpi-label">Coût mensuel</div>
+              <div id="out-monthly" class="kpi-value">—</div>
+              <div class="kpi-sub">Dépenses récurrentes</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">Coût annuel</div>
+              <div id="out-annual" class="kpi-value">—</div>
+              <div class="kpi-sub">1re année : <strong id="out-first-year" class="mono">—</strong></div>
+            </div>
+            <div class="kpi-box kpi-box-accent">
+              <div class="kpi-label">Budget vie entière</div>
+              <div id="out-lifetime" class="kpi-value">—</div>
+              <div id="out-lifetime-years" class="kpi-sub">—</div>
+            </div>
+          </div>
+
+          <div class="chart-box">
+            <canvas id="budget-chart" aria-label="Graphique de répartition du budget sur la vie entière"></canvas>
+            <div class="chart-caption">Répartition cumulée sur toute l’espérance de vie de la race (adoption et majoration senior incluses).</div>
+          </div>
+
+          <div class="table-wrap" style="margin-top:0;">
+            <table>
+              <thead>
+                <tr>
+                  <th>Poste de dépense</th>
+                  <th class="td-num">Annuel</th>
+                  <th class="td-num">Vie entière</th>
+                  <th class="td-num">Part</th>
+                </tr>
+              </thead>
+              <tbody id="out-breakdown-body"></tbody>
+            </table>
+          </div>
+
+          <div class="callout" style="margin-top:24px;">
+            <div class="callout-title">Point de vigilance vétérinaire sur cette race</div>
+            <p id="out-breed-note" style="margin:0;"></p>
+          </div>
+
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px;">
+            <button type="button" id="export-budget-png" class="btn btn-primary">
+              Télécharger la Fiche Budget (PNG)
+            </button>
+            <a href="checklist-adoption.html" class="btn btn-secondary">
+              Préparer le budget 1er mois →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emplacement AdSense #1 (sous le bloc résultat, espacé des CTA) -->
+      <div class="container">
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format responsive horizontal</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu éditorial expert (750+ mots) + Maillage interne -->
+    <section class="section section-subtle">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <h2>Méthodologie transparente : comment est calculé le budget vie entière ?</h2>
+          <p>
+            La majorité des articles grand public résument le budget d’un animal à « 60 € de croquettes par mois », en omettant l’adoption, la stérilisation, le toilettage, les antiparasitaires et surtout la montée en charge des frais vétérinaires lors des trois dernières années de vie. Chez PattesClaires, chaque race dispose d’un profil calibré sur <strong>cinq variables concrètes</strong> observées en France en 2026.
+          </p>
+
+          <div class="formula-box">
+            Budget Vie Entière = (Adoption + Équipement initial) + (Alimentation + Santé/Mutuelle + Toilettage + Garde/Accessoires) × Espérance de vie + Surcoût Senior (3 dernières années)
+          </div>
+
+          <p>
+            Le poste alimentation s’appuie sur le poids adulte moyen et le besoin énergétique d’entretien (en kcal/jour) de la race, pondéré par la gamme choisie : les croquettes Premium vétérinaires coûtent en moyenne <strong>+38 %</strong> par rapport à une gamme standard, le sans-céréales haute protéine <strong>+62 %</strong>, et une ration ménagère ou BARF équilibrée environ <strong>×2,15</strong>. Pour les chats, un forfait litière de 18 €/mois est intégré automatiquement.
+          </p>
+
+          <div class="callout callout-caution">
+            <div class="callout-title">Avertissement vétérinaire et budgétaire</div>
+            <p style="margin:0;">
+              Les montants affichés constituent des moyennes statistiques nationales (tarifs vétérinaires français constatés en 2026). Des écarts de ±20 % existent entre les grandes métropoles (Paris, Lyon, Côte d’Azur) et les zones rurales, ainsi qu’en fonction de l’état de santé individuel de votre compagnon.
+            </p>
+          </div>
+
+          <h2>Exemples chiffrés comparatifs sur 4 profils types</h2>
+          <p>
+            Le tableau ci-dessous illustre pourquoi le prix d’achat initial ne représente généralement que <strong>5 à 12 %</strong> du coût total d’un compagnon, tandis que le gabarit, la longévité et l’indice de risque vétérinaire déterminent l’essentiel de la facture finale.
+          </p>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Profil (Alim. Premium, sans mutuelle)</th>
+                  <th class="td-num">1re année</th>
+                  <th class="td-num">Mensuel</th>
+                  <th class="td-num">Durée</th>
+                  <th class="td-num">Vie entière</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Chat Européen</strong> (Refuge)</td>
+                  <td class="td-num">1 380 €</td>
+                  <td class="td-num">86 €</td>
+                  <td class="td-num">16 ans</td>
+                  <td class="td-num"><strong>17 300 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Berger Australien</strong> (Élevage LOF)</td>
+                  <td class="td-num">3 610 €</td>
+                  <td class="td-num">140 €</td>
+                  <td class="td-num">13 ans</td>
+                  <td class="td-num"><strong>24 550 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Bouledogue Français</strong> (Élevage LOF)</td>
+                  <td class="td-num">4 190 €</td>
+                  <td class="td-num">147 €</td>
+                  <td class="td-num">11 ans</td>
+                  <td class="td-num"><strong>23 100 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Saint-Bernard</strong> (Élevage LOF)</td>
+                  <td class="td-num">5 490 €</td>
+                  <td class="td-num">276 €</td>
+                  <td class="td-num">9 ans</td>
+                  <td class="td-num"><strong>33 300 €</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Les 4 pièges fréquents qui font exploser le budget</h2>
+          <ul>
+            <li><strong>Sous-estimer les frais vétérinaires des races à risque 4/5 ou 5/5 :</strong> une chirurgie du voile du palais chez un Bouledogue Français, une hernie discale chez un Teckel ou un suivi cardiologique de Cavalier King Charles représentent facilement 1 500 € à 4 000 € hors routine.</li>
+            <li><strong>Oublier l’effet gabarit sur les médicaments et antiparasitaires :</strong> vermifuges, pipettes anti-tiques et anesthésies sont dosés au kilo. Un chien de 50 kg coûte deux à trois fois plus cher en pharmacie qu’un chien de 10 kg.</li>
+            <li><strong>Acheter des petits sacs de croquettes :</strong> passer d’un sac de 3 kg à un sac de 12 kg hermétiquement conservé fait baisser le prix au kilo de 30 % en moyenne. Vérifiez la durée de conservation grâce à notre <a href="ration-croquettes.html">calculateur de ration journalière</a>.</li>
+            <li><strong>Négliger le budget garde pendant les vacances :</strong> deux semaines en pension canine ou avec un pet-sitter déclaré ajoutent 350 € à 500 € par an, soit plus de 5 000 € sur la vie d’un chien.</li>
+          </ul>
+
+          <!-- Emplacement AdSense #2 (entre méthodologie et FAQ) -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format in-article</div>
+          </aside>
+
+          <h2>Questions fréquentes sur le budget chien et chat</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-1">
+                <span>Combien coûte un chien sur toute sa vie en France ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="faq-1" class="faq-panel">
+                Comptez entre 14 000 € pour un petit chien robuste adopté en refuge et plus de 32 000 € pour une race géante ou brachycéphale. L’alimentation et la santé représentent généralement 70 à 80 % de cette somme cumulée.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-2">
+                <span>Un chat coûte-t-il vraiment moins cher qu’un chien ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="faq-2" class="faq-panel">
+                Mensuellement oui (70 € à 115 €/mois en moyenne contre 110 € à 220 €/mois pour un chien moyen à grand). Mais comme un chat d’intérieur vit souvent 15 à 18 ans, son budget cumulé sur toute une vie se rapproche souvent de celui d’un petit chien.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-3">
+                <span>Quelles races génèrent les frais vétérinaires les plus lourds ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="faq-3" class="faq-panel">
+                Les races brachycéphales (Bouledogue Français, Carlin, Persan), les chiens géants (Saint-Bernard, Cane Corso) ainsi que les races prédisposées aux pathologies cardiaques ou vertébrales (Cavalier King Charles, Teckel) cumulent les factures cliniques les plus élevées.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-4">
+                <span>Vaut-il mieux prendre une mutuelle ou épargner soi-même ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="faq-4" class="faq-panel">
+                Cela dépend de la race et de votre épargne disponible dès le premier mois. Utilisez notre <a href="comparateur-mutuelle-epargne.html">comparateur Mutuelle vs Auto-Assurance</a> pour tester les 3 scénarios sur 12 ans avec chiffres exacts.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="faq-5">
+                <span>Comment alléger la facture sans nuire à la santé de son animal ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="faq-5" class="faq-panel">
+                Adoptez en refuge/SPA (souvent 180 € à 300 € avec stérilisation et puce comprises), commandez des sacs de croquettes grand format, pesez précisément la ration pour prévenir le surpoids et entretenez la dentition dès le plus jeune âge pour espacer les détartrages.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside aria-label="Autres outils complémentaires">
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">Compléter votre calcul</div>
+            <h3 style="margin-bottom:8px;">Autres outils PattesClaires</h3>
+            <ul class="sidebar-links">
+              <li><a href="ration-croquettes.html">Ration de croquettes (g/j) <span>→</span></a></li>
+              <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs Cagnotte Santé <span>→</span></a></li>
+              <li><a href="checklist-adoption.html">Checklist Adoption 1er mois <span>→</span></a></li>
+              <li><a href="age-humain-reel.html">Âge humain réel (UCSD) <span>→</span></a></li>
+              <li><a href="aliments-toxiques.html">Aliments toxiques (64) <span>→</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">À lire ensuite</div>
+            <h3 style="margin-bottom:8px;">Guide Budget Adoption 2026</h3>
+            <p style="font-size:0.92rem;color:var(--text-secondary);">
+              Tous les coûts cachés de la 1re année jusqu’aux soins seniors analysés en détail.
+            </p>
+            <a href="../guides/budget-adoption-chien-chat-2026.html" class="btn btn-secondary btn-sm btn-block">Lire le dossier →</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name" style="color:var(--text-on-dark);margin-bottom:12px;">PattesClaires</div>
+          <p style="color:var(--text-on-dark-muted);font-size:0.92rem;">Outils gratuits et dossiers documentés sur le budget, la nutrition et la sécurité des chiens et des chats.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="budget-chien-chat-race.html">Budget par race (42 races)</a></li>
+            <li><a href="ration-croquettes.html">Ration de croquettes (g/j)</a></li>
+            <li><a href="age-humain-reel.html">Âge humain scientifique</a></li>
+            <li><a href="aliments-toxiques.html">Aliments toxiques &amp; chocolat</a></li>
+            <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs auto-assurance</a></li>
+            <li><a href="checklist-adoption.html">Checklist adoption 1er mois</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides Pratiques</div>
+          <ul class="footer-links">
+            <li><a href="../guides/budget-adoption-chien-chat-2026.html">Budget adoption 2026</a></li>
+            <li><a href="../guides/comprendre-ration-croquettes-chien.html">Comprendre la ration croquettes</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Informations Légales</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><button type="button" data-cookie-settings>Gérer mes cookies</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PattesClaires (pattesclaires.fr)</span>
+        <span>Outil pédagogique — ne remplace pas un avis vétérinaire.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-pets.js"></script>
+  <script src="../assets/js/tools/budget-chien-chat-race.js"></script>
+</body>
+</html>

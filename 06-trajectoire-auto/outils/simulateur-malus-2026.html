@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Malus CO₂ + Poids + Carte Grise 2026 (101 départements) | Trajectoire</title>
+  <meta name="description" content="Calculez votre malus CO₂ 2026 (dès 108 g/km jusqu'à 80 000 €), le malus au poids (dès 1 500 kg), les abattements famille nombreuse/hybride/import et le prix de la carte grise par département.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/outils/simulateur-malus-2026.html">
+  <meta property="og:title" content="Simulateur Malus CO₂ + Malus au Poids + Carte Grise 2026">
+  <meta property="og:description" content="Barème fiscal 2026 complet ligne par ligne (Y.1 à Y.6) avec les 101 départements français et les abattements légaux.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/outils/simulateur-malus-2026.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Malus CO₂ + Malus au Poids + Carte Grise 2026",
+        "url": "https://trajectoire-auto.fr/outils/simulateur-malus-2026.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://trajectoire-auto.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Simulateur Malus 2026", "item": "https://trajectoire-auto.fr/outils/simulateur-malus-2026.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "À partir de combien de grammes de CO₂ paie-t-on le malus écologique en 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En 2026, le seuil de déclenchement du malus CO₂ est abaissé à 108 g/km WLTP (50 €), avec une progression continue jusqu'au plafond légal de 80 000 € à partir de 192 g/km." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le seuil du malus au poids en 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Au 1er janvier 2026, le seuil du malus sur la masse en ordre de marche (champ G de la carte grise) passe de 1 600 kg à 1 500 kg, avec un barème progressif par tranche de 10 €/kg jusqu'à 30 €/kg au-delà de 2 000 kg." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne l'abattement famille nombreuse sur le malus 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les foyers ayant au moins 3 enfants à charge et achetant un véhicule d'au moins 5 places bénéficient d'une réduction de 20 g/km par enfant sur le malus CO₂ et de 200 kg par enfant sur le malus au poids (par exemple -60 g/km et -600 kg pour 3 enfants). Ce remboursement peut être demandé a posteriori auprès des impôts." }
+          },
+          {
+            "@type": "Question",
+            "name": "Les voitures d'occasion importées de l'étranger paient-elles le malus 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, toute première immatriculation en France d'un véhicule importé déclenche le malus en vigueur l'année de sa première mise en circulation, diminué d'une décote progressive selon son ancienneté en mois (jusqu'à exonération totale à 15 ans)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Les voitures électriques ont-elles encore la carte grise gratuite en 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non dans la quasi-totalité des régions françaises. Suite à la loi de finances 2025, la taxe régionale (Y.1) s'applique désormais aux véhicules électriques dans toutes les régions sauf les Hauts-de-France qui maintiennent l'exonération." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="duel-electrique-vs-thermique.html" class="nav-link">Duel TCO</a>
+        <a href="simulateur-malus-2026.html" class="nav-link active">Malus 2026</a>
+        <a href="cout-recharge-electrique.html" class="nav-link">Recharge VE</a>
+        <a href="cout-reel-kilometrique.html" class="nav-link">PRK Réel</a>
+        <a href="loa-lld-vs-credit.html" class="nav-link">LOA vs Crédit</a>
+        <a href="cout-trajet-autoroute.html" class="nav-link">Trajet</a>
+        <a href="../guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="duel-electrique-vs-thermique.html">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="simulateur-malus-2026.html" class="active">02 · Simulateur Malus 2026 + Carte Grise</a>
+      <a href="cout-recharge-electrique.html">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="cout-reel-kilometrique.html">04 · Calculateur PRK (Coût au Kilomètre)</a>
+      <a href="loa-lld-vs-credit.html">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="cout-trajet-autoroute.html">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Labo</div>
+      <a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a>
+      <a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a>
+      <a href="../a-propos.html">Méthodologie &amp; À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li>Outils</li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Simulateur Malus &amp; Carte Grise 2026</li>
+      </ol>
+    </div>
+
+    <section class="tool-hero">
+      <div class="container">
+        <div class="tool-hero-grid">
+          <div>
+            <span class="eyebrow">Instrument 02 · Fiscalité Immatriculation France 2026</span>
+            <h1 class="mt-2">Simulateur Malus CO₂ + Malus au Poids &amp; Carte Grise 2026</h1>
+            <p>
+              Calculez au centime près le coût total de votre certificat d'immatriculation (champs Y.1 à Y.6) selon le <strong>barème 2026</strong> : malus CO₂ dès 108 g/km, malus masse dès 1 500 kg, abattements hybrides/famille nombreuse et tarif exact de votre département.
+            </p>
+          </div>
+          <div class="tool-meta-box">
+            <div class="tool-meta-row"><span>Seuil Malus CO₂</span><span>108 g/km (max 80 000 €)</span></div>
+            <div class="tool-meta-row"><span>Seuil Malus Masse</span><span>1 500 kg (10 à 30 €/kg)</span></div>
+            <div class="tool-meta-row"><span>Départements couverts</span><span>101 (Métropole + DROM)</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="tool-layout">
+          <form class="panel" id="malus-form" onsubmit="return false;">
+            <div class="panel-header">
+              <span class="panel-title">Caractéristiques du véhicule</span>
+              <span class="badge badge-accent">Loi de Finances 2026</span>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">1. Pré-remplissage rapide (optionnel)</div>
+              <div class="field">
+                <label for="m-preset">Choisir un modèle de notre base</label>
+                <select id="m-preset"></select>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">2. Données Carte Grise (V.7, G, P.6)</div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="m-fuel">Motorisation</label>
+                  <select id="m-fuel">
+                    <option value="thermique">Essence / Diesel / Micro-hybride</option>
+                    <option value="hev">Hybride non rechargeable (HEV)</option>
+                    <option value="phev50">Hybride rechargeable (&gt; 50 km élec.)</option>
+                    <option value="e85">Superéthanol E85 d'origine</option>
+                    <option value="electrique">100 % Électrique / Hydrogène</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="m-cv">Puissance fiscale (P.6)</label>
+                  <div class="input-unit">
+                    <input type="number" id="m-cv" min="1" max="80" value="8">
+                    <span class="input-unit-tag">CV</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="m-co2">Émissions CO₂ WLTP (V.7)</label>
+                  <div class="input-unit">
+                    <input type="number" id="m-co2" min="0" max="450" value="143">
+                    <span class="input-unit-tag">g/km</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="m-mass">Masse en ordre de marche (G)</label>
+                  <div class="input-unit">
+                    <input type="number" id="m-mass" min="600" max="3500" step="10" value="1616">
+                    <span class="input-unit-tag">kg</span>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <label for="m-dept">Département d'immatriculation (101 départements)</label>
+                <select id="m-dept"></select>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">3. Origine &amp; Abattements légaux</div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="m-origin">Situation du véhicule</label>
+                  <select id="m-origin">
+                    <option value="neuf">Véhicule neuf (1re immat. France)</option>
+                    <option value="import">Occasion importée de l'étranger</option>
+                    <option value="occasion_fr">Occasion déjà immatriculée en France</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="m-children">Enfants à charge (famille ≥ 3)</label>
+                  <select id="m-children">
+                    <option value="0">0, 1 ou 2 enfants (aucun abattement)</option>
+                    <option value="3">3 enfants (-60 g CO₂ / -600 kg)</option>
+                    <option value="4">4 enfants (-80 g CO₂ / -800 kg)</option>
+                    <option value="5">5 enfants (-100 g CO₂ / -1 000 kg)</option>
+                    <option value="6">6 enfants (-120 g CO₂ / -1 200 kg)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field" id="m-age-wrap" style="display:none;">
+                <div class="field-label-row">
+                  <label for="m-age-months">Ancienneté depuis 1re mise en circulation</label>
+                  <span class="field-value-badge" id="m-age-val">24 mois</span>
+                </div>
+                <input type="range" id="m-age-months" min="1" max="180" step="1" value="24">
+                <span class="field-hint">Détermine la décote sur le malus d'importation (jusqu'à -100 % à 15 ans) et le demi-tarif carte grise à 10 ans.</span>
+              </div>
+
+              <label class="check-row mt-2">
+                <input type="checkbox" id="m-handicap">
+                <span>Titulaire d'une Carte Mobilité Inclusion (CMI) mention Invalidité — Exonération malus</span>
+              </label>
+            </div>
+          </form>
+
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Décompte fiscal 2026 (ANTS)</span>
+                <button type="button" class="btn btn-primary btn-sm" id="m-export-png">Exporter la fiche PNG</button>
+              </div>
+
+              <div class="kpi-banner" id="m-total-banner">
+                <div class="kpi-banner-label">Total à régler (Champ Y.6)</div>
+                <div class="kpi-banner-value" id="m-total-val">—</div>
+                <div class="kpi-banner-sub" id="m-total-sub"></div>
+              </div>
+
+              <div class="kpi-grid kpi-grid-3">
+                <div class="kpi-card">
+                  <div class="kpi-label">Malus CO₂ (Y.3a)</div>
+                  <div class="kpi-val accent" id="m-kpi-co2">—</div>
+                  <div class="kpi-note" id="m-kpi-co2-note">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Malus Masse (Y.3b)</div>
+                  <div class="kpi-val accent" id="m-kpi-mass">—</div>
+                  <div class="kpi-note" id="m-kpi-mass-note">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Taxe Régionale (Y.1)</div>
+                  <div class="kpi-val" id="m-kpi-region">—</div>
+                  <div class="kpi-note" id="m-kpi-region-note">—</div>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <span class="telemetry-title">Répartition des taxes d'immatriculation</span>
+                </div>
+                <div class="canvas-wrap" style="height:210px;">
+                  <canvas id="m-chart" aria-label="Répartition visuelle du malus CO2, malus masse et taxe régionale"></canvas>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Code</th>
+                      <th>Libellé officiel &amp; règle appliquée</th>
+                      <th class="num">Montant</th>
+                    </tr>
+                  </thead>
+                  <tbody id="m-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format adaptatif anti-CLS</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid">
+          <article class="prose">
+            <h2>Ce qui change concrètement avec le barème du malus 2026</h2>
+            <p>
+              La fiscalité automobile française franchit un nouveau palier au <strong>1er janvier 2026</strong>. Le législateur agit simultanément sur trois leviers : abaissement du seuil de déclenchement du malus CO₂, durcissement du plafond maximal et extension du malus au poids aux véhicules familiaux thermiques dès 1 500 kg.
+            </p>
+            <ul>
+              <li><strong>Malus CO₂ dès 108 g/km :</strong> chaque gramme supplémentaire coûte de plus en plus cher, passant de 50 € à 108 g/km à 1 504 € à 135 g/km, 8 165 € à 160 g/km et jusqu'au plafond historique de <strong>80 000 € dès 192 g/km</strong>.</li>
+              <li><strong>Malus au poids abaissé à 1 500 kg :</strong> la taxe sur la masse en ordre de marche (champ G) s'applique par tranches progressives : 10 €/kg entre 1 500 et 1 699 kg, 15 €/kg entre 1 700 et 1 799 kg, 20 €/kg entre 1 800 et 1 899 kg, 25 €/kg entre 1 900 et 1 999 kg et 30 €/kg dès 2 000 kg.</li>
+              <li><strong>Plafond cumulé :</strong> la somme du malus CO₂ et du malus au poids ne peut dépasser le plafond légal du malus CO₂ de l'année en cours, soit 80 000 € en 2026.</li>
+            </ul>
+
+            <div class="formula-block">
+              Total_Carte_Grise (Y.6) = Y.1 (CV × Tarif_Région) + Y.3a (Malus_CO2) + Y.3b (Malus_Masse) + Y.4 (11,00 €) + Y.5 (2,76 €)
+            </div>
+
+            <h2>Exemples concrets de fiscalité 2026 sur des modèles vendus en France</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Modèle (immatriculé à Paris · 54,95 €/CV)</th>
+                    <th class="num">CO₂ / Masse</th>
+                    <th class="num">Malus CO₂</th>
+                    <th class="num">Malus Poids</th>
+                    <th class="num">Total Y.6</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Toyota Yaris Hybride 116h (5 CV)</td>
+                    <td class="num">92 g · 1 165 kg</td>
+                    <td class="num text-positive">0 €</td>
+                    <td class="num text-positive">0 €</td>
+                    <td class="num">288,76 €</td>
+                  </tr>
+                  <tr>
+                    <td>Peugeot 208 PureTech 100 (5 CV)</td>
+                    <td class="num">117 g · 1 165 kg</td>
+                    <td class="num">240 €</td>
+                    <td class="num">0 €</td>
+                    <td class="num">528,76 €</td>
+                  </tr>
+                  <tr>
+                    <td>Volkswagen Tiguan 1.5 eTSI 150 (8 CV)</td>
+                    <td class="num">143 g · 1 616 kg</td>
+                    <td class="num">2 726 €</td>
+                    <td class="num">1 170 €</td>
+                    <td class="num">4 349,76 €</td>
+                  </tr>
+                  <tr>
+                    <td>BMW Série 3 320i BVA8 (10 CV)</td>
+                    <td class="num">148 g · 1 575 kg</td>
+                    <td class="num">3 784 €</td>
+                    <td class="num">760 €</td>
+                    <td class="num">5 107,76 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Les pièges fréquents à éviter avant de signer un bon de commande</h2>
+            <p>
+              <strong>Confondre poids à vide (G.1) et masse en ordre de marche (G) :</strong> le malus au poids utilise strictement le champ <strong>G</strong> de la carte grise, qui inclut 75 kg forfaitaires pour le conducteur. Un véhicule annoncé à 1 440 kg à vide sur une fiche technique pèse en réalité 1 515 kg au sens fiscal et déclenche la taxe.
+            </p>
+            <p>
+              <strong>Oublier l'impact des options sur le CO₂ WLTP :</strong> des jantes plus grandes, un toit panoramique ou une boîte automatique peuvent ajouter 4 à 9 g/km sur le certificat de conformité (CoC). Sur les zones raides du barème (au-dessus de 140 g/km), 5 grammes de plus représentent plus de 1 200 € de surtaxe imprévue. Pour approfondir chaque règle et abattement, consultez notre <a href="../guides/bareme-malus-ecologique-2026.html">dossier complet sur le barème du malus 2026</a>.
+            </p>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format in-article responsive</div>
+            </aside>
+
+            <h2>Questions fréquentes sur le malus et la carte grise 2026</h2>
+            <div class="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Quel barème s'applique si j'achète un véhicule neuf en fin d'année&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  C'est toujours la date de <strong>première immatriculation en France</strong> qui fait foi, et non la date de signature du bon de commande. Un véhicule commandé en octobre 2025 mais livré et immatriculé en janvier 2026 subit intégralement le barème 2026.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Comment fonctionne l'abattement hybride sur le malus au poids&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Les hybrides non rechargeables (HEV) bénéficient d'un abattement forfaitaire de 100 kg sur la masse en ordre de marche. Les hybrides rechargeables (PHEV) disposant d'une autonomie électrique urbaine supérieure à 50 km profitent d'un abattement de 200 kg, dans la limite de 15 % du poids du véhicule.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Comment demander le remboursement famille nombreuse&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Vous réglez d'abord le malus plein lors de l'immatriculation (le concessionnaire ne peut pas déduire l'abattement famille nombreuse sur l'ANTS), puis vous déposez une demande de remboursement en ligne sur impots.gouv.fr avec votre livret de famille et votre avis d'imposition (20 g/km et 200 kg déduits par enfant dès le 3e enfant).
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Les véhicules d'occasion déjà immatriculés en France paient-ils un malus&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Non, lors d'un simple changement de titulaire d'un véhicule déjà immatriculé en France, vous ne payez que la taxe régionale Y.1 (réduite de 50 % si le véhicule a plus de 10 ans) ainsi que les 13,76 € de frais fixes ANTS.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Pourquoi le prix du cheval fiscal varie-t-il autant selon le département&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Chaque Conseil Régional vote librement son tarif unitaire dans la limite du plafond légal de 60 €/CV. En 2026, la Bretagne, la Normandie, le Grand Est, la Bourgogne-Franche-Comté et le Centre-Val de Loire atteignent 60 €/CV, tandis que les Hauts-de-France (42 €), l'Auvergne-Rhône-Alpes (43 €) et la Corse (43 €) restent nettement plus modérés.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Autres instruments Trajectoire</div>
+              <ul class="sidebar-links">
+                <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique (TCO) <span>→</span></a></li>
+                <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge VE <span>→</span></a></li>
+                <li><a href="cout-reel-kilometrique.html">Calculateur PRK (Coût au km) <span>→</span></a></li>
+                <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto <span>→</span></a></li>
+                <li><a href="cout-trajet-autoroute.html">Coût Trajet Autoroute &amp; Train <span>→</span></a></li>
+              </ul>
+            </div>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Dossier de référence</div>
+              <ul class="sidebar-links">
+                <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème complet du Malus 2026 <span>→</span></a></li>
+                <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox 2026 <span>→</span></a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">TR</span><span>TRAJECTOIRE</span></a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">Laboratoire indépendant du coût réel automobile en France. Barèmes 2026 et outils transparents sans inscription.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-cars.js"></script>
+  <script src="../assets/js/tools/simulateur-malus-2026.js"></script>
+</body>
+</html>

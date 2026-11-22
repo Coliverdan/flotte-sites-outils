@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>À propos & Méthodologie de DossierPur | DossierPur</title>
+  <meta name="description" content="À propos & Méthodologie de DossierPur — Studio PDF administratif 100 % local navigateur (Zéro Upload Serveur).">
+  <link rel="canonical" href="https://dossierpur.fr/a-propos.html">
+  <meta property="og:title" content="À propos & Méthodologie de DossierPur | DossierPur">
+  <meta property="og:description" content="Studio PDF administratif 100 % local navigateur (Zéro Upload Serveur)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dossierpur.fr/a-propos.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-root-prefix="">
+
+  <!-- Bandeau de confiance institutionnel -->
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-strip__badge">
+        <span class="trust-dot" aria-hidden="true"></span>
+        0 octet envoyé sur serveur — Traitement 100 % navigateur (JavaScript / Canvas / PDF-lib)
+      </div>
+      <div class="trust-strip__meta">CONFIDENTIALITÉ VÉRIFIABLE • MODE HORS-LIGNE COMPATIBLE</div>
+    </div>
+  </div>
+
+  <!-- En-tête Sticky -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="DossierPur Accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <polyline points="9 15 11 17 15 13"/>
+          </svg>
+        </span>
+        DossierPur
+        <span class="brand-tag">100 % LOCAL</span>
+      </a>
+
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <nav class="main-nav" data-main-nav aria-label="Navigation principale">
+        <a href="outils/compresser-pdf-ants.html" class="nav-link">Compresser PDF</a>
+        <a href="outils/filigrane-securise.html" class="nav-link">Filigrane CNI</a>
+        <a href="outils/fusionner-dossier-locatif.html" class="nav-link">Dossier Locatif</a>
+        <a href="outils/images-vers-pdf.html" class="nav-link">Photos → PDF</a>
+        <a href="outils/decouper-extraire-pdf.html" class="nav-link">Découper</a>
+        <a href="outils/verifier-poids-checklist.html" class="nav-link">Checklist</a>
+        <a href="guides/limites-fichiers-ants-caf-parcoursup.html" class="nav-link">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  
+  <main id="main-content">
+    <section class="section" style="padding-top:48px;padding-bottom:64px;">
+      <div class="container" style="max-width:920px;margin:0 auto;">
+        <nav aria-label="Fil d'Ariane" style="margin-bottom:24px;font-size:14px;opacity:0.8;">
+          <a href="index.html">Accueil</a> &nbsp;/&nbsp; <span aria-current="page">À propos de DossierPur & Charte Méthodologique</span>
+        </nav>
+        <header style="margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(128,128,128,0.22);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;opacity:0.85;">Transparence · Indépendance · Rigueur 2026</div>
+          <h1>À propos de DossierPur & Charte Méthodologique</h1>
+        </header>
+        <article class="prose editorial-prose" style="line-height:1.75;">
+          
+        <h2>Notre mission</h2>
+        <p>DossierPur permet aux citoyens, locataires, étudiants et indépendants de préparer, compresser, fusionner et filigraner leurs justificatifs officiels (CNI, passeport, avis d'imposition, fiches de paie) directement dans la mémoire de leur navigateur, sans jamais envoyer un seul octet sur un serveur distant.</p>
+        <h2>Méthodologie &amp; Sources de calcul</h2>
+        <p>Tous nos outils s'exécutent côté client grâce aux moteurs open-source PDF.js (Mozilla) et pdf-lib ainsi qu'à l'API HTML5 Canvas. Aucune requête réseau contenant vos documents n'est émise : vous pouvez même couper votre connexion Internet après le chargement de la page et continuer à traiter vos fichiers.</p>
+        <h2>Fonctionnement 100 % côté navigateur &amp; respect de la vie privée</h2>
+        <p>Contrairement aux portails traditionnels qui imposent la création d'un compte ou collectent vos données dans un tunnel commercial, l'ensemble des calculateurs et utilitaires de <strong>DossierPur</strong> s'exécutent directement dans la mémoire vive de votre navigateur en JavaScript. Vos saisies ne sont jamais revendues à des courtiers ou démarcheurs.</p>
+        <h2>Catalogue complet des outils DossierPur</h2>
+        <ul>
+          <li><a href="outils/compresser-pdf-ants.html"><strong>Compresseur PDF à Taille Cible Exacte (ANTS 2 Mo, CAF, Parcoursup)</strong></a></li>
+            <li><a href="outils/filigrane-securise.html"><strong>Filigrane Anti-Usurpation d'Identité 100 % Local</strong></a></li>
+            <li><a href="outils/fusionner-dossier-locatif.html"><strong>Assembleur de Dossier Locatif PDF avec Page de Garde</strong></a></li>
+            <li><a href="outils/images-vers-pdf.html"><strong>Convertisseur Photos Smartphone → PDF A4 Mode Scan N&B</strong></a></li>
+            <li><a href="outils/decouper-extraire-pdf.html"><strong>Découpeur, Extracteur & Rotation de Pages PDF</strong></a></li>
+            <li><a href="outils/verifier-poids-checklist.html"><strong>Vérificateur de Poids & Checklist Dossier Administratif</strong></a></li>
+        </ul>
+        <h2>Dossiers &amp; Guides de référence</h2>
+        <ul>
+          <li><a href="guides/proteger-papiers-usurpation-identite.html">Guide complet : protéger ses pièces d'identité contre l'usurpation en 2026</a></li>
+            <li><a href="guides/limites-fichiers-ants-caf-parcoursup.html">Tailles maximales et formats acceptés : ANTS, CAF, Impôts, Parcoursup et DossierFacile</a></li>
+        </ul>
+        <h2>Nous contacter ou signaler une mise à jour réglementaire</h2>
+        <p>Notre équipe éditoriale met à jour les barèmes dès la publication des décrets et lois de finances. Pour toute suggestion, correction ou question technique, écrivez-nous via la page <a href="contact.html">Contact</a> ou directement à <code>contact@dossierpur.fr</code>.</p>
+      
+        </article>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Footer Institutionnel 4 Colonnes -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DossierPur</div>
+          <p class="footer-desc">
+            Studio PDF administratif 100 % local navigateur. Compression à taille cible ANTS, filigrane anti-usurpation, assemblage locatif et scan A4 sans aucun transfert serveur.
+          </p>
+          <span class="badge badge-trust">0 octet envoyé • Traitement local</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Outils PDF Locaux</h4>
+          <ul class="footer-links">
+            <li><a href="outils/compresser-pdf-ants.html">Compresseur PDF ANTS (2 Mo)</a></li>
+            <li><a href="outils/filigrane-securise.html">Filigrane anti-usurpation</a></li>
+            <li><a href="outils/fusionner-dossier-locatif.html">Assembleur dossier locatif</a></li>
+            <li><a href="outils/images-vers-pdf.html">Photos smartphone → PDF A4</a></li>
+            <li><a href="outils/decouper-extraire-pdf.html">Découper &amp; pivoter PDF</a></li>
+            <li><a href="outils/verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="guides/proteger-papiers-usurpation-identite.html">Protéger ses papiers (CNI / Location)</a></li>
+            <li><a href="guides/limites-fichiers-ants-caf-parcoursup.html">Limites ANTS, CAF &amp; Parcoursup</a></li>
+            <li><a href="a-propos.html">À propos &amp; Méthodologie</a></li>
+            <li><a href="contact.html">Contact &amp; Signalement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Conformité &amp; Légal</h4>
+          <ul class="footer-links">
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#" data-open-cookie-prefs>Gérer mes cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 DossierPur.fr — Service indépendant non affilié à l'ANTS, la CAF ou DossierFacile.</span>
+        <span class="mono">Traitement 100 % côté client (RAM locale)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

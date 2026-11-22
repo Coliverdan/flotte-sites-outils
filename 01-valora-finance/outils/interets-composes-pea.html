@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Intérêts Composés PEA vs Assurance-Vie vs CTO — Valora</title>
+  <meta name="description" content="Simulez la croissance nette de votre capital en intérêts composés sur 1 à 40 ans en comparant la fiscalité française réelle : PEA (17,2 % PS), Assurance-Vie (abattement 4 600 €/9 200 €) et CTO (PFU 30 %).">
+  <link rel="canonical" href="https://valora-finance.fr/outils/interets-composes-pea.html">
+  <meta property="og:title" content="Simulateur Intérêts Composés PEA vs Assurance-Vie vs CTO — Valora">
+  <meta property="og:description" content="Courbe multi-séries et tableau année par année avec impôts exacts selon l'enveloppe fiscale française.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Intérêts Composés PEA vs Assurance-Vie vs CTO",
+        "url": "https://valora-finance.fr/outils/interets-composes-pea.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://valora-finance.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://valora-finance.fr/#tous-les-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Intérêts Composés PEA vs AV vs CTO", "item": "https://valora-finance.fr/outils/interets-composes-pea.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi le PEA surpasse-t-il presque toujours l'Assurance-Vie sur un ETF actions ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "D'une part, le PEA ne prélève aucuns frais annuels de gestion d'enveloppe sur vos titres (contre 0,5 % à 1 % par an sur les unités de compte en assurance-vie). D'autre part, après 5 ans, tous les gains du PEA sont exonérés d'impôt sur le revenu sans plafond d'abattement." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne l'abattement de 4 600 € ou 9 200 € en Assurance-Vie ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Après 8 ans de détention du contrat, les gains compris dans vos rachats bénéficient d'un abattement annuel sur l'impôt sur le revenu de 4 600 € pour une personne seule ou 9 200 € pour un couple. Les 17,2 % de prélèvements sociaux restent toutefois dus sur la totalité des plus-values." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il une fois le plafond de 150 000 € du PEA atteint ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le plafond de 150 000 € (300 000 € pour un couple détenant deux PEA) concerne uniquement vos versements en espèces, jamais la valorisation du plan. Vos gains peuvent croître sans limite, et vos nouveaux versements excédentaires peuvent être orientés vers un CTO ou une Assurance-Vie." }
+          },
+          {
+            "@type": "Question",
+            "name": "Un CTO peut-il être plus rentable qu'une Assurance-Vie à très long terme ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Au-delà de 20 à 25 ans, les frais annuels de gestion de l'assurance-vie (même limités à 0,5 % ou 0,6 %/an) composent négativement et finissent parfois par coûter davantage que le différentiel fiscal avec un CTO sans frais de garde sur ETF capitalisant." }
+          },
+          {
+            "@type": "Question",
+            "name": "Les intérêts composés sont-ils garantis en bourse ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Les marchés actions fluctuent fortement d'une année à l'autre. La courbe présentée illustre un taux de rendement annuel lissé (CAGR) afin de comparer rigoureusement l'impact des frais et de la fiscalité entre enveloppes." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>OUTIL 03 • COMPARATEUR FISCAL LONG TERME</span>
+      <span>PEA (&gt;5 ANS) • ASSURANCE-VIE (&gt;8 ANS) • CTO (PFU 30 %)</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="abonnements-etf.html">Abonnements &amp; ETF</a>
+        <a href="inflation-personnelle.html">Inflation perso</a>
+        <a href="interets-composes-pea.html" class="active">PEA vs CTO</a>
+        <a href="../guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="../a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="../index.html">Accueil</a>
+      <a href="abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="objectif-independance.html">06. Objectif FIRE France</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#tous-les-outils">Outils</a></li>
+        <li aria-current="page">Intérêts Composés PEA vs AV vs CTO</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header-grid">
+        <div>
+          <span class="eyebrow">Outil 03 • Capitalisation &amp; Enveloppes fiscales</span>
+          <h1>Simulateur Intérêts Composés : PEA vs Assurance-Vie vs CTO</h1>
+          <p class="text-secondary" style="margin-top:8px;max-width:66ch;">Comparez en un coup d'œil la performance nette après impôts et frais d'enveloppe des trois grands supports d'investissement français sur 1 à 40 ans.</p>
+        </div>
+        <div class="tool-header-meta">
+          <strong>Fiscalité intégrée :</strong> PEA 17,2 % après 5 ans, CTO PFU 30 %, Assurance-Vie abattement 4 600 €/9 200 € + 7,5 % / 12,8 % IR + frais UC.
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Entrées -->
+        <div class="panel">
+          <div class="panel-title">Paramètres de capitalisation</div>
+
+          <div class="field-row field-row-2">
+            <div class="field">
+              <label for="ic-initial">Capital initial</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="ic-initial" class="input input-mono" value="5000" min="0" max="500000" step="500">
+                <span class="input-suffix">€</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="ic-monthly">Versement mensuel</label>
+              <div class="input-suffix-wrap">
+                <input type="number" id="ic-monthly" class="input input-mono" value="300" min="0" max="10000" step="25">
+                <span class="input-suffix">€/mois</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="ic-rate">Rendement annuel brut</label>
+              <span class="field-value" id="ic-rate-val">8,0 %</span>
+            </div>
+            <input type="range" id="ic-rate" min="1" max="14" step="0.5" value="8">
+            <div class="range-ticks"><span>1 %</span><span>5 %</span><span>8 % (Actions)</span><span>14 %</span></div>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="ic-years">Horizon d'investissement</label>
+              <span class="field-value" id="ic-years-val">20 ans</span>
+            </div>
+            <input type="range" id="ic-years" min="1" max="40" step="1" value="20">
+            <div class="range-ticks"><span>1 an</span><span>10 ans</span><span>20 ans</span><span>40 ans</span></div>
+          </div>
+
+          <div class="field">
+            <div class="field-label-row">
+              <label for="ic-av-fee">Frais annuels UC Assurance-Vie</label>
+              <span class="field-value" id="ic-av-fee-val">0,50 %</span>
+            </div>
+            <input type="range" id="ic-av-fee" min="0" max="1.5" step="0.05" value="0.50">
+            <div class="range-ticks"><span>0 %</span><span>0,50 % (en ligne)</span><span>1,00 % (banque)</span><span>1,50 %</span></div>
+          </div>
+
+          <div class="field">
+            <label style="margin-bottom:8px;">Situation fiscale (abattement Assurance-Vie &gt; 8 ans)</label>
+            <div class="segmented" role="group" aria-label="Situation fiscale">
+              <button type="button" class="active" data-status="single">Célibataire (4 600 €)</button>
+              <button type="button" data-status="couple">Couple (9 200 €)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Résultats + Courbe + Tableau -->
+        <div>
+          <div class="kpi-grid kpi-grid-3">
+            <div class="kpi-card kpi-card-accent">
+              <div class="kpi-label">Capital net PEA</div>
+              <div class="kpi-value" id="kpi-pea-net">179 972 €</div>
+              <div class="kpi-sub" id="kpi-pea-sub">Impôt : 21 153 € (17,2 % PS)</div>
+            </div>
+            <div class="kpi-card">
+              <div class="kpi-label">Net Assurance-Vie</div>
+              <div class="kpi-value" id="kpi-av-net">162 200 €</div>
+              <div class="kpi-sub" id="kpi-av-sub">Frais 0,50 %/an</div>
+            </div>
+            <div class="kpi-card kpi-card-danger">
+              <div class="kpi-label">Capital net CTO</div>
+              <div class="kpi-value" id="kpi-cto-net">164 230 €</div>
+              <div class="kpi-sub" id="kpi-cto-sub">PFU 30 %</div>
+            </div>
+          </div>
+
+          <p class="panel-muted mono" id="ic-summary-line" style="font-size:0.84rem;margin-bottom:24px;"></p>
+
+          <div class="chart-box">
+            <div class="chart-header">
+              <span class="chart-title">Évolution du capital net d'impôt par enveloppe</span>
+              <div class="chart-legend">
+                <span class="legend-item"><span class="legend-dot" style="background:#0F5132;"></span>PEA net</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#8A6116;"></span>Assurance-Vie net</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#A62C2B;"></span>CTO net</span>
+                <span class="legend-item"><span class="legend-dot" style="background:#7D8780;"></span>Versements</span>
+              </div>
+            </div>
+            <div class="canvas-wrap canvas-wrap-tall">
+              <canvas id="ic-chart" aria-label="Courbe comparative PEA, Assurance-Vie, CTO et versements cumulés"></canvas>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-title">
+              <span>Tableau d'évolution année par année</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="btn-toggle-table">Afficher toutes les années</button>
+            </div>
+            <div class="table-wrap" style="margin:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th class="num">Année</th>
+                    <th class="num">Versé</th>
+                    <th class="num">Intérêts bruts</th>
+                    <th class="num">Impôt PEA</th>
+                    <th class="num">Net PEA</th>
+                    <th class="num">Net AV</th>
+                    <th class="num">Net CTO</th>
+                  </tr>
+                </thead>
+                <tbody id="ic-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Emplacement AdSense 1 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Format adaptatif anti-CLS)</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Éditorial -->
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <article class="prose">
+          <h2>L'effet combiné des intérêts composés et de la fiscalité française</h2>
+          <p>Les intérêts composés reposent sur un mécanisme simple : les gains générés chaque année produisent à leur tour des gains les années suivantes. Sur les dix premières années d'un plan d'épargne mensuel, l'essentiel du capital provient encore de votre effort d'épargne. Passé le cap des 15 à 20 ans, la courbe s'incurve et les intérêts finissent par dépasser vos versements cumulés.</p>
+          <p>En France, le choix de l'enveloppe fiscale pèse autant que la sélection du support. Deux frictions érodent la performance finale : la <strong>fiscalité à la sortie</strong> (qui ampute les plus-values lors du rachat) et les <strong>frais récurrents annuels</strong> (prélevés chaque année sur l'encours total en assurance-vie, même les années de baisse boursière).</p>
+
+          <h3>Formules fiscales implémentées</h3>
+          <div class="formula-box">
+            PEA (≥ 5 ans) : Impôt = Plus_value × 17,2 % (Prélèvements sociaux)<br>
+            CTO (toute durée) : Impôt = Plus_value × 30,0 % (12,8 % IR + 17,2 % PS)<br>
+            Assurance-Vie (≥ 8 ans) : Rendement_net_frais = R − Frais_UC<br>
+            &nbsp;&nbsp;Impôt_AV = (Plus_value × 17,2 %) + max(0, Plus_value − Abattement) × Taux_IR_pondéré
+          </div>
+          <p>Pour l'Assurance-Vie au-delà de 8 ans, l'article 125-0 A du Code général des impôts prévoit un taux réduit d'impôt sur le revenu de <strong>7,5 %</strong> pour la fraction des versements nets inférieure ou égale à 150 000 €, et de <strong>12,8 %</strong> au-delà de ce seuil, après application de l'abattement annuel (4 600 € pour une personne seule, 9 200 € pour un couple soumis à imposition commune).</p>
+
+          <h3>Comparatif chiffré : 5 000 € initiaux + 300 € / mois à 8 % brut</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Durée</th>
+                  <th class="num">Total versé</th>
+                  <th class="num">PEA net (17,2 %)</th>
+                  <th class="num">AV en ligne (0,5 %)</th>
+                  <th class="num">CTO net (30 %)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>10 ans</strong></td>
+                  <td class="num">41 000 €</td>
+                  <td class="num text-accent"><strong>62 414 €</strong></td>
+                  <td class="num">59 730 €</td>
+                  <td class="num">59 107 €</td>
+                </tr>
+                <tr>
+                  <td><strong>20 ans</strong></td>
+                  <td class="num">77 000 €</td>
+                  <td class="num text-accent"><strong>177 485 €</strong></td>
+                  <td class="num">160 175 €</td>
+                  <td class="num">161 951 €</td>
+                </tr>
+                <tr>
+                  <td><strong>30 ans</strong></td>
+                  <td class="num">113 000 €</td>
+                  <td class="num text-accent"><strong>442 544 €</strong></td>
+                  <td class="num">379 440 €</td>
+                  <td class="num">391 581 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p>On observe un résultat contre-intuitif mais fondamental : à 20 et 30 ans, un Compte-Titres Ordinaire sans frais d'enveloppe rattrape puis dépasse une Assurance-Vie facturant 0,50 % de frais annuels en cas de rachat total en une seule fois. En revanche, l'Assurance-Vie retrouve un intérêt majeur si les retraits sont <strong>étalés sur plusieurs années</strong> pour purger chaque année l'abattement de 4 600 €/9 200 €, ou dans une optique de transmission successorale (abattement de 152 500 € par bénéficiaire pour les versements avant 70 ans).</p>
+
+          <h3>Pièges fréquents à éviter</h3>
+          <ul>
+            <li><strong>Attendre avant d'ouvrir son PEA :</strong> le compteur fiscal des 5 ans démarre à la date d'ouverture du plan, pas à la date de vos gros versements. Ouvrir un PEA avec 50 € pour « prendre date » est l'un des réflexes patrimoniaux les plus rentables.</li>
+            <li><strong>Sous-estimer 0,8 % ou 1 % de frais de gestion :</strong> dans une banque traditionnelle, une assurance-vie à 1 % de frais annuels + 2 % de frais sur versement peut amputer votre patrimoine final de plus de 25 % sur 25 ans.</li>
+            <li><strong>Oublier les ETF capitalisants en CTO :</strong> sur un CTO, un ETF qui distribue des dividendes subit le PFU de 30 % chaque année, freinant la capitalisation, alors qu'un ETF capitalisant diffère l'impôt jusqu'à la revente.</li>
+          </ul>
+
+          <!-- Emplacement AdSense 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Rectangle éditorial anti-CLS)</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Pourquoi le PEA surpasse-t-il presque toujours l'Assurance-Vie sur les actions ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Le PEA combine l'absence de frais annuels d'enveloppe sur les titres et une exonération totale d'impôt sur le revenu après 5 ans (seuls 17,2 % de prélèvements sociaux s'appliquent), quel que soit le montant de la plus-value retirée.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Comment fonctionne l'abattement de 4 600 € / 9 200 € en Assurance-Vie ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Chaque année civile après le 8<sup>e</sup> anniversaire du contrat, la part de gains incluse dans vos rachats est exonérée d'impôt sur le revenu jusqu'à 4 600 € (célibataire) ou 9 200 € (couple). Les prélèvements sociaux de 17,2 % restent dus.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Peut-on dépasser 150 000 € de valorisation sur un PEA ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Oui, sans aucune limite. Le plafond de 150 000 € (300 000 € pour un couple) porte uniquement sur le cumul des versements effectués. Un PEA alimenté à hauteur de 150 000 € peut parfaitement atteindre 400 000 € ou 600 000 € grâce aux intérêts composés.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Peut-on investir sur le monde entier (MSCI World / S&amp;P 500) dans un PEA ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Oui, grâce aux ETF à réplication synthétique (swap) éligibles au PEA qui répliquent fidèlement les indices MSCI World, S&amp;P 500 ou Nasdaq-100 tout en respectant le quota européen légal. Retrouvez tous les détails dans notre <a href="../guides/fiscalite-etf-pea-2026.html">guide complet de la fiscalité ETF &amp; PEA 2026</a>.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Faut-il privilégier le versement initial ou le versement mensuel régulier ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Statistiquement, investir une somme disponible tôt maximise la durée de capitalisation, tandis que le versement mensuel programmé lisse les points d'entrée sur les marchés volatils et transforme une fraction de chaque salaire en patrimoine durable.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="sidebar-box">
+            <h3>Autres outils Valora</h3>
+            <ul class="sidebar-links">
+              <li><a href="abonnements-etf.html"><span>01. Abonnements → ETF</span><span>→</span></a></li>
+              <li><a href="inflation-personnelle.html"><span>02. Mon Inflation Personnelle</span><span>→</span></a></li>
+              <li><a href="epargne-securite.html"><span>04. Matelas de Sécurité</span><span>→</span></a></li>
+              <li><a href="cout-credit-conso.html"><span>05. Vrai Coût Crédit Conso</span><span>→</span></a></li>
+              <li><a href="objectif-independance.html"><span>06. Calculateur FIRE France</span><span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Dossier recommandé</h3>
+            <p class="text-secondary" style="font-size:0.9rem;">Analyse détaillée des plafonds, frais et stratégies de sortie PEA / Assurance-Vie / CTO.</p>
+            <a href="../guides/fiscalite-etf-pea-2026.html" class="btn btn-secondary btn-sm btn-block">Guide Fiscalité ETF &amp; PEA 2026</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale calibrés sur la fiscalité française.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="../guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="../guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance — Simulations pédagogiques hors conseil en investissement.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/interets-composes-pea.js"></script>
+</body>
+</html>

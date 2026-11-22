@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flotte d'Outils Web — Portail des 10 Sites (60 Outils SEO &amp; AdSense)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #F6F4EF;
+      --surface: #FFFFFF;
+      --surface-alt: #ECE8DF;
+      --ink: #121413;
+      --muted: #525754;
+      --border: #DDD7CB;
+      --accent: #0F5132;
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 17px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+      background: var(--surface);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      padding: 8px 16px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--ink);
+      border-radius: 4px;
+    }
+    .hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 48px;
+      align-items: end;
+    }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+    .lead {
+      color: var(--muted);
+      max-width: 62ch;
+      font-size: 18px;
+    }
+    .stats-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    .stat-label {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .filter-bar {
+      padding: 32px 0 24px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 150ms, color 150ms, border-color 150ms;
+    }
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--ink);
+      color: #FFFFFF;
+      border-color: var(--ink);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      padding-bottom: 80px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 24px;
+      transition: border-color 180ms, transform 180ms;
+    }
+    .card:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .card-index {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .swatches {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .swatch {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.16);
+    }
+    .card h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      letter-spacing: -0.02em;
+      margin: 8px 0 8px;
+    }
+    .card-meta {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    .tools-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    .tools-list li a {
+      display: block;
+      font-size: 14px;
+      color: var(--ink);
+      text-decoration: none;
+      padding: 8px;
+      background: var(--bg);
+      border: 1px solid transparent;
+      transition: border-color 150ms;
+    }
+    .tools-list li a:hover {
+      border-color: var(--ink);
+    }
+    .card-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .rpm-tag {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .cta {
+      display: inline-block;
+      padding: 12px 20px;
+      background: var(--ink);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 4px;
+      transition: opacity 150ms;
+    }
+    .cta:hover { opacity: 0.88; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 48px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    @media (max-width: 900px) {
+      .hero-grid, .grid, .tools-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap header-inner">
+      <div class="brand">Portail Flotte d'Outils — 10 Sites</div>
+      <div class="badge">60 outils interactifs • 130+ pages SEO • Prêt AdSense 2026</div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Architecture de Flotte • Zéro AI Slop • 100 % Client-Side</p>
+          <h1>10 marques éditoriales d'outils conçues pour Google &amp; AdSense.</h1>
+          <p class="lead">Chaque site possède sa propre direction artistique sur-mesure (typographie dédiée, palette stricte 70/25/5 sans dégradé, grille 8 points), 6 outils réellement fonctionnels, 2 guides piliers longs, des schémas JSON-LD complets et toutes les pages légales E-E-A-T.</p>
+        </div>
+        <div class="stats-box">
+          <div>
+            <div class="stat-num">10</div>
+            <div class="stat-label">Sites autonomes à DA unique</div>
+          </div>
+          <div>
+            <div class="stat-num">60</div>
+            <div class="stat-label">Outils interactifs fonctionnels</div>
+          </div>
+          <div>
+            <div class="stat-num">0 €</div>
+            <div class="stat-label">Coût serveur (100 % statique)</div>
+          </div>
+          <div>
+            <div class="stat-num">2026</div>
+            <div class="stat-label">Barèmes FR/EU &amp; RGPD intégrés</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="filter-bar" role="tablist" aria-label="Filtrer par verticale">
+      <button class="filter-btn active" data-filter="all">Tous les 10 sites</button>
+      <button class="filter-btn" data-filter="finance">Finance &amp; Carrière</button>
+      <button class="filter-btn" data-filter="energie">Énergie &amp; Auto</button>
+      <button class="filter-btn" data-filter="local">Utilitaires 100 % Locaux</button>
+      <button class="filter-btn" data-filter="lifestyle">Voyage, Animaux &amp; Mariage</button>
+    </div>
+
+    <section class="grid" id="fleet-grid">
+      <article class="card" data-cat="finance">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 01 • valora-finance.fr</span>
+            <div class="swatches" aria-label="Palette">
+              <span class="swatch" style="background:#F9F7F2"></span>
+              <span class="swatch" style="background:#111814"></span>
+              <span class="swatch" style="background:#0F5132"></span>
+            </div>
+          </div>
+          <h2>Valora</h2>
+          <p class="card-meta">DA : Presse financière suisse • Fraunces + Plus Jakarta Sans</p>
+          <p class="card-desc">Épargne, coût caché des abonnements investis en ETF/PEA, inflation personnelle 2019–2026 et indépendance financière France.</p>
+          <ul class="tools-list">
+            <li><a href="01-valora-finance/outils/abonnements-etf.html">Abonnements → ETF (PNG Viral)</a></li>
+            <li><a href="01-valora-finance/outils/inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="01-valora-finance/outils/interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="01-valora-finance/outils/epargne-securite.html">Matelas &amp; Livrets (LEP/A)</a></li>
+            <li><a href="01-valora-finance/outils/cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="01-valora-finance/outils/objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 12 – 25 €</span>
+          <a class="cta" href="01-valora-finance/index.html">Ouvrir Valora →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="finance">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 02 • chrononet.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#F6F6F4"></span>
+              <span class="swatch" style="background:#141413"></span>
+              <span class="swatch" style="background:#D9381E"></span>
+            </div>
+          </div>
+          <h2>ChronoNet</h2>
+          <p class="card-meta">DA : Industriel Dieter Rams • Syne + DM Sans</p>
+          <p class="card-desc">Vrai salaire horaire après trajets et frais, prix convertis en heures de vie, économies télétravail, brut/net et rupture conventionnelle.</p>
+          <ul class="tools-list">
+            <li><a href="02-chrononet-salaire/outils/vrai-salaire-horaire.html">Vrai Salaire Horaire (PNG)</a></li>
+            <li><a href="02-chrononet-salaire/outils/prix-en-heures-de-vie.html">Prix → Heures de Vie</a></li>
+            <li><a href="02-chrononet-salaire/outils/teletravail-vs-presentiel.html">Économies Télétravail</a></li>
+            <li><a href="02-chrononet-salaire/outils/brut-en-net-2026.html">Brut ↔ Net 2026</a></li>
+            <li><a href="02-chrononet-salaire/outils/rupture-conventionnelle.html">Rupture Conventionnelle</a></li>
+            <li><a href="02-chrononet-salaire/outils/tjm-freelance-vs-cdi.html">TJM Freelance ↔ CDI</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 10 – 20 €</span>
+          <a class="cta" href="02-chrononet-salaire/index.html">Ouvrir ChronoNet →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="local">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 03 • dossierpur.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#F4F5F7"></span>
+              <span class="swatch" style="background:#0D1B2A"></span>
+              <span class="swatch" style="background:#1D4ED8"></span>
+            </div>
+          </div>
+          <h2>DossierPur</h2>
+          <p class="card-meta">DA : Institutionnel scandinave • Space Grotesk + Source Sans 3</p>
+          <p class="card-desc">Studio PDF administratif 100 % navigateur (zéro upload) : compression cible ANTS 2 Mo, filigrane anti-usurpation et dossier locatif.</p>
+          <ul class="tools-list">
+            <li><a href="03-dossierpur-pdf/outils/compresser-pdf-ants.html">Compresser PDF ANTS 2 Mo</a></li>
+            <li><a href="03-dossierpur-pdf/outils/filigrane-securise.html">Filigrane CNI / Passeport</a></li>
+            <li><a href="03-dossierpur-pdf/outils/fusionner-dossier-locatif.html">Assembleur Dossier Locatif</a></li>
+            <li><a href="03-dossierpur-pdf/outils/images-vers-pdf.html">Photos → PDF Mode Scan</a></li>
+            <li><a href="03-dossierpur-pdf/outils/decouper-extraire-pdf.html">Découper &amp; Pivoter PDF</a></li>
+            <li><a href="03-dossierpur-pdf/outils/verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 6 – 12 € (Volume +++)</span>
+          <a class="cta" href="03-dossierpur-pdf/index.html">Ouvrir DossierPur →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="lifestyle">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 04 • cabineok.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#F5F3EE"></span>
+              <span class="swatch" style="background:#121316"></span>
+              <span class="swatch" style="background:#0047AB"></span>
+            </div>
+          </div>
+          <h2>CabineOK</h2>
+          <p class="card-meta">DA : Signalétique aéroport • Bricolage Grotesque + Plus Jakarta Sans</p>
+          <p class="card-desc">Vérificateur interactif de bagage cabine sur 40+ compagnies aériennes, multi-escales, liquides 100 ml, prises monde et indemnités CE 261.</p>
+          <ul class="tools-list">
+            <li><a href="04-cabineok-voyage/outils/verificateur-bagage-cabine.html">Mon Bagage Passe-t-il ?</a></li>
+            <li><a href="04-cabineok-voyage/outils/comparateur-multi-escales.html">Itinéraire Multi-Escales</a></li>
+            <li><a href="04-cabineok-voyage/outils/calculateur-liquides-cabine.html">Trousse Liquides 100 ml</a></li>
+            <li><a href="04-cabineok-voyage/outils/adaptateur-prise-voyage.html">Prises &amp; Voltage (70+ pays)</a></li>
+            <li><a href="04-cabineok-voyage/outils/calculateur-indemnite-vol.html">Indemnité Vol CE 261</a></li>
+            <li><a href="04-cabineok-voyage/outils/convertisseur-poids-volume-valise.html">Litres ↔ Dimensions &amp; Poids</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 8 – 18 € (pSEO +++)</span>
+          <a class="cta" href="04-cabineok-voyage/index.html">Ouvrir CabineOK →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="energie">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 05 • wattclair.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#F7F5F0"></span>
+              <span class="swatch" style="background:#1A211E"></span>
+              <span class="swatch" style="background:#C86D0A"></span>
+            </div>
+          </div>
+          <h2>WattClair</h2>
+          <p class="card-meta">DA : Architecture nordique • Outfit + DM Sans</p>
+          <p class="card-desc">Rentabilité solaire de balcon Plug &amp; Play sur 96 départements, coût par appareil en EDF Tempo Jour Rouge/Bleu, chauffage et veilles fantômes.</p>
+          <ul class="tools-list">
+            <li><a href="05-wattclair-energie/outils/solaire-balcon-plug-play.html">Solaire Balcon Plug &amp; Play</a></li>
+            <li><a href="05-wattclair-energie/outils/cout-appareil-edf-tempo.html">Coût Appareil EDF Tempo</a></li>
+            <li><a href="05-wattclair-energie/outils/comparateur-tempo-hc-base.html">Base vs HC/HP vs Tempo</a></li>
+            <li><a href="05-wattclair-energie/outils/calculateur-chauffage-piece.html">Chauffage par Pièce</a></li>
+            <li><a href="05-wattclair-energie/outils/detecteur-veilles-fantomes.html">Audit Veilles Fantômes</a></li>
+            <li><a href="05-wattclair-energie/outils/simulateur-dpe-facture.html">Facture selon DPE A–G</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 14 – 28 €</span>
+          <a class="cta" href="05-wattclair-energie/index.html">Ouvrir WattClair →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="energie">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 06 • trajectoire-auto.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#0E1012"></span>
+              <span class="swatch" style="background:#F2F2EE"></span>
+              <span class="swatch" style="background:#E85D04"></span>
+            </div>
+          </div>
+          <h2>Trajectoire</h2>
+          <p class="card-meta">DA : Magazine auto sombre titane • Archivo + Plus Jakarta Sans</p>
+          <p class="card-desc">Duel Électrique vs Thermique sur 30+ modèles, Malus CO₂ + Poids + Carte grise 2026, temps de recharge, PRK réel et LOA vs Crédit.</p>
+          <ul class="tools-list">
+            <li><a href="06-trajectoire-auto/outils/duel-electrique-vs-thermique.html">Duel Élec vs Thermique</a></li>
+            <li><a href="06-trajectoire-auto/outils/simulateur-malus-2026.html">Malus CO₂/Poids 2026</a></li>
+            <li><a href="06-trajectoire-auto/outils/cout-recharge-electrique.html">Coût &amp; Temps Recharge VE</a></li>
+            <li><a href="06-trajectoire-auto/outils/cout-reel-kilometrique.html">Vrai PRK au Kilomètre</a></li>
+            <li><a href="06-trajectoire-auto/outils/loa-lld-vs-credit.html">LOA / LLD vs Crédit</a></li>
+            <li><a href="06-trajectoire-auto/outils/cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 15 – 30 €</span>
+          <a class="cta" href="06-trajectoire-auto/index.html">Ouvrir Trajectoire →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="lifestyle">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 07 • pattesclaires.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#FBF8F3"></span>
+              <span class="swatch" style="background:#231B15"></span>
+              <span class="swatch" style="background:#B84A27"></span>
+            </div>
+          </div>
+          <h2>PattesClaires</h2>
+          <p class="card-meta">DA : Éditorial nature Kinfolk • Fraunces + Nunito Sans</p>
+          <p class="card-desc">Budget annuel et vie entière sur 40+ races de chiens et chats, ration croquettes RER/DER, âge humain UCSD et vérificateur d'aliments toxiques.</p>
+          <ul class="tools-list">
+            <li><a href="07-pattesclaires-animaux/outils/budget-chien-chat-race.html">Budget par Race (40+)</a></li>
+            <li><a href="07-pattesclaires-animaux/outils/ration-croquettes.html">Ration Croquettes (g/jour)</a></li>
+            <li><a href="07-pattesclaires-animaux/outils/age-humain-reel.html">Âge Humain Réel (UCSD)</a></li>
+            <li><a href="07-pattesclaires-animaux/outils/aliments-toxiques.html">Aliments Toxiques &amp; Chocolat</a></li>
+            <li><a href="07-pattesclaires-animaux/outils/comparateur-mutuelle-epargne.html">Mutuelle vs Cagnotte Santé</a></li>
+            <li><a href="07-pattesclaires-animaux/outils/checklist-adoption.html">Budget &amp; Checklist Adoption</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 8 – 16 € (pSEO +++)</span>
+          <a class="cta" href="07-pattesclaires-animaux/index.html">Ouvrir PattesClaires →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="lifestyle">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 08 • tablelibre.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#F8F6F1"></span>
+              <span class="swatch" style="background:#181715"></span>
+              <span class="swatch" style="background:#2D5A43"></span>
+            </div>
+          </div>
+          <h2>TableLibre</h2>
+          <p class="card-meta">DA : Papeterie luxe • Cormorant Garamond + Plus Jakarta Sans</p>
+          <p class="card-desc">Éditeur de plan de table drag-and-drop sans compte ni paywall, quantités boissons/traiteur, budget mariage, rétroplanning et partage EVJF.</p>
+          <ul class="tools-list">
+            <li><a href="08-tablelibre-evenements/outils/plan-de-table.html">Plan de Table Drag &amp; Drop</a></li>
+            <li><a href="08-tablelibre-evenements/outils/calculateur-boissons-reception.html">Boissons &amp; Champagne</a></li>
+            <li><a href="08-tablelibre-evenements/outils/budget-mariage.html">Budget Mariage Réel/Prévu</a></li>
+            <li><a href="08-tablelibre-evenements/outils/calculateur-traiteur-portions.html">Traiteur, Buffet &amp; Gâteau</a></li>
+            <li><a href="08-tablelibre-evenements/outils/retroplanning-mariage.html">Rétroplanning Personnalisé</a></li>
+            <li><a href="08-tablelibre-evenements/outils/partage-frais-evjf-groupe.html">Partage Frais EVJF / Groupe</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 7 – 14 € (Session 20m+)</span>
+          <a class="cta" href="08-tablelibre-evenements/index.html">Ouvrir TableLibre →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="finance">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 09 • comptabrut.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#FAFAFA"></span>
+              <span class="swatch" style="background:#0B0D0E"></span>
+              <span class="swatch" style="background:#047857"></span>
+            </div>
+          </div>
+          <h2>ComptaBrut</h2>
+          <p class="card-meta">DA : Fintech brutaliste • Plus Jakarta Sans + Source Sans 3</p>
+          <p class="card-desc">Inspecteur Factur-X 2026 100 % local, simulateur URSSAF/ACRE 2026, prorata TVA micro-entreprise, générateur facture PDF et validateur IBAN/SIRET.</p>
+          <ul class="tools-list">
+            <li><a href="09-comptabrut-freelance/outils/inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="09-comptabrut-freelance/outils/simulateur-urssaf-micro-2026.html">URSSAF &amp; ACRE Micro 2026</a></li>
+            <li><a href="09-comptabrut-freelance/outils/suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="09-comptabrut-freelance/outils/generateur-facture-devis.html">Générateur Facture PDF</a></li>
+            <li><a href="09-comptabrut-freelance/outils/calculateur-tva-marge.html">TVA, Marge &amp; Marque</a></li>
+            <li><a href="09-comptabrut-freelance/outils/verificateur-iban-siret.html">IBAN, SIRET &amp; N° TVA FR</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 15 – 32 € (B2B)</span>
+          <a class="cta" href="09-comptabrut-freelance/index.html">Ouvrir ComptaBrut →</a>
+        </div>
+      </article>
+
+      <article class="card" data-cat="local">
+        <div>
+          <div class="card-top">
+            <span class="card-index">SITE 10 • voixnette.fr</span>
+            <div class="swatches">
+              <span class="swatch" style="background:#111214"></span>
+              <span class="swatch" style="background:#F3F1EC"></span>
+              <span class="swatch" style="background:#E12D39"></span>
+            </div>
+          </div>
+          <h2>VoixNette</h2>
+          <p class="card-meta">DA : Studio audio analogique • Space Grotesk + DM Sans</p>
+          <p class="card-desc">Studio WebAudio 100 % navigateur : coupe-silence automatique pour notes vocales WhatsApp, normaliseur dBFS, découpeur, audiogramme et test micro.</p>
+          <ul class="tools-list">
+            <li><a href="10-voixnette-audio/outils/coupe-silence-vocal.html">Coupe-Silence Vocal Auto</a></li>
+            <li><a href="10-voixnette-audio/outils/normaliseur-volume.html">Normaliseur dBFS / Gain</a></li>
+            <li><a href="10-voixnette-audio/outils/decoupeur-audio.html">Découpeur Audio Visuel</a></li>
+            <li><a href="10-voixnette-audio/outils/vitesse-pitch-audio.html">Vitesse Vocaux 0,5× – 3×</a></li>
+            <li><a href="10-voixnette-audio/outils/carte-onde-audio.html">Générateur Audiogramme</a></li>
+            <li><a href="10-voixnette-audio/outils/analyseur-micro-bruit.html">Test Micro &amp; Décibelmètre</a></li>
+          </ul>
+        </div>
+        <div class="card-actions">
+          <span class="rpm-tag">RPM cible : 5 – 11 € (Viral +++)</span>
+          <a class="cta" href="10-voixnette-audio/index.html">Ouvrir VoixNette →</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Lancement local instantané : exécutez <code>node server.mjs</code> dans ce dossier puis ouvrez <code>http://127.0.0.1:8080/</code>. Audit automatisé : <code>node audit-flotte.mjs</code>.
+    </div>
+  </footer>
+
+  <script>
+    const btns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('#fleet-grid .card');
+    btns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        btns.forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        cards.forEach((c) => {
+          c.style.display = filter === 'all' || c.dataset.cat === filter ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validateur IBAN / SIREN / SIRET &amp; Générateur N° TVA Intracommunautaire — ComptaBrut</title>
+  <meta name="description" content="Vérifiez localement la validité d’un IBAN (ISO 7064 Mod 97-10 + clé RIB), contrôlez un SIREN ou SIRET (algorithme de Luhn) et calculez automatiquement le numéro de TVA intracommunautaire français FR XX SIREN.">
+  <link rel="canonical" href="https://comptabrut.fr/outils/verificateur-iban-siret.html">
+  <meta property="og:title" content="Validateur IBAN / SIREN / SIRET &amp; TVA Intracommunautaire — ComptaBrut">
+  <meta property="og:description" content="Contrôle mathématique 100 % local : ISO 7064 Mod 97-10, clé RIB française, Luhn INSEE et calcul instantané du n° TVA intracommunautaire.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Validateur IBAN / SIREN / SIRET & Générateur N° TVA Intracommunautaire",
+        "url": "https://comptabrut.fr/outils/verificateur-iban-siret.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Outil 100 % local de vérification d'IBAN (ISO 7064 Mod 97-10 et clé RIB), de SIREN/SIRET (algorithme de Luhn) et de calcul du numéro de TVA intracommunautaire français."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://comptabrut.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Validateur IBAN / SIREN / TVA Intra", "item": "https://comptabrut.fr/outils/verificateur-iban-siret.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment est calculé le numéro de TVA intracommunautaire français à partir du SIREN ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La formule officielle est FR + clé à 2 chiffres + SIREN (9 chiffres), où la clé est égale à [12 + 3 × (SIREN modulo 97)] modulo 97. Cette clé est déterministe pour toutes les entreprises immatriculées en France." }
+          },
+          {
+            "@type": "Question",
+            "name": "Un IBAN validé par l'algorithme Mod 97-10 garantit-il que le compte bancaire existe ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'algorithme ISO 7064 Mod 97-10 détecte plus de 99 % des fautes de frappe, inversions de chiffres ou erreurs de recopie, mais il s'agit d'un contrôle mathématique de structure. Il ne confirme pas l'identité du titulaire ni que le compte est toujours ouvert." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre un SIREN et un SIRET ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le SIREN comporte 9 chiffres et identifie l'entreprise (unité légale) de façon unique. Le SIRET comporte 14 chiffres : il est composé du SIREN (9 chiffres) suivi du NIC (5 chiffres) identifiant un établissement géographique précis." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi le SIRET de La Poste déroge-t-il à l'algorithme classique de Luhn ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La Poste possédant plus de 10 000 établissements sous le même SIREN (356 000 000), l'INSEE a instauré une règle de contrôle spécifique pour ses SIRET : la somme simple des 14 chiffres doit être divisible par 5. Notre validateur prend en compte cette exception officielle." }
+          },
+          {
+            "@type": "Question",
+            "name": "Est-il risqué de saisir un IBAN ou un SIREN sur ComptaBrut ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Les algorithmes ISO 7064, clé RIB et Luhn sont exécutés exclusivement en JavaScript local dans votre navigateur. Aucune coordonnée bancaire n'est envoyée ni stockée sur un serveur." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand"><span class="brand-mark">CB</span><span>ComptaBrut</span><span class="brand-tag">2026</span></a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="inspecteur-factur-x.html" class="nav-link">Factur-X</a>
+        <a href="simulateur-urssaf-micro-2026.html" class="nav-link">URSSAF 2026</a>
+        <a href="suivi-seuils-tva-ca.html" class="nav-link">Seuils TVA</a>
+        <a href="generateur-facture-devis.html" class="nav-link">Factures</a>
+        <a href="calculateur-tva-marge.html" class="nav-link">TVA &amp; Marge</a>
+        <a href="verificateur-iban-siret.html" class="nav-link is-active">IBAN / SIREN</a>
+        <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="inspecteur-factur-x.html" class="header-cta">Inspecter un Factur-X</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">Outils 100 % locaux</div>
+      <ul class="mobile-nav-list">
+        <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+        <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+        <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+        <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+        <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+        <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Validateur IBAN / SIREN / SIRET &amp; TVA Intra</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <span class="eyebrow">Outil 06 · ISO 7064 Mod 97-10 · Luhn INSEE</span>
+          <h1>Validateur IBAN / SIREN / SIRET &amp; Générateur N° TVA Intracommunautaire</h1>
+          <p class="hero-lead" style="margin-top:12px;margin-bottom:0;">
+            Contrôlez la validité mathématique d’un IBAN (et sa clé RIB française), vérifiez un SIREN ou SIRET avant émission d’une facture Factur-X 2026 et générez instantanément le numéro de TVA intracommunautaire exact.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="meta-row"><span>Contrôle IBAN</span><span>ISO 7064 + Clé RIB FR</span></div>
+          <div class="meta-row"><span>Contrôle SIREN/SIRET</span><span>Luhn (+ exception La Poste)</span></div>
+          <div class="meta-row"><span>Confidentialité</span><span style="color:var(--accent);">100 % Local Navigateur</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="grid-2" style="align-items:start;">
+          <!-- MODULE 1 : IBAN -->
+          <div class="card">
+            <div class="panel-title">1. Validateur IBAN &amp; Décodeur RIB</div>
+
+            <div class="form-group">
+              <label for="vk-iban-input" class="form-label">Numéro IBAN (SEPA / International)</label>
+              <input type="text" id="vk-iban-input" class="input input-mono" value="FR76 3000 6000 0112 3456 7890 189" placeholder="Ex : FR76 3000 6000 0112 3456 7890 189" autocomplete="off">
+            </div>
+
+            <div class="btn-row" style="margin-bottom:16px;">
+              <button type="button" class="btn btn-secondary btn-sm" id="vk-iban-sample-ok">Exemple FR valide</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="vk-iban-sample-bad">Tester clé invalide</button>
+              <button type="button" class="btn btn-primary btn-sm" id="vk-iban-copy">Copier IBAN</button>
+            </div>
+
+            <div id="vk-iban-status" class="callout" style="margin-top:0;"></div>
+            <div id="vk-iban-details"></div>
+          </div>
+
+          <!-- MODULE 2 : SIREN / SIRET + TVA INTRA -->
+          <div class="card">
+            <div class="panel-title">2. Validateur SIREN / SIRET &amp; TVA Intra</div>
+
+            <div class="form-group">
+              <label for="vk-siren-input" class="form-label">SIREN (9 chiffres) ou SIRET (14 chiffres)</label>
+              <input type="text" id="vk-siren-input" class="input input-mono" value="552 081 317" placeholder="Ex : 552 081 317 ou 732 829 320 00074" autocomplete="off">
+            </div>
+
+            <div class="btn-row" style="margin-bottom:16px;">
+              <button type="button" class="btn btn-secondary btn-sm" id="vk-siren-sample-1">Exemple SIREN (9)</button>
+              <button type="button" class="btn btn-secondary btn-sm" id="vk-siren-sample-2">Exemple SIRET (14)</button>
+              <button type="button" class="btn btn-primary btn-sm" id="vk-copy-vat">Copier N° TVA</button>
+            </div>
+
+            <div class="kpi-box kpi-accent" style="margin-bottom:16px;">
+              <span class="kpi-label">N° TVA Intracommunautaire français calculé</span>
+              <span class="kpi-value" id="vk-vat-output">—</span>
+              <span class="kpi-sub mono" id="vk-vat-formula">—</span>
+            </div>
+
+            <div id="vk-siren-status" class="callout" style="margin-top:0;"></div>
+            <div id="vk-siren-details"></div>
+          </div>
+        </div>
+
+        <!-- ADSENSE 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-inner">Emplacement publicitaire réactif — format horizontal (728×90 / fluide)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL -->
+    <section class="section section-bordered editorial-section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="editorial">
+          <h2>Comment fonctionnent les clés de contrôle IBAN, SIREN, SIRET et TVA intracommunautaire</h2>
+          <p>
+            Dans le cadre de la facturation électronique B2B 2026–2027 et des virements SEPA, une seule erreur de saisie sur un chiffre d’IBAN ou de SIREN acheteur suffit à bloquer un paiement fournisseur ou à provoquer le rejet automatique d’une facture sur votre Plateforme de Dématérialisation Partenaire (PDP). Les trois algorithmes ci-dessous permettent de fiabiliser vos référentiels clients et fournisseurs avant toute émission.
+          </p>
+
+          <h3>1. Formule officielle du numéro de TVA intracommunautaire français</h3>
+          <p>
+            En France, le numéro de TVA intracommunautaire est directement dérivé du numéro SIREN à 9 chiffres au moyen d’une clé informatique à deux chiffres comprise entre <code>00</code> et <code>96</code> :
+          </p>
+          <div class="formula-box">
+            Clé TVA = [ 12 + 3 × (SIREN modulo 97) ] modulo 97<br>
+            N° TVA Intracommunautaire = "FR" + Clé (2 chiffres) + SIREN (9 chiffres)
+          </div>
+          <p>
+            <strong>Exemple chiffré :</strong> pour le SIREN <code>552081317</code>, le reste de la division par 97 vaut <code>552081317 mod 97 = 28</code>. On calcule alors <code>(12 + 3 × 28) mod 97 = 96</code>, d’où le numéro de TVA exact <strong><code>FR96552081317</code></strong>. Attention : le calcul mathématique donne le numéro théorique attribuable par l’administration, mais une entreprise en franchise en base (art. 293 B) doit activer son numéro auprès de son SIE avant de l’utiliser dans l’UE (vérification d’activation sur la base européenne VIES).
+          </p>
+
+          <h3>2. Algorithme ISO 7064 Mod 97-10 et Clé RIB française</h3>
+          <p>
+            Un IBAN français comporte exactement <strong>27 caractères</strong> : le code pays <code>FR</code>, la clé IBAN (2 chiffres), le code banque (5 chiffres), le code guichet (5 chiffres), le numéro de compte (11 caractères alphanumériques) et la clé RIB (2 chiffres). Pour contrôler sa validité, l’algorithme déplace les 4 premiers caractères à la fin, convertit chaque lettre en deux chiffres (A = 10, B = 11 … Z = 35), puis vérifie que le reste de la division euclidienne par 97 est strictement égal à <strong>1</strong>. ComptaBrut vérifie en parallèle la <strong>clé RIB</strong> officielle sur les 23 caractères du BBAN français.
+          </p>
+
+          <h3>3. Algorithme de Luhn appliqué aux SIREN et SIRET</h3>
+          <p>
+            Les numéros SIREN (9 chiffres) et SIRET (14 chiffres) attribués par l’INSEE utilisent la formule de contrôle de <strong>Luhn</strong> : en parcourant les chiffres de droite à gauche, on double un chiffre sur deux (en soustrayant 9 si le produit dépasse 9). Le numéro est mathématiquement valide si la somme totale est un multiple de 10. Seule exception officielle : les établissements de La Poste (SIREN <code>356000000</code>), dont le contrôle repose sur la divisibilité par 5 de la somme simple des 14 chiffres.
+          </p>
+
+          <!-- ADSENSE 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-inner">Emplacement publicitaire — format rectangle (336×280 / fluide)</div>
+          </aside>
+
+          <h2>Questions fréquentes sur les identifiants bancaires et légaux</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Comment calculer le numéro de TVA intracommunautaire à partir d’un SIREN ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Appliquez la formule <code>[12 + 3 × (SIREN mod 97)] mod 97</code> pour obtenir la clé à deux chiffres, puis préfixez par <code>FR</code> et ajoutez le SIREN à 9 chiffres. Notre outil effectue ce calcul instantanément dès que vous saisissez un SIREN ou un SIRET.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Un IBAN valide mathématiquement peut-il quand même être frauduleux ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui. La validation ISO 7064 élimine les erreurs de saisie et les faux numéros mal formés, mais elle ne vérifie pas l’identité du bénéficiaire. Pour un nouveau fournisseur ou un changement de RIB, effectuez toujours un contre-appel téléphonique sur un numéro connu (prévention de la fraude au faux RIB).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi le SIREN du client est-il devenu indispensable sur les factures ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Dans le dispositif de facturation électronique 2026–2027, l’annuaire central des entreprises (géré par la DGFiP) route chaque facture vers la plateforme PDP du destinataire grâce à son numéro SIREN. Un SIREN erroné entraîne un rejet technique immédiat.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment valider si un numéro de TVA européen est réellement actif ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Après avoir vérifié la structure mathématique ici, interrogez le portail officiel VIES de la Commission européenne pour confirmer que l’entreprise est bien activement redevable de la TVA avant d’appliquer une exonération ou une autoliquidation intracommunautaire.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Un micro-entrepreneur en franchise de TVA a-t-il un numéro de TVA intracommunautaire ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Il n’en a pas par défaut, mais il doit en demander l’activation à son SIE s’il vend ou achète des prestations de services à des entreprises situées dans un autre pays de l’Union européenne, ou s’il achète plus de 10 000 € de biens en UE sur l’année.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight section-bordered related-section">
+      <div class="container">
+        <h2 style="font-size:1.35rem;">Outils complémentaires ComptaBrut</h2>
+        <div class="related-grid">
+          <a href="inspecteur-factur-x.html" class="related-card">
+            <strong>Inspecteur Factur-X 2026</strong>
+            <span>Contrôlez que le SIREN acheteur est bien présent dans vos fichiers XML/PDF.</span>
+          </a>
+          <a href="generateur-facture-devis.html" class="related-card">
+            <strong>Générateur Facture &amp; Devis</strong>
+            <span>Intégrez directement votre IBAN et le SIREN vérifié dans une facture A4 2026.</span>
+          </a>
+          <a href="suivi-seuils-tva-ca.html" class="related-card">
+            <strong>Suivi Seuils TVA</strong>
+            <span>Vérifiez quand demander votre numéro de TVA intracommunautaire au SIE.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="../index.html" class="brand" style="margin-bottom:12px;"><span class="brand-mark">CB</span><span>ComptaBrut</span></a>
+          <p style="font-size:0.9rem;">Outils financiers et conformité Factur-X 2026–2027, 100 % locaux dans votre navigateur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils Facturation &amp; TVA</h4>
+          <ul class="footer-links">
+            <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+            <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Charges &amp; Guides</h4>
+          <ul class="footer-links">
+            <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+            <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+            <li><a href="../guides/reforme-facturation-electronique-2026-2027.html">Guide Réforme 2026–2027</a></li>
+            <li><a href="../guides/seuils-micro-entreprise-tva-2026.html">Guide Seuils Micro 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ComptaBrut (comptabrut.fr)</span>
+        <span class="mono">100 % LOCAL · FRANCE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/verificateur-iban-siret.js"></script>
+</body>
+</html>

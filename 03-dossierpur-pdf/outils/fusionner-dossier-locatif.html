@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assembleur de Dossier Locatif PDF (Fusion + Page de Garde) — 100 % Local | DossierPur</title>
+  <meta name="description" content="Fusionnez vos PDF et photos en un dossier de location unique avec page de garde professionnelle et sommaire auto-indexé. Traitement 100 % navigateur, zéro fichier uploadé.">
+  <link rel="canonical" href="https://dossierpur.fr/outils/fusionner-dossier-locatif.html">
+  <meta property="og:title" content="Assembleur de Dossier Locatif PDF avec Page de Garde — DossierPur">
+  <meta property="og:description" content="Réunissez vos justificatifs de location (PDF, JPG, PNG) dans l'ordre idéal avec sommaire automatique paginé, 100 % localement.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dossierpur.fr/outils/fusionner-dossier-locatif.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Assembleur de Dossier Locatif PDF avec Page de Garde",
+        "url": "https://dossierpur.fr/outils/fusionner-dossier-locatif.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Tous (Navigateur Web)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Fusionne localement des fichiers PDF et photos JPG/PNG en un seul dossier de candidature locative avec page de garde et sommaire paginé."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dossierpur.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils PDF", "item": "https://dossierpur.fr/#outils" },
+          { "@type": "ListItem", "position": 3, "name": "Assembleur dossier locatif", "item": "https://dossierpur.fr/outils/fusionner-dossier-locatif.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelles pièces un propriétaire a-t-il le droit de demander dans un dossier locatif ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La liste est strictement encadrée par le décret n° 2015-1437 (loi ALUR) : une pièce d'identité, un justificatif de domicile, un justificatif de situation professionnelle et un justificatif de ressources (3 bulletins de paie, dernier avis d'imposition). Les relevés bancaires, la carte Vitale ou le dossier médical sont strictement interdits." }
+          },
+          {
+            "@type": "Question",
+            "name": "Puis-je mélanger des fichiers PDF et des photos de téléphone dans le même dossier ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. L'assembleur accepte indifféremment des PDF (ex. avis d'imposition, fiches de paie) et des photos JPG ou PNG (ex. CNI, attestation). Chaque image est automatiquement centrée sur une page A4 propre avant l'assemblage." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment est généré le sommaire de la page de garde ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "DossierPur compte automatiquement le nombre de pages exact de chaque justificatif déposé et calcule les plages de pages (ex. p. 2, p. 3–5, p. 6) afin de produire une table des matières professionnelle sur la première page." }
+          },
+          {
+            "@type": "Question",
+            "name": "Mes bulletins de salaire et mon nom sont-ils enregistrés quelque part ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Les informations saisies pour la page de garde et les fichiers déposés restent exclusivement dans la mémoire locale de votre navigateur. Rien n'est envoyé ni sauvegardé sur un serveur." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel ordre de pièces plaît le plus aux agences et propriétaires ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'ordre le plus efficace place la page de garde en premier, suivie de la pièce d'identité filigranée, du contrat de travail, des trois derniers bulletins de salaire, du dernier avis d'imposition, du justificatif de domicile actuel, puis des pièces du garant." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-root-prefix="../">
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-strip__badge">
+        <span class="trust-dot" aria-hidden="true"></span>
+        0 octet envoyé sur serveur — Assemblage PDF locatif 100 % navigateur
+      </div>
+      <div class="trust-strip__meta">FUSION PDF + PHOTOS + PAGE DE GARDE</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <polyline points="9 15 11 17 15 13"/>
+          </svg>
+        </span>
+        DossierPur
+        <span class="brand-tag">100 % LOCAL</span>
+      </a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <nav class="main-nav" data-main-nav aria-label="Navigation principale">
+        <a href="compresser-pdf-ants.html" class="nav-link">Compresser PDF</a>
+        <a href="filigrane-securise.html" class="nav-link">Filigrane CNI</a>
+        <a href="fusionner-dossier-locatif.html" class="nav-link is-active">Dossier Locatif</a>
+        <a href="images-vers-pdf.html" class="nav-link">Photos → PDF</a>
+        <a href="decouper-extraire-pdf.html" class="nav-link">Découper</a>
+        <a href="verifier-poids-checklist.html" class="nav-link">Checklist</a>
+        <a href="../guides/limites-fichiers-ants-caf-parcoursup.html" class="nav-link">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><a href="../index.html#outils">Outils PDF</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Assembleur de dossier locatif PDF</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header__grid">
+        <div>
+          <span class="badge badge-accent" style="margin-bottom:12px">OUTIL 03 • CANDIDATURE IMMOBILIÈRE</span>
+          <h1>Assembleur de Dossier Locatif PDF</h1>
+          <p class="tool-header__lead">
+            Glissez vos justificatifs (PDF, JPG, PNG), organisez leur ordre, activez la page de garde professionnelle avec sommaire auto-indexé et obtenez un seul PDF impeccable en quelques secondes.
+          </p>
+        </div>
+        <div class="tool-header__assurance">
+          <strong>
+            <span class="trust-dot" aria-hidden="true"></span>
+            Confidentialité des revenus
+          </strong>
+          <p>Vos fiches de paie et avis d'imposition sont assemblés en mémoire RAM locale via pdf-lib. Aucune copie n'est transmise sur le réseau.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="container">
+        <div class="workspace-grid">
+          <!-- Colonne Gauche : Dropzone + Liste réordonnable -->
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">1. Ajoutez vos pièces justificatives</span>
+                <span id="merge-summary-badge" class="badge mono">0 pièce(s)</span>
+              </div>
+
+              <div id="merge-dropzone" class="dropzone" role="button" tabindex="0" aria-label="Déposer plusieurs fichiers PDF ou photos">
+                <div class="dropzone__icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="14" height="14" rx="1"/>
+                    <path d="M7 21h12a2 2 0 0 0 2-2V7"/>
+                  </svg>
+                </div>
+                <div class="dropzone__title">Glissez plusieurs PDF et photos (JPG / PNG)</div>
+                <div class="dropzone__hint">Vous pouvez ajouter vos pièces en plusieurs fois puis modifier leur ordre librement</div>
+                <input type="file" id="merge-file-input" multiple accept="application/pdf,image/jpeg,image/png,image/webp,.pdf,.jpg,.jpeg,.png" class="sr-only">
+              </div>
+
+              <div class="sample-bar">
+                <span>Tester le rendu de la page de garde &amp; du sommaire :</span>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <button type="button" id="merge-sample-btn" class="btn btn-secondary btn-sm">
+                    Tester avec 3 pièces exemples locales
+                  </button>
+                  <button type="button" id="merge-clear-btn" class="btn btn-danger-ghost btn-sm" disabled>
+                    Vider la liste
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">2. Ordre des pièces &amp; intitulés du sommaire</span>
+                <span class="badge">Utilisez ↑ / ↓</span>
+              </div>
+
+              <div id="merge-empty-state" class="canvas-empty" style="padding:24px">
+                Aucune pièce ajoutée pour le moment. Déposez vos justificatifs ci-dessus ou cliquez sur le bouton d'exemple local.
+              </div>
+              <div id="merge-file-list" class="file-list"></div>
+            </div>
+          </div>
+
+          <!-- Colonne Droite : Option Page de garde + Génération -->
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">3. Page de garde professionnelle</span>
+                <span class="badge badge-accent">Sommaire auto-paginé</span>
+              </div>
+
+              <div class="toggle-row" style="margin-bottom:20px">
+                <div>
+                  <strong style="display:block;font-size:15px">Générer une page de garde</strong>
+                  <span style="font-size:13px;color:var(--ink-secondary)">Ajoute une première page synthétique avec table des matières numérotée</span>
+                </div>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="merge-cover-toggle" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+
+              <div id="merge-cover-fields">
+                <div class="field-group">
+                  <label class="field-label" for="cover-name">Nom et prénom du candidat (ou des colocataires)</label>
+                  <input type="text" id="cover-name" class="input-text" value="Camille Martin" placeholder="Ex. Camille Martin">
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="cover-contact">Coordonnées (téléphone / e-mail)</label>
+                  <input type="text" id="cover-contact" class="input-text" value="06 12 34 56 78 • camille.martin@exemple.fr" placeholder="Ex. 06 12 34 56 78 • prenom.nom@mail.fr">
+                </div>
+                <div class="input-grid-2" style="margin-bottom:24px">
+                  <div class="field-group" style="margin-bottom:0">
+                    <label class="field-label" for="cover-rent">Logement / Loyer visé</label>
+                    <input type="text" id="cover-rent" class="input-text" value="Appartement T2 — 980 €/mois CC" placeholder="Ex. T2 Lyon — 950 €/mois">
+                  </div>
+                  <div class="field-group" style="margin-bottom:0">
+                    <label class="field-label" for="cover-income">Situation &amp; revenus nets</label>
+                    <input type="text" id="cover-income" class="input-text" value="CDI • 2 950 € net/mois + Garant" placeholder="Ex. CDI — 2 800 € net/mois">
+                  </div>
+                </div>
+                <div class="field-group">
+                  <label class="field-label" for="cover-note">Courte note de présentation (facultatif)</label>
+                  <textarea id="cover-note" class="input-textarea" rows="3" placeholder="Ex. Disponible immédiatement pour une entrée dans les lieux début du mois prochain.">En CDI confirmé depuis 3 ans, je recherche un logement durable à proximité des transports. L'ensemble des pièces originales est disponible lors de la visite.</textarea>
+                </div>
+              </div>
+
+              <button type="button" id="merge-run-btn" class="btn btn-primary btn-lg" style="width:100%;margin-top:8px" disabled>
+                Assembler le dossier locatif PDF
+              </button>
+
+              <div id="merge-status" class="status-banner" style="display:none;margin-top:16px" aria-live="polite"></div>
+
+              <div id="merge-result-box" style="display:none;margin-top:20px;padding-top:20px;border-top:1px solid var(--border-default)">
+                <div class="metrics-grid">
+                  <div class="metric-card">
+                    <span class="metric-label">Pièces</span>
+                    <span id="merge-res-docs" class="metric-val">—</span>
+                  </div>
+                  <div class="metric-card metric-card--accent">
+                    <span class="metric-label">Pages</span>
+                    <span id="merge-res-pages" class="metric-val">—</span>
+                  </div>
+                  <div class="metric-card metric-card--trust">
+                    <span class="metric-label">Poids final</span>
+                    <span id="merge-res-size" class="metric-val">—</span>
+                  </div>
+                </div>
+                <button type="button" id="merge-download-btn" class="btn btn-trust btn-lg" style="width:100%">
+                  Télécharger le dossier locatif PDF
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AdSense Slot 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot__label">Publicité</span>
+          <span class="ad-slot__note">Emplacement réservé anti-CLS — Traitement 100 % navigateur</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu Éditorial (750+ mots) -->
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Pourquoi un dossier locatif en un seul PDF indexé augmente vos chances d'être retenu</h2>
+          <p>
+            Dans les zones tendues (Paris, Lyon, Bordeaux, Lille, Nantes, Toulouse), un propriétaire ou un gestionnaire locatif reçoit souvent entre 40 et 120 candidatures dans les 24 heures suivant la publication d'une annonce. Les candidatures composées de onze pièces jointes dispersées (<span class="mono">IMG_4821.jpg</span>, <span class="mono">scan2.pdf</span>, <span class="mono">Capture.png</span>) demandent plusieurs minutes à ouvrir et sont fréquemment écartées au profit d'un dossier clair et immédiatement lisible.
+          </p>
+          <p>
+            Un fichier unique nommé proprement (<span class="mono">dossier-locatif-camille-martin.pdf</span>), ouvert par une <strong>page de garde sobre</strong> présentant votre profil, vos coordonnées, votre situation professionnelle et un <strong>sommaire numéroté</strong>, permet au bailleur de vérifier votre solvabilité en moins de trente secondes. C'est la différence concrète entre un dossier mis de côté et un appel pour fixer une visite.
+          </p>
+
+          <h2>Structure type d'un dossier de location conforme à la loi ALUR</h2>
+          <p>
+            Le décret n° 2015-1437 du 5 novembre 2015 fixe la liste exhaustive des documents qu'un bailleur peut exiger. Voici l'ordre recommandé pour assembler vos fichiers dans DossierPur :
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>Pièce justificative autorisée</th>
+                  <th>Bonnes pratiques DossierPur</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">01</td>
+                  <td><strong>Page de garde + sommaire</strong></td>
+                  <td>Générée automatiquement avec récapitulatif revenus/loyer</td>
+                </tr>
+                <tr>
+                  <td class="mono">02</td>
+                  <td><strong>Pièce d'identité (CNI / Passeport)</strong></td>
+                  <td>Passée préalablement au <a href="filigrane-securise.html">filigrane daté</a></td>
+                </tr>
+                <tr>
+                  <td class="mono">03</td>
+                  <td><strong>Justificatif de situation professionnelle</strong></td>
+                  <td>Contrat de travail ou attestation employeur (&lt; 3 mois)</td>
+                </tr>
+                <tr>
+                  <td class="mono">04</td>
+                  <td><strong>3 derniers bulletins de salaire</strong></td>
+                  <td>En PDF officiels filigranés, dans l'ordre chronologique</td>
+                </tr>
+                <tr>
+                  <td class="mono">05</td>
+                  <td><strong>Dernier avis d'imposition complet</strong></td>
+                  <td>Téléchargé depuis impots.gouv.fr (toutes les pages)</td>
+                </tr>
+                <tr>
+                  <td class="mono">06</td>
+                  <td><strong>Justificatif de domicile actuel</strong></td>
+                  <td>3 dernières quittances de loyer ou attestation d'hébergement</td>
+                </tr>
+                <tr>
+                  <td class="mono">07</td>
+                  <td><strong>Pièces du garant ou Visa Visale</strong></td>
+                  <td>Même jeu de pièces si caution physique</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout--warn">
+            <strong>Attention au poids total du dossier assemblé</strong>
+            De nombreuses messageries et plateformes d'agences immobilières rejettent les pièces jointes dépassant <strong>5 Mo</strong> (ou 10 Mo par e-mail). Si votre dossier assemblé dépasse 5 Mo parce qu'il inclut plusieurs photos de téléphone, utilisez ensuite notre <a href="compresser-pdf-ants.html">compresseur PDF avec le préréglage « Dossier Locatif (&lt; 5 Mo) »</a>.
+          </div>
+
+          <h2>Pièges à éviter avant de transmettre votre candidature</h2>
+          <ul>
+            <li><strong>Fournir des pièces illégales :</strong> ne joignez jamais votre carte Vitale, vos relevés de compte bancaire, un extrait de casier judiciaire ou une attestation de bonne tenue de compte. Un bailleur n'a pas le droit de les demander.</li>
+            <li><strong>Oublier de redresser les pages scannées de travers :</strong> avant de fusionner vos justificatifs, vérifiez l'orientation de chaque PDF avec notre <a href="decouper-extraire-pdf.html">outil de rotation et d'extraction</a>.</li>
+            <li><strong>Envoyer un dossier non filigrané sur des petites annonces entre particuliers :</strong> appliquez systématiquement un filigrane portant la date du jour avant l'assemblage.</li>
+          </ul>
+
+          <!-- AdSense Slot 2 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot__label">Publicité</span>
+            <span class="ad-slot__note">Emplacement in-article réservé anti-CLS</span>
+          </aside>
+
+          <h2>Questions fréquentes sur l'assembleur locatif</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-question" aria-expanded="true">
+                Quelles pièces un propriétaire a-t-il légalement le droit de demander ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Uniquement les justificatifs listés dans le décret n° 2015-1437 : identité, domicile actuel, activité professionnelle et ressources. Tout autre document (relevés bancaires, photo d'identité en plus de la CNI, dossier médical, jugement de divorce) est interdit par la loi.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                La qualité de mes PDF originaux est-elle dégradée lors de la fusion ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Non. Les pages issues de vos fichiers PDF sont copiées de manière vectorielle sans perte par la librairie <span class="mono">pdf-lib</span>. Le texte reste net et sélectionnable, et seules les photos JPG/PNG ajoutées sont ajustées proprement au format A4.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Puis-je fusionner des PDF sans générer de page de garde ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui. Il suffit de désactiver l'interrupteur « Générer une page de garde » dans le panneau de droite. L'outil fonctionne alors comme un fusionneur PDF + images classique 100 % local.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Combien de fichiers puis-je assembler dans un même dossier ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Il n'existe aucune limite arbitraire. Pour un dossier locatif complet (locataire + garant), 10 à 15 fichiers totalisant 25 à 35 pages s'assemblent en moins de deux secondes sur un ordinateur standard.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Comment vérifier qu'aucune pièce obligatoire ne manque avant de fusionner ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Utilisez notre <a href="verifier-poids-checklist.html">Vérificateur &amp; Checklist Dossier Administratif</a> (onglet « Location appartement ») pour cocher chaque justificatif obligatoire et contrôler les poids de vos fichiers.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="editorial-sidebar">
+          <div class="sidebar-card">
+            <h3>Boîte à outils dossier locatif</h3>
+            <ul class="sidebar-links">
+              <li><a href="filigrane-securise.html">1. Filigraner CNI &amp; fiches de paie <span>→</span></a></li>
+              <li><a href="images-vers-pdf.html">2. Convertir photos en Scan A4 <span>→</span></a></li>
+              <li><a href="compresser-pdf-ants.html">3. Compresser sous 5 Mo <span>→</span></a></li>
+              <li><a href="verifier-poids-checklist.html">4. Checklist Location Loi ALUR <span>→</span></a></li>
+              <li><a href="decouper-extraire-pdf.html">Découper &amp; pivoter PDF <span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3>Guides utiles</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/proteger-papiers-usurpation-identite.html">Sécuriser un dossier de location <span>→</span></a></li>
+              <li><a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Limites DossierFacile &amp; ANTS <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DossierPur</div>
+          <p class="footer-desc">Studio PDF administratif 100 % local navigateur. Zéro transfert serveur, confidentialité vérifiable.</p>
+          <span class="badge badge-trust">0 octet envoyé • Traitement local</span>
+        </div>
+        <div class="footer-col">
+          <h4>Outils PDF Locaux</h4>
+          <ul class="footer-links">
+            <li><a href="compresser-pdf-ants.html">Compresseur PDF ANTS (2 Mo)</a></li>
+            <li><a href="filigrane-securise.html">Filigrane anti-usurpation</a></li>
+            <li><a href="fusionner-dossier-locatif.html">Assembleur dossier locatif</a></li>
+            <li><a href="images-vers-pdf.html">Photos smartphone → PDF A4</a></li>
+            <li><a href="decouper-extraire-pdf.html">Découper &amp; pivoter PDF</a></li>
+            <li><a href="verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="../guides/proteger-papiers-usurpation-identite.html">Protéger ses papiers (CNI / Location)</a></li>
+            <li><a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Limites ANTS, CAF &amp; Parcoursup</a></li>
+            <li><a href="../a-propos.html">À propos &amp; Méthodologie</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Conformité &amp; Légal</h4>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#" data-open-cookie-prefs>Gérer mes cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DossierPur.fr — Service indépendant 100 % local.</span>
+        <span class="mono">Traitement 100 % côté client</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/fusionner-dossier-locatif.js"></script>
+</body>
+</html>

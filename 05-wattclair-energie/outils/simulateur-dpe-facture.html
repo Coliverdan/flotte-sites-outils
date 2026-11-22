@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr" data-root-prefix="../">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estimateur Facture Énergétique par Classe DPE (A à G) &amp; Gain Rénovation — WattClair</title>
+  <meta name="description" content="Estimez votre facture annuelle de chauffage et eau chaude selon votre classe DPE (A à G), votre surface et votre énergie (électricité, PAC, gaz, fioul, bois) et simulez vos économies sur 10 ans après rénovation.">
+  <link rel="canonical" href="https://wattclair.fr/outils/simulateur-dpe-facture.html">
+  <meta property="og:title" content="Estimateur Facture Énergétique par Classe DPE (A à G) — WattClair">
+  <meta property="og:description" content="Convertissez une étiquette DPE en facture annuelle réelle et chiffrez les économies sur 10 ans entre classe actuelle et classe cible (ex. F vers C).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wattclair.fr/outils/simulateur-dpe-facture.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://wattclair.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Estimateur facture par classe DPE", "item": "https://wattclair.fr/outils/simulateur-dpe-facture.html" }
+        ]
+      },
+      {
+        "@type": "WebApplication",
+        "name": "Estimateur Facture Énergétique par Classe DPE",
+        "url": "https://wattclair.fr/outils/simulateur-dpe-facture.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi faut-il diviser les kWh du DPE par 2,3 pour un chauffage électrique ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'étiquette DPE s'exprime en énergie primaire (kWhEP/m²/an). Pour l'électricité, le DPE applique un coefficient de conversion conventionnel de 2,3 (abaissé à 1,9 dans la réforme 2026) entre l'énergie primaire et l'énergie finale réellement facturée sur votre compteur Linky." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est la facture énergétique moyenne d'un logement classé F de 85 m² ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un logement de 85 m² en classe F (environ 375 kWhEP/m²/an) représente une facture annuelle de l'ordre de 2 990 € au chauffage électrique direct ou de 4 040 € au gaz naturel, abonnement compris." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles classes DPE sont interdites à la location en France ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les logements classés G ne peuvent plus être mis ou remis en location depuis le 1er janvier 2025. Les logements classés F suivront au 1er janvier 2028, puis la classe E au 1er janvier 2034 (loi Climat et Résilience)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quels travaux font le plus rapidement gagner deux classes DPE ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les gestes au meilleur rapport coût/gain sont l'isolation des combles perdus, le remplacement d'une chaudière fioul ou de vieux convecteurs par une pompe à chaleur, l'isolation des murs (ITE/ITI) et la pose d'une VMC hygroréglable." }
+          },
+          {
+            "@type": "Question",
+            "name": "La facture affichée sur le DPE inclut-elle l'électroménager ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Le DPE couvre uniquement les 5 usages réglementaires du bâtiment : chauffage, eau chaude sanitaire (ECS), refroidissement, éclairage et auxiliaires (VMC, circulateurs). L'électroménager, la cuisson et le multimédia s'ajoutent en plus." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu-principal">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="WattClair — Accueil">
+        <span class="brand-mark" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg></span>
+        <span>WattClair<span class="brand-dot">.</span></span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="solaire-balcon-plug-play.html" class="nav-link">Solaire balcon</a>
+        <a href="comparateur-tempo-hc-base.html" class="nav-link">EDF Tempo</a>
+        <a href="cout-appareil-edf-tempo.html" class="nav-link">Coût appareil</a>
+        <a href="calculateur-chauffage-piece.html" class="nav-link">Chauffage</a>
+        <a href="simulateur-dpe-facture.html" class="nav-link is-active">DPE</a>
+        <a href="../guides/guide-edf-tempo-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-drawer" class="mobile-drawer" aria-label="Menu mobile">
+    <p class="mobile-nav-group">Les 6 simulateurs</p>
+    <ul class="mobile-nav-list">
+      <li><a href="solaire-balcon-plug-play.html">Kit Solaire Balcon Plug &amp; Play</a></li>
+      <li><a href="cout-appareil-edf-tempo.html">Coût réel d'un appareil</a></li>
+      <li><a href="comparateur-tempo-hc-base.html">Comparateur Base vs HC/HP vs Tempo</a></li>
+      <li><a href="calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+      <li><a href="detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+      <li><a href="simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+    </ul>
+  </nav>
+
+  <main id="contenu-principal" class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Estimateur facture énergétique par classe DPE (A à G)</li>
+      </ol>
+    </nav>
+
+    <header class="page-header">
+      <div class="page-header-grid">
+        <div>
+          <span class="eyebrow"><span class="eyebrow-bar" aria-hidden="true"></span>Outil 06 · Diagnostic de performance énergétique</span>
+          <h1>Estimateur Facture Énergétique par Classe DPE (A à G)</h1>
+          <p class="page-intro">
+            Estimez la facture annuelle de chauffage et d'eau chaude sanitaire selon votre classe DPE actuelle, votre surface habitable et votre énergie de chauffage, puis comparez avec la classe visée après rénovation sur 10 ans.
+          </p>
+        </div>
+        <div class="tariff-stamp">
+          <span class="tariff-stamp-label">Conversion intégrée</span>
+          <strong>Énergie Primaire (EP) &rarr; Énergie Finale (EF)</strong>
+        </div>
+      </div>
+    </header>
+
+    <section class="tool-workspace" aria-label="Simulateur de facture énergétique DPE">
+      <div class="card">
+        <div class="panel-title">
+          <h2>Votre logement &amp; projet</h2>
+        </div>
+
+        <div class="form-group">
+          <div class="form-label-row">
+            <label for="dpe-surface" class="form-label">Surface habitable</label>
+            <span id="dpe-surface-val" class="form-value-badge">85 m²</span>
+          </div>
+          <input type="range" id="dpe-surface" class="range-slider" min="15" max="250" step="5" value="85">
+          <div class="range-scale">
+            <span>15 m²</span>
+            <span>85 m²</span>
+            <span>250 m²</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label" style="margin-bottom: 8px;">Classe DPE actuelle (cliquez sur l'étiquette)</span>
+          <div class="dpe-scale" role="group" aria-label="Classe DPE actuelle">
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-a" data-dpe-cur="A" aria-pressed="false"><span>A</span></button>
+              <span class="dpe-threshold">&lt; 70 kWhEP/m²/an</span>
+            </div>
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-b" data-dpe-cur="B" aria-pressed="false"><span>B</span></button>
+              <span class="dpe-threshold">70 – 110</span>
+            </div>
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-c" data-dpe-cur="C" aria-pressed="false"><span>C</span></button>
+              <span class="dpe-threshold">111 – 180</span>
+            </div>
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-d" data-dpe-cur="D" aria-pressed="false"><span>D</span></button>
+              <span class="dpe-threshold">181 – 250</span>
+            </div>
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-e" data-dpe-cur="E" aria-pressed="false"><span>E</span></button>
+              <span class="dpe-threshold">251 – 330</span>
+            </div>
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-f is-selected" data-dpe-cur="F" aria-pressed="true"><span>F</span></button>
+              <span class="dpe-threshold">331 – 420</span>
+            </div>
+            <div class="dpe-bar-row">
+              <button type="button" class="dpe-pill dpe-g" data-dpe-cur="G" aria-pressed="false"><span>G</span></button>
+              <span class="dpe-threshold">&gt; 420</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <span class="form-label" style="margin-bottom: 8px;">Énergie de chauffage principale</span>
+          <div class="segmented-wrap" role="group" aria-label="Énergie de chauffage">
+            <button type="button" class="chip-btn is-active" data-dpe-energy="elec" aria-pressed="true">Électricité</button>
+            <button type="button" class="chip-btn" data-dpe-energy="pac" aria-pressed="false">Pompe à chaleur</button>
+            <button type="button" class="chip-btn" data-dpe-energy="gaz" aria-pressed="false">Gaz naturel</button>
+            <button type="button" class="chip-btn" data-dpe-energy="fioul" aria-pressed="false">Fioul</button>
+            <button type="button" class="chip-btn" data-dpe-energy="bois" aria-pressed="false">Bois / Granulés</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dpe-target" class="form-label">Classe DPE cible après rénovation</label>
+          <select id="dpe-target" class="select">
+            <option value="A">Classe A — Très performant (&lt; 70 kWhEP/m²/an)</option>
+            <option value="B">Classe B — Performant (70 – 110 kWhEP/m²/an)</option>
+            <option value="C" selected>Classe C — Bon niveau (111 – 180 kWhEP/m²/an)</option>
+            <option value="D">Classe D — Moyen (181 – 250 kWhEP/m²/an)</option>
+            <option value="E">Classe E — Énergivore (251 – 330 kWhEP/m²/an)</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div class="kpi-hero">
+          <div class="kpi-hero-label">Facture annuelle estimée (chauffage + ECS + usages DPE)</div>
+          <div id="dpe-out-bill" class="kpi-hero-number is-accent">2 999 € / an</div>
+          <div id="dpe-out-sub" class="kpi-hero-sub"></div>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="kpi-box">
+            <div class="kpi-box-label">Budget mensuel lissé</div>
+            <div id="dpe-out-month" class="kpi-box-value">250 € / mois</div>
+            <div id="dpe-out-month-note" class="kpi-box-note">35 € / m² / an</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-box-label">Facture après rénovation</div>
+            <div id="dpe-out-target" class="kpi-box-value">1 287 € / an</div>
+            <div id="dpe-out-target-note" class="kpi-box-note">en passant en classe C</div>
+          </div>
+          <div class="kpi-box" style="border-top: 3px solid var(--positive);">
+            <div class="kpi-box-label">Économie cumulée 10 ans</div>
+            <div id="dpe-out-save10" class="kpi-box-value" style="color: var(--positive);">19 628 €</div>
+            <div id="dpe-out-save10-note" class="kpi-box-note">&minus;1 712 € / an (+3 %/an)</div>
+          </div>
+        </div>
+
+        <div id="dpe-verdict" class="verdict-box is-warning">
+          <div id="dpe-verdict-title" class="verdict-title"></div>
+          <p id="dpe-verdict-text" style="font-size: 0.9375rem; margin: 0;"></p>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3 style="font-size: 1rem;">Facture annuelle estimée de la classe A à la classe G</h3>
+          </div>
+          <div class="canvas-wrap">
+            <canvas id="dpe-chart" width="640" height="260" aria-label="Comparaison de la facture énergétique annuelle selon la classe DPE de A à G"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="ad-slot" aria-label="Espace publicitaire">
+      <span class="ad-slot-label">Publicité</span>
+      <span class="ad-slot-note">Emplacement réservé AdSense — Format adaptatif horizontal</span>
+    </aside>
+
+    <section class="section-tight editorial-layout">
+      <article class="prose">
+        <h2>Méthodologie : passer de l'énergie primaire (DPE) à votre facture réelle</h2>
+        <p>
+          Le piège le plus courant lors de la lecture d'un Diagnostic de Performance Énergétique consiste à multiplier directement les « kWh/m²/an » de l'étiquette par le prix du kilowattheure facturé. Or le DPE classe les logements en <strong>énergie primaire (kWhEP)</strong>, et non en énergie finale livrée au compteur (kWhEF). Pour l'électricité, le coefficient de conversion réglementaire est fixé à <strong>2,3</strong> (avec une révision prévue à 1,9 dans les textes 2026 pour les logements chauffés à l'électricité), tandis qu'il est de <strong>1,0</strong> pour le gaz, le fioul et le bois.
+        </p>
+
+        <div class="formula-box">
+          Énergie finale annuelle (kWhEF) = [ Consommation médiane DPE (kWhEP/m²/an) &times; Surface (m²) ] / Coef. EP<br>
+          Facture annuelle (€ TTC) = [ Énergie finale (kWhEF) &times; Prix unitaire énergie ] + Abonnement / entretien fixe
+        </div>
+
+        <p>
+          Cette conversion explique pourquoi, à classe DPE identique (par exemple deux appartements classés E de 70 m²), un logement chauffé à l'électricité consomme en réalité 2,3 fois moins de kilowattheures finaux qu'un logement au gaz — mais à un prix unitaire du kWh plus élevé (0,2016 € contre ~0,118 € pour le gaz). Notre estimateur intègre les deux effets simultanément pour fournir un ordre de grandeur fidèle.
+        </p>
+
+        <h2>Repères chiffrés pour une maison de 100 m² selon l'énergie et la classe DPE</h2>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Classe DPE (médiane EP)</th>
+                <th class="num">Électricité (0,2016 €)</th>
+                <th class="num">Gaz naturel (0,118 €)</th>
+                <th class="num">Fioul (0,132 €)</th>
+                <th class="num">Bois granulés (0,082 €)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-positive">
+                <td><strong>Classe B</strong> (90 kWhEP/m²)</td>
+                <td class="num">996 € / an</td>
+                <td class="num">1 339 € / an</td>
+                <td class="num">1 328 € / an</td>
+                <td class="num">898 € / an</td>
+              </tr>
+              <tr>
+                <td><strong>Classe C</strong> (145 kWhEP/m²)</td>
+                <td class="num">1 478 € / an</td>
+                <td class="num">1 988 € / an</td>
+                <td class="num">2 054 € / an</td>
+                <td class="num">1 349 € / an</td>
+              </tr>
+              <tr>
+                <td><strong>Classe D</strong> (215 kWhEP/m²)</td>
+                <td class="num">2 092 € / an</td>
+                <td class="num">2 814 € / an</td>
+                <td class="num">2 978 € / an</td>
+                <td class="num">1 923 € / an</td>
+              </tr>
+              <tr class="row-highlight">
+                <td><strong>Classe F</strong> (375 kWhEP/m²)</td>
+                <td class="num">3 494 € / an</td>
+                <td class="num">4 702 € / an</td>
+                <td class="num">5 090 € / an</td>
+                <td class="num">3 235 € / an</td>
+              </tr>
+              <tr class="row-danger">
+                <td><strong>Classe G</strong> (480 kWhEP/m²)</td>
+                <td class="num">4 414 € / an</td>
+                <td class="num">5 941 € / an</td>
+                <td class="num">6 476 € / an</td>
+                <td class="num">4 096 € / an</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2>Points de vigilance lors d'un achat immobilier ou d'une rénovation</h2>
+        <ul>
+          <li><strong>Vérifier aussi l'étiquette climat (GES) :</strong> depuis la réforme DPE 2021, c'est la plus mauvaise des deux notes (énergie primaire ou émissions de CO₂) qui détermine la lettre finale. Une maison chauffée au fioul peut ainsi être classée F ou G à cause de ses émissions de carbone, même avec une isolation correcte.</li>
+          <li><strong>Isoler avant de surdimensionner le chauffage :</strong> installer une pompe à chaleur dans une passoire thermique non isolée oblige à payer une machine plus puissante et plus chère, qui tournera en sur-régime une fois les murs et combles isolés.</li>
+          <li><strong>Cumuler baisse du besoin et baisse du prix du kWh :</strong> une fois la classe améliorée, optimisez votre contrat avec notre <a href="comparateur-tempo-hc-base.html">comparateur EDF Base / HC-HP / Tempo</a> ou produisez votre talon de journée via un <a href="solaire-balcon-plug-play.html">kit solaire balcon</a>.</li>
+        </ul>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <span class="ad-slot-note">Emplacement réservé AdSense — In-article</span>
+        </aside>
+
+        <h2>Questions fréquentes sur le DPE et les factures</h2>
+        <div class="faq-list">
+          <div class="faq-item is-open">
+            <button type="button" class="faq-trigger" aria-expanded="true">
+              <span>Pourquoi ma facture réelle diffère-t-elle parfois de la fourchette du DPE ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Le DPE repose sur un scénario conventionnel d'occupation (chauffage à 19 °C en journée et 16 °C la nuit, consommation d'eau chaude standard). Si vous chauffez à 21 °C (+14 % de conso), télétravaillez toute la semaine ou au contraire chauffez peu les chambres inoccupées, votre facture réelle peut varier de &minus;25 % à +30 % autour de l'estimation.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Qu'est-ce que l'évolution du coefficient d'énergie primaire de l'électricité à 1,9 ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              L'abaissement du facteur de conversion de 2,3 à 1,9 pour l'électricité améliore mécaniquement la note DPE d'une partie des logements chauffés à l'électricité (en particulier les petites surfaces et les classes F/G limites), sans modifier les kilowattheures réellement consommés sur votre compteur Linky.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Pourquoi la pompe à chaleur affiche-t-elle le même résultat à classe DPE égale ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Parce que le rendement élevé d'une pompe à chaleur (COP ~3) est déjà intégré dans le calcul de la lettre DPE : à isolation équivalente, remplacer des radiateurs électriques par une PAC fait directement passer le logement de la classe F ou E à la classe C ou B, ce qui divise la facture par 2 à 3.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Les petites surfaces (&lt; 40 m²) ont-elles des seuils DPE spécifiques ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Oui. Depuis l'arrêté du 25 mars 2024 (en vigueur depuis juillet 2024), les logements de moins de 40 m² bénéficient de seuils DPE réhaussés pour corriger le biais du ballon d'eau chaude rapporté à une petite surface habitable.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button type="button" class="faq-trigger" aria-expanded="false">
+              <span>Quelles aides publiques réduisent le coût d'un saut de deux classes DPE ?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-panel">
+              Le parcours accompagné <strong>MaPrimeRénov' Rénovation d'ampleur</strong> (pour un gain d'au moins 2 classes DPE), les Certificats d'Économies d'Énergie (CEE), l'éco-PTZ à taux zéro et la TVA réduite à 5,5 % permettent de financer une part substantielle des travaux selon vos revenus fiscaux.
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <aside class="sidebar-stack">
+        <div class="card">
+          <h3>Affiner votre bilan</h3>
+          <ul class="related-list">
+            <li><a href="calculateur-chauffage-piece.html"><span>Calcul chauffage pièce par pièce</span><span>&rarr;</span></a></li>
+            <li><a href="comparateur-tempo-hc-base.html"><span>Base vs HC/HP vs EDF Tempo</span><span>&rarr;</span></a></li>
+            <li><a href="solaire-balcon-plug-play.html"><span>Kit solaire balcon Plug &amp; Play</span><span>&rarr;</span></a></li>
+            <li><a href="detecteur-veilles-fantomes.html"><span>Audit consommation fantôme</span><span>&rarr;</span></a></li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand">
+            <span class="brand-mark" aria-hidden="true" style="background: var(--accent);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M13 2L4 14h7l-1 8 10-12h-7l0-8z"/></svg></span>
+            <span>WattClair<span class="brand-dot">.</span></span>
+          </a>
+          <p class="footer-desc">Simulateurs indépendants d'économie d'énergie, tarifs EDF Tempo et kits solaires balcon en France.</p>
+        </div>
+        <div>
+          <p class="footer-heading">Simulateurs</p>
+          <ul class="footer-links">
+            <li><a href="solaire-balcon-plug-play.html">Solaire balcon Plug &amp; Play</a></li>
+            <li><a href="cout-appareil-edf-tempo.html">Coût d'un appareil (Tempo)</a></li>
+            <li><a href="comparateur-tempo-hc-base.html">Base vs HC/HP vs Tempo</a></li>
+            <li><a href="calculateur-chauffage-piece.html">Chauffage par pièce</a></li>
+            <li><a href="detecteur-veilles-fantomes.html">Audit veilles fantômes</a></li>
+            <li><a href="simulateur-dpe-facture.html">Facture par classe DPE</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Guides pratiques</p>
+          <ul class="footer-links">
+            <li><a href="../guides/guide-edf-tempo-2026.html">Guide EDF Tempo 2026</a></li>
+            <li><a href="../guides/reglementation-solaire-balcon-plug-play.html">Réglementation solaire balcon</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; sources</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-heading">Informations légales</p>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 WattClair (wattclair.fr) — Outils informatifs indépendants d'EDF et d'Enedis.</span>
+        <button type="button" data-open-consent>Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/simulateur-dpe-facture.js"></script>
+</body>
+</html>

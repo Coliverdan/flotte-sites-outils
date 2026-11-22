@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur URSSAF, ACRE &amp; Impôt Micro-Entrepreneur 2026 — ComptaBrut</title>
+  <meta name="description" content="Calculez votre revenu net exact en micro-entreprise 2026 : cotisations URSSAF (BNC 26,1 %, BIC 21,2 %, Vente 12,3 %, CIPAV), ACRE -50 %, Versement Libératoire vs Barème progressif, CFP et CFE.">
+  <link rel="canonical" href="https://comptabrut.fr/outils/simulateur-urssaf-micro-2026.html">
+  <meta property="og:title" content="Simulateur Charges URSSAF, ACRE &amp; Impôt Micro 2026 — ComptaBrut">
+  <meta property="og:description" content="Simulez votre net en poche en 2026 avec comparaison automatique Versement Libératoire vs Barème progressif et graphique exportable en PNG.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Charges URSSAF, ACRE & Impôt Micro-Entrepreneur 2026",
+        "url": "https://comptabrut.fr/outils/simulateur-urssaf-micro-2026.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Calculateur local des cotisations URSSAF 2026, CFP, ACRE, CFE et impôt sur le revenu pour micro-entrepreneurs français."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://comptabrut.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Simulateur URSSAF 2026", "item": "https://comptabrut.fr/outils/simulateur-urssaf-micro-2026.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel est le taux URSSAF d'un freelance BNC en 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Conformément au décret n° 2024-484 visant à revaloriser la retraite complémentaire des indépendants BNC relevant de la SSI, le taux de cotisations sociales passe à 26,1 % du chiffre d'affaires au 1er janvier 2026 (hors CFP de 0,2 %)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne l'ACRE en micro-entreprise la première année ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'ACRE accorde une exonération de 50 % sur les cotisations sociales URSSAF jusqu'à la fin du troisième trimestre civil qui suit celui de l'immatriculation (soit 9 à 12 mois). La CFP et le versement libératoire restent dus à taux plein." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il choisir le Versement Libératoire ou le Barème progressif ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Si vous êtes non imposable au barème (faibles revenus ou plusieurs parts fiscales), le versement libératoire est pénalisant car il vous fait payer un impôt dès le premier euro. En revanche, dès que votre tranche marginale d'imposition atteint 11 % ou 30 %, le versement libératoire (1 % à 2,2 %) devient généralement très avantageux si votre RFR N-2 respecte le plafond légal." }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on déduire ses frais professionnels (matériel, loyer, logiciels) en micro-entreprise ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. En micro-entreprise, les cotisations URSSAF sont calculées sur le chiffre d'affaires brut encaissé, et l'impôt au barème applique un abattement forfaitaire fixe (34 % BNC, 50 % BIC services, 71 % vente). Vos frais réels réduisent directement votre reste en poche." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand paie-t-on la CFE en micro-entreprise ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous êtes totalement exonéré de CFE l'année civile de création (année 1) et bénéficiez d'une réduction de 50 % de la base la deuxième année. Elle est également exonérée si votre chiffre d'affaires annuel reste inférieur ou égal à 5 000 €." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand"><span class="brand-mark">CB</span><span>ComptaBrut</span><span class="brand-tag">2026</span></a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="inspecteur-factur-x.html" class="nav-link">Factur-X</a>
+        <a href="simulateur-urssaf-micro-2026.html" class="nav-link is-active">URSSAF 2026</a>
+        <a href="suivi-seuils-tva-ca.html" class="nav-link">Seuils TVA</a>
+        <a href="generateur-facture-devis.html" class="nav-link">Factures</a>
+        <a href="calculateur-tva-marge.html" class="nav-link">TVA &amp; Marge</a>
+        <a href="verificateur-iban-siret.html" class="nav-link">IBAN / SIREN</a>
+        <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="inspecteur-factur-x.html" class="header-cta">Inspecter un Factur-X</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">Outils 100 % locaux</div>
+      <ul class="mobile-nav-list">
+        <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+        <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+        <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+        <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+        <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+        <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Simulateur URSSAF &amp; Impôt Micro 2026</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <span class="eyebrow">Outil 02 · Barèmes officiels 2026</span>
+          <h1>Simulateur Charges URSSAF, ACRE &amp; Impôt Micro-Entrepreneur 2026</h1>
+          <p class="hero-lead" style="margin-top:12px;margin-bottom:0;">
+            Calculez au centime près ce qu’il vous reste réellement en poche après cotisations sociales URSSAF 2026, CFP, impôt sur le revenu (Versement Libératoire vs Barème progressif), CFE et frais professionnels réels.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="meta-row"><span>BNC SSI 2026</span><span>26,1 % + 0,2 % CFP</span></div>
+          <div class="meta-row"><span>BIC Services / Vente</span><span>21,2 % · 12,3 %</span></div>
+          <div class="meta-row"><span>CIPAV Libéral</span><span>23,2 % + 0,2 % CFP</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="grid-asymmetric">
+          <!-- COLONNE PARAMÈTRES -->
+          <div class="card">
+            <div class="panel-title">Paramètres de votre micro-entreprise</div>
+
+            <div class="form-group">
+              <div class="segmented" role="group" aria-label="Période de saisie">
+                <button type="button" class="segmented-btn is-active" data-period-mode="mensuel">CA Mensuel</button>
+                <button type="button" class="segmented-btn" data-period-mode="annuel">CA Annuel</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="ur-ca" class="form-label" id="ur-ca-label">Chiffre d’affaires mensuel encaissé (€)</label>
+              <div class="input-with-unit">
+                <input type="number" id="ur-ca" class="input input-mono" min="0" step="50" value="4500">
+                <span class="input-unit">€</span>
+              </div>
+              <input type="range" id="ur-ca-range" class="range" min="0" max="15000" step="100" value="4500" aria-label="Curseur chiffre d'affaires">
+            </div>
+
+            <div class="form-group">
+              <label for="ur-activity" class="form-label">Catégorie d’activité (Barème 2026)</label>
+              <select id="ur-activity" class="select">
+                <option value="bnc_ssi">Prestations de services BNC — SSI (26,1 %)</option>
+                <option value="bic_service">Services commerciaux / artisanaux BIC (21,2 %)</option>
+                <option value="bic_vente">Achat-revente / Hébergement BIC (12,3 %)</option>
+                <option value="cipav">Profession libérale réglementée CIPAV (23,2 %)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="toggle-row" for="ur-acre">
+                <div class="toggle-text">
+                  <strong>Bénéficiaire de l’ACRE (-50 % URSSAF)</strong>
+                  <span>Exonération de moitié sur les cotisations sociales en 1ère année</span>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" id="ur-acre">
+                  <span class="switch-track"></span>
+                </span>
+              </label>
+            </div>
+
+            <div class="form-group">
+              <span class="form-label">Régime d’impôt sur le revenu</span>
+              <div class="segmented" role="group" aria-label="Choix fiscal">
+                <button type="button" class="segmented-btn is-active" data-tax-mode="vfl">Versement Libératoire</button>
+                <button type="button" class="segmented-btn" data-tax-mode="bareme">Barème progressif</button>
+              </div>
+            </div>
+
+            <div id="ur-bareme-extras" style="display:none;background:var(--bg-page);border:1px solid var(--border);padding:16px;border-radius:6px;margin-bottom:24px;">
+              <div class="grid-2">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="ur-parts" class="form-label">Parts fiscales</label>
+                  <select id="ur-parts" class="select input-mono">
+                    <option value="1">1 part (célibataire)</option>
+                    <option value="1.5">1,5 part</option>
+                    <option value="2">2 parts (couple)</option>
+                    <option value="2.5">2,5 parts</option>
+                    <option value="3">3 parts</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="ur-other-income" class="form-label">Autres revenus nets / an</label>
+                  <div class="input-with-unit">
+                    <input type="number" id="ur-other-income" class="input input-mono" min="0" step="500" value="0">
+                    <span class="input-unit">€</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="ur-cfe" class="form-label">CFE annuelle estimée</label>
+                <div class="input-with-unit">
+                  <input type="number" id="ur-cfe" class="input input-mono" min="0" step="50" value="400">
+                  <span class="input-unit">€/an</span>
+                </div>
+                <span class="form-hint">0 € la 1ère année</span>
+              </div>
+
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="ur-frais" class="form-label">Frais pros réels / mois</label>
+                <div class="input-with-unit">
+                  <input type="number" id="ur-frais" class="input input-mono" min="0" step="20" value="180">
+                  <span class="input-unit">€/m</span>
+                </div>
+                <span class="form-hint">Logiciels, banque, RC Pro…</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- COLONNE RÉSULTATS -->
+          <div>
+            <div class="kpi-grid">
+              <div class="kpi-box kpi-accent">
+                <span class="kpi-label">Net en poche / mois</span>
+                <span class="kpi-value" id="ur-net-mensuel">—</span>
+                <span class="kpi-sub" id="ur-net-annuel">—</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">URSSAF + CFP / mois</span>
+                <span class="kpi-value" id="ur-charges-mensuel">—</span>
+                <span class="kpi-sub" id="ur-charges-sub">—</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Impôt revenu / mois</span>
+                <span class="kpi-value" id="ur-ir-mensuel">—</span>
+                <span class="kpi-sub" id="ur-ir-sub">—</span>
+              </div>
+            </div>
+
+            <div id="ur-plafond-alert" class="callout callout-danger" style="display:none;margin-top:0;"></div>
+
+            <div class="callout callout-ok" id="ur-tax-compare" style="margin-top:0;"></div>
+
+            <div class="chart-wrap" style="margin-bottom:24px;">
+              <div class="chart-header">
+                <strong>Ventilation annuelle de votre chiffre d’affaires</strong>
+                <button type="button" class="btn btn-secondary btn-sm" id="ur-export-png">Exporter PNG</button>
+              </div>
+              <canvas id="ur-chart" class="chart-canvas" aria-label="Graphique de répartition des charges et du revenu net"></canvas>
+            </div>
+
+            <div class="table-wrap" style="margin-top:0;">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Poste financier</th>
+                    <th class="num">Mensuel</th>
+                    <th class="num">Annuel</th>
+                    <th class="num">% du CA</th>
+                  </tr>
+                </thead>
+                <tbody id="ur-detail-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPLACEMENT ADSENSE 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-inner">Emplacement publicitaire réactif — format horizontal (728×90 / fluide)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL RICHE -->
+    <section class="section section-bordered editorial-section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="editorial">
+          <h2>Barèmes URSSAF 2026 : comment calculer son vrai revenu net en micro-entreprise</h2>
+          <p>
+            Le régime de la micro-entreprise séduit par sa simplicité comptable, mais il expose à un piège classique : raisonner en chiffre d’affaires brut encaissé plutôt qu’en revenu net disponible. En 2026, l’entrée en vigueur de la dernière marche de la réforme des cotisations sociales des professions libérales non réglementées (BNC affiliés à la Sécurité Sociale des Indépendants — décret n° 2024-484) porte le taux de cotisations sociales à <strong>26,1 %</strong> (contre 21,1 % début 2024 et 24,6 % en 2025).
+          </p>
+
+          <h3>Tableau officiel des taux 2026 par catégorie d’activité</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Activité</th>
+                  <th class="num">URSSAF 2026</th>
+                  <th class="num">ACRE (-50 %)</th>
+                  <th class="num">CFP</th>
+                  <th class="num">VFL (IR)</th>
+                  <th class="num">Abattement IR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Prestations de services BNC (SSI)</td>
+                  <td class="num"><strong>26,1 %</strong></td>
+                  <td class="num">13,05 %</td>
+                  <td class="num">0,2 %</td>
+                  <td class="num">2,2 %</td>
+                  <td class="num">34 %</td>
+                </tr>
+                <tr>
+                  <td>Prestations de services BIC</td>
+                  <td class="num"><strong>21,2 %</strong></td>
+                  <td class="num">10,60 %</td>
+                  <td class="num">0,3 %</td>
+                  <td class="num">1,7 %</td>
+                  <td class="num">50 %</td>
+                </tr>
+                <tr>
+                  <td>Achat-revente / Hébergement BIC</td>
+                  <td class="num"><strong>12,3 %</strong></td>
+                  <td class="num">6,15 %</td>
+                  <td class="num">0,1 %</td>
+                  <td class="num">1,0 %</td>
+                  <td class="num">71 %</td>
+                </tr>
+                <tr>
+                  <td>Profession libérale CIPAV</td>
+                  <td class="num"><strong>23,2 %</strong></td>
+                  <td class="num">11,60 %</td>
+                  <td class="num">0,2 %</td>
+                  <td class="num">2,2 %</td>
+                  <td class="num">34 %</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Formule de calcul du revenu net disponible</h3>
+          <div class="formula-box">
+            Net en poche = CA encaissé − (CA × Taux URSSAF) − (CA × CFP) − Impôt IR − CFE − Frais réels non déductibles
+          </div>
+          <p>
+            Dans l’exemple d’un consultant freelance BNC encaissant <strong>54 000 € de CA annuel</strong> (4 500 €/mois) sans ACRE, avec versement libératoire (2,2 %), 400 € de CFE et 180 €/mois de frais professionnels (assurances, logiciels, compte pro) :
+          </p>
+          <ul>
+            <li>Cotisations URSSAF (26,1 %) : <strong>14 094 €</strong></li>
+            <li>Contribution Formation Professionnelle (0,2 %) : <strong>108 €</strong></li>
+            <li>Impôt sur le revenu au versement libératoire (2,2 %) : <strong>1 188 €</strong></li>
+            <li>CFE + Frais réels annuels : <strong>2 560 €</strong></li>
+            <li><strong>Revenu net réel dans la poche : 36 050 € / an (soit 3 004 € / mois)</strong>, représentant 66,8 % du chiffre d’affaires facturé.</li>
+          </ul>
+
+          <h3>Les 3 erreurs fréquentes lors de l’estimation de ses charges</h3>
+          <ul>
+            <li><strong>Oublier les frais non déductibles :</strong> en micro-entreprise, si vos frais réels (sous-traitance, matériel, publicité, déplacements) dépassent votre taux d’abattement fiscal (34 % en BNC), le passage en société (SASU/EURL) ou en entreprise individuelle au régime réel devient souvent plus rentable.</li>
+            <li><strong>Négliger l’effet de la TVA au-delà de 37 500 € :</strong> n’oubliez pas que le CA déclaré à l’URSSAF est toujours votre chiffre d’affaires <strong>hors taxes (HT)</strong>. La TVA collectée auprès de vos clients ne fait que transiter sur votre compte bancaire. Surveillez vos limites avec notre <a href="suivi-seuils-tva-ca.html">calculateur de seuils TVA et prorata</a>.</li>
+            <li><strong>Souscrire le Versement Libératoire sans vérifier le RFR N-2 :</strong> pour bénéficier du VFL en 2026, le revenu fiscal de référence 2024 (avis 2025) de votre foyer ne doit pas dépasser 28 797 € par part fiscale (majoré de 50 % par demi-part supplémentaire).</li>
+          </ul>
+
+          <!-- EMPLACEMENT ADSENSE 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-inner">Emplacement publicitaire — format rectangle (336×280 / fluide)</div>
+          </aside>
+
+          <h2>Questions fréquentes sur les charges URSSAF 2026</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Quel est le taux URSSAF d’un freelance BNC en 2026 ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                En 2026, le taux de cotisations sociales des prestations de services BNC affiliées à la SSI est fixé à <strong>26,1 %</strong> du chiffre d’affaires encaissé, auquel s’ajoute 0,2 % de contribution à la formation professionnelle (CFP), soit 26,3 % au total hors impôt.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment fonctionne l’ACRE la première année ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                L’ACRE réduit de 50 % vos cotisations sociales URSSAF jusqu’à la fin du 3e trimestre civil suivant votre début d’activité. Elle ne réduit ni la CFP ni le versement libératoire de l’impôt sur le revenu.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Versement Libératoire ou Barème progressif : comment arbitrer ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Le simulateur calcule les deux scénarios en temps réel et vous indique l’économie annuelle exacte. En règle générale, si votre foyer est non imposable, conservez le barème progressif ; si votre tranche marginale est à 11 % ou 30 % et que vous êtes éligible, le versement libératoire est nettement plus économique.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Doit-on déclarer le CA facturé ou le CA encaissé à l’URSSAF ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                En micro-entreprise, vous déclarez exclusivement le chiffre d’affaires <strong>effectivement encaissé</strong> (crédité sur votre compte bancaire ou perçu en espèces) durant le mois ou le trimestre, et toujours hors TVA si vous y êtes assujetti.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quand la CFE devient-elle exigible ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Vous êtes exonéré de CFE durant l’année civile de création de votre micro-entreprise, puis bénéficiez d’un abattement de 50 % de la base minimale la deuxième année. Si votre CA annuel est inférieur ou égal à 5 000 €, vous bénéficiez d’une exonération permanente de cotisation minimum.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight section-bordered related-section">
+      <div class="container">
+        <h2 style="font-size:1.35rem;">Outils complémentaires ComptaBrut</h2>
+        <div class="related-grid">
+          <a href="suivi-seuils-tva-ca.html" class="related-card">
+            <strong>Prorata &amp; Seuils TVA / Micro</strong>
+            <span>Vérifiez votre plafond proratisé 1ère année et votre marge avant passage à la TVA.</span>
+          </a>
+          <a href="generateur-facture-devis.html" class="related-card">
+            <strong>Générateur Facture &amp; Devis 2026</strong>
+            <span>Éditez vos factures conformes avec ou sans mention art. 293 B du CGI.</span>
+          </a>
+          <a href="../guides/seuils-micro-entreprise-tva-2026.html" class="related-card">
+            <strong>Guide Seuils &amp; TVA 2026</strong>
+            <span>Toutes les règles officielles sur le dépassement de seuils et la bascule TVA.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="../index.html" class="brand" style="margin-bottom:12px;"><span class="brand-mark">CB</span><span>ComptaBrut</span></a>
+          <p style="font-size:0.9rem;">Outils financiers et conformité Factur-X 2026–2027, 100 % locaux dans votre navigateur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils Facturation &amp; TVA</h4>
+          <ul class="footer-links">
+            <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+            <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Charges &amp; Guides</h4>
+          <ul class="footer-links">
+            <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+            <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+            <li><a href="../guides/reforme-facturation-electronique-2026-2027.html">Guide Réforme 2026–2027</a></li>
+            <li><a href="../guides/seuils-micro-entreprise-tva-2026.html">Guide Seuils Micro 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ComptaBrut (comptabrut.fr)</span>
+        <span class="mono">100 % LOCAL · FRANCE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/simulateur-urssaf-micro-2026.js"></script>
+</body>
+</html>

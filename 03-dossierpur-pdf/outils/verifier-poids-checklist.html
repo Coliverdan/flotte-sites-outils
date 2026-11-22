@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vérificateur de Poids &amp; Checklist Dossier Administratif (Location, ANTS, Crédit) | DossierPur</title>
+  <meta name="description" content="Contrôlez instantanément le format et le poids de vos justificatifs face aux plafonds officiels (Location ALUR, ANTS 2 Mo, Crédit immobilier, Université) avec checklist mémorisée localement.">
+  <link rel="canonical" href="https://dossierpur.fr/outils/verifier-poids-checklist.html">
+  <meta property="og:title" content="Vérificateur de Poids &amp; Checklist Dossier Administratif — DossierPur">
+  <meta property="og:description" content="Inspectez vos PDF et images localement face aux limites ANTS, Location, Crédit et Parcoursup, et cochez votre checklist de pièces obligatoires.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dossierpur.fr/outils/verifier-poids-checklist.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Vérificateur de Poids & Checklist Dossier Administratif",
+        "url": "https://dossierpur.fr/outils/verifier-poids-checklist.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Tous (Navigateur Web)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Vérifie localement le poids, le nombre de pages et le format des pièces justificatives face aux plafonds ANTS, Location, Crédit immobilier et Université, avec checklist sauvegardée en localStorage."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dossierpur.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils PDF", "item": "https://dossierpur.fr/#outils" },
+          { "@type": "ListItem", "position": 3, "name": "Vérificateur & Checklist", "item": "https://dossierpur.fr/outils/verifier-poids-checklist.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Où est sauvegardée ma progression dans la checklist ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Votre progression est mémorisée exclusivement dans le stockage local (localStorage) de votre propre navigateur. Vous pouvez fermer l'onglet et revenir le lendemain sans perdre vos cases cochées, et aucune donnée n'est transmise sur un serveur." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que signifie l'alerte « Trop lourd » sur un fichier inspecté ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Elle indique que la taille du document dépasse le plafond couramment imposé par la démarche choisie (par exemple 2 Mo pour ANTS ou Université, 4 Mo pour un portail bancaire, 5 Mo en location). Un lien direct vous renvoie vers notre compresseur à taille cible." }
+          },
+          {
+            "@type": "Question",
+            "name": "Puis-je vérifier simultanément une dizaine de fichiers d'un coup ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Sélectionnez l'ensemble de votre dossier sur votre ordinateur ou téléphone : l'inspecteur contrôle instantanément le format, le poids exact et le nombre de pages de chaque PDF en quelques millisecondes." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi recommander le format PDF plutôt que JPG pour un crédit immobilier ou l'université ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les banques et les établissements d'enseignement supérieur archivent les pièces au format A4 normalisé. Un PDF multi-pages évite que les feuillets d'un avis d'imposition ou d'un relevé soient séparés et garantit une impression homogène." }
+          },
+          {
+            "@type": "Question",
+            "name": "Puis-je imprimer ma checklist pour préparer mes pièces papier ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Cliquez sur le bouton « Imprimer la checklist » : la feuille de style d'impression de DossierPur masque automatiquement la navigation et les bandeaux pour produire une fiche propre sur une page A4." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-root-prefix="../">
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-strip__badge">
+        <span class="trust-dot" aria-hidden="true"></span>
+        0 octet envoyé sur serveur — Inspection &amp; Checklist mémorisée localement
+      </div>
+      <div class="trust-strip__meta">AUDIT CONFORMITÉ ANTS / ALUR / BANQUE / ENT</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <polyline points="9 15 11 17 15 13"/>
+          </svg>
+        </span>
+        DossierPur
+        <span class="brand-tag">100 % LOCAL</span>
+      </a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <nav class="main-nav" data-main-nav aria-label="Navigation principale">
+        <a href="compresser-pdf-ants.html" class="nav-link">Compresser PDF</a>
+        <a href="filigrane-securise.html" class="nav-link">Filigrane CNI</a>
+        <a href="fusionner-dossier-locatif.html" class="nav-link">Dossier Locatif</a>
+        <a href="images-vers-pdf.html" class="nav-link">Photos → PDF</a>
+        <a href="decouper-extraire-pdf.html" class="nav-link">Découper</a>
+        <a href="verifier-poids-checklist.html" class="nav-link is-active">Checklist</a>
+        <a href="../guides/limites-fichiers-ants-caf-parcoursup.html" class="nav-link">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><a href="../index.html#outils">Outils PDF</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Vérificateur de poids &amp; Checklist dossier</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header__grid">
+        <div>
+          <span class="badge badge-accent" style="margin-bottom:12px">OUTIL 06 • CONTRÔLE AVANT DÉPÔT</span>
+          <h1>Vérificateur de Poids &amp; Checklist Dossier Administratif</h1>
+          <p class="tool-header__lead">
+            Choisissez votre démarche (Location, ANTS, Crédit immobilier ou Université), glissez vos justificatifs pour détecter immédiatement les dépassements de poids ou de format, et cochez les pièces obligatoires.
+          </p>
+        </div>
+        <div class="tool-header__assurance">
+          <strong>
+            <span class="trust-dot" aria-hidden="true"></span>
+            Audit 100 % local &amp; persistant
+          </strong>
+          <p>Vos fichiers ne quittent pas votre ordinateur et votre checklist reste mémorisée dans le stockage local de votre navigateur.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="container">
+        <!-- Sélecteur de démarche -->
+        <div class="panel" style="margin-bottom:24px">
+          <div class="panel-header">
+            <span class="panel-title">1. Sélectionnez votre démarche administrative</span>
+            <span id="chk-proc-limit" class="badge badge-accent mono">5,0 Mo max / pièce</span>
+          </div>
+
+          <div class="input-grid-2" style="gap:12px">
+            <button type="button" class="preset-btn is-active" data-proc-id="location">
+              <strong>Location appartement (Loi ALUR / DossierFacile)</strong>
+              <span>Plafond 5 Mo • Filigrane anti-usurpation recommandé</span>
+            </button>
+            <button type="button" class="preset-btn" data-proc-id="ants">
+              <strong>Passeport / Carte d'Identité (ANTS)</strong>
+              <span>Plafond strict 2 Mo • PDF, JPG ou PNG net</span>
+            </button>
+            <button type="button" class="preset-btn" data-proc-id="credit">
+              <strong>Crédit Immobilier (Banque / Courtier)</strong>
+              <span>Plafond 4 Mo • PDF complets exigés</span>
+            </button>
+            <button type="button" class="preset-btn" data-proc-id="universite">
+              <strong>Inscription Université / Parcoursup / MonMaster</strong>
+              <span>Plafond strict 2 Mo • PDF fortement conseillé</span>
+            </button>
+          </div>
+
+          <div class="status-banner" style="margin-top:16px;margin-bottom:0">
+            <div>
+              <strong id="chk-proc-title">Location appartement (Loi ALUR)</strong><br>
+              <span id="chk-proc-note">Plafond courant : 5 Mo par pièce.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="workspace-grid workspace-grid--equal">
+          <!-- Colonne Gauche : Inspecteur de fichiers -->
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">2. Inspecteur de poids &amp; formats</span>
+              <button type="button" id="chk-clear-files" class="btn btn-danger-ghost btn-sm" disabled>Vider</button>
+            </div>
+
+            <div id="chk-dropzone" class="dropzone" role="button" tabindex="0" aria-label="Déposer les fichiers de votre dossier à vérifier">
+              <div class="dropzone__icon" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </div>
+              <div class="dropzone__title">Glissez tous les fichiers de votre dossier</div>
+              <div class="dropzone__hint">Vérification immédiate : taille exacte, nombre de pages PDF, conformité au plafond</div>
+              <input type="file" id="chk-file-input" multiple class="sr-only">
+            </div>
+
+            <div class="sample-bar">
+              <span>Voir un audit complet avec fichier trop lourd + conforme :</span>
+              <button type="button" id="chk-sample-btn" class="btn btn-secondary btn-sm">
+                Tester avec 3 pièces exemples locales
+              </button>
+            </div>
+
+            <div id="chk-files-summary" style="margin:16px 0 12px;font-size:14px;color:var(--ink-secondary)">
+              En attente de fichiers à inspecter
+            </div>
+
+            <div id="chk-files-empty" class="canvas-empty" style="padding:20px">
+              Aucun fichier déposé. Si une pièce dépasse le plafond officiel, un raccourci vers le compresseur ou le filigrane s'affiche automatiquement.
+            </div>
+
+            <div id="chk-files-list" class="file-list"></div>
+          </div>
+
+          <!-- Colonne Droite : Checklist interactive persistante -->
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">3. Checklist des pièces obligatoires</span>
+              <span id="chk-progress-label" class="badge badge-trust mono">0 / 6 pièces prêtes (0 %)</span>
+            </div>
+
+            <div class="progress-wrap" style="margin-top:0;margin-bottom:20px">
+              <div class="progress-track">
+                <div id="chk-progress-fill" class="progress-fill progress-fill--trust" style="width:0%"></div>
+              </div>
+            </div>
+
+            <div id="chk-list" class="checklist-list"></div>
+
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px;flex-wrap:wrap">
+              <button type="button" id="chk-reset-btn" class="btn btn-ghost btn-sm">Réinitialiser cette démarche</button>
+              <button type="button" id="chk-print-btn" class="btn btn-secondary btn-sm">Imprimer la checklist (A4)</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AdSense Slot 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot__label">Publicité</span>
+          <span class="ad-slot__note">Emplacement réservé anti-CLS — Aucune donnée personnelle transmise</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu Éditorial (700+ mots) -->
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Pourquoi un contrôle préalable divise par trois les retours de dossier incomplet</h2>
+          <p>
+            Dans les administrations françaises comme dans les établissements bancaires ou les agences immobilières, les dossiers incomplets ou techniquement non conformes ne sont presque jamais corrigés par le destinataire : ils sont placés en attente ou rejetés automatiquement, ce qui repousse votre demande de plusieurs semaines (délai de rendez-vous en mairie ANTS, perte d'un appartement en zone tendue ou retard de versement d'aide).
+          </p>
+          <p>
+            Les quatre causes majeures de blocage sont pourtant évitables en deux minutes avant l'envoi : un <strong>fichier trop lourd</strong> dépassant le plafond du serveur (souvent 2 Mo sur l'ANTS ou Parcoursup), un <strong>format photo brut</strong> non accepté là où le PDF est exigé, une <strong>pièce périmée</strong> (justificatif de domicile de plus de 3 mois ou 1 an selon la démarche), ou l'<strong>oubli d'une page</strong> sur un avis d'imposition.
+          </p>
+
+          <h2>Tableau récapitulatif des plafonds et validités par démarche</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Démarche</th>
+                  <th>Plafond par pièce</th>
+                  <th>Format privilégié</th>
+                  <th>Validité justificatif domicile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Location appartement (ALUR)</strong></td>
+                  <td class="mono">5,0 Mo</td>
+                  <td>PDF unique ou PDF par pièce</td>
+                  <td>3 dernières quittances / &lt; 3 mois</td>
+                </tr>
+                <tr>
+                  <td><strong>Passeport / CNI (ANTS)</strong></td>
+                  <td class="mono">2,0 Mo</td>
+                  <td>PDF, JPG, PNG</td>
+                  <td>Moins d'un an</td>
+                </tr>
+                <tr>
+                  <td><strong>Crédit Immobilier</strong></td>
+                  <td class="mono">4,0 Mo</td>
+                  <td>PDF officiels complets</td>
+                  <td>Moins de 3 mois</td>
+                </tr>
+                <tr>
+                  <td><strong>Université / Parcoursup</strong></td>
+                  <td class="mono">2,0 Mo</td>
+                  <td>PDF A4 lisible</td>
+                  <td>Année universitaire en cours</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="callout callout--trust">
+            <strong>Comment corriger instantanément une anomalie détectée ?</strong>
+            Lorsqu'une pièce apparaît en rouge dans l'inspecteur ci-dessus, DossierPur vous propose le raccourci exact : le <a href="compresser-pdf-ants.html">Compresseur PDF à taille cible</a> pour passer sous 2 Mo ou 5 Mo, l'outil <a href="images-vers-pdf.html">Photos → PDF A4 (Scan)</a> pour convertir une photo de facture en PDF propre, ou le <a href="filigrane-securise.html">Filigrane sécurisé</a> pour protéger votre CNI.
+          </div>
+
+          <h2>Les 4 vérifications humaines que la machine ne remplace pas</h2>
+          <ul>
+            <li><strong>Cohérence des noms et adresses :</strong> vérifiez que l'adresse figurant sur votre justificatif de domicile correspond strictement à celle indiquée dans votre pré-demande ANTS ou votre fiche candidat.</li>
+            <li><strong>Intégralité des quatre coins visibles :</strong> sur une carte d'identité ou un diplôme photographié, un coin rogné entraîne un refus quasi systématique en mairie ou en banque.</li>
+            <li><strong>Date de validité des pièces d'identité :</strong> pour un dossier locatif ou bancaire, privilégiez toujours un titre non expiré.</li>
+            <li><strong>Nommage explicite des fichiers :</strong> renommez vos justificatifs clairement (ex. <span class="mono">01-CNI-Martin.pdf</span>, <span class="mono">02-Avis-Imposition-2025.pdf</span>) plutôt que <span class="mono">Scan_004.pdf</span>.</li>
+          </ul>
+
+          <!-- AdSense Slot 2 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot__label">Publicité</span>
+            <span class="ad-slot__note">Emplacement in-article réservé anti-CLS</span>
+          </aside>
+
+          <h2>Questions fréquentes sur le vérificateur et la checklist</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-question" aria-expanded="true">
+                Comment ma checklist est-elle conservée si je ferme mon navigateur ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Chaque case cochée est enregistrée instantanément dans le <span class="mono">localStorage</span> de votre appareil. Aucune donnée n'est envoyée sur Internet et vous pouvez tout effacer en un clic via le bouton « Réinitialiser cette démarche ».
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                L'inspecteur lit-il le contenu privé de mes PDF ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                L'outil inspecte uniquement localement les métadonnées techniques : nom du fichier, extension, poids exact en octets et nombre de pages via <span class="mono">pdf-lib</span>. Aucune lecture OCR ni aucun transfert réseau n'a lieu.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Pourquoi un fichier de 1,95 Mo est-il parfois bloqué sur l'ANTS alors qu'il est sous 2 Mo ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Certains formulaires calculent 2 Mo en base 10 (<span class="mono">2 000 000 octets</span> = 1,907 Mio). En cas de doute sur un fichier très proche de 2 Mo, passez-le dans notre <a href="compresser-pdf-ants.html">compresseur ANTS</a> qui vise 1,88 Mo.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                La liste des pièces locatives respecte-t-elle la loi ALUR ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui. La checklist « Location appartement » s'appuie directement sur les catégories autorisées par le décret n° 2015-1437 (identité, domicile, activité professionnelle, ressources et garant) et exclut toute pièce abusive.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Où trouver le détail des limites pour la CAF, Ameli ou Impots.gouv ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Consultez notre référentiel complet : <a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Limites de poids et formats ANTS, CAF, Ameli, Parcoursup et Impôts</a>.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="editorial-sidebar">
+          <div class="sidebar-card">
+            <h3>Corriger vos pièces en 1 clic</h3>
+            <ul class="sidebar-links">
+              <li><a href="compresser-pdf-ants.html">Compresser un PDF trop lourd <span>→</span></a></li>
+              <li><a href="filigrane-securise.html">Ajouter un filigrane CNI <span>→</span></a></li>
+              <li><a href="fusionner-dossier-locatif.html">Assembler le dossier locatif <span>→</span></a></li>
+              <li><a href="images-vers-pdf.html">Convertir photos en PDF A4 <span>→</span></a></li>
+              <li><a href="decouper-extraire-pdf.html">Supprimer des pages inutiles <span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3>Guides de référence</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Toutes les limites officielles <span>→</span></a></li>
+              <li><a href="../guides/proteger-papiers-usurpation-identite.html">Guide anti-usurpation d'identité <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DossierPur</div>
+          <p class="footer-desc">Studio PDF administratif 100 % local navigateur. Zéro transfert serveur, confidentialité vérifiable.</p>
+          <span class="badge badge-trust">0 octet envoyé • Traitement local</span>
+        </div>
+        <div class="footer-col">
+          <h4>Outils PDF Locaux</h4>
+          <ul class="footer-links">
+            <li><a href="compresser-pdf-ants.html">Compresseur PDF ANTS (2 Mo)</a></li>
+            <li><a href="filigrane-securise.html">Filigrane anti-usurpation</a></li>
+            <li><a href="fusionner-dossier-locatif.html">Assembleur dossier locatif</a></li>
+            <li><a href="images-vers-pdf.html">Photos smartphone → PDF A4</a></li>
+            <li><a href="decouper-extraire-pdf.html">Découper &amp; pivoter PDF</a></li>
+            <li><a href="verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="../guides/proteger-papiers-usurpation-identite.html">Protéger ses papiers (CNI / Location)</a></li>
+            <li><a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Limites ANTS, CAF &amp; Parcoursup</a></li>
+            <li><a href="../a-propos.html">À propos &amp; Méthodologie</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Conformité &amp; Légal</h4>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#" data-open-cookie-prefs>Gérer mes cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DossierPur.fr — Service indépendant 100 % local.</span>
+        <span class="mono">Traitement 100 % côté client</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/verifier-poids-checklist.js"></script>
+</body>
+</html>

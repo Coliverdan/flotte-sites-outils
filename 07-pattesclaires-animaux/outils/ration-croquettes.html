@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Ration Journalière de Croquettes Chien &amp; Chat (g/jour) — PattesClaires</title>
+  <meta name="description" content="Calculez la dose exacte de croquettes en grammes par jour grâce à la formule vétérinaire RER/DER (70 × poids^0,75 × k). Durée d'un sac et coût mensuel exact inclus.">
+  <link rel="canonical" href="https://pattesclaires.fr/outils/ration-croquettes.html">
+  <meta property="og:title" content="Calculateur Ration Croquettes Chien &amp; Chat (Formule Vétérinaire RER/DER)">
+  <meta property="og:description" content="Grammes exacts par jour et par repas, besoins caloriques kcal/j, autonomie de votre sac et budget mensuel croquettes.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pattesclaires.fr/outils/ration-croquettes.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur Ration Journalière de Croquettes Chien et Chat",
+        "url": "https://pattesclaires.fr/outils/ration-croquettes.html",
+        "applicationCategory": "HealthApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Calculateur vétérinaire RER/DER pour déterminer la quantité exacte de croquettes en grammes par jour, la durée d'un sac et le coût mensuel."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://pattesclaires.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Calculateur Ration Croquettes", "item": "https://pattesclaires.fr/outils/ration-croquettes.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi ne faut-il pas se fier aveuglément au tableau imprimé sur le sac de croquettes ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les tableaux figurant sur les paquets sont calculés pour des animaux entiers et actifs. Ils surestiment souvent de 15 à 30 % la ration nécessaire pour un chien ou un chat stérilisé vivant en intérieur."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Où trouver la densité énergétique (kcal/kg) de mes croquettes ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Elle figure au dos du paquet sous l'intitulé Énergie Métabolisable (EM) en kcal/kg ou kcal/100 g. Si elle est absente, la moyenne du marché se situe entre 3 500 et 3 800 kcal/kg (3 200 kcal/kg pour les gammes light)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dois-je utiliser le poids actuel ou le poids idéal ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si votre animal est déjà à son poids de forme, utilisez son poids actuel. En cas de surpoids avéré, saisissez son poids idéal cible et sélectionnez l'objectif Perte de poids douce, sous suivi vétérinaire."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment adapter la ration si je donne aussi de la pâtée (bi-nutrition) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Un sachet de pâtée de 85 g apporte environ 70 à 85 kcal (équivalent à 20 g de croquettes à 3 700 kcal/kg). Déduisez simplement les calories de la pâtée de votre besoin journalier DER."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi la stérilisation diminue-t-elle autant la ration ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La chute des hormones sexuelles abaisse le métabolisme de base et augmente l'appétit. Les besoins énergétiques chutent de 20 à 30 % dans les semaines qui suivent l'opération."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-base="../">
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.2"/><circle cx="16" cy="7" r="2.2"/><circle cx="4.5" cy="12" r="1.9"/><circle cx="19.5" cy="12" r="1.9"/><path d="M12 11c-3 0-5.2 2.4-5.2 5.2 0 1.8 1.4 3.3 3.3 3.3 1.2 0 1.4-.5 1.9-.5s.7.5 1.9.5c1.9 0 3.3-1.5 3.3-3.3C17.2 13.4 15 11 12 11z"/></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">PattesClaires</span>
+          <span class="brand-tag">Budget &amp; Santé Animale</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="budget-chien-chat-race.html">Budget Race</a></li>
+          <li><a href="ration-croquettes.html" aria-current="page">Ration</a></li>
+          <li><a href="age-humain-reel.html">Âge Réel</a></li>
+          <li><a href="aliments-toxiques.html">Toxiques</a></li>
+          <li><a href="comparateur-mutuelle-epargne.html">Mutuelle</a></li>
+          <li><a href="checklist-adoption.html">Adoption</a></li>
+          <li><a href="../guides/budget-adoption-chien-chat-2026.html">Guides</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="mobile-menu-toggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="budget-chien-chat-race.html">Budget par Race (42 Races)</a></li>
+        <li><a href="ration-croquettes.html" aria-current="page">Ration de Croquettes (g/j)</a></li>
+        <li><a href="age-humain-reel.html">Âge Humain Réel</a></li>
+        <li><a href="aliments-toxiques.html">Aliments Toxiques &amp; Chocolat</a></li>
+        <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs Auto-Assurance</a></li>
+        <li><a href="checklist-adoption.html">Checklist Adoption 1er Mois</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#outils">Outils</a></li>
+        <li aria-current="page">Calculateur Ration Croquettes</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Outil 02 · Formule métabolique WSAVA / FEDIAF</div>
+          <h1>Calculateur de Ration Journalière de Croquettes (g/jour)</h1>
+          <p class="lead">
+            Déterminez la quantité précise de croquettes à peser chaque jour selon le poids, la stérilisation, l’activité et la densité énergétique de votre paquet — plus la durée exacte du sac et le budget mensuel.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="tool-hero-meta-row"><span>Équation de repos</span><span>70 × poids^0,75</span></div>
+          <div class="tool-hero-meta-row"><span>Densité par défaut</span><span>3 700 kcal/kg</span></div>
+          <div class="tool-hero-meta-row"><span>Précision conseillée</span><span>Balance cuisine</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Paramètres -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Profil de votre animal</h2>
+            <span class="badge badge-safe">RER / DER</span>
+          </div>
+
+          <div class="form-group">
+            <span class="field-label">Espèce</span>
+            <div class="segmented" role="group" aria-label="Choisir l'espèce">
+              <button type="button" class="is-active" data-ration-species="chien">Chien</button>
+              <button type="button" data-ration-species="chat">Chat</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="weight-input">Poids actuel (ou poids idéal visé) en kg</label>
+            </div>
+            <div class="form-row" style="align-items:center;">
+              <input type="range" id="weight-range" min="1" max="75" step="0.5" value="20" aria-label="Curseur poids en kg">
+              <input type="number" id="weight-input" min="0.5" max="90" step="0.1" value="20">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="life-stage">Âge / Stade physiologique</label>
+              <select id="life-stage">
+                <option value="jeune">Chiot / Chaton (&lt; 4 mois)</option>
+                <option value="croissance">Croissance (4 à 12 mois)</option>
+                <option value="adulte" selected>Adulte (1 à 7–8 ans)</option>
+                <option value="senior">Senior (8 ans et +)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="activity-level">Niveau d’activité</label>
+              <select id="activity-level">
+                <option value="calme">Calme / Appartement</option>
+                <option value="normal" selected>Normal (promenades quotidiennes)</option>
+                <option value="sportif">Actif / Sportif / Extérieur intense</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="toggle-row">
+              <div>
+                <div style="font-weight:700;font-size:0.94rem;">Animal stérilisé ou castré</div>
+                <div style="font-size:0.82rem;color:var(--text-secondary);">Réduit le besoin calorique d’environ 20 %</div>
+              </div>
+              <label class="toggle-switch" aria-label="Animal stérilisé">
+                <input type="checkbox" id="is-neutered" checked>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="weight-goal">Objectif corporel</label>
+            <select id="weight-goal">
+              <option value="maintien" selected>Maintien du poids de forme</option>
+              <option value="perte">Perte de poids douce (-18 % calories)</option>
+              <option value="prise">Prise de poids / Récupération (+15 %)</option>
+            </select>
+          </div>
+
+          <hr style="border:none;border-top:1px solid var(--border);margin:24px 0;">
+
+          <div class="form-group">
+            <label for="kibble-kcal">Densité énergétique des croquettes (kcal / kg)</label>
+            <input type="number" id="kibble-kcal" min="2400" max="5200" step="50" value="3700">
+            <div class="field-hint">Indiqué au dos du paquet (Énergie Métabolisable). Light : ~3 200 · Classique : ~3 700 · Sport/Chiot : ~4 100.</div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bag-kg">Poids du sac acheté (kg)</label>
+              <input type="number" id="bag-kg" min="0.5" max="25" step="0.5" value="12">
+            </div>
+            <div class="form-group">
+              <label for="bag-price">Prix du sac (€)</label>
+              <input type="number" id="bag-price" min="2" max="250" step="1" value="64">
+            </div>
+          </div>
+        </div>
+
+        <!-- Résultats -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Ration journalière recommandée</h2>
+            <span class="badge badge-accent">Résultat exact</span>
+          </div>
+
+          <div class="kpi-grid kpi-grid-2">
+            <div class="kpi-box kpi-box-accent">
+              <div class="kpi-label">Quantité de croquettes</div>
+              <div id="out-grams-day" class="kpi-value">—</div>
+              <div id="out-meals-sub" class="kpi-sub">—</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">Besoin énergétique (DER)</div>
+              <div id="out-der-kcal" class="kpi-value">—</div>
+              <div id="out-rer-sub" class="kpi-sub">—</div>
+            </div>
+          </div>
+
+          <div class="kpi-grid kpi-grid-2">
+            <div class="kpi-box">
+              <div class="kpi-label">Durée de votre sac</div>
+              <div id="out-bag-days" class="kpi-value">—</div>
+              <div id="out-bag-weeks" class="kpi-sub">—</div>
+            </div>
+            <div class="kpi-box">
+              <div class="kpi-label">Coût mensuel exact</div>
+              <div id="out-month-cost" class="kpi-value">—</div>
+              <div id="out-day-cost" class="kpi-sub">—</div>
+            </div>
+          </div>
+
+          <div class="formula-box" id="out-formula-live" style="font-size:0.86rem;"></div>
+
+          <div class="chart-box">
+            <canvas id="ration-chart" aria-label="Durée d'autonomie selon le format de sac de croquettes"></canvas>
+            <div class="chart-caption">Astuce conservation : évitez d’acheter un sac dont la durée dépasse 60 à 75 jours après ouverture (oxydation des acides gras).</div>
+          </div>
+
+          <div class="callout callout-safe">
+            <div class="callout-title">Conseil pratique nutrition</div>
+            <p id="out-vet-note" style="margin:0;"></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emplacement AdSense #1 -->
+      <div class="container">
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format responsive horizontal</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu éditorial expert -->
+    <section class="section section-subtle">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <h2>Comprendre la formule vétérinaire RER et DER</h2>
+          <p>
+            En nutrition clinique canine et féline (recommandations WSAVA et FEDIAF), on ne calcule jamais une ration de façon linéaire au kilo : un Chihuahua de 3 kg consomme proportionnellement beaucoup plus d’énergie par kilo qu’un Saint-Bernard de 60 kg en raison de son rapport surface corporelle / volume. On utilise donc l’équation allométrique du <strong>Besoin Énergétique de Repos (RER)</strong> :
+          </p>
+
+          <div class="formula-box">
+            RER (kcal/jour) = 70 × (Poids en kg)^0,75<br>
+            DER (kcal/jour) = RER × Facteur k (âge, stérilisation, activité)<br>
+            Ration (g/jour) = DER / (Densité énergétique en kcal/kg ÷ 1 000)
+          </div>
+
+          <p>
+            Le coefficient <strong>k</strong> adapte ce métabolisme basal à la vie réelle de l’animal : un chat d’appartement stérilisé se situe autour de <strong>k = 1,0 à 1,15</strong>, un chien adulte stérilisé calme autour de <strong>k = 1,25 à 1,50</strong>, tandis qu’un chien entier très sportif (canicross, berger de travail) monte à <strong>k = 2,25</strong> et un jeune chiot en pic de croissance à <strong>k = 2,6</strong>.
+          </p>
+
+          <div class="callout callout-caution">
+            <div class="callout-title">Avertissement nutritionnel vétérinaire</div>
+            <p style="margin:0;">
+              Ce calculateur fournit une base scientifique fiable pour les chiens et chats en bonne santé. En cas de pathologie rénale, diabète, pancréatite, gestation/lactation ou obésité sévère (> +20 % du poids idéal), demandez un bilan nutritionnel personnalisé à votre vétérinaire.
+            </p>
+          </div>
+
+          <h2>Exemples chiffrés selon le profil (croquettes à 3 700 kcal/kg)</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Profil type</th>
+                  <th class="td-num">RER</th>
+                  <th class="td-num">Facteur k</th>
+                  <th class="td-num">DER</th>
+                  <th class="td-num">Ration / jour</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Chat stérilisé 4,5 kg</strong> (intérieur calme)</td>
+                  <td class="td-num">216 kcal</td>
+                  <td class="td-num">1,00</td>
+                  <td class="td-num">216 kcal</td>
+                  <td class="td-num"><strong>58 g / j</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Bouledogue Français 11 kg</strong> (stérilisé, calme)</td>
+                  <td class="td-num">423 kcal</td>
+                  <td class="td-num">1,25</td>
+                  <td class="td-num">529 kcal</td>
+                  <td class="td-num"><strong>143 g / j</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Berger Australien 22 kg</strong> (stérilisé, normal)</td>
+                  <td class="td-num">711 kcal</td>
+                  <td class="td-num">1,50</td>
+                  <td class="td-num">1 067 kcal</td>
+                  <td class="td-num"><strong>288 g / j</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Border Collie 20 kg</strong> (entier, sportif)</td>
+                  <td class="td-num">662 kcal</td>
+                  <td class="td-num">2,25</td>
+                  <td class="td-num">1 490 kcal</td>
+                  <td class="td-num"><strong>403 g / j</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Les 4 erreurs classiques dans la gamelle</h2>
+          <ul>
+            <li><strong>Doser au gobelet en plastique :</strong> une étude universitaire a démontré que les verres doseurs entraînent des erreurs de +18 % à +40 % selon la forme des croquettes. Une balance numérique à 12 € règle définitivement le problème.</li>
+            <li><strong>Oublier les friandises d’éducation :</strong> les récompenses, bâtonnets dentaires et restes de table ne doivent jamais dépasser <strong>10 %</strong> de l’apport calorique quotidien, sinon il faut les déduire de la gamelle du soir.</li>
+            <li><strong>Changer de marque du jour au lendemain :</strong> une transition alimentaire progressive sur <strong>7 à 10 jours</strong> (75/25, puis 50/50, puis 25/75) évite les diarrhées aiguës.</li>
+            <li><strong>Garder un sac ouvert trop longtemps :</strong> au-delà de 2 mois après ouverture, les lipides rancissent et les vitamines se dégradent. Pour un petit chien ou un chat, mieux vaut deux sacs de 3–4 kg qu’un sac de 15 kg qui traîne 6 mois.</li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format in-article</div>
+          </aside>
+
+          <h2>Questions fréquentes sur le dosage des croquettes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="rfaq-1">
+                <span>Pourquoi les doses recommandées sur les sacs sont-elles souvent trop élevées ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="rfaq-1" class="faq-panel">
+                Les tableaux fabricants sont majoritairement établis sur un chien ou un chat non stérilisé moyennement actif. Chez un animal stérilisé vivant en appartement, suivre le paquet à la lettre conduit fréquemment à une prise de poids de 15 à 25 % en un an.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="rfaq-2">
+                <span>Où trouver les kcal/kg sur l’emballage de mes croquettes ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="rfaq-2" class="faq-panel">
+                Cherchez la ligne « Énergie métabolisable (EM) » près des constituants analytiques. Si la valeur est indiquée pour 100 g (ex. 375 kcal/100 g), multipliez simplement par 10 (soit 3 750 kcal/kg).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="rfaq-3">
+                <span>Faut-il donner la ration en 1, 2 ou 3 repas par jour ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="rfaq-3" class="faq-panel">
+                Pour un chien adulte, 2 repas (matin et soir) sont idéaux pour la digestion et réduisent le risque de dilatation-torsion d’estomac chez les grandes races. Pour un chiot de moins de 5 mois, passez à 3 repas. Chez le chat, grignoteur naturel, fractionnez en 3 à 5 petites prises ou utilisez une gamelle ludique.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="rfaq-4">
+                <span>Comment calculer la ration en bi-nutrition (croquettes + pâtée) ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="rfaq-4" class="faq-panel">
+                Une pâtée humide classique apporte 80 à 95 kcal pour 100 g. Si vous donnez 100 g de pâtée à votre chat (85 kcal), retirez 85 kcal de son DER journalier, ce qui correspond à environ 22 à 24 g de croquettes en moins.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="rfaq-5">
+                <span>Comment vérifier si la ration calculée convient bien à mon animal ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="rfaq-5" class="faq-panel">
+                Évaluez sa note d’état corporel (NEC) toutes les 3 semaines : vous devez sentir ses côtes sous vos doigts sans appuyer fort, sans qu’elles soient visibles à l’œil nu, et voir une taille légèrement marquée vu de dessus. Ajustez la ration de ±10 % si nécessaire.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside aria-label="Outils complémentaires">
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">Aller plus loin</div>
+            <h3 style="margin-bottom:8px;">Guide complet croquettes</h3>
+            <p style="font-size:0.92rem;color:var(--text-secondary);">
+              Apprenez à déchiffrer le taux de glucides (ENA), les cendres et le rapport protido-calorique sur n’importe quel paquet.
+            </p>
+            <a href="../guides/comprendre-ration-croquettes-chien.html" class="btn btn-secondary btn-sm btn-block">Lire le guide nutrition →</a>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">Autres calculateurs</div>
+            <ul class="sidebar-links">
+              <li><a href="budget-chien-chat-race.html">Budget vie entière par race <span>→</span></a></li>
+              <li><a href="aliments-toxiques.html">Aliments toxiques (64) <span>→</span></a></li>
+              <li><a href="age-humain-reel.html">Âge humain réel (UCSD) <span>→</span></a></li>
+              <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs Cagnotte <span>→</span></a></li>
+              <li><a href="checklist-adoption.html">Checklist Adoption <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name" style="color:var(--text-on-dark);margin-bottom:12px;">PattesClaires</div>
+          <p style="color:var(--text-on-dark-muted);font-size:0.92rem;">Outils gratuits et dossiers documentés sur le budget, la nutrition et la sécurité des chiens et des chats.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="budget-chien-chat-race.html">Budget par race (42 races)</a></li>
+            <li><a href="ration-croquettes.html">Ration de croquettes (g/j)</a></li>
+            <li><a href="age-humain-reel.html">Âge humain scientifique</a></li>
+            <li><a href="aliments-toxiques.html">Aliments toxiques &amp; chocolat</a></li>
+            <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs auto-assurance</a></li>
+            <li><a href="checklist-adoption.html">Checklist adoption 1er mois</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides Pratiques</div>
+          <ul class="footer-links">
+            <li><a href="../guides/budget-adoption-chien-chat-2026.html">Budget adoption 2026</a></li>
+            <li><a href="../guides/comprendre-ration-croquettes-chien.html">Comprendre la ration croquettes</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Informations Légales</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><button type="button" data-cookie-settings>Gérer mes cookies</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PattesClaires (pattesclaires.fr)</span>
+        <span>Outil pédagogique — ne remplace pas une prescription nutritionnelle vétérinaire.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/ration-croquettes.js"></script>
+</body>
+</html>

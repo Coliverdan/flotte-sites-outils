@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testeur de Micro, Décibelmètre &amp; Qualité Acoustique en Direct — VoixNette</title>
+  <meta name="description" content="Testez votre microphone en ligne : VU-mètre dBFS temps réel, analyseur de spectre FFT 48 bandes, diagnostic du bruit de fond de la pièce et test d'enregistrement 10 s exportable en WAV.">
+  <link rel="canonical" href="https://voixnette.fr/outils/analyseur-micro-bruit.html">
+  <meta property="og:title" content="Testeur de Micro, Décibelmètre &amp; Spectre FFT en Direct — VoixNette">
+  <meta property="og:description" content="Vérifiez votre gain micro, mesurez le bruit ambiant de votre pièce et enregistrez un test WAV 16-bit 100 % local sans aucun envoi serveur.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://voixnette.fr/outils/analyseur-micro-bruit.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "VoixNette VN-06 — Testeur de Micro, Décibelmètre & Analyseur FFT",
+        "url": "https://voixnette.fr/outils/analyseur-micro-bruit.html",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Tous navigateurs modernes (WebAudio API)",
+        "inLanguage": "fr-FR",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Analyseur de microphone en direct avec VU-mètre 24 segments, spectre fréquentiel FFT, diagnostic acoustique du bruit de fond et enregistreur test 10 secondes WAV."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://voixnette.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils Studio", "item": "https://voixnette.fr/#rack-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Testeur Micro & Décibelmètre", "item": "https://voixnette.fr/outils/analyseur-micro-bruit.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quel est le bon niveau en dBFS pour enregistrer sa voix au micro ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lorsque vous parlez normalement à 15 cm du microphone, votre niveau moyen doit osciller entre -18 dBFS et -12 dBFS (zone verte/ambre du VU-mètre), avec des pics maximums autour de -6 dBFS. Cela laisse une réserve de sécurité confortable contre tout écrêtage si vous riez ou haussez la voix."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel plancher de bruit de fond (noise floor) faut-il viser dans une pièce ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En restant silencieux devant votre micro réglé pour la voix, un plancher inférieur à -48 dBFS indique une pièce très calme (niveau studio). Entre -48 dBFS et -35 dBFS, l'acoustique est correcte pour la visio ou un cours. Au-dessus de -35 dBFS, un ventilateur, une climatisation ou un préampli trop poussé pollue la prise."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi désactiver l'annulation d'écho et le gain automatique lors d'un test micro ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Les filtres logiciels des navigateurs (autoGainControl, noiseSuppression) pompent artificiellement le volume et étouffent les fréquences aiguës. Notre module VN-06 interroge le flux brut du microphone afin de mesurer la vraie qualité matérielle de votre capsule et l'acoustique réelle de la pièce."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Mon flux microphone est-il envoyé sur un serveur pendant le test ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non, jamais. L'analyse FFT et l'enregistrement de 10 secondes s'exécutent intégralement dans la mémoire vive de votre navigateur via WebAudio API (AnalyserNode). Dès que vous cliquez sur Arrêter ou fermez l'onglet, le flux matériel est coupé et la mémoire est libérée."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment lire l'analyseur de spectre FFT 48 bandes ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La zone gauche (60 à 120 Hz) révèle les grondements graves (vibrations de bureau, plosives 'P/B'). La zone centrale (150 Hz à 3 kHz) concentre le corps et l'intelligibilité de la voix humaine. La zone droite (4 à 12 kHz) correspond à la brillance, aux sifflantes ('S/F') et au souffle électronique du préampli."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-link" aria-label="VoixNette Accueil">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+        <span>VoixNette</span>
+        <span class="brand-tag">DSP Local</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="nav-dropdown-wrap">
+          <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            Outils Studio <span class="mono" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="coupe-silence-vocal.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Coupe-Silence Vocal</span><span class="nav-dropdown-sub">Supprimer les blancs WhatsApp &amp; cours</span></span>
+              <span class="nav-dropdown-code">VN-01</span>
+            </a>
+            <a href="normaliseur-volume.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Normaliseur de Volume</span><span class="nav-dropdown-sub">Peak dBFS, -14 LUFS &amp; anti-saturation</span></span>
+              <span class="nav-dropdown-code">VN-02</span>
+            </a>
+            <a href="decoupeur-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Découpeur Audio Visuel</span><span class="nav-dropdown-sub">Rognage précis 0,01 s + Fade-In/Out</span></span>
+              <span class="nav-dropdown-code">VN-03</span>
+            </a>
+            <a href="vitesse-pitch-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Accélérateur 0,5× à 3,0×</span><span class="nav-dropdown-sub">Écoute rapide cours &amp; export WAV</span></span>
+              <span class="nav-dropdown-code">VN-04</span>
+            </a>
+            <a href="carte-onde-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Carte Onde Audiogramme</span><span class="nav-dropdown-sub">Visuel waveform HD 1:1, 9:16, 16:9</span></span>
+              <span class="nav-dropdown-code">VN-05</span>
+            </a>
+            <a href="analyseur-micro-bruit.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Analyseur Micro &amp; Bruit</span><span class="nav-dropdown-sub">VU-mètre, FFT direct &amp; test 10 s</span></span>
+              <span class="nav-dropdown-code">VN-06</span>
+            </a>
+          </div>
+        </div>
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="nav-link">Guides Audio</a>
+        <a href="../a-propos.html" class="nav-link">Méthodologie</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="status-pill">
+          <span class="led-dot is-green" aria-hidden="true"></span>
+          <span>100 % LOCAL · ZÉRO UPLOAD</span>
+        </span>
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="mono">≡</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Navigation mobile">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Rack Outils Studio</div>
+      <div class="mobile-nav-list">
+        <a href="coupe-silence-vocal.html" class="mobile-nav-link"><span>Coupe-Silence Vocal</span><span class="mono">VN-01</span></a>
+        <a href="normaliseur-volume.html" class="mobile-nav-link"><span>Normaliseur de Volume</span><span class="mono">VN-02</span></a>
+        <a href="decoupeur-audio.html" class="mobile-nav-link"><span>Découpeur Audio Visuel</span><span class="mono">VN-03</span></a>
+        <a href="vitesse-pitch-audio.html" class="mobile-nav-link"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a>
+        <a href="carte-onde-audio.html" class="mobile-nav-link"><span>Carte Onde Audiogramme</span><span class="mono">VN-05</span></a>
+        <a href="analyseur-micro-bruit.html" class="mobile-nav-link"><span>Analyseur Micro &amp; Bruit</span><span class="mono">VN-06</span></a>
+      </div>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Guides &amp; Studio</div>
+      <div class="mobile-nav-list">
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="mobile-nav-link"><span>Optimiser son podcast sans logiciel</span><span class="mono">→</span></a>
+        <a href="../guides/formats-audio-ogg-opus-mp3-wav.html" class="mobile-nav-link"><span>Formats OGG/OPUS, MP3 &amp; WAV</span><span class="mono">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <nav class="breadcrumb container" aria-label="Fil d'Ariane">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li><a href="../index.html#rack-outils">Outils Studio</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="breadcrumb-current" aria-current="page">VN-06 · Analyseur Micro &amp; Bruit</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="hardware-badge is-rec">MODULE VN-06</span>
+            <span>ANALYSEUR FFT 1024 · VU-MÈTRE 24 LEDS · PRISE TEST WAV</span>
+          </div>
+          <h1>Testeur de Micro, Décibelmètre &amp; Qualité Acoustique en Direct</h1>
+          <p class="tool-hero-desc">
+            Vérifiez instantanément le fonctionnement de votre microphone, calibrez votre gain d’entrée avant un podcast ou une visioconférence, mesurez le bruit de fond de votre pièce et enregistrez un échantillon test de 10 secondes sans envoyer le moindre octet sur Internet.
+          </p>
+        </div>
+
+        <div class="tool-spec-card">
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Analyse FFT</span>
+            <span class="spec-item-val">48 bandes log</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Plage VU-mètre</span>
+            <span class="spec-item-val">-60 à 0 dBFS</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Filtres OS</span>
+            <span class="spec-item-val">Bypass Brut</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Prise Test</span>
+            <span class="spec-item-val">10 s WAV 16-bit</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="console-panel">
+        <div class="console-header">
+          <div class="console-title-group">
+            <span class="led-dot is-red" aria-hidden="true"></span>
+            <span class="console-model">VN-06 · LIVE ACOUSTIC &amp; MIC ANALYSER</span>
+          </div>
+          <span class="console-meta" id="mc-mode-meta">EN VEILLE · AUCUN FLUX ACTIF</span>
+        </div>
+
+        <div class="console-body">
+          <div class="action-cluster" style="margin-bottom: 16px;">
+            <button type="button" class="btn btn-primary" id="mc-start-btn">
+              Activer mon microphone en direct
+            </button>
+            <button type="button" class="btn btn-secondary" id="mc-sim-btn">
+              Lancer le mode simulation studio
+            </button>
+            <button type="button" class="btn btn-ghost" id="mc-stop-btn" disabled>
+              Arrêter le flux
+            </button>
+          </div>
+
+          <div class="status-banner" id="mc-status" role="status" aria-live="polite">
+            Cliquez sur « Activer mon microphone » (ou sur « Mode simulation studio » si vous n’avez pas de micro branché).
+          </div>
+
+          <!-- VU-mètre segmenté 24 LEDs -->
+          <div class="vu-meter-box" style="margin-bottom: 24px;">
+            <div class="waveform-toolbar" style="margin-bottom: 8px;">
+              <span>VU-MÈTRE HARDWARE · NIVEAU D'ENTRÉE TEMPS RÉEL</span>
+              <span class="mono">Zone idéale voix : -18 à -6 dBFS</span>
+            </div>
+            <div class="vu-segments" id="mc-vu-segments" aria-label="VU-mètre 24 segments"></div>
+            <div class="vu-scale">
+              <span>-60 dB</span>
+              <span>-48 dB</span>
+              <span>-36 dB</span>
+              <span>-24 dB</span>
+              <span>-12 dB (Optimal)</span>
+              <span>-6 dB</span>
+              <span>0 dBFS (Clip)</span>
+            </div>
+          </div>
+
+          <!-- 4 KPIs acoustiques -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <span class="kpi-label">Niveau Instantané (RMS)</span>
+              <span class="kpi-value" id="mc-db-now">-60,0 dB</span>
+              <span class="kpi-sub">Puissance vocale directe</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Crête Maintenue (Peak 2 s)</span>
+              <span class="kpi-value" id="mc-db-peak">-60,0 dB</span>
+              <span class="kpi-sub">Ne doit jamais toucher 0 dB</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Équivalent SPL Estimé</span>
+              <span class="kpi-value" id="mc-spl-est">34 dB(A)</span>
+              <span class="kpi-sub">Calibration bureau (94 dB SPL)</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Diagnostic Acoustique Pièce</span>
+              <div style="margin: 4px 0 6px;">
+                <span class="hardware-badge is-green" id="mc-diag-badge">EN ATTENTE</span>
+              </div>
+              <span class="kpi-sub" id="mc-diag-desc">Activez le micro pour évaluer le plancher de bruit.</span>
+            </div>
+          </div>
+
+          <!-- Analyseur de spectre FFT -->
+          <div class="waveform-stage">
+            <div class="waveform-toolbar">
+              <span>SPECTRE FRÉQUENTIEL FFT (60 Hz → 16 kHz)</span>
+              <div class="waveform-legend">
+                <span class="legend-chip"><span class="legend-swatch" style="background:#22C55E"></span><span>Normal</span></span>
+                <span class="legend-chip"><span class="legend-swatch" style="background:#F59E0B"></span><span>Présence forte</span></span>
+                <span class="legend-chip"><span class="legend-swatch" style="background:#E12D39"></span><span>Crête haute</span></span>
+              </div>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="mc-fft-canvas" class="waveform-canvas" height="210" aria-label="Analyseur de spectre fréquentiel FFT en direct"></canvas>
+            </div>
+          </div>
+
+          <!-- Enregistreur Test 10 secondes -->
+          <div class="console-actions">
+            <div class="action-cluster">
+              <button type="button" class="btn btn-secondary" id="mc-rec-btn" disabled>
+                Enregistrer 10 s &amp; Réécouter
+              </button>
+              <span class="console-meta" id="mc-rec-progress"></span>
+            </div>
+            <span class="console-meta">Capture locale en mémoire RAM uniquement</span>
+          </div>
+
+          <div class="results-panel hidden" id="mc-results-panel">
+            <div class="results-header">
+              <div class="console-title-group">
+                <span class="led-dot is-green" aria-hidden="true"></span>
+                <h2 style="font-size: 1.2rem; margin: 0;">Votre prise de son test (10 secondes)</h2>
+              </div>
+              <div class="action-cluster">
+                <span class="console-meta" id="mc-download-meta">WAV PCM 16-bit</span>
+                <button type="button" class="btn btn-success btn-sm" id="mc-download-btn">
+                  Télécharger l’extrait WAV
+                </button>
+              </div>
+            </div>
+            <div class="player-card">
+              <div class="player-card-head">
+                <span>ÉCOUTE DE CONTRÔLE · SIGNAL BRUT</span>
+                <span class="hardware-badge is-green">PRÊT</span>
+              </div>
+              <audio id="mc-rec-player" controls preload="metadata"></audio>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ad-slot" aria-label="Espace publicitaire">
+        <span class="ad-slot-label">Espace publicitaire</span>
+        <p class="ad-slot-note">Emplacement réservé anti-CLS — aucun flux micro n’est jamais transmis.</p>
+      </aside>
+    </section>
+
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Comment calibrer parfaitement le gain de son microphone ?</h2>
+          <p>
+            Le réglage du gain d’entrée (la molette physique sur votre carte son Focusrite, Rode, Shure MV7 ou le curseur dans les paramètres son de Windows/macOS) détermine le <strong>rapport signal sur bruit (SNR)</strong> de tout votre enregistrement. Si votre gain est trop bas, vous devrez pousser le volume au montage et ferez remonter un souffle continu désagréable ; s’il est trop haut, la moindre syllabe appuyée touchera <code>0 dBFS</code> et saturera de manière irréversible.
+          </p>
+
+          <div class="formula-box">
+            Niveau_dBFS = 20 · log10( Amplitude_RMS )<br>
+            Rapport_Signal_Bruit (SNR) = Niveau_Voix_dBFS − Plancher_Bruit_dBFS<br>
+            Objectif studio : SNR ≥ 35 dB (ex. Voix à -14 dBFS et Bruit de pièce à -50 dBFS)
+          </div>
+
+          <p>
+            Pour réaliser un test fiable avec le module <strong>VN-06</strong>, procédez en deux temps : parlez d’abord à votre rythme naturel pendant 5 secondes en visant la zone <strong>-18 dBFS à -12 dBFS</strong> (derniers segments verts et premiers segments ambres du VU-mètre), puis taisez-vous complètement pendant 3 secondes sans bouger pour lire votre plancher de bruit ambiant.
+          </p>
+
+          <h2>Repères acoustiques : dBFS numériques et équivalents dB(A) en pièce</h2>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Plancher mesuré au repos</th>
+                  <th>Équivalent acoustique approx.</th>
+                  <th>Qualité pour l’enregistrement</th>
+                  <th>Action recommandée</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">&lt; -52 dBFS</td>
+                  <td class="mono">25 – 32 dB(A)</td>
+                  <td><strong>Cabine Studio / Chambre traitée</strong></td>
+                  <td>Aucune correction requise, dynamique optimale</td>
+                </tr>
+                <tr>
+                  <td class="mono">-52 à -45 dBFS</td>
+                  <td class="mono">33 – 40 dB(A)</td>
+                  <td><strong>Bureau calme</strong> (idéal podcast &amp; voix-off)</td>
+                  <td>Couper simplement les blancs avec <a href="coupe-silence-vocal.html">VN-01</a></td>
+                </tr>
+                <tr>
+                  <td class="mono">-44 à -35 dBFS</td>
+                  <td class="mono">41 – 50 dB(A)</td>
+                  <td><strong>Pièce de vie standard</strong> (ventilateur PC léger)</td>
+                  <td>Approcher le micro à 12–15 cm et baisser le gain</td>
+                </tr>
+                <tr>
+                  <td class="mono">&gt; -35 dBFS</td>
+                  <td class="mono">&gt; 52 dB(A)</td>
+                  <td><strong>Environnement bruyant</strong> (rue, clim, réverbération)</td>
+                  <td>Passer sur un micro dynamique cardioïde proche des lèvres</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>3 gestes gratuits qui transforment le son d’un micro USB ou XLR</h2>
+          <ul>
+            <li>
+              <strong>Parler à 45 degrés hors-axe à 15 cm :</strong> au lieu de parler droit dans la capsule (ce qui projette des jets d’air sur la membrane à chaque « P » et « B » et fait bondir la bande 60–100 Hz sur le spectre FFT), placez le micro légèrement sur le côté en le pointant vers le coin de votre bouche.
+            </li>
+            <li>
+              <strong>Amortir les réflexions primaires :</strong> une table en bois ou en verre nu juste sous le micro renvoie la voix avec 2 millisecondes de retard (effet de filtre en peigne métallique). Posez un grand tapis de souris épais ou une serviette pliée sous le pied du micro.
+            </li>
+            <li>
+              <strong>Vérifier que Windows ou macOS n’utilise pas le micro de la webcam :</strong> dans 40 % des tests où le spectre FFT chute brutalement après 4 kHz avec un fort écho de pièce, l’utilisateur découvre que son navigateur capturait le micro intégré de l’écran ou des écouteurs Bluetooth au lieu de son micro principal.
+            </li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Espace publicitaire</span>
+            <p class="ad-slot-note">Annonce non intrusive — hauteur réservée anti-CLS.</p>
+          </aside>
+
+          <h2>Questions fréquentes sur le test de microphone et le décibelmètre</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi le décibelmètre affiche-t-il des dBFS négatifs (-18 dB) et une estimation dB(A) positive ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>En audio numérique, le plafond maximal du convertisseur vaut <strong>0 dBFS</strong> : tout signal normal est donc mesuré en dessous de zéro (de -60 à 0 dBFS). En acoustique physique, on mesure la pression de l’air en <strong>dB SPL / dB(A)</strong> au-dessus du seuil d’audition humain (0 dB SPL). Notre indicateur convertit la mesure numérique selon une sensibilité type de capsule bureau (0 dBFS ≈ 94 dB SPL).</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Que faire si mon micro ne s’active pas quand je clique sur le bouton ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Vérifiez l’icône de cadenas ou de caméra/micro à gauche de la barre d’adresse de votre navigateur et autorisez l’accès au microphone. Si vous testez l’outil depuis un poste sans micro, cliquez sur <strong>« Lancer le mode simulation studio »</strong> pour manipuler le VU-mètre et le spectre FFT.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment repérer un bourdonnement électrique (50 Hz / masse) sur le spectre ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Si les deux premières barres tout à gauche du spectre (autour de 60–100 Hz) restent hautes en permanence alors que vous ne parlez pas, votre câble micro ou le chargeur secteur de votre ordinateur portable génère une boucle de masse (50 Hz) ou capte les vibrations du bureau.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Puis-je nettoyer et normaliser l’extrait de 10 secondes que je viens d’enregistrer ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Oui : téléchargez votre fichier <code>voixnette-test-micro-10s.wav</code> en un clic, puis glissez-le dans le <a href="normaliseur-volume.html">Normaliseur de Volume (VN-02)</a> ou le <a href="coupe-silence-vocal.html">Coupe-Silence (VN-01)</a> pour tester toute votre chaîne de post-production.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi ma voix sonne-t-elle uniquement à gauche dans mon casque ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Une interface audio XLR (ex. Focusrite Scarlett) possède deux entrées mono (Entrée 1 = Gauche, Entrée 2 = Droite). Lorsqu’un fichier stéréo brut est capturé, votre micro branché sur l’entrée 1 apparaît à gauche. Nos modules de traitement (VN-01 à VN-04) permettent de travailler et d’exporter proprement votre piste.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <h3>Autres modules du rack</h3>
+            <ul class="sidebar-links">
+              <li><a href="coupe-silence-vocal.html"><span>Coupe-Silence Automatique</span><span class="mono">VN-01</span></a></li>
+              <li><a href="normaliseur-volume.html"><span>Normaliseur -14 LUFS</span><span class="mono">VN-02</span></a></li>
+              <li><a href="decoupeur-audio.html"><span>Découpeur &amp; Fade-In/Out</span><span class="mono">VN-03</span></a></li>
+              <li><a href="vitesse-pitch-audio.html"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a></li>
+              <li><a href="carte-onde-audio.html"><span>Audiogramme HD PNG</span><span class="mono">VN-05</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Lecture recommandée</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html"><span>Chaîne podcast complète sans logiciel</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html"><span>Guide des formats OGG, MP3 &amp; WAV</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand-link mb-2">
+            <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+            <span>VoixNette</span>
+          </a>
+          <p style="font-size: 0.92rem; max-width: 34ch;">
+            Studio d'utilitaires audio gratuits propulsé par la WebAudio API. Tous vos enregistrements restent strictement sur votre appareil.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Instruments Studio</div>
+          <ul class="footer-links">
+            <li><a href="coupe-silence-vocal.html">VN-01 · Coupe-Silence Vocal</a></li>
+            <li><a href="normaliseur-volume.html">VN-02 · Normaliseur de Volume</a></li>
+            <li><a href="decoupeur-audio.html">VN-03 · Découpeur Audio Visuel</a></li>
+            <li><a href="vitesse-pitch-audio.html">VN-04 · Accélérateur 0,5× à 3,0×</a></li>
+            <li><a href="carte-onde-audio.html">VN-05 · Carte Onde Audiogramme</a></li>
+            <li><a href="analyseur-micro-bruit.html">VN-06 · Analyseur Micro &amp; Bruit</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ressources Audio</div>
+          <ul class="footer-links">
+            <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html">Optimiser son podcast sans logiciel</a></li>
+            <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html">Guide OGG/OPUS, MP3 &amp; WAV</a></li>
+            <li><a href="../a-propos.html">Méthodologie DSP &amp; À propos</a></li>
+            <li><a href="../contact.html">Signaler un bug / Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Transparence &amp; Légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="#" data-open-cookie-banner>Gérer mes préférences cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VoixNette (voixnette.fr) — Traitement audio 100 % navigateur via WebAudio API.</span>
+        <span class="mono">PCM 16-BIT · 0 BYTE SERVER UPLOAD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/audio-engine.js" defer></script>
+  <script src="../assets/js/tools/analyseur-micro-bruit.js" defer></script>
+</body>
+</html>

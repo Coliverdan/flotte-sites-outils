@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacter la rédaction | DossierPur</title>
+  <meta name="description" content="Contacter la rédaction — Studio PDF administratif 100 % local navigateur (Zéro Upload Serveur).">
+  <link rel="canonical" href="https://dossierpur.fr/contact.html">
+  <meta property="og:title" content="Contacter la rédaction | DossierPur">
+  <meta property="og:description" content="Studio PDF administratif 100 % local navigateur (Zéro Upload Serveur)">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dossierpur.fr/contact.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-root-prefix="">
+
+  <!-- Bandeau de confiance institutionnel -->
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-strip__badge">
+        <span class="trust-dot" aria-hidden="true"></span>
+        0 octet envoyé sur serveur — Traitement 100 % navigateur (JavaScript / Canvas / PDF-lib)
+      </div>
+      <div class="trust-strip__meta">CONFIDENTIALITÉ VÉRIFIABLE • MODE HORS-LIGNE COMPATIBLE</div>
+    </div>
+  </div>
+
+  <!-- En-tête Sticky -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="DossierPur Accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <polyline points="9 15 11 17 15 13"/>
+          </svg>
+        </span>
+        DossierPur
+        <span class="brand-tag">100 % LOCAL</span>
+      </a>
+
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <nav class="main-nav" data-main-nav aria-label="Navigation principale">
+        <a href="outils/compresser-pdf-ants.html" class="nav-link">Compresser PDF</a>
+        <a href="outils/filigrane-securise.html" class="nav-link">Filigrane CNI</a>
+        <a href="outils/fusionner-dossier-locatif.html" class="nav-link">Dossier Locatif</a>
+        <a href="outils/images-vers-pdf.html" class="nav-link">Photos → PDF</a>
+        <a href="outils/decouper-extraire-pdf.html" class="nav-link">Découper</a>
+        <a href="outils/verifier-poids-checklist.html" class="nav-link">Checklist</a>
+        <a href="guides/limites-fichiers-ants-caf-parcoursup.html" class="nav-link">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  
+  <main id="main-content">
+    <section class="section" style="padding-top:48px;padding-bottom:64px;">
+      <div class="container" style="max-width:920px;margin:0 auto;">
+        <nav aria-label="Fil d'Ariane" style="margin-bottom:24px;font-size:14px;opacity:0.8;">
+          <a href="index.html">Accueil</a> &nbsp;/&nbsp; <span aria-current="page">Contacter l'équipe DossierPur</span>
+        </nav>
+        <header style="margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid rgba(128,128,128,0.22);">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:13px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;opacity:0.85;">Support · Suggestions d’outils · Signalement de barème</div>
+          <h1>Contacter l'équipe DossierPur</h1>
+        </header>
+        <article class="prose editorial-prose" style="line-height:1.75;">
+          
+        <p>Vous avez repéré une évolution réglementaire, souhaitez suggérer un nouveau calculateur ou signaler un comportement d'affichage sur votre appareil ? Remplissez le formulaire ci-dessous ou écrivez directement à <strong><a href="mailto:contact@dossierpur.fr">contact@dossierpur.fr</a></strong>.</p>
+
+        <form id="fleet-contact-form" style="margin-top:24px;padding:24px;border:1px solid rgba(128,128,128,0.28);border-radius:8px;" onsubmit="event.preventDefault();document.getElementById('contact-feedback').style.display='block';this.reset();">
+          <div style="margin-bottom:16px;">
+            <label for="c-name" style="display:block;font-weight:600;margin-bottom:6px;">Votre nom ou prénom</label>
+            <input type="text" id="c-name" required placeholder="Ex : Camille Martin" style="width:100%;padding:10px 12px;border:1px solid rgba(128,128,128,0.4);border-radius:4px;background:transparent;color:inherit;font-size:16px;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="c-email" style="display:block;font-weight:600;margin-bottom:6px;">Votre adresse e-mail</label>
+            <input type="email" id="c-email" required placeholder="vous@exemple.fr" style="width:100%;padding:10px 12px;border:1px solid rgba(128,128,128,0.4);border-radius:4px;background:transparent;color:inherit;font-size:16px;">
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="c-subject" style="display:block;font-weight:600;margin-bottom:6px;">Objet de votre message</label>
+            <select id="c-subject" style="width:100%;padding:10px 12px;border:1px solid rgba(128,128,128,0.4);border-radius:4px;background:transparent;color:inherit;font-size:16px;">
+              <option value="suggestion">Suggestion d'amélioration ou nouvel outil</option>
+              <option value="bareme">Mise à jour d'un barème 2026 / correction</option>
+              <option value="bug">Signalement technique</option>
+              <option value="presse">Partenariat éditorial / Presse</option>
+            </select>
+          </div>
+          <div style="margin-bottom:16px;">
+            <label for="c-msg" style="display:block;font-weight:600;margin-bottom:6px;">Votre message</label>
+            <textarea id="c-msg" rows="5" required placeholder="Précisez l'outil concerné et votre question..." style="width:100%;padding:10px 12px;border:1px solid rgba(128,128,128,0.4);border-radius:4px;background:transparent;color:inherit;font-size:16px;"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="cursor:pointer;">Envoyer le message</button>
+          <div id="contact-feedback" role="status" style="display:none;margin-top:16px;padding:12px 16px;border:1px solid #15803D;border-radius:4px;font-weight:600;">
+            Merci ! Votre message a bien été enregistré pour l'équipe DossierPur. Vous pouvez également nous joindre en direct sur contact@dossierpur.fr.
+          </div>
+        </form>
+      
+        </article>
+      </div>
+    </section>
+  </main>
+
+
+  <!-- Footer Institutionnel 4 Colonnes -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DossierPur</div>
+          <p class="footer-desc">
+            Studio PDF administratif 100 % local navigateur. Compression à taille cible ANTS, filigrane anti-usurpation, assemblage locatif et scan A4 sans aucun transfert serveur.
+          </p>
+          <span class="badge badge-trust">0 octet envoyé • Traitement local</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Outils PDF Locaux</h4>
+          <ul class="footer-links">
+            <li><a href="outils/compresser-pdf-ants.html">Compresseur PDF ANTS (2 Mo)</a></li>
+            <li><a href="outils/filigrane-securise.html">Filigrane anti-usurpation</a></li>
+            <li><a href="outils/fusionner-dossier-locatif.html">Assembleur dossier locatif</a></li>
+            <li><a href="outils/images-vers-pdf.html">Photos smartphone → PDF A4</a></li>
+            <li><a href="outils/decouper-extraire-pdf.html">Découper &amp; pivoter PDF</a></li>
+            <li><a href="outils/verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="guides/proteger-papiers-usurpation-identite.html">Protéger ses papiers (CNI / Location)</a></li>
+            <li><a href="guides/limites-fichiers-ants-caf-parcoursup.html">Limites ANTS, CAF &amp; Parcoursup</a></li>
+            <li><a href="a-propos.html">À propos &amp; Méthodologie</a></li>
+            <li><a href="contact.html">Contact &amp; Signalement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Conformité &amp; Légal</h4>
+          <ul class="footer-links">
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#" data-open-cookie-prefs>Gérer mes cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 DossierPur.fr — Service indépendant non affilié à l'ANTS, la CAF ou DossierFacile.</span>
+        <span class="mono">Traitement 100 % côté client (RAM locale)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

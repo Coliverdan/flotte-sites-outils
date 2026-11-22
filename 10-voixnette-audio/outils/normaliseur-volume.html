@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normaliseur de Volume &amp; Gain Audio (-1 dBFS / -14 LUFS) — VoixNette</title>
+  <meta name="description" content="Augmentez et normalisez le volume d'un podcast, cours ou vocal sans saturation. Analyse réelle Peak dBFS, RMS et LUFS, limiteur soft-knee intégré et export WAV 100 % navigateur.">
+  <link rel="canonical" href="https://voixnette.fr/outils/normaliseur-volume.html">
+  <meta property="og:title" content="Normaliseur de Volume &amp; Gain Audio Anti-Saturation — VoixNette">
+  <meta property="og:description" content="Mesurez Peak dBFS, RMS et LUFS dans votre navigateur, normalisez au standard podcast (-14 / -16 LUFS) et exportez en WAV sans aucun upload serveur.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://voixnette.fr/outils/normaliseur-volume.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "VoixNette VN-02 — Normaliseur de Volume & Gain Audio",
+        "url": "https://voixnette.fr/outils/normaliseur-volume.html",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Tous navigateurs modernes (WebAudio API)",
+        "inLanguage": "fr-FR",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Analyseur et normaliseur de volume audio 100 % local avec mesure Peak dBFS, RMS, estimation LUFS et limiteur anti-saturation soft-knee."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://voixnette.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils Studio", "item": "https://voixnette.fr/#rack-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Normaliseur de Volume", "item": "https://voixnette.fr/outils/normaliseur-volume.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence entre la normalisation Peak (-1 dBFS) et la normalisation LUFS (-14 LUFS) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La normalisation Peak aligne uniquement le pic le plus fort du fichier sur la cible (ex: -1 dBFS) sans tenir compte du volume perçu moyen. La normalisation LUFS ajuste la sonie globale ressentie par l'oreille humaine, ce qui garantit un volume confortable même si le fichier contient un claquement de micro isolé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi faut-il activer le limiteur anti-saturation ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lorsqu'on remonte un fichier voix de +12 dB pour atteindre -14 LUFS, certaines crêtes brèves dépasseraient 0 dBFS et provoqueraient un écrêtage numérique (saturation stridente). Le limiteur soft-knee à -0,5 dBFS amortit doucement ces pics tout en préservant la clarté de la voix."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel niveau cible choisir pour Spotify, YouTube et Apple Podcasts ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Spotify et YouTube ciblent -14 LUFS, tandis qu'Apple Podcasts recommande -16 LUFS pour un podcast stéréo (ou -19 LUFS en mono selon certains anciens guides). Le préréglage -14 LUFS avec plafond à -1 dBFS offre un excellent compromis universel."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Normaliser un fichier très faible fait-il monter le bruit de fond ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui, appliquer un gain linéaire de +15 dB remonte à la fois la voix et le souffle de pièce de +15 dB. C'est pourquoi il est recommandé de parler à 15 cm du micro à la prise de son, puis de retirer les silences avec le module VN-01."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi laisser une marge de -1 dBFS ou -3 dBFS au lieu de 0 dBFS ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lorsqu'un fichier WAV à 0 dBFS est ensuite ré-encodé en MP3 ou AAC par une plateforme de streaming, la reconstruction du signal crée des pics inter-échantillons (True Peak) qui dépassent 0 dB et saturent. Garder -1 dBFS de réserve empêche cette distorsion."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-link" aria-label="VoixNette Accueil">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+        <span>VoixNette</span>
+        <span class="brand-tag">DSP Local</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="nav-dropdown-wrap">
+          <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            Outils Studio <span class="mono" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="coupe-silence-vocal.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Coupe-Silence Vocal</span><span class="nav-dropdown-sub">Supprimer les blancs WhatsApp &amp; cours</span></span>
+              <span class="nav-dropdown-code">VN-01</span>
+            </a>
+            <a href="normaliseur-volume.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Normaliseur de Volume</span><span class="nav-dropdown-sub">Peak dBFS, -14 LUFS &amp; anti-saturation</span></span>
+              <span class="nav-dropdown-code">VN-02</span>
+            </a>
+            <a href="decoupeur-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Découpeur Audio Visuel</span><span class="nav-dropdown-sub">Rognage précis 0,01 s + Fade-In/Out</span></span>
+              <span class="nav-dropdown-code">VN-03</span>
+            </a>
+            <a href="vitesse-pitch-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Accélérateur 0,5× à 3,0×</span><span class="nav-dropdown-sub">Écoute rapide cours &amp; export WAV</span></span>
+              <span class="nav-dropdown-code">VN-04</span>
+            </a>
+            <a href="carte-onde-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Carte Onde Audiogramme</span><span class="nav-dropdown-sub">Visuel waveform HD 1:1, 9:16, 16:9</span></span>
+              <span class="nav-dropdown-code">VN-05</span>
+            </a>
+            <a href="analyseur-micro-bruit.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Analyseur Micro &amp; Bruit</span><span class="nav-dropdown-sub">VU-mètre, FFT direct &amp; test 10 s</span></span>
+              <span class="nav-dropdown-code">VN-06</span>
+            </a>
+          </div>
+        </div>
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="nav-link">Guides Audio</a>
+        <a href="../a-propos.html" class="nav-link">Méthodologie</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="status-pill">
+          <span class="led-dot is-green" aria-hidden="true"></span>
+          <span>100 % LOCAL · ZÉRO UPLOAD</span>
+        </span>
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="mono">≡</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Navigation mobile">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Rack Outils Studio</div>
+      <div class="mobile-nav-list">
+        <a href="coupe-silence-vocal.html" class="mobile-nav-link"><span>Coupe-Silence Vocal</span><span class="mono">VN-01</span></a>
+        <a href="normaliseur-volume.html" class="mobile-nav-link"><span>Normaliseur de Volume</span><span class="mono">VN-02</span></a>
+        <a href="decoupeur-audio.html" class="mobile-nav-link"><span>Découpeur Audio Visuel</span><span class="mono">VN-03</span></a>
+        <a href="vitesse-pitch-audio.html" class="mobile-nav-link"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a>
+        <a href="carte-onde-audio.html" class="mobile-nav-link"><span>Carte Onde Audiogramme</span><span class="mono">VN-05</span></a>
+        <a href="analyseur-micro-bruit.html" class="mobile-nav-link"><span>Analyseur Micro &amp; Bruit</span><span class="mono">VN-06</span></a>
+      </div>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Guides &amp; Studio</div>
+      <div class="mobile-nav-list">
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="mobile-nav-link"><span>Optimiser son podcast sans logiciel</span><span class="mono">→</span></a>
+        <a href="../guides/formats-audio-ogg-opus-mp3-wav.html" class="mobile-nav-link"><span>Formats OGG/OPUS, MP3 &amp; WAV</span><span class="mono">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <nav class="breadcrumb container" aria-label="Fil d'Ariane">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li><a href="../index.html#rack-outils">Outils Studio</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="breadcrumb-current" aria-current="page">VN-02 · Normaliseur de Volume</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="hardware-badge is-rec">MODULE VN-02</span>
+            <span>ANALYSE PEAK / RMS / LUFS · LIMITEUR SOFT-KNEE</span>
+          </div>
+          <h1>Normaliseur de Volume &amp; Gain Audio Anti-Saturation</h1>
+          <p class="tool-hero-desc">
+            Votre enregistrement est trop faible ou inégal face aux autres podcasts ? Mesurez son niveau crête (Peak dBFS) et sa sonie moyenne, appliquez un standard broadcast (-14 LUFS, -1 dBFS ou gain manuel) avec limiteur de protection, puis écoutez en A/B avant d'exporter en WAV.
+          </p>
+        </div>
+
+        <div class="tool-spec-card">
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Standards</span>
+            <span class="spec-item-val">-14 / -16 LUFS</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Plafond Limiteur</span>
+            <span class="spec-item-val">-0,5 dBFS</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Gain Manuel</span>
+            <span class="spec-item-val">-12 à +24 dB</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Traitement</span>
+            <span class="spec-item-val">32-bit Float</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="console-panel">
+        <div class="console-header">
+          <div class="console-title-group">
+            <span class="led-dot is-green" aria-hidden="true"></span>
+            <span class="console-model">VN-02 · LOUDNESS &amp; GAIN MASTER</span>
+          </div>
+          <span class="console-meta" id="nv-file-meta">Aucun fichier chargé</span>
+        </div>
+
+        <div class="console-body">
+          <div class="audio-loader-bar">
+            <label class="dropzone" id="nv-dropzone" for="nv-file-input">
+              <input type="file" id="nv-file-input" accept="audio/*,.opus,.ogg,.m4a,.mp3,.wav,.webm">
+              <span class="dropzone-copy">
+                <span class="dropzone-title">Importer un fichier audio à analyser et normaliser</span>
+                <span class="dropzone-sub">MP3, WAV, OGG/OPUS, M4A, WebM — calcul 100 % local</span>
+              </span>
+              <span class="btn btn-secondary btn-sm">Choisir un fichier</span>
+            </label>
+            <button type="button" class="btn btn-secondary" id="nv-demo-btn">
+              Charger une voix démo trop faible
+            </button>
+          </div>
+
+          <div class="status-banner" id="nv-status" role="status" aria-live="polite">
+            Analyse de la piste de démonstration...
+          </div>
+
+          <!-- Mesures temps réel de la piste entrante -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <span class="kpi-label">Crête (Peak dBFS)</span>
+              <span class="kpi-value" id="nv-peak-before">-0,0 dB</span>
+              <span class="kpi-sub">Pic maximal mesuré</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Niveau Moyen (RMS)</span>
+              <span class="kpi-value" id="nv-rms-before">-0,0 dB</span>
+              <span class="kpi-sub">Énergie globale</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Sonie Est. (LUFS)</span>
+              <span class="kpi-value" id="nv-lufs-before">-0,0 LUFS</span>
+              <span class="kpi-sub">Fenêtres actives &gt; -50 dB</span>
+            </div>
+            <div class="kpi-card">
+              <span class="kpi-label">Facteur de Crête</span>
+              <span class="kpi-value" id="nv-crest-before">0,0 dB</span>
+              <span class="kpi-sub">Dynamique (Peak - RMS)</span>
+            </div>
+          </div>
+
+          <div class="waveform-stage">
+            <div class="waveform-toolbar">
+              <span>SIGNAL D'ENTRÉE · FORME D'ONDE ORIGINALE</span>
+              <span class="mono">0 dBFS = bord supérieur / inférieur</span>
+            </div>
+            <div class="canvas-wrap">
+              <canvas id="nv-waveform-before" class="waveform-canvas" height="170" aria-label="Forme d'onde avant normalisation"></canvas>
+            </div>
+          </div>
+
+          <!-- Sélection du preset ou gain manuel -->
+          <div class="controls-grid-2">
+            <div class="control-group">
+              <div class="control-label-row">
+                <span class="control-label">Cible de normalisation</span>
+                <span class="hardware-badge">PRESETS STUDIO</span>
+              </div>
+              <div class="preset-group">
+                <button type="button" class="preset-btn is-active" data-nv-preset="lufs-14">-14 LUFS (Podcast / Spotify)</button>
+                <button type="button" class="preset-btn" data-nv-preset="lufs-16">-16 LUFS (Apple Podcasts)</button>
+                <button type="button" class="preset-btn" data-nv-preset="peak-1">-1 dBFS (Peak Max)</button>
+                <button type="button" class="preset-btn" data-nv-preset="peak-3">-3 dBFS (Marge MP3)</button>
+                <button type="button" class="preset-btn" data-nv-preset="manual">Gain Manuel</button>
+              </div>
+              <span class="control-hint">Le mode -14 LUFS ajuste la sonie perçue et active automatiquement le limiteur pour éviter l'écrêtage.</span>
+            </div>
+
+            <div class="control-group">
+              <div class="control-label-row">
+                <label for="nv-manual-gain" class="control-label">Gain manuel précis</label>
+                <span id="nv-manual-gain-val" class="control-value">+6,0 dB</span>
+              </div>
+              <input type="range" id="nv-manual-gain" min="-12" max="24" step="0.5" value="6">
+              <label style="display:flex; align-items:center; gap:10px; font-size:0.86rem; color:var(--text-primary); cursor:pointer; margin-top:4px;">
+                <input type="checkbox" id="nv-limiter" checked style="accent-color:#E12D39; width:16px; height:16px;">
+                <span>Activer le limiteur anti-saturation soft-knee (-0,5 dBFS)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="console-actions">
+            <button type="button" class="btn btn-primary" id="nv-process-btn" disabled>
+              Normaliser la piste audio
+            </button>
+            <span class="console-meta">Protection anti-clipping activée par défaut</span>
+          </div>
+
+          <!-- Panneau Résultats A/B -->
+          <div class="results-panel hidden" id="nv-results-panel">
+            <div class="results-header">
+              <div class="console-title-group">
+                <span class="led-dot is-green" aria-hidden="true"></span>
+                <h2 style="font-size: 1.2rem; margin: 0;">Comparaison Avant / Après</h2>
+              </div>
+              <div class="action-cluster">
+                <span class="console-meta" id="nv-download-meta">WAV PCM 16-bit</span>
+                <button type="button" class="btn btn-success btn-sm" id="nv-download-btn">
+                  Télécharger le WAV normalisé
+                </button>
+              </div>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi-card is-highlight">
+                <span class="kpi-label">Gain appliqué</span>
+                <span class="kpi-value" id="nv-kpi-gain">+0,0 dB</span>
+                <span class="kpi-sub">Amplification calculée</span>
+              </div>
+              <div class="kpi-card is-green">
+                <span class="kpi-label">Nouvelle Crête</span>
+                <span class="kpi-value" id="nv-kpi-peak-after">-0,5 dB</span>
+                <span class="kpi-sub">Jamais &gt; 0 dBFS</span>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Nouvelle Sonie</span>
+                <span class="kpi-value" id="nv-kpi-lufs-after">-14,0 LUFS</span>
+                <span class="kpi-sub">Estimation intégrée</span>
+              </div>
+              <div class="kpi-card">
+                <span class="kpi-label">Pics protégés</span>
+                <span class="kpi-value" id="nv-kpi-protected">0</span>
+                <span class="kpi-sub">Échantillons adoucis</span>
+              </div>
+            </div>
+
+            <div class="ab-players">
+              <div class="player-card">
+                <div class="player-card-head">
+                  <span>PISTE A · ORIGINAL</span>
+                  <span class="hardware-badge">AVANT</span>
+                </div>
+                <audio id="nv-player-original" controls preload="metadata"></audio>
+              </div>
+              <div class="player-card">
+                <div class="player-card-head">
+                  <span>PISTE B · NORMALISÉ</span>
+                  <span class="hardware-badge is-green">APRÈS</span>
+                </div>
+                <audio id="nv-player-normalized" controls preload="metadata"></audio>
+              </div>
+            </div>
+
+            <div class="canvas-wrap">
+              <canvas id="nv-waveform-after" class="waveform-canvas" height="150" aria-label="Forme d'onde après normalisation"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ad-slot" aria-label="Espace publicitaire">
+        <span class="ad-slot-label">Espace publicitaire</span>
+        <p class="ad-slot-note">Emplacement réservé anti-CLS — traitement audio 100 % local.</p>
+      </aside>
+    </section>
+
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Comprendre Peak dBFS, RMS et LUFS avant de normaliser</h2>
+          <p>
+            Beaucoup de créateurs confondent l'amplitude maximale d'un fichier avec son volume réellement perçu. En audio numérique, l'échelle de référence est le <strong>dBFS (decibels relative to Full Scale)</strong>, où <code>0 dBFS</code> constitue le plafond absolu. Dépasser 0 dBFS tronque le sommet de l'onde et produit immédiatement une distorsion numérique agressive appelée <em>clipping</em> (saturation).
+          </p>
+          <p>
+            Le module <strong>VN-02</strong> mesure simultanément trois indicateurs complémentaires sur votre piste : la crête maximale (<strong>Peak</strong>), la valeur efficace (<strong>RMS</strong>) et une estimation de la <strong>sonie intégrée en LUFS</strong> calculée sur des fenêtres glissantes de 400 ms au-dessus du seuil de silence (-50 dB) :
+          </p>
+
+          <div class="formula-box">
+            Gain_linéaire = 10 ^ ( Gain_dB / 20 )<br>
+            LUFS_est ≈ -0,691 + 10 · log10( moyenne_quadratique_active )<br>
+            Limiteur soft-knee (si |x| &gt; seuil) : y = sign(x) · [ seuil + (0,995 - seuil) · tanh(excès) ]
+          </div>
+
+          <p>
+            Pourquoi cette courbe hyperbolique <code>tanh()</code> est-elle décisive ? Si vous avez enregistré un cours d'une heure avec une voix douce à -26 LUFS et un seul coup involontaire sur la table qui monte à -2 dBFS, une simple normalisation Peak ne pourra remonter le volume que de +1 dB : votre fichier restera presque inaudible. En choisissant le mode <strong>-14 LUFS</strong> avec le limiteur actif, le moteur remonte toute la voix de +12 dB et arrondit uniquement l'unique pic parasite sans jamais faire saturer l'enregistrement.
+          </p>
+
+          <h2>Normes de volume des principales plateformes de diffusion</h2>
+          <p>
+            Chaque plateforme applique sa propre cible de sonie. Si votre fichier est trop faible, l'auditeur doit pousser son téléphone à fond dans les transports ; s'il est trop compressé, les plateformes réduisent automatiquement son niveau. Voici les repères officiels utilisés en post-production :
+          </p>
+
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Plateforme / Usage</th>
+                  <th>Cible Sonie (LUFS)</th>
+                  <th>Plafond Crête (True Peak)</th>
+                  <th>Preset VN-02 conseillé</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Spotify &amp; YouTube</strong></td>
+                  <td class="mono">-14 LUFS</td>
+                  <td class="mono">-1,0 dBTP</td>
+                  <td>-14 LUFS + Limiteur ON</td>
+                </tr>
+                <tr>
+                  <td><strong>Apple Podcasts (Stéréo)</strong></td>
+                  <td class="mono">-16 LUFS</td>
+                  <td class="mono">-1,0 dBTP</td>
+                  <td>-16 LUFS + Limiteur ON</td>
+                </tr>
+                <tr>
+                  <td><strong>Podcast Mono / Voix parlée</strong></td>
+                  <td class="mono">-16 à -19 LUFS</td>
+                  <td class="mono">-1,5 dBTP</td>
+                  <td>-16 LUFS + Limiteur ON</td>
+                </tr>
+                <tr>
+                  <td><strong>Notes vocales / Cours personnels</strong></td>
+                  <td class="mono">-14 LUFS</td>
+                  <td class="mono">-1,0 dBFS</td>
+                  <td>-14 LUFS ou -1 dBFS Peak</td>
+                </tr>
+                <tr>
+                  <td><strong>Préparation avant mixage DAW</strong></td>
+                  <td class="mono">Variable</td>
+                  <td class="mono">-3,0 dBFS</td>
+                  <td>-3 dBFS (Marge MP3)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Erreurs courantes à éviter en normalisation audio</h2>
+          <ul>
+            <li>
+              <strong>Normaliser avant de couper les gros bruits de manipulation :</strong> un frottement de micro au tout début de l'enregistrement fausse l'analyse Peak. Utilisez d'abord le <a href="decoupeur-audio.html" style="text-decoration: underline;">Découpeur Audio (VN-03)</a> pour retirer les 2 secondes de mise en place.
+            </li>
+            <li>
+              <strong>Désactiver le limiteur avec un gain manuel fort :</strong> pousser +15 dB sans limiteur écrête brutalement toutes les voyelles fortes. Laissez la case anti-saturation cochée dès que le gain dépasse +3 dB.
+            </li>
+            <li>
+              <strong>Chercher à « réparer » une saturation déjà présente à la prise de son :</strong> la normalisation peut baisser le volume d'une piste saturée, mais ne peut pas recréer les crêtes déjà détruites par un préampli micro réglé trop haut. Vérifiez votre gain avant d'enregistrer avec le <a href="analyseur-micro-bruit.html" style="text-decoration: underline;">Testeur de Micro (VN-06)</a>.
+            </li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Espace publicitaire</span>
+            <p class="ad-slot-note">Annonce non intrusive — hauteur réservée anti-CLS.</p>
+          </aside>
+
+          <h2>Questions fréquentes sur la normalisation de volume</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quelle est la différence entre Peak (-1 dBFS) et LUFS (-14 LUFS) ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Le mode <strong>Peak</strong> se cale uniquement sur l'échantillon le plus fort du fichier. Le mode <strong>LUFS</strong> évalue la puissance moyenne perçue sur toute la parole active : il est nettement plus efficace pour obtenir une voix présente, homogène et comparable aux podcasts professionnels.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi activer le limiteur anti-saturation soft-knee ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Lorsqu'un gain important est nécessaire pour atteindre -14 LUFS, certaines syllabes accentuées dépasseraient 0 dBFS. Le limiteur soft-knee compresse progressivement ces crêtes au-dessus de -0,5 dBFS pour un son chaud et propre, sans grésillement numérique.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quel préréglage choisir pour publier sur Spotify, Apple Podcasts ou YouTube ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Sélectionnez <strong>-14 LUFS</strong> pour Spotify et YouTube, ou <strong>-16 LUFS</strong> pour Apple Podcasts. Dans les deux cas, conservez le limiteur actif afin de respecter la marge de sécurité True Peak recommandée par ces plateformes.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Normaliser une voix très faible augmente-t-il aussi le souffle de fond ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Oui : toute augmentation de gain amplifie de manière identique le signal utile et le bruit de fond présent dans l'enregistrement. Pour réduire l'impact du souffle entre les phrases, passez ensuite la piste dans le Coupe-Silence (VN-01).</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi ne pas normaliser directement à 0 dBFS ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Les algorithmes de compression avec perte (MP3, AAC, OPUS) introduisent de légères variations d'amplitude lors du décodage. Laisser une marge de <strong>-1 dBFS</strong> (ou -3 dBFS avant montage) garantit qu'aucune saturation n'apparaîtra sur les écouteurs ou smartphones de vos auditeurs.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <h3>Autres modules du rack</h3>
+            <ul class="sidebar-links">
+              <li><a href="coupe-silence-vocal.html"><span>Coupe-Silence Automatique</span><span class="mono">VN-01</span></a></li>
+              <li><a href="decoupeur-audio.html"><span>Découpeur &amp; Fade-In/Out</span><span class="mono">VN-03</span></a></li>
+              <li><a href="vitesse-pitch-audio.html"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a></li>
+              <li><a href="carte-onde-audio.html"><span>Audiogramme HD PNG</span><span class="mono">VN-05</span></a></li>
+              <li><a href="analyseur-micro-bruit.html"><span>Testeur Micro &amp; FFT</span><span class="mono">VN-06</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Lecture recommandée</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html"><span>Chaîne podcast complète sans logiciel</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html"><span>Pourquoi exporter en WAV 16-bit ?</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand-link mb-2">
+            <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+            <span>VoixNette</span>
+          </a>
+          <p style="font-size: 0.92rem; max-width: 34ch;">
+            Studio d'utilitaires audio gratuits propulsé par la WebAudio API. Tous vos enregistrements restent strictement sur votre appareil.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Instruments Studio</div>
+          <ul class="footer-links">
+            <li><a href="coupe-silence-vocal.html">VN-01 · Coupe-Silence Vocal</a></li>
+            <li><a href="normaliseur-volume.html">VN-02 · Normaliseur de Volume</a></li>
+            <li><a href="decoupeur-audio.html">VN-03 · Découpeur Audio Visuel</a></li>
+            <li><a href="vitesse-pitch-audio.html">VN-04 · Accélérateur 0,5× à 3,0×</a></li>
+            <li><a href="carte-onde-audio.html">VN-05 · Carte Onde Audiogramme</a></li>
+            <li><a href="analyseur-micro-bruit.html">VN-06 · Analyseur Micro &amp; Bruit</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Ressources Audio</div>
+          <ul class="footer-links">
+            <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html">Optimiser son podcast sans logiciel</a></li>
+            <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html">Guide OGG/OPUS, MP3 &amp; WAV</a></li>
+            <li><a href="../a-propos.html">Méthodologie DSP &amp; À propos</a></li>
+            <li><a href="../contact.html">Signaler un bug / Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Transparence &amp; Légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="#" data-open-cookie-banner>Gérer mes préférences cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VoixNette (voixnette.fr) — Traitement audio 100 % navigateur via WebAudio API.</span>
+        <span class="mono">PCM 16-BIT · 0 BYTE SERVER UPLOAD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/audio-engine.js" defer></script>
+  <script src="../assets/js/tools/normaliseur-volume.js" defer></script>
+</body>
+</html>

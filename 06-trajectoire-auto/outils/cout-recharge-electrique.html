@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Coût &amp; Temps de Recharge Voiture Électrique (2026) | Trajectoire</title>
+  <meta name="description" content="Calculez le temps de charge exact (hh:mm) et le coût en euros de votre voiture électrique : prise 2,3 kW, Green'Up, Wallbox 7,4/11 kW, borne 22 kW ou Superchargeur 250 kW.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/outils/cout-recharge-electrique.html">
+  <meta property="og:title" content="Calculateur Coût &amp; Temps de Recharge Voiture Électrique">
+  <meta property="og:description" content="Simulateur précis intégrant les pertes de conversion, le ralentissement après 80 % et les tarifs 2026 (EDF Tempo, Bleu HC, Base, Tesla, Ionity).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/outils/cout-recharge-electrique.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur Coût & Temps de Recharge Voiture Électrique",
+        "url": "https://trajectoire-auto.fr/outils/cout-recharge-electrique.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://trajectoire-auto.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Coût & Temps de Recharge", "item": "https://trajectoire-auto.fr/outils/cout-recharge-electrique.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Combien coûte un plein électrique à la maison en 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour une batterie de 52 kWh (ex. Renault 5 E-Tech) rechargée de 20 % à 80 % (31,2 kWh stockés, soit ~33,7 kWh facturés avec pertes), le coût est de 4,37 € en EDF Tempo Heures Creuses Bleu, 5,71 € en Tarif Bleu Heures Creuses et 6,79 € en Option Base." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi la recharge rapide ralentit-elle fortement après 80 % ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour préserver la chimie des cellules lithium-ion et éviter la surchauffe, le gestionnaire de batterie (BMS) réduit progressivement l'intensité au-delà de 80 % de charge. Passer de 80 % à 100 % sur un Superchargeur prend souvent autant de temps que de 20 % à 80 %." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi une borne publique 22 kW charge-t-elle souvent à 11 kW seulement ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En courant alternatif (AC), la puissance est limitée par le maillon le plus faible : soit la borne, soit le chargeur embarqué du véhicule. Or la majorité des voitures électriques (Tesla, Peugeot, VW, MG) disposent d'un chargeur embarqué de 11 kW, voire 7,4 kW." }
+          },
+          {
+            "@type": "Question",
+            "name": "Une prise domestique 2,3 kW suffit-elle pour recharger tous les jours ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Une prise domestique récupère environ 11 à 13 km d'autonomie par heure, soit environ 100 km en 8 heures de nuit. Elle convient aux trajets quotidiens courts mais présente des pertes plus élevées (12 %) et des risques d'échauffement si le circuit n'est pas dédié. Une prise renforcée Green'Up (3,7 kW) ou une Wallbox 7,4 kW est fortement recommandée." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le coût moyen aux 100 km d'une voiture électrique ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour une consommation réelle de 16 kWh/100 km, comptez 2,24 €/100 km en Tempo HC, 2,93 €/100 km en Tarif Bleu HC, 3,48 €/100 km en Base, et 9,99 €/100 km sur autoroute chez Ionity sans abonnement (0,59 €/kWh)." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="duel-electrique-vs-thermique.html" class="nav-link">Duel TCO</a>
+        <a href="simulateur-malus-2026.html" class="nav-link">Malus 2026</a>
+        <a href="cout-recharge-electrique.html" class="nav-link active">Recharge VE</a>
+        <a href="cout-reel-kilometrique.html" class="nav-link">PRK Réel</a>
+        <a href="loa-lld-vs-credit.html" class="nav-link">LOA vs Crédit</a>
+        <a href="cout-trajet-autoroute.html" class="nav-link">Trajet</a>
+        <a href="../guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="duel-electrique-vs-thermique.html">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="simulateur-malus-2026.html">02 · Simulateur Malus 2026 + Carte Grise</a>
+      <a href="cout-recharge-electrique.html" class="active">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="cout-reel-kilometrique.html">04 · Calculateur PRK (Coût au Kilomètre)</a>
+      <a href="loa-lld-vs-credit.html">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="cout-trajet-autoroute.html">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Labo</div>
+      <a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a>
+      <a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a>
+      <a href="../a-propos.html">Méthodologie &amp; À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li>Outils</li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Coût &amp; Temps de Recharge Électrique</li>
+      </ol>
+    </div>
+
+    <section class="tool-hero">
+      <div class="container">
+        <div class="tool-hero-grid">
+          <div>
+            <span class="eyebrow">Instrument 03 · Énergie &amp; Puissance de Charge</span>
+            <h1 class="mt-2">Calculateur Coût &amp; Temps de Recharge Voiture Électrique</h1>
+            <p>
+              Estimez la durée réelle (hh:mm), l'énergie facturée au compteur (pertes incluses) et le coût aux 100 km selon votre batterie, la fenêtre de charge (ex. 20 % → 80 %), la puissance de la borne et votre tarif d'électricité.
+            </p>
+          </div>
+          <div class="tool-meta-box">
+            <div class="tool-meta-row"><span>Bornes modélisées</span><span>2,3 kW à 250 kW DC</span></div>
+            <div class="tool-meta-row"><span>Courbe au-delà de 80 %</span><span>Ralentissement BMS inclus</span></div>
+            <div class="tool-meta-row"><span>Pertes conversion</span><span>+6 % DC · +8 à 12 % AC</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="tool-layout">
+          <form class="panel" id="recharge-form" onsubmit="return false;">
+            <div class="panel-header">
+              <span class="panel-title">Paramètres de la session</span>
+              <span class="badge badge-accent">Tarifs 2026</span>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">1. Véhicule &amp; Batterie</div>
+              <div class="field">
+                <label for="r-preset">Modèle électrique (pré-remplissage)</label>
+                <select id="r-preset"></select>
+              </div>
+              <div class="form-row form-row-3">
+                <div class="field">
+                  <label for="r-battery">Capacité utile</label>
+                  <div class="input-unit">
+                    <input type="number" id="r-battery" step="0.5" min="10" max="150" value="52">
+                    <span class="input-unit-tag">kWh</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="r-conso">Conso réelle</label>
+                  <div class="input-unit">
+                    <input type="number" id="r-conso" step="0.1" min="8" max="35" value="15.6">
+                    <span class="input-unit-tag">kWh/100</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="r-max-dc">Pic DC auto</label>
+                  <div class="input-unit">
+                    <input type="number" id="r-max-dc" step="5" min="25" max="350" value="100">
+                    <span class="input-unit-tag">kW</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">2. Fenêtre de charge (Niveau batterie)</div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="r-soc-start">Niveau de départ</label>
+                  <span class="field-value-badge" id="r-soc-start-val">20 %</span>
+                </div>
+                <input type="range" id="r-soc-start" min="0" max="95" step="5" value="20">
+              </div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="r-soc-end">Niveau cible</label>
+                  <span class="field-value-badge" id="r-soc-end-val">80 %</span>
+                </div>
+                <input type="range" id="r-soc-end" min="5" max="100" step="5" value="80">
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">3. Borne &amp; Tarif du kWh</div>
+              <div class="field">
+                <label for="r-charger">Type de point de charge</label>
+                <select id="r-charger"></select>
+              </div>
+              <div class="field">
+                <label for="r-tariff-preset">Grille tarifaire de référence</label>
+                <select id="r-tariff-preset"></select>
+              </div>
+              <div class="field">
+                <label for="r-kwh-price">Prix exact du kWh (modifiable)</label>
+                <div class="input-unit">
+                  <input type="number" id="r-kwh-price" step="0.005" min="0.01" max="1.5" value="0.1696">
+                  <span class="input-unit-tag">€/kWh</span>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Résultat de la recharge</span>
+                <button type="button" class="btn btn-primary btn-sm" id="r-export-png">Exporter la fiche PNG</button>
+              </div>
+
+              <div class="kpi-banner is-positive">
+                <div class="kpi-banner-label">Durée estimée &amp; Coût de la session</div>
+                <div class="kpi-banner-value" id="r-verdict-val">—</div>
+                <div class="kpi-banner-sub" id="r-verdict-sub"></div>
+              </div>
+
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-label">Coût session</div>
+                  <div class="kpi-val accent" id="r-kpi-cost">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Coût aux 100 km</div>
+                  <div class="kpi-val positive" id="r-kpi-100">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Énergie facturée</div>
+                  <div class="kpi-val" id="r-kpi-energy">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Autonomie récupérée</div>
+                  <div class="kpi-val" id="r-kpi-range">—</div>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <span class="telemetry-title">Comparatif des temps de charge selon la borne</span>
+                </div>
+                <div class="canvas-wrap" style="height:260px;">
+                  <canvas id="r-chart" aria-label="Comparatif des durées de recharge de 2,3 kW à 250 kW"></canvas>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Infrastructure</th>
+                      <th class="num">Durée</th>
+                      <th class="num">Coût (votre tarif)</th>
+                      <th class="num">Coût réseau typique</th>
+                    </tr>
+                  </thead>
+                  <tbody id="r-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format adaptatif anti-CLS</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid">
+          <article class="prose">
+            <h2>Comment calculer exactement le temps et le coût d'une recharge électrique&nbsp;?</h2>
+            <p>
+              La formule naïve <em>Capacité ÷ Puissance</em> produit systématiquement des estimations trop optimistes, parfois fausses de 30 % à 50 % sur autoroute. Deux phénomènes physiques incontournables interviennent lors de toute recharge d'une batterie lithium-ion : les <strong>pertes de conversion énergétique</strong> et la <strong>courbe de puissance dégressive (tapering)</strong>.
+            </p>
+            <div class="formula-block">
+              Énergie_facturée = Capacité_utile × ((%Cible − %Départ) / 100) × Coefficient_pertes<br>
+              Coût_aux_100_km = Consommation_réelle (kWh/100) × Coefficient_pertes × Tarif_kWh
+            </div>
+            <p>
+              Sur une prise domestique 2,3 kW, l'électronique de bord reste éveillée pendant 12 à 18 heures, ce qui entraîne environ <strong>12 % de pertes</strong> entre le compteur Linky et la batterie. Une Wallbox 7,4 kW réduit ces pertes autour de <strong>8 %</strong>, tandis qu'une borne rapide en courant continu (DC) limite les pertes côté véhicule à environ <strong>6 %</strong>.
+            </p>
+
+            <h2>Comparatif des coûts aux 100 km selon le contrat d'électricité (2026)</h2>
+            <p>
+              Pour un véhicule consommant <strong>16,0 kWh/100 km</strong> en usage mixte réel (ex. Renault Mégane E-Tech, MG4 ou Peugeot e-208), le tarif du kilowattheure fait varier le budget énergétique du simple au quadruple :
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Mode de recharge / Contrat</th>
+                    <th class="num">Tarif moyen</th>
+                    <th class="num">Coût aux 100 km</th>
+                    <th class="num">Budget 15 000 km/an</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>EDF Tempo — Heures Creuses Bleu (Wallbox)</td>
+                    <td class="num">0,1296 €/kWh</td>
+                    <td class="num text-positive">2,24 €</td>
+                    <td class="num text-positive">336 €/an</td>
+                  </tr>
+                  <tr>
+                    <td>EDF Tarif Bleu — Heures Creuses (Wallbox)</td>
+                    <td class="num">0,1696 €/kWh</td>
+                    <td class="num text-positive">2,93 €</td>
+                    <td class="num">440 €/an</td>
+                  </tr>
+                  <tr>
+                    <td>EDF Tarif Bleu — Option Base (Wallbox)</td>
+                    <td class="num">0,2016 €/kWh</td>
+                    <td class="num">3,48 €</td>
+                    <td class="num">523 €/an</td>
+                  </tr>
+                  <tr>
+                    <td>Tesla Superchargeur / Ionity avec abonnement</td>
+                    <td class="num">0,36 €/kWh</td>
+                    <td class="num">6,11 €</td>
+                    <td class="num">916 €/an</td>
+                  </tr>
+                  <tr>
+                    <td>Borne autoroute DC rapide sans abonnement</td>
+                    <td class="num">0,59 €/kWh</td>
+                    <td class="num text-accent">10,01 €</td>
+                    <td class="num text-accent">1 501 €/an</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Les erreurs fréquentes sur la recharge électrique</h2>
+            <ul>
+              <li><strong>Charger jusqu'à 100 % sur autoroute :</strong> la puissance chute drastiquement après 80 %. Sur longs trajets, il est toujours plus rapide de repartir à 80 % et d'effectuer un second arrêt court de 15 minutes dans la zone 15 % → 65 %.</li>
+              <li><strong>Surdimensionner sa borne domestique :</strong> en maison individuelle monophasée, une Wallbox 7,4 kW récupère plus de 400 km en une nuit de 8 heures creuses. Passer en triphasé 11 kW entraîne souvent des travaux de tableau inutiles si vous roulez moins de 250 km/jour.</li>
+              <li><strong>Ignorer les frais de stationnement après charge :</strong> sur de nombreuses bornes publiques AC en ville, la facturation bascule à la minute une fois la charge terminée.</li>
+            </ul>
+
+            <div class="callout">
+              <div class="callout-title">Aller plus loin</div>
+              <p style="margin-bottom:0;">
+                Vous envisagez d'équiper votre garage ou votre place de parking en copropriété&nbsp;? Lisez notre <a href="../guides/recharge-domicile-wallbox-guide.html">guide complet Wallbox &amp; Prise renforcée 2026</a> ou comparez le coût global avec une thermique dans le <a href="duel-electrique-vs-thermique.html">Duel TCO 10 ans</a>.
+              </p>
+            </div>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format in-article responsive</div>
+            </aside>
+
+            <h2>Questions fréquentes sur la recharge des voitures électriques</h2>
+            <div class="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Quelle est la puissance maximale utile pour recharger chez soi&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Pour 90 % des foyers en France (abonnement monophasé 9 ou 12 kVA), une Wallbox 7,4 kW avec délestage dynamique est le standard optimal : elle recharge environ 50 kWh (300 km réels) pendant les 8 heures creuses de la nuit sans faire disjoncter la maison.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Peut-on charger une batterie LFP à 100 % tous les jours&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Oui, les batteries Lithium-Fer-Phosphate (Tesla Model 3 Propulsion, BYD Dolphin, MG4 Standard, Citroën ë-C3) tolèrent très bien la charge à 100 % et requièrent même un calibrage hebdomadaire à 100 %. Pour les batteries NMC (Renault 5, Peugeot e-208, Volvo EX30), il est recommandé de limiter la charge quotidienne à 80 % et de réserver le 100 % aux départs en voyage.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Combien de temps dure un 20 % → 80 % sur Superchargeur 150 ou 250 kW&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Sur une berline moderne acceptant 150 à 250 kW en pic (Tesla Model 3/Y, BMW i4, Peugeot e-3008), un 20 % → 80 % prend entre 22 et 32 minutes. Sur une citadine bridée à 100 kW en DC (e-208, Renault 5, ë-C3), comptez 26 à 34 minutes grâce à une batterie plus compacte.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Pourquoi ma voiture n'atteint-elle pas les 250 kW annoncés sur autoroute&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  La puissance maximale annoncée n'est atteinte que lorsque la batterie est chaude (préconditionnement activé via le GPS vers la borne) et suffisamment déchargée (souvent sous 20 %). La puissance moyenne sur un 20 % → 80 % se situe généralement autour de 65 % à 70 % du pic constructeur.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>L'option EDF Tempo est-elle vraiment rentable avec une voiture électrique&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Oui : pendant 300 jours bleus par an, les heures creuses coûtent moins de 0,13 €/kWh, soit environ 2,20 € aux 100 km. Même les 22 jours rouges hivernaux conservent un tarif heures creuses très compétitif la nuit (22h–6h), idéal pour programmer la recharge différée.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Autres instruments Trajectoire</div>
+              <ul class="sidebar-links">
+                <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique (TCO) <span>→</span></a></li>
+                <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026 &amp; Carte Grise <span>→</span></a></li>
+                <li><a href="cout-reel-kilometrique.html">Calculateur PRK (Coût au km) <span>→</span></a></li>
+                <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto <span>→</span></a></li>
+                <li><a href="cout-trajet-autoroute.html">Coût Trajet Autoroute &amp; Train <span>→</span></a></li>
+              </ul>
+            </div>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Dossier de référence</div>
+              <ul class="sidebar-links">
+                <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge Domicile &amp; Wallbox <span>→</span></a></li>
+                <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026 <span>→</span></a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">TR</span><span>TRAJECTOIRE</span></a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">Laboratoire indépendant du coût réel automobile en France. Barèmes 2026 et outils transparents sans inscription.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-cars.js"></script>
+  <script src="../assets/js/tools/cout-recharge-electrique.js"></script>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur PRK — Vrai Coût Réel au Kilomètre &amp; Budget Mensuel Auto | Trajectoire</title>
+  <meta name="description" content="Calculez le vrai Prix de Revient Kilométrique (PRK en €/km) et le budget mensuel caché de votre voiture : décote, carburant, assurance, entretien, pneus et stationnement.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/outils/cout-reel-kilometrique.html">
+  <meta property="og:title" content="Calculateur PRK — Vrai Coût Réel au Kilomètre Automobile">
+  <meta property="og:description" content="Révélez le vrai coût mensuel caché de votre voiture et la répartition visuelle de vos dépenses (décote, énergie, assurance, entretien).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/outils/cout-reel-kilometrique.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur PRK — Vrai Coût Réel au Kilomètre",
+        "url": "https://trajectoire-auto.fr/outils/cout-reel-kilometrique.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://trajectoire-auto.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Calculateur PRK Réel", "item": "https://trajectoire-auto.fr/outils/cout-reel-kilometrique.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que le PRK (Prix de Revient Kilométrique) d'une voiture ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le PRK représente la somme de toutes les dépenses réelles liées à un véhicule (décote, énergie, assurance, entretien, pneumatiques, stationnement et frais financiers) divisée par le nombre de kilomètres parcourus. En France, le PRK moyen d'une compacte neuve se situe entre 0,42 € et 0,58 €/km." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le premier poste de dépense d'une voiture neuve ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Contrairement aux idées reçues, ce n'est pas le carburant mais la décote (perte de valeur entre l'achat et la revente), qui représente souvent 40 % à 55 % du budget total sur les cinq premières années." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi mon coût réel est-il supérieur au barème kilométrique des impôts ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le barème fiscal URSSAF/Impôts est une moyenne forfaitaire basée sur la puissance fiscale (CV) et la distance professionnelle. Si vous roulez peu (moins de 10 000 km/an) avec un véhicule récent ou un parking payant en ville, vos frais fixes divisés par un faible kilométrage font grimper votre PRK au-delà de 0,70 €/km." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment réduire efficacement son PRK sans changer de trajet ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les deux leviers les plus puissants sont d'acheter un véhicule d'occasion récente de 2 à 3 ans (qui a déjà subi sa plus forte décote) et de conserver sa voiture plus longtemps (7 à 10 ans), ce qui amortit la dépréciation sur une durée bien plus longue." }
+          },
+          {
+            "@type": "Question",
+            "name": "Le PRK d'une voiture électrique est-il plus bas que celui d'une essence ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "À partir de 15 000 km/an avec recharge à domicile, le poste énergie et entretien chute nettement. Toutefois, sur un véhicule neuf de plus de 40 000 € roulant peu (8 000 km/an), la décote reste le facteur dominant du PRK quelle que soit la motorisation." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="duel-electrique-vs-thermique.html" class="nav-link">Duel TCO</a>
+        <a href="simulateur-malus-2026.html" class="nav-link">Malus 2026</a>
+        <a href="cout-recharge-electrique.html" class="nav-link">Recharge VE</a>
+        <a href="cout-reel-kilometrique.html" class="nav-link active">PRK Réel</a>
+        <a href="loa-lld-vs-credit.html" class="nav-link">LOA vs Crédit</a>
+        <a href="cout-trajet-autoroute.html" class="nav-link">Trajet</a>
+        <a href="../guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="duel-electrique-vs-thermique.html">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="simulateur-malus-2026.html">02 · Simulateur Malus 2026 + Carte Grise</a>
+      <a href="cout-recharge-electrique.html">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="cout-reel-kilometrique.html" class="active">04 · Calculateur PRK (Coût au Kilomètre)</a>
+      <a href="loa-lld-vs-credit.html">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="cout-trajet-autoroute.html">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Labo</div>
+      <a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a>
+      <a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a>
+      <a href="../a-propos.html">Méthodologie &amp; À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li>Outils</li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Calculateur PRK (Coût Réel au Kilomètre)</li>
+      </ol>
+    </div>
+
+    <section class="tool-hero">
+      <div class="container">
+        <div class="tool-hero-grid">
+          <div>
+            <span class="eyebrow">Instrument 04 · Budget Mensuel Caché</span>
+            <h1 class="mt-2">Calculateur PRK — Vrai Coût Réel au Kilomètre</h1>
+            <p>
+              La plupart des automobilistes sous-estiment leur budget auto de 50 % en ne comptant que le carburant et l'assurance. Révélez votre <strong>vrai coût mensuel caché</strong> et votre PRK exact (€/km) avec répartition graphique.
+            </p>
+          </div>
+          <div class="tool-meta-box">
+            <div class="tool-meta-row"><span>Postes audités</span><span>5 catégories complètes</span></div>
+            <div class="tool-meta-row"><span>Moyenne France (compacte)</span><span>0,46 € à 0,58 € / km</span></div>
+            <div class="tool-meta-row"><span>Export bilan</span><span>Image PNG HD incluse</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="tool-layout">
+          <form class="panel" id="prk-form" onsubmit="return false;">
+            <div class="panel-header">
+              <span class="panel-title">Votre véhicule &amp; dépenses</span>
+              <span class="badge badge-accent">Calcul live</span>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">1. Pré-remplissage (optionnel)</div>
+              <div class="field">
+                <label for="p-preset">Charger un modèle de référence</label>
+                <select id="p-preset"></select>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">2. Capital, Revente &amp; Kilométrage</div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="p-buy">Prix d'achat (carte grise incl.)</label>
+                  <div class="input-unit">
+                    <input type="number" id="p-buy" step="200" min="0" value="25500">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="p-resale">Valeur de revente estimée</label>
+                  <div class="input-unit">
+                    <input type="number" id="p-resale" step="200" min="0" value="13500">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+              </div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="p-years">Durée de détention</label>
+                  <span class="field-value-badge" id="p-years-val">5 ans</span>
+                </div>
+                <input type="range" id="p-years" min="1" max="12" step="1" value="5">
+              </div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="p-km">Kilométrage annuel</label>
+                  <span class="field-value-badge" id="p-km-val">15 000 km/an</span>
+                </div>
+                <input type="range" id="p-km" min="3000" max="50000" step="1000" value="15000">
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">3. Énergie &amp; Frais courants</div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="p-conso">Conso réelle (L ou kWh /100)</label>
+                  <input type="number" id="p-conso" step="0.1" min="0" value="5.9">
+                </div>
+                <div class="field">
+                  <label for="p-unit-price">Prix unitaire (€/L ou €/kWh)</label>
+                  <input type="number" id="p-unit-price" step="0.01" min="0" value="1.78">
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="p-insurance">Assurance annuelle</label>
+                  <div class="input-unit">
+                    <input type="number" id="p-insurance" step="20" min="0" value="620">
+                    <span class="input-unit-tag">€/an</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="p-maint">Entretien, révisions &amp; pneus</label>
+                  <div class="input-unit">
+                    <input type="number" id="p-maint" step="20" min="0" value="650">
+                    <span class="input-unit-tag">€/an</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="p-parking">Parking, box, péages &amp; lavages</label>
+                  <div class="input-unit">
+                    <input type="number" id="p-parking" step="10" min="0" value="55">
+                    <span class="input-unit-tag">€/mois</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="p-finance">Intérêts crédit / frais annuels</label>
+                  <div class="input-unit">
+                    <input type="number" id="p-finance" step="20" min="0" value="0">
+                    <span class="input-unit-tag">€/an</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Diagnostic PRK &amp; Coût caché</span>
+                <button type="button" class="btn btn-primary btn-sm" id="p-export-png">Exporter la fiche PNG</button>
+              </div>
+
+              <div class="kpi-banner">
+                <div class="kpi-banner-label">Vrai coût mensuel &amp; PRK exact</div>
+                <div class="kpi-banner-value" id="p-verdict-val">—</div>
+                <div class="kpi-banner-sub" id="p-verdict-sub"></div>
+              </div>
+
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-label">PRK Exact</div>
+                  <div class="kpi-val accent" id="p-kpi-prk">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Coût caché / mois</div>
+                  <div class="kpi-val" style="color:#F59E0B;" id="p-kpi-hidden">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Budget annuel complet</div>
+                  <div class="kpi-val" id="p-kpi-annual">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Total sur la période</div>
+                  <div class="kpi-val" id="p-kpi-total">—</div>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <span class="telemetry-title">Structure réelle de votre budget automobile</span>
+                </div>
+                <div class="canvas-wrap" style="height:260px;">
+                  <canvas id="p-chart" aria-label="Graphique anneau de répartition du coût réel au kilomètre"></canvas>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Poste de dépense</th>
+                      <th class="num">€/mois</th>
+                      <th class="num">€/an</th>
+                      <th class="num">€/km</th>
+                      <th class="num">Part</th>
+                    </tr>
+                  </thead>
+                  <tbody id="p-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format adaptatif anti-CLS</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid">
+          <article class="prose">
+            <h2>La formule du PRK : pourquoi l'automobile coûte deux fois plus que prévu</h2>
+            <p>
+              Lorsqu'un automobiliste évalue son budget voiture, son cerveau retient les dépenses récurrentes visibles sur le relevé bancaire mensuel : les pleins de carburant et la prime d'assurance. Ce biais cognitif masque la réalité comptable : une voiture immobile dans un garage continue de perdre de la valeur chaque jour et d'accumuler des frais fixes.
+            </p>
+            <div class="formula-block">
+              PRK (€/km) = [ ((Prix_achat − Revente) / Durée_ans) + Énergie_an + Assurance_an + Entretien_pneus_an + Annexes_an ] ÷ Km_annuels
+            </div>
+            <p>
+              Le résultat révèle le <strong>coût marginal réel de chaque déplacement</strong>. Avec un PRK de 0,48 €/km, un trajet domicile-travail de 40 km aller-retour coûte en réalité <strong>19,20 € par jour ouvré</strong> (soit près de 4 200 € par an), même si la pompe à essence ne vous réclame que 4,50 € ce matin-là.
+            </p>
+
+            <h2>Repères PRK 2026 en France selon le segment et le kilométrage</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Profil véhicule (détention 5 ans, 15 000 km/an)</th>
+                    <th class="num">Décote/mois</th>
+                    <th class="num">Budget réel/mois</th>
+                    <th class="num">PRK moyen</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Citadine occasion 4 ans (ex. Clio / 208 à 12 500 €)</td>
+                    <td class="num">105 €</td>
+                    <td class="num">315 €/mois</td>
+                    <td class="num text-positive">0,25 €/km</td>
+                  </tr>
+                  <tr>
+                    <td>Citadine neuve essence (ex. Dacia Sandero / 208)</td>
+                    <td class="num">165 €</td>
+                    <td class="num">430 €/mois</td>
+                    <td class="num">0,34 €/km</td>
+                  </tr>
+                  <tr>
+                    <td>Compacte hybride ou électrique neuve (34 000 €)</td>
+                    <td class="num">255 €</td>
+                    <td class="num">510 €/mois</td>
+                    <td class="num">0,41 €/km</td>
+                  </tr>
+                  <tr>
+                    <td>SUV familial neuf thermique (43 000 € + malus)</td>
+                    <td class="num">360 €</td>
+                    <td class="num text-accent">760 €/mois</td>
+                    <td class="num text-accent">0,61 €/km</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Les trois leviers prouvés pour faire chuter votre PRK</h2>
+            <ul>
+              <li><strong>Allonger la durée de détention de 4 à 8 ans :</strong> une voiture neuve perd en moyenne 25 % la première année et 45 % en 5 ans, mais seulement 15 % à 20 % supplémentaires entre l'année 5 et l'année 8. Garder son véhicule plus longtemps divise par deux le poids mensuel de la décote.</li>
+              <li><strong>Cibler l'occasion récente (24 à 36 mois) :</strong> vous laissez le premier propriétaire absorber la TVA et la phase la plus brutale de dépréciation tout en conservant une mécanique moderne et fiable.</li>
+              <li><strong>Comparer avec un financement locatif avant de signer :</strong> si votre PRK calculé dépasse vos attentes, comparez votre achat comptant ou crédit avec une location dans notre <a href="loa-lld-vs-credit.html">comparateur LOA / LLD vs Crédit Auto</a>.</li>
+            </ul>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format in-article responsive</div>
+            </aside>
+
+            <h2>Questions fréquentes sur le Prix de Revient Kilométrique (PRK)</h2>
+            <div class="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Comment estimer correctement la valeur de revente de ma voiture&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  En règle générale, une voiture neuve perd 42 % à 50 % de sa valeur catalogue au bout de 5 ans (75 000 km). Les citadines économiques (Dacia Sandero, Toyota Yaris) conservent mieux leur cote (~35 % de décote), tandis que les berlines premium et certains modèles électriques d'ancienne génération décotent davantage (~50 % à 55 %).
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Dois-je inclure les pneumatiques et le contrôle technique dans l'entretien&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Oui, absolument. Un train de 4 pneus de qualité (17 ou 18 pouces) coûte 500 € à 800 € tous les 35 000 à 45 000 km, soit environ 180 € à 220 € par an à lisser dans le champ « Entretien, révisions &amp; pneus », auxquels s'ajoutent le contrôle technique bisannuel (~85 €) et les révisions constructeurs.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Pourquoi mon PRK explose-t-il si je roule moins de 6 000 km par an&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Parce que la décote liée à l'âge, l'assurance et le parking sont des coûts fixes annuels incompressibles. Diviser 4 500 € de coûts fixes par 5 000 km donne déjà 0,90 €/km avant même d'avoir mis une goutte d'essence. Dans ce cas, l'autopartage ou la location ponctuelle sont souvent financièrement supérieurs.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Comment le PRK se compare-t-il aux indemnités kilométriques fiscales&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Si vous déclarez vos frais réels aux impôts pour vos trajets domicile-travail, le barème administratif (environ 0,60 € à 0,66 €/km pour 5-6 CV sous 5 000 km) couvre généralement bien le PRK d'une citadine ou compacte d'occasion, mais peut rester en dessous du PRK d'un SUV neuf récent.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Puis-je utiliser le PRK pour fixer le prix d'un covoiturage&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Pour partager les frais d'un trajet ponctuel entre amis ou sur une plateforme, on raisonne généralement sur le coût marginal (carburant + péage, éventuellement +0,08 €/km d'usure). Utilisez notre <a href="cout-trajet-autoroute.html">calculateur de trajet et covoiturage</a> dédié à cet usage.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Autres instruments Trajectoire</div>
+              <ul class="sidebar-links">
+                <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique (TCO) <span>→</span></a></li>
+                <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026 &amp; Carte Grise <span>→</span></a></li>
+                <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge VE <span>→</span></a></li>
+                <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto <span>→</span></a></li>
+                <li><a href="cout-trajet-autoroute.html">Coût Trajet Autoroute &amp; Train <span>→</span></a></li>
+              </ul>
+            </div>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Dossiers liés</div>
+              <ul class="sidebar-links">
+                <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026 <span>→</span></a></li>
+                <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox 2026 <span>→</span></a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">TR</span><span>TRAJECTOIRE</span></a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">Laboratoire indépendant du coût réel automobile en France. Barèmes 2026 et outils transparents sans inscription.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-cars.js"></script>
+  <script src="../assets/js/tools/cout-reel-kilometrique.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trajectoire — Laboratoire indépendant du coût réel automobile (2026)</title>
+  <meta name="description" content="Simulateurs automobiles indépendants 2026 : duel électrique vs thermique sur 10 ans, malus CO₂ et poids 2026, coût de recharge, PRK réel, LOA vs crédit et budget autoroute.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/">
+  <meta property="og:title" content="Trajectoire — Laboratoire indépendant du coût réel automobile">
+  <meta property="og:description" content="Six calculateurs automobiles transparents adossés aux barèmes 2026 et à une base de 34 modèles mesurés en usage réel.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Trajectoire",
+        "url": "https://trajectoire-auto.fr/",
+        "description": "Magazine éditorial automobile et laboratoire indépendant du coût réel (TCO, malus 2026, PRK, recharge, financement).",
+        "inLanguage": "fr-FR"
+      },
+      {
+        "@type": "Organization",
+        "name": "Trajectoire",
+        "url": "https://trajectoire-auto.fr/",
+        "email": "redaction@trajectoire-auto.fr"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="outils/duel-electrique-vs-thermique.html" class="nav-link">Duel TCO</a>
+        <a href="outils/simulateur-malus-2026.html" class="nav-link">Malus 2026</a>
+        <a href="outils/cout-recharge-electrique.html" class="nav-link">Recharge VE</a>
+        <a href="outils/cout-reel-kilometrique.html" class="nav-link">PRK Réel</a>
+        <a href="outils/loa-lld-vs-credit.html" class="nav-link">LOA vs Crédit</a>
+        <a href="outils/cout-trajet-autoroute.html" class="nav-link">Trajet</a>
+        <a href="guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+        <a href="outils/duel-electrique-vs-thermique.html" class="nav-cta">Lancer un duel</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="outils/duel-electrique-vs-thermique.html">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="outils/simulateur-malus-2026.html">02 · Simulateur Malus CO₂ + Poids + Carte Grise 2026</a>
+      <a href="outils/cout-recharge-electrique.html">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="outils/cout-reel-kilometrique.html">04 · Calculateur PRK (Vrai Coût au Kilomètre)</a>
+      <a href="outils/loa-lld-vs-credit.html">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="outils/cout-trajet-autoroute.html">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Dossiers</div>
+      <a href="guides/bareme-malus-ecologique-2026.html">Barème du Malus Écologique 2026 décrypté</a>
+      <a href="guides/recharge-domicile-wallbox-guide.html">Guide Recharge Domicile &amp; Wallbox 2026</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Éditeur</div>
+      <a href="a-propos.html">Méthodologie &amp; À propos</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO ASYMÉTRIQUE 7 / 5 -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Édition France 2026 · Données indépendantes</span>
+            <h1 class="mt-2">Combien coûte vraiment votre voiture&nbsp;? Chiffres nus, zéro discours commercial.</h1>
+            <p class="hero-lead">
+              Les catalogues constructeurs affichent des loyers d'appel hors apport et des consommations WLTP théoriques.
+              <strong>Trajectoire</strong> calcule le coût total réel de possession : décote, fiscalité 2026, pertes de recharge, pénalités kilométriques et prix de revient au kilomètre.
+            </p>
+            <div class="hero-actions">
+              <a href="outils/duel-electrique-vs-thermique.html" class="btn btn-primary">Duel Électrique vs Thermique</a>
+              <a href="outils/simulateur-malus-2026.html" class="btn btn-secondary">Simuler le Malus 2026</a>
+            </div>
+            <div class="hero-metrics">
+              <div>
+                <span class="hero-metric-val">34</span>
+                <span class="hero-metric-lbl">Modèles pré-calibrés</span>
+              </div>
+              <div>
+                <span class="hero-metric-val">101</span>
+                <span class="hero-metric-lbl">Départements (CV 2026)</span>
+              </div>
+              <div>
+                <span class="hero-metric-val">100 %</span>
+                <span class="hero-metric-lbl">Calcul local transparent</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aperçu interactif temps réel (Télémétrie Express) -->
+          <div class="telemetry-card" id="hero-telemetry-widget">
+            <div class="telemetry-head">
+              <span class="telemetry-title">Télémétrie Express · TCO 5 ans</span>
+              <span class="badge badge-accent">Live 2026</span>
+            </div>
+
+            <div class="segmented mb-3" role="tablist" aria-label="Duels pré-configurés">
+              <button type="button" class="segmented-btn is-active" data-duel-preset="r5-clio">R5 / Clio</button>
+              <button type="button" class="segmented-btn" data-duel-preset="e208-208">e-208 / 208</button>
+              <button type="button" class="segmented-btn" data-duel-preset="m3-bmw">Model 3 / BMW</button>
+              <button type="button" class="segmented-btn" data-duel-preset="ec3-c3">ë-C3 / C3</button>
+            </div>
+
+            <div class="field mb-3">
+              <div class="field-label-row">
+                <label for="hero-km">Kilométrage annuel</label>
+                <span class="field-value-badge" id="hero-km-val">15 000 km/an</span>
+              </div>
+              <input type="range" id="hero-km" min="6000" max="35000" step="1000" value="15000">
+            </div>
+
+            <div class="kpi-banner is-positive" style="margin-bottom:16px;">
+              <div class="kpi-banner-label">Point de bascule estimé</div>
+              <div class="kpi-banner-value" id="hero-verdict" style="font-size:24px;">Calcul...</div>
+            </div>
+
+            <div class="tool-meta-box mb-3">
+              <div class="tool-meta-row">
+                <span id="hero-a-name">Véhicule Électrique</span>
+                <span id="hero-a-cost">—</span>
+              </div>
+              <div class="tool-meta-row">
+                <span id="hero-b-name">Véhicule Thermique</span>
+                <span id="hero-b-cost">—</span>
+              </div>
+              <div class="tool-meta-row">
+                <span>Malus CO₂ 2026 (thermique)</span>
+                <span id="hero-malus-b">—</span>
+              </div>
+              <div class="tool-meta-row">
+                <span>Avantage cumulé à 5 ans</span>
+                <span id="hero-save-5">—</span>
+              </div>
+            </div>
+
+            <a href="outils/duel-electrique-vs-thermique.html" class="btn btn-secondary" style="width:100%;">
+              Ouvrir le comparateur complet 10 ans →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LES 6 OUTILS INTERACTIFS -->
+    <section class="section" id="outils">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="eyebrow">Suite d'instruments</span>
+            <h2>Six calculateurs pour décider sans angle mort</h2>
+            <p>Chaque instrument fonctionne instantanément dans votre navigateur, sans inscription, avec formules auditées et export PNG de votre bilan.</p>
+          </div>
+          <span class="badge">Barèmes LF 2026 intégrés</span>
+        </div>
+
+        <div class="grid-3">
+          <a href="outils/duel-electrique-vs-thermique.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>01 / TCO 10 ANS</span><span class="badge badge-accent">Phare</span></div>
+              <h3>Duel Électrique vs Thermique</h3>
+              <p>Comparez deux modèles issus de notre base de 34 véhicules sur 10 ans. Obtenez le point de bascule exact au mois près et la courbe cumulée.</p>
+            </div>
+            <div class="card-footer-link">Comparer deux modèles →</div>
+          </a>
+
+          <a href="outils/simulateur-malus-2026.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>02 / FISCALITÉ</span><span class="badge">101 Dép.</span></div>
+              <h3>Malus CO₂ + Poids &amp; Carte Grise 2026</h3>
+              <p>Barème 2026 dès 108 g/km et 1 500 kg, abattements famille nombreuse, hybride, import occasion et tarif exact du cheval fiscal par département.</p>
+            </div>
+            <div class="card-footer-link">Calculer mon malus 2026 →</div>
+          </a>
+
+          <a href="outils/cout-recharge-electrique.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>03 / ÉNERGIE VE</span><span class="badge">AC &amp; DC</span></div>
+              <h3>Coût &amp; Temps de Recharge Électrique</h3>
+              <p>De la prise 2,3 kW au Superchargeur 250 kW, du tarif EDF Tempo à Ionity : durée réelle avec ralentissement après 80 % et coût aux 100 km.</p>
+            </div>
+            <div class="card-footer-link">Simuler une recharge →</div>
+          </a>
+
+          <a href="outils/cout-reel-kilometrique.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>04 / BUDGET RÉEL</span><span class="badge">PRK €/km</span></div>
+              <h3>Calculateur PRK (Coût au Kilomètre)</h3>
+              <p>Intégrez décote, assurance, carburant, entretien, pneus et stationnement pour dévoiler le vrai budget mensuel caché de votre automobile.</p>
+            </div>
+            <div class="card-footer-link">Révéler mon PRK réel →</div>
+          </a>
+
+          <a href="outils/loa-lld-vs-credit.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>05 / FINANCEMENT</span><span class="badge">36-60 mois</span></div>
+              <h3>LOA / LLD vs Crédit vs Comptant</h3>
+              <p>Comparez le coût net final après revente de chaque mode de financement et mesurez l'impact financier des kilomètres excédentaires.</p>
+            </div>
+            <div class="card-footer-link">Arbitrer mon financement →</div>
+          </a>
+
+          <a href="outils/cout-trajet-autoroute.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>06 / ITINÉRAIRE</span><span class="badge">Covoit &amp; TGV</span></div>
+              <h3>Coût Trajet Autoroute &amp; Covoiturage</h3>
+              <p>Calculez carburant ou électricité, péages, partage par passager, empreinte CO₂ et arbitrage face au billet de train TGV.</p>
+            </div>
+            <div class="card-footer-link">Estimer un trajet →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIDES ÉDITORIAUX PILIERS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-header-left">
+            <span class="eyebrow">Dossiers techniques</span>
+            <h2>Guides de référence 2026</h2>
+            <p>Des analyses chiffrées et documentées pour maîtriser les règles fiscales et l'infrastructure de recharge sans approximation.</p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <a href="guides/bareme-malus-ecologique-2026.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>DOSSIER FISCALITÉ · 9 MIN DE LECTURE</span><span class="badge badge-accent">2026</span></div>
+              <h3>Barème du Malus Écologique 2026 : CO₂, Masse et Stratégies Légales d'Optimisation</h3>
+              <p>Déclenchement abaissé à 108 g/km, plafond porté à 80 000 €, malus au poids dès 1 500 kg, barème de décote sur les imports d'occasion et abattements familles nombreuses décryptés avec tableaux complets.</p>
+            </div>
+            <div class="card-footer-link">Lire le dossier complet →</div>
+          </a>
+
+          <a href="guides/recharge-domicile-wallbox-guide.html" class="card card-link">
+            <div>
+              <div class="card-num"><span>DOSSIER INFRASTRUCTURE · 10 MIN DE LECTURE</span><span class="badge">IRVE</span></div>
+              <h3>Recharge à Domicile &amp; Wallbox 2026 : Puissance, Norme NF C 15-100, Tempo et Rentabilité</h3>
+              <p>Faut-il une prise renforcée 3,7 kW ou une borne 7,4 kW ? Délestage dynamique, coût réel d'installation IRVE, comparatif tarif Bleu vs Tempo et droit à la prise en copropriété.</p>
+            </div>
+            <div class="card-footer-link">Lire le guide Wallbox →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÉTHODOLOGIE & TRANSPARENCE (E-E-A-T) -->
+    <section class="section">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <span class="eyebrow">Rigueur éditoriale</span>
+            <h2 class="mt-2">Pourquoi nos calculs diffèrent des simulateurs commerciaux</h2>
+            <p class="mt-2">
+              Un constructeur a intérêt à minorer la consommation en cycle WLTP et à masquer l'apport initial derrière une mensualité flatteuse.
+              Sur <strong>Trajectoire</strong>, chaque variable est visible, modifiable et fondée sur des mesures routières indépendantes.
+            </p>
+            <div class="mt-3">
+              <a href="a-propos.html" class="btn btn-ghost">Consulter notre charte méthodologique →</a>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Standards appliqués en 2026</span>
+              <span class="badge badge-positive">Vérifiés</span>
+            </div>
+            <div class="tool-meta-box">
+              <div class="tool-meta-row">
+                <span>Consommations thermiques</span>
+                <span>Cycle mixte réel (+14 % vs WLTP)</span>
+              </div>
+              <div class="tool-meta-row">
+                <span>Pertes de charge électrique</span>
+                <span>+8 % en AC · +6 % en DC</span>
+              </div>
+              <div class="tool-meta-row">
+                <span>Fiscalité immatriculation</span>
+                <span>Loi de Finances 2025/2026</span>
+              </div>
+              <div class="tool-meta-row">
+                <span>Facteurs d'émission CO₂</span>
+                <span>Base Empreinte ADEME France</span>
+              </div>
+              <div class="tool-meta-row">
+                <span>Indépendance commerciale</span>
+                <span>Zéro lien sponsor constructeur</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="index.html" class="brand">
+            <span class="brand-mark" aria-hidden="true">TR</span>
+            <span>TRAJECTOIRE</span>
+          </a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">
+            Laboratoire indépendant du coût réel automobile en France. Calculateurs gratuits, transparents et actualisés selon les barèmes fiscaux et énergétiques 2026.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="outils/duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="outils/simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="outils/cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="outils/cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="outils/loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="outils/cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026 · Calcul 100 % côté client</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+  <script src="assets/js/data-cars.js"></script>
+  <script src="assets/js/tools/home-preview.js"></script>
+</body>
+</html>

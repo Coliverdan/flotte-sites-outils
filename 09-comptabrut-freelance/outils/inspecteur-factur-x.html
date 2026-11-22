@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspecteur &amp; Validateur Factur-X 2026 (PDF/XML Local) — ComptaBrut</title>
+  <meta name="description" content="Inspectez et validez vos factures Factur-X (PDF hybride ou XML CII/UBL) 100 % localement dans votre navigateur : détection du profil EN 16931, extraction des lignes et checklist conformité 2026–2027.">
+  <link rel="canonical" href="https://comptabrut.fr/outils/inspecteur-factur-x.html">
+  <meta property="og:title" content="Inspecteur &amp; Validateur Factur-X 2026 (100 % Local) — ComptaBrut">
+  <meta property="og:description" content="Analysez un PDF Factur-X ou un XML CII/UBL sans rien envoyer sur un serveur : profil, SIREN acheteur, mentions obligatoires 2026 et vue XML formatée.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Inspecteur & Validateur Factur-X 2026",
+        "url": "https://comptabrut.fr/outils/inspecteur-factur-x.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Analyseur local de factures électroniques Factur-X (PDF hybride et XML CII/UBL) avec contrôle de conformité réforme 2026-2027."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://comptabrut.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Inspecteur Factur-X 2026", "item": "https://comptabrut.fr/outils/inspecteur-factur-x.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Mes factures PDF Factur-X sont-elles envoyées sur un serveur lors de la vérification ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. L'extraction binaire du flux XML embarqué dans le PDF ainsi que son analyse DOM s'exécutent intégralement dans la mémoire locale de votre navigateur. Aucun fichier n'est transféré sur internet." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel profil Factur-X est requis pour la réforme française 2026–2027 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour les factures B2B domestiques transitant par une Plateforme de Dématérialisation Partenaire (PDP), les profils EN 16931 (COMFORT) ou EXTENDED sont les références complètes. Le profil MINIMUM ne contient pas les lignes de facturation et est rejeté pour une facture commerciale standard." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles sont les 4 nouvelles mentions obligatoires de la réforme 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le décret n° 2022-1299 impose l'ajout du numéro SIREN du client, de l'adresse de livraison si elle diffère de l'adresse de facturation, de la catégorie d'opération (livraison de biens, prestation de services ou mixte) et de l'option éventuelle pour le paiement de la TVA d'après les débits." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi mon PDF généré depuis Word ou Canva est-il refusé par l'inspecteur ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un PDF classique généré par un traitement de texte ne contient pas de pièce jointe XML structurée factur-x.xml respectant la norme PDF/A-3. Ce n'est donc pas une facture électronique au sens de la réforme 2026, mais une simple facture numérisée." }
+          },
+          {
+            "@type": "Question",
+            "name": "Les micro-entrepreneurs en franchise de TVA sont-ils concernés par Factur-X ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui. Toutes les entreprises assujetties à la TVA en France — y compris les micro-entrepreneurs bénéficiant de la franchise en base (art. 293 B du CGI) — doivent pouvoir recevoir des factures électroniques dès le 1er septembre 2026 et en émettre dès le 1er septembre 2027." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand"><span class="brand-mark">CB</span><span>ComptaBrut</span><span class="brand-tag">2026</span></a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="inspecteur-factur-x.html" class="nav-link is-active">Factur-X</a>
+        <a href="simulateur-urssaf-micro-2026.html" class="nav-link">URSSAF 2026</a>
+        <a href="suivi-seuils-tva-ca.html" class="nav-link">Seuils TVA</a>
+        <a href="generateur-facture-devis.html" class="nav-link">Factures</a>
+        <a href="calculateur-tva-marge.html" class="nav-link">TVA &amp; Marge</a>
+        <a href="verificateur-iban-siret.html" class="nav-link">IBAN / SIREN</a>
+        <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="generateur-facture-devis.html" class="header-cta">Créer une facture</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">Outils 100 % locaux</div>
+      <ul class="mobile-nav-list">
+        <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+        <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+        <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+        <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+        <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+        <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Inspecteur &amp; Validateur Factur-X 2026</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <span class="eyebrow">Outil 01 · Norme EN 16931 / CII / UBL</span>
+          <h1>Inspecteur &amp; Validateur Factur-X 2026</h1>
+          <p class="hero-lead" style="margin-top:12px;margin-bottom:0;">
+            Déposez une facture PDF Factur-X ou un fichier XML pour extraire instantanément ses données structurées et vérifier sa conformité aux exigences de la réforme française 2026–2027. Traitement 100 % local.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="meta-row"><span>Formats acceptés</span><span>.PDF Factur-X · .XML</span></div>
+          <div class="meta-row"><span>Syntaxes supportées</span><span>CII UN/CEFACT · UBL 2.1</span></div>
+          <div class="meta-row"><span>Transfert serveur</span><span style="color:var(--accent);">0 octet (Local)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <!-- ZONE DE DÉPÔT + EXEMPLES -->
+        <div class="card" style="margin-bottom:24px;">
+          <div class="grid-asymmetric-rev" style="align-items:center;">
+            <div class="dropzone" id="fx-dropzone" role="button" tabindex="0" aria-label="Sélectionner ou glisser un fichier PDF Factur-X ou XML">
+              <input type="file" id="fx-file-input" accept=".pdf,.xml,application/pdf,application/xml,text/xml" class="sr-only">
+              <div class="mono" style="font-size:0.78rem;color:var(--accent);font-weight:600;margin-bottom:6px;">DÉPÔT LOCAL NAVIGATEUR</div>
+              <strong style="display:block;font-size:1.1rem;margin-bottom:4px;">Glissez-déposez un PDF Factur-X ou un XML ici (ou cliquez pour parcourir)</strong>
+              <span style="font-size:0.9rem;color:var(--text-secondary);">Recherche automatique du flux XML embarqué (clair ou compressé FlateDecode) sans aucun envoi réseau.</span>
+            </div>
+
+            <div>
+              <div class="panel-title">Tester immédiatement avec un jeu d’essai</div>
+              <p style="font-size:0.92rem;margin-bottom:16px;">Vous n’avez pas encore de fichier Factur-X sous la main ? Chargez l’un de nos deux fichiers de test pour observer les contrôles 2026–2027.</p>
+              <div class="btn-row">
+                <button type="button" class="btn btn-primary btn-sm" id="fx-load-sample">Charger une facture Factur-X exemple</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="fx-load-incomplete">Tester un profil MINIMUM incomplet</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="fx-error" class="callout callout-danger" style="display:none;margin-top:24px;margin-bottom:0;"></div>
+        </div>
+
+        <!-- RÉSULTATS EXTRACTION -->
+        <div id="fx-results">
+          <div class="section-header" style="margin-bottom:16px;">
+            <h2 style="font-size:1.35rem;">Rapport d’inspection</h2>
+            <span class="badge" id="fx-source-badge">—</span>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-box">
+              <span class="kpi-label">Profil détecté</span>
+              <span class="kpi-value" id="fx-profile-val" style="font-size:1.3rem;">—</span>
+              <span class="kpi-sub" id="fx-profile-sub">—</span>
+            </div>
+            <div class="kpi-box">
+              <span class="kpi-label">Montant Total TTC</span>
+              <span class="kpi-value" id="fx-ttc-val">—</span>
+              <span class="kpi-sub" id="fx-ttc-sub">—</span>
+            </div>
+            <div class="kpi-box" id="fx-score-box">
+              <span class="kpi-label">Conformité 2026–2027</span>
+              <span class="kpi-value" id="fx-score-val">—</span>
+              <span class="kpi-sub" id="fx-score-sub">—</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="tabs" role="tablist">
+              <button type="button" class="tab-btn is-active" data-fx-tab="synthese" role="tab">Synthèse &amp; Lignes</button>
+              <button type="button" class="tab-btn" data-fx-tab="conformite" role="tab">Checklist Réforme 2026–2027</button>
+              <button type="button" class="tab-btn" data-fx-tab="xml" role="tab">Voir XML formaté</button>
+            </div>
+
+            <!-- ONGLET 1 : SYNTHÈSE -->
+            <div class="tab-panel is-active" data-fx-panel="synthese">
+              <h3 style="margin-bottom:12px;">En-tête &amp; Parties (Vendeur / Acheteur)</h3>
+              <div class="table-wrap" style="margin-top:0;">
+                <table class="data-table">
+                  <tbody id="fx-meta-tbody"></tbody>
+                </table>
+              </div>
+
+              <h3 style="margin-top:24px;margin-bottom:12px;">Lignes de facturation extraites</h3>
+              <div class="table-wrap" style="margin-top:0;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Désignation</th>
+                      <th class="num">Qté</th>
+                      <th class="num">PU HT</th>
+                      <th class="num">TVA</th>
+                      <th class="num">Total HT</th>
+                    </tr>
+                  </thead>
+                  <tbody id="fx-lines-tbody"></tbody>
+                </table>
+              </div>
+
+              <h3 style="margin-top:24px;margin-bottom:12px;">Notes réglementaires embarquées</h3>
+              <div class="card-subtle" id="fx-notes"></div>
+            </div>
+
+            <!-- ONGLET 2 : CHECKLIST 2026 -->
+            <div class="tab-panel" data-fx-panel="conformite">
+              <p style="margin-bottom:16px;">Contrôle des 9 points critiques vérifiés par les Plateformes de Dématérialisation Partenaires (PDP) et la norme EN 16931 dans le cadre de la réforme française.</p>
+              <ul class="checklist" id="fx-checklist"></ul>
+            </div>
+
+            <!-- ONGLET 3 : XML FORMATÉ -->
+            <div class="tab-panel" data-fx-panel="xml">
+              <div class="btn-row" style="margin-bottom:16px;">
+                <button type="button" class="btn btn-secondary btn-sm" id="fx-copy-xml">Copier le XML</button>
+                <button type="button" class="btn btn-secondary btn-sm" id="fx-download-xml">Télécharger .xml</button>
+              </div>
+              <pre class="xml-viewer"><code id="fx-xml-code"></code></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- EMPLACEMENT ADSENSE 1 (SOUS RÉSULTAT, ANTI-CLS) -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-inner">Emplacement publicitaire réactif — format horizontal (728×90 / fluide)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL RICHE (750+ MOTS) -->
+    <section class="section section-bordered editorial-section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="editorial">
+          <h2>Comprendre le format Factur-X et les contrôles de la réforme 2026–2027</h2>
+          <p>
+            Instaurée par l’ordonnance n° 2021-1190 et recalée par la loi de finances pour 2024 (article 91), la généralisation de la facturation électronique entre entreprises assujetties à la TVA en France (B2B domestique) repose sur trois formats socles admis par l’administration fiscale : <strong>UBL 2.1</strong>, <strong>CII (UN/CEFACT CrossIndustryInvoice)</strong> et le format hybride franco-allemand <strong>Factur-X</strong>.
+          </p>
+          <p>
+            Concrètement, une facture Factur-X est un fichier <strong>PDF/A-3</strong> lisible par un humain dans lequel est encapsulé un fichier structuré <code>factur-x.xml</code> en syntaxe CII. Ce fichier XML porte l’ensemble des données fiscales, comptables et juridiques qui seront lues automatiquement par les Plateformes de Dématérialisation Partenaires (PDP) et transmises à l’annuaire central ainsi qu’à la DGFiP pour le pré-remplissage des déclarations de TVA.
+          </p>
+
+          <h3>Les 5 profils Factur-X et leur recevabilité B2B</h3>
+          <p>Tous les fichiers Factur-X ne contiennent pas le même niveau de granularité. Notre inspecteur identifie la balise <code>GuidelineSpecifiedDocumentContextParameter/ID</code> (ou <code>CustomizationID</code> en UBL) pour vérifier si le fichier est recevable dans le circuit B2B français :</p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Profil Factur-X</th>
+                  <th>Contenu du flux XML</th>
+                  <th>Recevabilité réforme 2026–2027</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>MINIMUM</strong></td>
+                  <td>Uniquement l’en-tête (numéro, date, vendeur, acheteur, totaux HT/TVA/TTC).</td>
+                  <td><span class="badge badge-danger">Insuffisant en B2B</span></td>
+                </tr>
+                <tr>
+                  <td><strong>BASIC WL</strong></td>
+                  <td>En-tête enrichi et ventilation TVA, mais sans lignes de détail.</td>
+                  <td><span class="badge badge-warn">Limité (sans lignes)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>BASIC</strong></td>
+                  <td>En-tête + lignes de facturation essentielles (sous-ensemble EN 16931).</td>
+                  <td><span class="badge badge-ok">Admis cas simples</span></td>
+                </tr>
+                <tr>
+                  <td><strong>EN 16931 (COMFORT)</strong></td>
+                  <td>Intégralité du modèle sémantique européen (recommandé par la FNFE-MPE).</td>
+                  <td><span class="badge badge-ok">Standard officiel</span></td>
+                </tr>
+                <tr>
+                  <td><strong>EXTENDED</strong></td>
+                  <td>EN 16931 enrichi de champs sectoriels (BTP, logistique, multi-commandes).</td>
+                  <td><span class="badge badge-ok">Conforme étendu</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Méthodologie de contrôle et formule de cohérence</h3>
+          <p>Lorsqu’un PDF Factur-X est chargé dans ComptaBrut, notre moteur parcourt les flux binaires du fichier PDF (y compris les objets compressés <code>FlateDecode</code> via l’API native <code>DecompressionStream</code> du navigateur) afin d’extraire le nœud racine <code>CrossIndustryInvoice</code> ou <code>Invoice</code>. L’outil contrôle ensuite la cohérence mathématique stricte exigée par la règle métier européenne <strong>BR-CO-15</strong> :</p>
+
+          <div class="formula-box">
+            Total HT (BT-109) + Total TVA (BT-110) = Total TTC (BT-112) à ± 0,02 € près
+          </div>
+
+          <h3>Les 4 pièges fréquents provoquant un rejet PDP dès septembre 2026</h3>
+          <ol>
+            <li><strong>Oublier le SIREN de l’acheteur (BT-47) :</strong> jusqu’ici facultatif sur de nombreuses factures papier ou PDF, le numéro SIREN à 9 chiffres du client professionnel devient une clé de routage obligatoire dans l’annuaire central des PDP. Utilisez notre <a href="verificateur-iban-siret.html">validateur SIREN / SIRET</a> pour le contrôler avant émission.</li>
+            <li><strong>Omettre la catégorie d’opération :</strong> chaque facture doit préciser s’il s’agit d’une livraison de biens, d’une prestation de services ou d’une opération mixte, car les règles d’exigibilité de la TVA diffèrent.</li>
+            <li><strong>Confondre PDF classique et PDF/A-3 Factur-X :</strong> un export PDF réalisé depuis Word, Google Docs ou un tableur n’embarque aucun fichier XML. Dès le 1er septembre 2027 (émission TPE/micro), l’envoi d’un simple PDF par e-mail ne sera plus valable en B2B français.</li>
+            <li><strong>Écarts d’arrondi sur la TVA par ligne :</strong> si la somme des bases HT ou la TVA recalculée diverge du total TTC déclaré en pied de document, la plateforme rejette automatiquement la facture au statut « Refusée technique ».</li>
+          </ol>
+
+          <!-- EMPLACEMENT ADSENSE 2 (ENTRE MÉTHODOLOGIE ET FAQ) -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-inner">Emplacement publicitaire — format rectangle (336×280 / fluide)</div>
+          </aside>
+
+          <h2>Questions fréquentes sur Factur-X 2026</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Mes factures PDF Factur-X sont-elles envoyées sur un serveur lors de la vérification ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Non. L’extraction binaire du flux XML embarqué dans le PDF ainsi que son analyse DOM s’exécutent intégralement dans la mémoire locale de votre navigateur. Aucun fichier ni montant n’est transféré sur internet.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quel profil Factur-X est requis pour la réforme française 2026–2027 ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Le profil de référence est <strong>EN 16931 (COMFORT)</strong>, qui couvre toutes les mentions fiscales françaises et les lignes de détail. Le profil EXTENDED est également accepté. À l’inverse, le profil MINIMUM ne comporte aucune ligne de détail et ne suffit pas pour une facture B2B complète.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quelles sont les 4 nouvelles mentions obligatoires de la réforme 2026 ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Le décret n° 2022-1299 ajoute quatre mentions : (1) le numéro SIREN du client, (2) l’adresse de livraison des biens si différente de l’adresse de facturation, (3) la catégorie d’opération (biens, services ou mixte), et (4) la mention « Option pour le paiement de la TVA d’après les débits » si le vendeur a exercé cette option.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi mon PDF généré depuis Word ou un tableur n’est-il pas reconnu ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Parce qu’il s’agit d’un PDF graphique classique ne contenant aucune pièce jointe XML structurée <code>factur-x.xml</code>. Pour produire un document conforme, vous pouvez tester notre <a href="generateur-facture-devis.html">générateur de facture conforme 2026</a> qui exporte aussi le flux XML EN 16931.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Les micro-entrepreneurs en franchise de TVA sont-ils concernés ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui. Même en franchise en base (art. 293 B du CGI), un micro-entrepreneur est considéré comme assujetti non redevable. Il devra choisir une plateforme PDP pour <strong>recevoir</strong> des factures électroniques dès le 1er septembre 2026, et pour <strong>émettre</strong> ses factures B2B dès le 1er septembre 2027. Consultez notre <a href="../guides/reforme-facturation-electronique-2026-2027.html">guide complet de la réforme 2026–2027</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAILLAGE INTERNE -->
+    <section class="section section-tight section-bordered related-section">
+      <div class="container">
+        <h2 style="font-size:1.35rem;">Outils complémentaires ComptaBrut</h2>
+        <div class="related-grid">
+          <a href="generateur-facture-devis.html" class="related-card">
+            <strong>Générateur Facture &amp; Devis 2026</strong>
+            <span>Éditez une facture conforme mentions 2026 avec export PDF et XML EN 16931.</span>
+          </a>
+          <a href="verificateur-iban-siret.html" class="related-card">
+            <strong>Validateur IBAN / SIREN / TVA Intra</strong>
+            <span>Vérifiez le SIREN acheteur et calculez son numéro de TVA intracommunautaire.</span>
+          </a>
+          <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="related-card">
+            <strong>Guide Réforme 2026–2027</strong>
+            <span>Calendrier officiel, choix d’une PDP et obligations e-reporting expliqués simplement.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="../index.html" class="brand" style="margin-bottom:12px;"><span class="brand-mark">CB</span><span>ComptaBrut</span></a>
+          <p style="font-size:0.9rem;">Outils financiers et conformité Factur-X 2026–2027, 100 % locaux dans votre navigateur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils Facturation &amp; TVA</h4>
+          <ul class="footer-links">
+            <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+            <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Charges &amp; Guides</h4>
+          <ul class="footer-links">
+            <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+            <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+            <li><a href="../guides/reforme-facturation-electronique-2026-2027.html">Guide Réforme 2026–2027</a></li>
+            <li><a href="../guides/seuils-micro-entreprise-tva-2026.html">Guide Seuils Micro 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ComptaBrut (comptabrut.fr)</span>
+        <span class="mono">100 % LOCAL · FRANCE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/inspecteur-factur-x.js"></script>
+</body>
+</html>

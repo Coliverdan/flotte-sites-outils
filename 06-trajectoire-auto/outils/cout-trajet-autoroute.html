@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Coût d'un Trajet Autoroute, Covoiturage &amp; Train (2026) | Trajectoire</title>
+  <meta name="description" content="Calculez le coût réel d'un trajet en voiture (carburant ou recharge électrique, péages autoroute, usure pneus/entretien), le partage par passager en covoiturage et le comparatif TGV.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/outils/cout-trajet-autoroute.html">
+  <meta property="og:title" content="Calculateur Coût d'un Trajet Autoroute, Covoiturage &amp; Train (2026)">
+  <meta property="og:description" content="Simulateur complet de coût de trajet routier (essence, diesel, hybride, électrique), péages 2026, partage entre passagers et bilan carbone ADEME vs Train.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/outils/cout-trajet-autoroute.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur Coût Trajet Autoroute & Covoiturage",
+        "url": "https://trajectoire-auto.fr/outils/cout-trajet-autoroute.html",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://trajectoire-auto.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Coût Trajet & Covoiturage", "item": "https://trajectoire-auto.fr/outils/cout-trajet-autoroute.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Combien coûte réellement un trajet Paris – Lyon en voiture en 2026 ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sur les 465 km de l'autoroute A6, comptez environ 39,90 € de péage et 56,30 € d'essence (6,8 L/100 à 1,78 €/L), soit 96,20 € l'aller simple hors usure (ou 133,40 € en incluant 0,08 €/km d'usure mécanique et pneumatique)." }
+          },
+          {
+            "@type": "Question",
+            "name": "À partir de combien de passagers la voiture est-elle moins chère que le train ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour un voyageur seul sur un grand axe TGV réservé à l'avance (45 à 75 €), le train est souvent plus économique que l'autoroute. Dès 2 personnes à bord (et systématiquement à 3 ou 4 passagers), la voiture divise le coût par voyageur entre 25 € et 48 €." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il intégrer l'usure du véhicule dans un partage de frais entre amis ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En covoiturage occasionnel (BlaBlaCar ou entre proches), le partage légal couvre généralement le carburant et les péages. Toutefois, chaque kilomètre parcouru coûte en réalité environ 0,07 € à 0,10 € en pneus, freins, révision et décote kilométrique." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi une voiture électrique consomme-t-elle plus sur autoroute à 130 km/h ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La résistance aérodynamique augmente avec le carré de la vitesse. Une berline ou compacte électrique qui consomme 14 kWh/100 km en ville monte autour de 19 à 22 kWh/100 km à 130 km/h stabilisés. Rouler à 115-120 km/h réduit la consommation d'environ 18 %." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle est l'empreinte carbone d'un trajet voiture comparée au TGV ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Selon la base Empreinte ADEME, une voiture essence émet environ 2,28 kg de CO2 par litre brûlé (soit ~72 kg de CO2 sur Paris-Lyon). Même à 4 passagers (18 kg/pers.), le TGV reste imbattable en France avec environ 1,35 kg de CO2 par passager sur le même trajet." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="duel-electrique-vs-thermique.html" class="nav-link">Duel TCO</a>
+        <a href="simulateur-malus-2026.html" class="nav-link">Malus 2026</a>
+        <a href="cout-recharge-electrique.html" class="nav-link">Recharge VE</a>
+        <a href="cout-reel-kilometrique.html" class="nav-link">PRK Réel</a>
+        <a href="loa-lld-vs-credit.html" class="nav-link">LOA vs Crédit</a>
+        <a href="cout-trajet-autoroute.html" class="nav-link active">Trajet</a>
+        <a href="../guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="duel-electrique-vs-thermique.html">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="simulateur-malus-2026.html">02 · Simulateur Malus 2026 + Carte Grise</a>
+      <a href="cout-recharge-electrique.html">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="cout-reel-kilometrique.html">04 · Calculateur PRK (Coût au Kilomètre)</a>
+      <a href="loa-lld-vs-credit.html">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="cout-trajet-autoroute.html" class="active">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Labo</div>
+      <a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a>
+      <a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a>
+      <a href="../a-propos.html">Méthodologie &amp; À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li>Outils</li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Coût Trajet Autoroute &amp; Covoiturage</li>
+      </ol>
+    </div>
+
+    <section class="tool-hero">
+      <div class="container">
+        <div class="tool-hero-grid">
+          <div>
+            <span class="eyebrow">Instrument 06 · Itinéraire, Péages &amp; Partage Covoiturage</span>
+            <h1 class="mt-2">Calculateur Coût d'un Trajet Autoroute &amp; Comparatif Train</h1>
+            <p>
+              Chiffrez le budget exact de votre déplacement (carburant ou kWh, péages autoroutiers, usure mécanique optionnelle), divisez la note par passager et comparez instantanément le coût financier et carbone avec le TGV.
+            </p>
+          </div>
+          <div class="tool-meta-box">
+            <div class="tool-meta-row"><span>Axes pré-calibrés</span><span>8 grands trajets France</span></div>
+            <div class="tool-meta-row"><span>Motorisations</span><span>Essence, Diesel, Hybride, VE</span></div>
+            <div class="tool-meta-row"><span>Bilan CO₂</span><span>Facteurs ADEME 2026</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="tool-layout">
+          <form class="panel" id="trip-form" onsubmit="return false;">
+            <div class="panel-header">
+              <span class="panel-title">Paramètres de l'itinéraire</span>
+              <span class="badge badge-accent">Autoroute &amp; TGV</span>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">1. Distance &amp; Péages</div>
+              <div class="field">
+                <label for="t-route">Axe autoroutier de référence</label>
+                <select id="t-route"></select>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="t-distance">Distance (aller simple)</label>
+                  <div class="input-unit">
+                    <input type="number" id="t-distance" step="5" min="10" max="5000" value="465">
+                    <span class="input-unit-tag">km</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="t-toll">Péages (aller simple)</label>
+                  <div class="input-unit">
+                    <input type="number" id="t-toll" step="0.5" min="0" max="500" value="39.90">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+              </div>
+              <label class="checkbox-row">
+                <input type="checkbox" id="t-roundtrip">
+                <span>Calculer sur un <strong>Aller-Retour</strong> (distance et péages ×2)</span>
+              </label>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">2. Motorisation &amp; Énergie</div>
+              <div class="field">
+                <label for="t-fuel">Énergie du véhicule</label>
+                <select id="t-fuel">
+                  <option value="essence" selected>Essence SP95-E10 / SP98</option>
+                  <option value="diesel">Diesel B7</option>
+                  <option value="hybride">Hybride non rechargeable (HEV)</option>
+                  <option value="electrique">100 % Électrique (recharge rapide autoroute)</option>
+                </select>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="t-conso">Consommation autoroute</label>
+                  <div class="input-unit">
+                    <input type="number" id="t-conso" step="0.1" min="2" max="45" value="6.8">
+                    <span class="input-unit-tag" id="t-conso-unit">L/100</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="t-unit-price">Prix unitaire énergie</label>
+                  <div class="input-unit">
+                    <input type="number" id="t-unit-price" step="0.01" min="0.05" max="4" value="1.78">
+                    <span class="input-unit-tag" id="t-price-unit">€/L</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">3. Passagers &amp; Comparatif Train</div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="t-passengers">Occupants à bord (conducteur inclus)</label>
+                  <span class="field-value-badge" id="t-passengers-val">2 personnes</span>
+                </div>
+                <input type="range" id="t-passengers" min="1" max="5" step="1" value="2">
+              </div>
+              <div class="field">
+                <label for="t-train-ticket">Prix moyen billet Train / TGV (aller simple / pers.)</label>
+                <div class="input-unit">
+                  <input type="number" id="t-train-ticket" step="1" min="5" max="400" value="65">
+                  <span class="input-unit-tag">€/pers.</span>
+                </div>
+              </div>
+              <label class="checkbox-row">
+                <input type="checkbox" id="t-wear">
+                <span>Inclure le coût d'usure mécanique &amp; pneus (+0,08 €/km)</span>
+              </label>
+            </div>
+          </form>
+
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Synthèse du trajet</span>
+                <button type="button" class="btn btn-primary btn-sm" id="t-export-png">Exporter la fiche PNG</button>
+              </div>
+
+              <div class="kpi-banner is-positive" id="t-verdict-banner">
+                <div class="kpi-banner-label">Coût par passager en voiture</div>
+                <div class="kpi-banner-value" id="t-verdict-val">—</div>
+                <div class="kpi-banner-sub" id="t-verdict-sub"></div>
+              </div>
+
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-label">Total Voiture</div>
+                  <div class="kpi-val accent" id="t-kpi-total">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Part Énergie</div>
+                  <div class="kpi-val" id="t-kpi-energy">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">CO₂ / passager</div>
+                  <div class="kpi-val positive" id="t-kpi-co2">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Total Train</div>
+                  <div class="kpi-val" id="t-kpi-train">—</div>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <span class="telemetry-title">Comparatif financier Voiture vs Train</span>
+                </div>
+                <div class="canvas-wrap" style="height:250px;">
+                  <canvas id="t-chart" aria-label="Graphique comparatif coût voiture seule, covoiturage et train"></canvas>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Poste de dépense</th>
+                      <th class="num">Coût total</th>
+                      <th class="num">Par personne</th>
+                    </tr>
+                  </thead>
+                  <tbody id="t-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format adaptatif anti-CLS</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid">
+          <article class="prose">
+            <h2>Comment calculer le vrai prix d'un trajet autoroutier en 2026&nbsp;?</h2>
+            <p>
+              Lorsqu'un automobiliste évalue à la volée le budget d'un week-end ou d'un départ en vacances, il ne retient souvent que le plein de carburant. En réalité, un trajet autoroutier en France repose sur <strong>trois composantes distinctes</strong> : l'énergie consommée à haute vitesse, le tarif des sociétés concessionnaires d'autoroutes (classe 1) et l'usure kilométrique marginale du véhicule.
+            </p>
+            <div class="formula-block">
+              Coût_énergie = (Distance_km / 100) × Conso_130kmh × Prix_unitaire<br>
+              Coût_total_trajet = Coût_énergie + Péages_A/R + (Distance_km × 0,08 €/km usure)<br>
+              Part_covoiturage = Coût_total_trajet ÷ Nombre_d'occupants
+            </div>
+            <p>
+              Sur autoroute, le tarif moyen des péages en France avoisine <strong>0,085 € à 0,11 € par kilomètre</strong> selon les tronçons (APRR, Vinci Autoroutes, SANEF). Sur un Paris – Bordeaux (585 km), le péage de 59,80 € dépasse désormais le coût du carburant pour une citadine sobre ou une voiture électrique pré-chargée au départ.
+            </p>
+
+            <h2>Barème indicatif des grands axes autoroutiers français (Aller simple 2026)</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Liaison autoroutière</th>
+                    <th class="num">Distance</th>
+                    <th class="num">Péage Classe 1</th>
+                    <th class="num">Essence (6,8 L)</th>
+                    <th class="num">Total 1 pers.</th>
+                    <th class="num">À 3 passagers</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Paris → Lyon (A6)</td>
+                    <td class="num">465 km</td>
+                    <td class="num">39,90 €</td>
+                    <td class="num">56,28 €</td>
+                    <td class="num">96,18 €</td>
+                    <td class="num text-positive">32,06 €/pers.</td>
+                  </tr>
+                  <tr>
+                    <td>Paris → Marseille (A6/A7)</td>
+                    <td class="num">775 km</td>
+                    <td class="num">65,40 €</td>
+                    <td class="num">93,81 €</td>
+                    <td class="num">159,21 €</td>
+                    <td class="num text-positive">53,07 €/pers.</td>
+                  </tr>
+                  <tr>
+                    <td>Paris → Bordeaux (A10)</td>
+                    <td class="num">585 km</td>
+                    <td class="num">59,80 €</td>
+                    <td class="num">70,81 €</td>
+                    <td class="num">130,61 €</td>
+                    <td class="num text-positive">43,54 €/pers.</td>
+                  </tr>
+                  <tr>
+                    <td>Paris → Nantes (A11)</td>
+                    <td class="num">385 km</td>
+                    <td class="num">39,50 €</td>
+                    <td class="num">46,60 €</td>
+                    <td class="num">86,10 €</td>
+                    <td class="num text-positive">28,70 €/pers.</td>
+                  </tr>
+                  <tr>
+                    <td>Lyon → Marseille (A7)</td>
+                    <td class="num">315 km</td>
+                    <td class="num">27,80 €</td>
+                    <td class="num">38,13 €</td>
+                    <td class="num">65,93 €</td>
+                    <td class="num text-positive">21,98 €/pers.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>3 leviers concrets pour réduire la facture de 25 à 40 %</h2>
+            <ul>
+              <li><strong>Passer de 130 km/h à 115 km/h sur autoroute :</strong> sur un trajet de 500 km, vous ne perdez que 24 minutes mais réduisez la consommation de carburant ou d'électricité de 16 % à 20 %, soit 10 à 15 € économisés par sens.</li>
+              <li><strong>Quitter l'autoroute 5 minutes pour le ravitaillement :</strong> l'écart moyen entre une station d'aire d'autoroute et un supermarché situé à 1,5 km d'une sortie atteint 0,18 € à 0,25 € par litre (soit 10 € gagnés sur un plein de 50 L).</li>
+              <li><strong>Partir à 100 % de batterie depuis son domicile :</strong> en voiture électrique, les 300 premiers kilomètres chargés la nuit en Heures Creuses ne coûtent que 8 à 10 €, contre 28 à 35 € si chargés exclusivement sur borne rapide d'autoroute.</li>
+            </ul>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format in-article responsive</div>
+            </aside>
+
+            <h2>Questions fréquentes sur le coût des trajets et le covoiturage</h2>
+            <div class="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Quel est le plafond légal en covoiturage pour ne pas être imposable&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  En France, le partage de frais en covoiturage est totalement exonéré d'impôt tant que le conducteur ne réalise aucun bénéfice : le total perçu auprès des passagers ne doit pas dépasser le barème fiscal des frais kilométriques divisé par la part du conducteur.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Combien consomme en plus un coffre de toit ou un porte-vélos sur autoroute&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  À 130 km/h, un coffre de toit ou un porte-vélos sur boule d'attelage dégrade le Cx et augmente la consommation de 12 % à 20 % (soit +1,0 à +1,4 L/100 km en thermique, ou +3,5 kWh/100 km en électrique). Pensez à majorer la case consommation dans le simulateur.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Pourquoi l'option « Usure 0,08 €/km » est-elle proposée&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Même si vous ne la payez pas au péage le jour J, un aller-retour de 1 500 km rapproche votre véhicule de sa prochaine révision (300 € tous les 20 000 km), consomme une fraction de votre train de pneus (500 € tous les 35 000 km) et réduit sa valeur de revente. Ce coût marginal tourne autour de 8 centimes par kilomètre.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Comment sont calculées les émissions de CO₂ du comparateur&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Nous utilisons les facteurs d'émission officiels de la Base Empreinte ADEME : 2,28 kg CO₂e par litre d'essence, 2,65 kg CO₂e par litre de gazole, 0,052 kg CO₂e par kWh électrique en France, et 2,9 g CO₂e par kilomètre et par voyageur en TGV.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Une voiture électrique revient-elle plus cher qu'un diesel sur autoroute&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Si vous payez 100 % de vos recharges au tarif plein sans abonnement (0,59 €/kWh) à 130 km/h (20 kWh/100 km), les 100 km reviennent à ~12,50 €, soit légèrement plus qu'un diesel sobre (5,5 L × 1,69 € = 9,30 €). En revanche, en partant chargé à 100 % de chez vous et avec un abonnement réseau (0,35 €/kWh), l'électrique repasse nettement sous les 6,50 €/100 km.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Autres instruments Trajectoire</div>
+              <ul class="sidebar-links">
+                <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique (TCO) <span>→</span></a></li>
+                <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026 &amp; Carte Grise <span>→</span></a></li>
+                <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge VE <span>→</span></a></li>
+                <li><a href="cout-reel-kilometrique.html">Calculateur PRK (Coût au km) <span>→</span></a></li>
+                <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto <span>→</span></a></li>
+              </ul>
+            </div>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Dossiers de référence</div>
+              <ul class="sidebar-links">
+                <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026 <span>→</span></a></li>
+                <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge Domicile &amp; Wallbox <span>→</span></a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">TR</span><span>TRAJECTOIRE</span></a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">Laboratoire indépendant du coût réel automobile en France. Barèmes 2026 et outils transparents sans inscription.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-cars.js"></script>
+  <script src="../assets/js/tools/cout-trajet-autoroute.js"></script>
+</body>
+</html>

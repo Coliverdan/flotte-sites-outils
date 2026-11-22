@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculateur Prorata &amp; Seuils Franchise TVA / Micro-Entreprise 2026 — ComptaBrut</title>
+  <meta name="description" content="Calculez votre plafond micro-entreprise proratisé au jour près la 1ère année, suivez vos seuils de franchise TVA (37 500 € / 41 250 € ou 85 000 € / 93 500 €) et simulez l’impact tarifaire B2B/B2C.">
+  <link rel="canonical" href="https://comptabrut.fr/outils/suivi-seuils-tva-ca.html">
+  <meta property="og:title" content="Calculateur Prorata &amp; Seuils TVA / Micro-Entreprise — ComptaBrut">
+  <meta property="og:description" content="Jauges de suivi franchise TVA, calcul exact du prorata temporis 1ère année et simulateur d'impact tarifaire B2B vs B2C.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculateur Prorata & Seuils Franchise TVA / Micro-Entreprise",
+        "url": "https://comptabrut.fr/outils/suivi-seuils-tva-ca.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Calculateur local du prorata temporis 1ère année, des seuils de franchise en base de TVA et de l'impact tarifaire au passage à la TVA."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://comptabrut.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Prorata & Seuils TVA / Micro", "item": "https://comptabrut.fr/outils/suivi-seuils-tva-ca.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Les seuils de franchise en base de TVA sont-ils proratisés la première année ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Depuis le 1er janvier 2025 (CGI art. 293 B), les seuils de franchise en base de TVA (37 500 € / 41 250 € en services et 85 000 € / 93 500 € en vente) ne sont plus proratisés en année de création. Seul le plafond du régime micro-entreprise (77 700 € ou 188 700 €) reste proratisé au nombre de jours d'activité." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il si je dépasse le seuil majoré de TVA (41 250 € ou 93 500 €) ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous perdez la franchise en base immédiatement dès le jour de l'opération qui déclenche le dépassement. Vous devez facturer la TVA sur cette facture et toutes les suivantes, et demander votre numéro de TVA intracommunautaire au SIE." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il si mon CA reste entre le seuil de base et le seuil majoré ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous restez en franchise en base jusqu'au 31 décembre de l'année en cours, puis vous devenez automatiquement redevable de la TVA dès le 1er janvier de l'année suivante." }
+          },
+          {
+            "@type": "Question",
+            "name": "Le passage à la TVA pénalise-t-il un freelance qui travaille en B2B ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non, il est généralement bénéfique : vos clients professionnels assujettis déduisent la TVA que vous leur facturez (coût neutre pour eux) tandis que vous pouvez désormais récupérer la TVA payée sur vos propres achats professionnels (matériel, logiciels, sous-traitance)." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quand sort-on du régime de la micro-entreprise en cas de dépassement du plafond CA ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Vous sortez du régime micro-entreprise uniquement si votre chiffre d'affaires dépasse le plafond (77 700 € en services ou 188 700 € en vente) deux années civiles consécutives. Le basculement au régime réel intervient alors au 1er janvier de la troisième année." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand"><span class="brand-mark">CB</span><span>ComptaBrut</span><span class="brand-tag">2026</span></a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="inspecteur-factur-x.html" class="nav-link">Factur-X</a>
+        <a href="simulateur-urssaf-micro-2026.html" class="nav-link">URSSAF 2026</a>
+        <a href="suivi-seuils-tva-ca.html" class="nav-link is-active">Seuils TVA</a>
+        <a href="generateur-facture-devis.html" class="nav-link">Factures</a>
+        <a href="calculateur-tva-marge.html" class="nav-link">TVA &amp; Marge</a>
+        <a href="verificateur-iban-siret.html" class="nav-link">IBAN / SIREN</a>
+        <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="inspecteur-factur-x.html" class="header-cta">Inspecter un Factur-X</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">Outils 100 % locaux</div>
+      <ul class="mobile-nav-list">
+        <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+        <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+        <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+        <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+        <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+        <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Prorata &amp; Seuils TVA / Plafonds Micro</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <span class="eyebrow">Outil 03 · CGI Art. 293 B &amp; Prorata Temporis</span>
+          <h1>Calculateur Prorata &amp; Seuils Franchise TVA / Plafonds Micro-Entreprise</h1>
+          <p class="hero-lead" style="margin-top:12px;margin-bottom:0;">
+            Suivez en temps réel votre marge restante avant l’assujettissement à la TVA, calculez le prorata exact de votre plafond micro-entreprise la 1ère année et mesurez l’impact sur vos tarifs B2B ou B2C.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="meta-row"><span>Services TVA</span><span>37 500 € / 41 250 €</span></div>
+          <div class="meta-row"><span>Vente TVA</span><span>85 000 € / 93 500 €</span></div>
+          <div class="meta-row"><span>Plafonds Micro</span><span>77 700 € · 188 700 €</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="grid-asymmetric">
+          <!-- PARAMÈTRES -->
+          <div class="card">
+            <div class="panel-title">Situation de votre activité</div>
+
+            <div class="form-group">
+              <label for="tv-activity" class="form-label">Nature de l’activité principale</label>
+              <select id="tv-activity" class="select">
+                <option value="services">Prestations de services BNC / BIC (Plafond 77 700 €)</option>
+                <option value="vente">Achat-revente / Vente marchandises BIC (Plafond 188 700 €)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="toggle-row" for="tv-first-year">
+                <div class="toggle-text">
+                  <strong>Activité créée en cours d’année (Prorata 1ère année)</strong>
+                  <span>Calcule le plafond micro-entreprise exact au nombre de jours</span>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" id="tv-first-year" checked>
+                  <span class="switch-track"></span>
+                </span>
+              </label>
+            </div>
+
+            <div class="form-group" id="tv-start-wrap">
+              <label for="tv-start-date" class="form-label">Date officielle de début d’activité</label>
+              <input type="date" id="tv-start-date" class="input input-mono" value="2026-04-01">
+              <span class="form-hint">Le prorata s’applique au plafond micro-entreprise, pas aux seuils TVA (règle en vigueur depuis 2025).</span>
+            </div>
+
+            <div class="form-group">
+              <label for="tv-ca-actuel" class="form-label">Chiffre d’affaires déjà encaissé cette année (€)</label>
+              <div class="input-with-unit">
+                <input type="number" id="tv-ca-actuel" class="input input-mono" min="0" step="250" value="31500">
+                <span class="input-unit">€</span>
+              </div>
+              <input type="range" id="tv-ca-range" class="range" min="0" max="77700" step="250" value="31500" aria-label="Curseur chiffre d'affaires encaissé">
+            </div>
+
+            <hr style="border:none;border-top:1px solid var(--border);margin:24px 0;">
+
+            <div class="panel-title">Simulateur d’impact au passage à la TVA</div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="tv-prix-actuel" class="form-label">Tarif actuel (€)</label>
+                <div class="input-with-unit">
+                  <input type="number" id="tv-prix-actuel" class="input input-mono" min="0" step="10" value="550">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="tv-rate" class="form-label">Taux TVA applicable</label>
+                <select id="tv-rate" class="select input-mono">
+                  <option value="20">20 % (Normal)</option>
+                  <option value="10">10 % (Intermédiaire)</option>
+                  <option value="5.5">5,5 % (Réduit)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="tv-client-type" class="form-label">Type de clients</label>
+                <select id="tv-client-type" class="select">
+                  <option value="b2b">B2B (Entreprises assujetties)</option>
+                  <option value="b2c">B2C (Particuliers / Non assujettis)</option>
+                </select>
+              </div>
+              <div class="form-group" style="margin-bottom:0;">
+                <label for="tv-achats" class="form-label">Achats pros TTC / an</label>
+                <div class="input-with-unit">
+                  <input type="number" id="tv-achats" class="input input-mono" min="0" step="100" value="3600">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RÉSULTATS & JAUGES -->
+          <div>
+            <div id="tv-status-box" class="callout callout-ok" style="margin-top:0;">
+              <strong id="tv-status-title" style="display:block;margin-bottom:4px;">—</strong>
+              <span id="tv-status-desc" style="font-size:0.93rem;">—</span>
+            </div>
+
+            <div class="kpi-grid">
+              <div class="kpi-box kpi-accent">
+                <span class="kpi-label">Marge seuil TVA base</span>
+                <span class="kpi-value" id="tv-kpi-marge-tva">—</span>
+                <span class="kpi-sub" id="tv-kpi-marge-tva-sub">—</span>
+              </div>
+              <div class="kpi-box" id="tv-kpi-majore-box">
+                <span class="kpi-label">Marge seuil majoré</span>
+                <span class="kpi-value" id="tv-kpi-majore">—</span>
+                <span class="kpi-sub" id="tv-kpi-majore-sub">—</span>
+              </div>
+              <div class="kpi-box">
+                <span class="kpi-label">Plafond Micro retenu</span>
+                <span class="kpi-value" id="tv-kpi-micro">—</span>
+                <span class="kpi-sub" id="tv-kpi-micro-sub">—</span>
+              </div>
+            </div>
+
+            <!-- JAUGE 1 : TVA -->
+            <div class="gauge-block">
+              <div class="gauge-head">
+                <strong>Jauge Franchise en base de TVA</strong>
+                <span class="mono" id="tv-gauge-tva-pct">—</span>
+              </div>
+              <div class="gauge-track">
+                <div class="gauge-fill" id="tv-gauge-tva-fill"></div>
+                <div class="gauge-marker" id="tv-gauge-tva-marker" title="Seuil de base TVA"></div>
+              </div>
+              <div class="gauge-legend">
+                <span>0 €</span>
+                <span id="tv-gauge-tva-legend-mid">Base : —</span>
+                <span id="tv-gauge-tva-legend-max">Majoré : —</span>
+              </div>
+            </div>
+
+            <!-- JAUGE 2 : PLAFOND MICRO -->
+            <div class="gauge-block" style="margin-bottom:24px;">
+              <div class="gauge-head">
+                <strong>Jauge Plafond Régime Micro-Entreprise</strong>
+                <span class="mono" id="tv-gauge-micro-pct">—</span>
+              </div>
+              <div class="gauge-track">
+                <div class="gauge-fill" id="tv-gauge-micro-fill"></div>
+              </div>
+              <div class="gauge-legend">
+                <span>0 €</span>
+                <span id="tv-gauge-micro-legend-max">Plafond : —</span>
+              </div>
+            </div>
+
+            <!-- IMPACT TARIFAIRE -->
+            <div class="card card-compact">
+              <div class="panel-title">Impact financier de votre passage à la TVA</div>
+              <div class="kpi-grid" style="margin-bottom:16px;">
+                <div class="kpi-box">
+                  <span class="kpi-label">Nouveau prix HT</span>
+                  <span class="kpi-value" id="tv-sim-ht">—</span>
+                </div>
+                <div class="kpi-box">
+                  <span class="kpi-label">Prix facturé TTC</span>
+                  <span class="kpi-value" id="tv-sim-ttc">—</span>
+                </div>
+                <div class="kpi-box kpi-accent">
+                  <span class="kpi-label">TVA récupérable</span>
+                  <span class="kpi-value" id="tv-sim-deduct">—</span>
+                </div>
+              </div>
+              <p id="tv-sim-comment" style="font-size:0.94rem;margin:0;"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ADSENSE 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-inner">Emplacement publicitaire réactif — format horizontal (728×90 / fluide)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL -->
+    <section class="section section-bordered editorial-section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="editorial">
+          <h2>Prorata temporis et seuils TVA 2026 : ne confondez plus les deux plafonds</h2>
+          <p>
+            La majorité des erreurs administratives rencontrées par les micro-entrepreneurs durant leurs deux premières années provient d’une confusion entre le <strong>plafond de chiffre d’affaires du régime micro-fiscal</strong> (qui conditionne le maintien du statut simplifié) et les <strong>seuils de franchise en base de TVA</strong> (article 293 B du CGI). Ces deux mécanismes obéissent à des règles de prorata et de dépassement totalement indépendantes.
+          </p>
+
+          <h3>Formule exacte du prorata temporis la première année</h3>
+          <p>
+            Si vous créez votre micro-entreprise en cours d’année civile (par exemple le 1er avril 2026), le plafond de chiffre d’affaires micro-entreprise est ajusté proportionnellement au nombre exact de jours calendaires entre la date de début d’activité et le 31 décembre :
+          </p>
+          <div class="formula-box">
+            Plafond Micro Proratisé = Plafond annuel × (Nombre de jours d’activité ÷ 365 [ou 366 année bissextile])
+          </div>
+          <p>
+            <strong>Exemple chiffré :</strong> une prestation de services créée le 1er avril 2026 compte exactement <strong>275 jours</strong> sur les 365 jours de l’année. Son plafond micro-entreprise 2026 est donc ramené à <code>77 700 € × (275 ÷ 365) = 58 541 €</code>. En revanche, depuis la refonte de l’article 293 B du CGI entrée en vigueur en 2025, <strong>les seuils de franchise TVA (37 500 € / 41 250 € en services) ne sont plus proratisés la première année</strong> : vous bénéficiez du seuil complet même si vous démarrez en octobre.
+          </p>
+
+          <h3>Tableau récapitulatif des seuils officiels en vigueur</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Activité</th>
+                  <th class="num">Seuil TVA base</th>
+                  <th class="num">Seuil TVA majoré</th>
+                  <th class="num">Plafond Micro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Prestations de services (BNC &amp; BIC)</td>
+                  <td class="num"><strong>37 500 €</strong></td>
+                  <td class="num"><strong>41 250 €</strong></td>
+                  <td class="num">77 700 €</td>
+                </tr>
+                <tr>
+                  <td>Vente de marchandises / Hébergement</td>
+                  <td class="num"><strong>85 000 €</strong></td>
+                  <td class="num"><strong>93 500 €</strong></td>
+                  <td class="num">188 700 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Pièges à éviter lors du franchissement du seuil majoré</h3>
+          <ul>
+            <li><strong>Dépassement en cours de mois :</strong> dès que vous encaissez ou facturez l’opération qui vous fait franchir 41 250 € (services) ou 93 500 € (vente), la bascule TVA s’applique <strong>dès le jour du dépassement</strong>. Les factures émises ce jour-là doivent comporter la TVA et ne plus porter la mention « TVA non applicable, art. 293 B du CGI ».</li>
+            <li><strong>Numéro de TVA intracommunautaire :</strong> demandez immédiatement l’activation de votre numéro de TVA via la messagerie sécurisée de votre espace professionnel impots.gouv.fr. Vous pouvez déjà connaître sa valeur exacte grâce à notre <a href="verificateur-iban-siret.html">générateur de numéro de TVA intracommunautaire</a>.</li>
+            <li><strong>TVA et chiffre d’affaires URSSAF :</strong> une fois redevable de la TVA, continuez à déclarer exclusivement votre chiffre d’affaires <strong>hors taxes (HT)</strong> à l’URSSAF. Calculez vos marges HT/TTC précisément avec notre <a href="calculateur-tva-marge.html">calculateur HT / TTC / TVA</a>.</li>
+          </ul>
+
+          <!-- ADSENSE 2 -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-inner">Emplacement publicitaire — format rectangle (336×280 / fluide)</div>
+          </aside>
+
+          <h2>Questions fréquentes sur le prorata et les seuils TVA</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Les seuils de franchise en base de TVA sont-ils proratisés la première année ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Non. Depuis 2025, la règle du prorata temporis a été supprimée pour les seuils de franchise en base de TVA. Vous disposez du seuil complet (37 500 € / 41 250 € en services) dès l’année de création. Le prorata reste uniquement applicable au plafond du régime micro-entreprise (77 700 € / 188 700 €).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>À quelle date exacte dois-je facturer la TVA en cas de dépassement du seuil majoré ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Dès le jour exact du dépassement (CGI art. 293 B modifié). Contrairement à l’ancienne règle du « 1er jour du mois de dépassement », seules les opérations réalisées à partir du jour où le seuil majoré est franchi sont soumises à la TVA.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Que se passe-t-il si mon CA finit entre 37 500 € et 41 250 € en services ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Vous conservez la franchise de TVA jusqu’au 31 décembre de l’année en cours, mais vous perdez la franchise dès le 1er janvier de l’année suivante (N+1) : il n’existe plus de période de tolérance de deux années consécutives pour la TVA.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Puis-je rester micro-entrepreneur si je facture la TVA ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui, parfaitement ! La franchise de TVA et le régime micro-entreprise sont découplés. Un consultant réalisant 60 000 € HT reste micro-entrepreneur (car sous 77 700 €) tout en collectant et déduisant la TVA chaque mois ou trimestre.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Peut-on opter volontairement pour la TVA avant d’atteindre 37 500 € ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui, via votre espace impots.gouv.fr. C’est souvent stratégique si vous travaillez exclusivement en B2B et que vous réalisez d’importants investissements professionnels (matériel informatique, véhicule utilitaire, stock) afin de récupérer 20 % de TVA immédiatement.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight section-bordered related-section">
+      <div class="container">
+        <h2 style="font-size:1.35rem;">Outils complémentaires ComptaBrut</h2>
+        <div class="related-grid">
+          <a href="simulateur-urssaf-micro-2026.html" class="related-card">
+            <strong>Simulateur URSSAF 2026</strong>
+            <span>Calculez votre net après cotisations sociales 26,1 % et impôt sur le revenu.</span>
+          </a>
+          <a href="calculateur-tva-marge.html" class="related-card">
+            <strong>Calculateur HT / TTC &amp; Marge</strong>
+            <span>Convertissez vos tarifs HT/TTC et calculez votre taux de marque exact.</span>
+          </a>
+          <a href="../guides/seuils-micro-entreprise-tva-2026.html" class="related-card">
+            <strong>Guide Seuils Micro &amp; TVA 2026</strong>
+            <span>Analyse approfondie des activités mixtes, de la bascule TVA et du régime réel.</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="../index.html" class="brand" style="margin-bottom:12px;"><span class="brand-mark">CB</span><span>ComptaBrut</span></a>
+          <p style="font-size:0.9rem;">Outils financiers et conformité Factur-X 2026–2027, 100 % locaux dans votre navigateur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils Facturation &amp; TVA</h4>
+          <ul class="footer-links">
+            <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+            <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Charges &amp; Guides</h4>
+          <ul class="footer-links">
+            <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+            <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+            <li><a href="../guides/reforme-facturation-electronique-2026-2027.html">Guide Réforme 2026–2027</a></li>
+            <li><a href="../guides/seuils-micro-entreprise-tva-2026.html">Guide Seuils Micro 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ComptaBrut (comptabrut.fr)</span>
+        <span class="mono">100 % LOCAL · FRANCE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/suivi-seuils-tva-ca.js"></script>
+</body>
+</html>

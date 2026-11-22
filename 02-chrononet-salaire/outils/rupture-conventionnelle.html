@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Indemnité Rupture Conventionnelle & Licenciement 2026 — ChronoNet</title>
+  <meta name="description" content="Calculez votre indemnité légale de rupture conventionnelle ou de licenciement (1/4 jusqu'à 10 ans, 1/3 au-delà), la contribution patronale de 30 %, le net perçu et le différé France Travail.">
+  <link rel="canonical" href="https://chrononet.fr/outils/rupture-conventionnelle.html">
+  <meta property="og:title" content="Simulateur Indemnité Rupture Conventionnelle 2026 — ChronoNet">
+  <meta property="og:description" content="Formule exacte du Code du travail (art. R1234-2), CSG/CRDS supra-légale, coût employeur 30 % et carence France Travail.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrononet.fr/outils/rupture-conventionnelle.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulateur Indemnité Rupture Conventionnelle — ChronoNet",
+      "url": "https://chrononet.fr/outils/rupture-conventionnelle.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "inLanguage": "fr-FR",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://chrononet.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Rupture Conventionnelle", "item": "https://chrononet.fr/outils/rupture-conventionnelle.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la formule légale de l'indemnité de rupture conventionnelle ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Conformément à l'article R1234-2 du Code du travail, l'indemnité minimale est égale à 1/4 de mois de salaire brut de référence par année d'ancienneté jusqu'à 10 ans, puis 1/3 de mois par année au-delà de 10 ans, calculée au prorata des mois incomplets." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quel salaire de référence est retenu : moyenne des 12 ou des 3 derniers mois ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'article R1234-4 impose de retenir la formule la plus avantageuse pour le salarié entre la moyenne brute des 12 derniers mois et celle des 3 derniers mois (primes annuelles proratisées). Notre simulateur sélectionne automatiquement la plus favorable." }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que la contribution patronale de 30 % sur la rupture conventionnelle ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Depuis la réforme de septembre 2023 (applicable en 2026), l'ancien forfait social de 20 % a été remplacé par une contribution patronale unique de 30 % payée par l'employeur sur la part d'indemnité exonérée de cotisations sociales." }
+        },
+        {
+          "@type": "Question",
+          "name": "Une indemnité supra-légale décale-t-elle mes allocations France Travail ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. La fraction qui dépasse le minimum légal génère un différé spécifique d'indemnisation égal à l'indemnité supra-légale divisée par le diviseur indexé (109,6 €), plafonné à 150 jours calendaires, auquel s'ajoutent les congés payés non pris et le délai d'attente de 7 jours." }
+        },
+        {
+          "@type": "Question",
+          "name": "L'indemnité de rupture conventionnelle est-elle imposable sur le revenu ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "L'indemnité légale ou conventionnelle est totalement exonérée d'impôt sur le revenu et de CSG/CRDS. La fraction supra-légale reste exonérée d'impôt dans les limites légales (notamment 2 fois la rémunération annuelle brute ou 50 % de l'indemnité, plafonné à 6 PASS), mais supporte la CSG/CRDS de 9,7 %." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>CHRONONET</span>
+        <span class="brand-tag">REF. CN-05</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="vrai-salaire-horaire.html" class="nav-link">Vrai Salaire</a>
+        <a href="prix-en-heures-de-vie.html" class="nav-link">Prix / Heures</a>
+        <a href="teletravail-vs-presentiel.html" class="nav-link">Télétravail</a>
+        <a href="brut-en-net-2026.html" class="nav-link">Brut / Net</a>
+        <a href="rupture-conventionnelle.html" class="nav-link active">Rupture</a>
+        <a href="tjm-freelance-vs-cdi.html" class="nav-link">TJM vs CDI</a>
+      </nav>
+      <div class="header-actions">
+        <a href="brut-en-net-2026.html" class="btn btn-secondary btn-sm">Brut / Net</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 instruments</div>
+      <a href="vrai-salaire-horaire.html"><span>01 — Vrai salaire horaire</span><span class="mono">→</span></a>
+      <a href="prix-en-heures-de-vie.html"><span>02 — Prix en heures de vie</span><span class="mono">→</span></a>
+      <a href="teletravail-vs-presentiel.html"><span>03 — Économies télétravail</span><span class="mono">→</span></a>
+      <a href="brut-en-net-2026.html"><span>04 — Brut ↔ Net 2026</span><span class="mono">→</span></a>
+      <a href="rupture-conventionnelle.html"><span>05 — Rupture conventionnelle</span><span class="mono">→</span></a>
+      <a href="tjm-freelance-vs-cdi.html"><span>06 — TJM Freelance vs CDI</span><span class="mono">→</span></a>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Simulateur Indemnité Rupture Conventionnelle</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span>INSTRUMENT CN-05 • CODE DU TRAVAIL R1234-2</span></div>
+          <h1 style="margin-top:16px;">Simulateur Rupture Conventionnelle &amp; Licenciement</h1>
+          <p class="hero-lead" style="margin-top:16px;">
+            Calculez instantanément votre indemnité légale minimale, le net réellement perçu après CSG/CRDS supra-légale, la contribution employeur de 30 % et le différé d'indemnisation France Travail.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <span>FORMULE : 1/4 (0–10 ANS) + 1/3 (&gt;10 ANS)</span>
+          <span>CONTRIBUTION PATRONALE : 30 %</span>
+          <span>DIFFÉRÉ FRANCE TRAVAIL : PLAFOND 150 J</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workbench-section">
+      <div class="container">
+        <div class="workbench">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Données du contrat de travail</span>
+              <span class="instrument-led">ART. R1234-2</span>
+            </div>
+
+            <div class="field">
+              <div class="segmented" role="group" aria-label="Type de rupture">
+                <button type="button" class="segmented-btn active" data-rc-type="rupture" aria-pressed="true">Rupture conventionnelle</button>
+                <button type="button" class="segmented-btn" data-rc-type="licenciement" aria-pressed="false">Licenciement</button>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="rc-moy-12" class="field-label">Brut moyen (12 mois)</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="rc-moy-12" class="input-control mono-input input-has-unit" value="3600" min="500" max="35000" step="50">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="rc-moy-3" class="field-label">Brut moyen (3 mois)</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="rc-moy-3" class="input-control mono-input input-has-unit" value="3750" min="0" max="35000" step="50">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="field-hint" id="rc-out-salref" style="margin-top:-8px; color:var(--text-primary); font-weight:500;">3 750 € / mois retenus</div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="rc-annees" class="field-label">Ancienneté (années)</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="rc-annees" class="input-control mono-input input-has-unit" value="7" min="0" max="45" step="1">
+                  <span class="input-unit">ans</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="rc-mois" class="field-label">Mois complémentaires</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="rc-mois" class="input-control mono-input input-has-unit" value="6" min="0" max="11" step="1">
+                  <span class="input-unit">mois</span>
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <input type="range" id="rc-annees-range" class="range-control" min="0" max="35" step="1" value="7" aria-label="Curseur années d'ancienneté">
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="rc-supra" class="field-label">Indemnité supra-légale négociée (en plus du minimum)</label></div>
+              <div class="input-wrap">
+                <input type="number" id="rc-supra" class="input-control mono-input input-has-unit" value="3000" min="0" max="250000" step="250">
+                <span class="input-unit">€</span>
+              </div>
+              <div class="field-hint">Laissez à 0 € pour calculer uniquement le plancher légal obligatoire.</div>
+            </div>
+
+            <div class="field">
+              <div class="field-head"><label for="rc-cp-restants" class="field-label">Jours de congés payés non pris (indemnisés)</label></div>
+              <div class="input-wrap">
+                <input type="number" id="rc-cp-restants" class="input-control mono-input input-has-unit" value="10" min="0" max="60" step="1">
+                <span class="input-unit">j</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Estimation financière &amp; France Travail</span>
+              <span class="instrument-led">2026</span>
+            </div>
+
+            <div class="kpi-hero-row">
+              <div class="kpi-box success-box">
+                <div class="kpi-label">Net estimé perçu par le salarié</div>
+                <div class="kpi-value" id="rc-out-net-percu">9 740 €</div>
+                <div class="kpi-sub">Total brut : <strong id="rc-out-total-brut">10 031 €</strong></div>
+              </div>
+              <div class="kpi-box highlight">
+                <div class="kpi-label">Minimum légal obligatoire</div>
+                <div class="kpi-value" id="rc-out-legale">7 031 €</div>
+                <div class="kpi-sub">Exonéré d'IR et de CSG/CRDS</div>
+              </div>
+            </div>
+
+            <div class="kpi-mini-grid cols-3">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">CSG/CRDS salarié</div>
+                <div class="kpi-mini-value" id="rc-out-csg">291 €</div>
+                <div class="field-hint" style="margin-top:4px;">9,7 % sur supra-légal</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Contribution employeur</div>
+                <div class="kpi-mini-value" id="rc-out-forfait-emp">3 009 €</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Différé France Travail</div>
+                <div class="kpi-mini-value" id="rc-out-differe-total">44 jours</div>
+                <div class="field-hint" id="rc-out-differe-detail" style="margin-top:4px;">7 j + 27 j + 10 j CP</div>
+              </div>
+            </div>
+
+            <div class="formula-box" id="rc-out-formule" style="margin-top:0; margin-bottom:24px; font-size:13px;"></div>
+
+            <div class="chart-box" style="margin-bottom:0;">
+              <div class="chart-header">
+                <span class="chart-title">Comparaison Indemnité légale, Net salarié &amp; Coût employeur (€)</span>
+              </div>
+              <div class="canvas-frame">
+                <canvas id="rc-chart" aria-label="Graphique comparatif rupture conventionnelle"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+          <span class="ad-slot-note">Format adaptatif horizontal — Hauteur stabilisée anti-CLS</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container editorial-layout">
+        <article class="editorial-article">
+          <h2>Comprendre la formule légale de l'indemnité de rupture conventionnelle</h2>
+          <p>
+            Qu'il s'agisse d'une <strong>rupture conventionnelle individuelle</strong> ou d'un <strong>licenciement hors faute grave ou lourde</strong>, l'employeur ne peut jamais verser une indemnité inférieure au minimum légal fixé par le Code du travail (ou au minimum prévu par votre convention collective s'il est plus favorable, comme dans la métallurgie, la chimie ou la banque).
+          </p>
+          <div class="formula-box">
+            Salaire de référence = Max(Moyenne brute 12 derniers mois ; Moyenne brute 3 derniers mois)<br><br>
+            Indemnité légale (≤ 10 ans) = Salaire de référence × (1/4) × Ancienneté en années<br>
+            Indemnité légale (&gt; 10 ans) = (Salaire de référence × 1/4 × 10) + (Salaire de référence × 1/3 × Années au-delà de 10)
+          </div>
+          <p>
+            Les mois incomplets sont toujours proratisés au douzième. De plus, l'ancienneté prise en compte pour le calcul de l'indemnité s'apprécie à la <strong>date effective de fin du contrat de travail</strong> (à l'issue du délai de rétractation de 15 jours calendaires et du délai d'homologation de 15 jours ouvrables par la DREETS).
+          </p>
+
+          <h2>Régime social 2026 : ce que paient réellement le salarié et l'employeur</h2>
+          <p>
+            La négociation d'une rupture conventionnelle bloque souvent parce que le salarié ignore le <strong>coût réel côté employeur</strong>. Depuis la réforme des retraites entrée en vigueur fin 2023 et pleinement applicable en 2026, le forfait social de 20 % a été remplacé par une <strong>contribution patronale unique de 30 %</strong> sur la part exonérée de cotisations sociales. Ainsi, une indemnité de 10 000 € coûte en réalité <strong>13 000 €</strong> à l'entreprise.
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Ancienneté (Brut réf. 3 500 €)</th>
+                  <th class="num">Minimum légal</th>
+                  <th class="num">Supra-légal (ex.)</th>
+                  <th class="num">Net salarié</th>
+                  <th class="num">Coût employeur (+30 %)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2 ans</td>
+                  <td class="num">1 750 €</td>
+                  <td class="num">0 €</td>
+                  <td class="num">1 750 €</td>
+                  <td class="num">2 275 €</td>
+                </tr>
+                <tr>
+                  <td>5 ans</td>
+                  <td class="num">4 375 €</td>
+                  <td class="num">2 000 €</td>
+                  <td class="num">6 181 €</td>
+                  <td class="num">8 288 €</td>
+                </tr>
+                <tr>
+                  <td>10 ans</td>
+                  <td class="num">8 750 €</td>
+                  <td class="num">5 000 €</td>
+                  <td class="num">13 265 €</td>
+                  <td class="num">17 875 €</td>
+                </tr>
+                <tr>
+                  <td>15 ans</td>
+                  <td class="num">14 583 €</td>
+                  <td class="num">8 000 €</td>
+                  <td class="num">21 807 €</td>
+                  <td class="num">29 358 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Attention au différé d'indemnisation France Travail (ARE)</h2>
+          <p>
+            Beaucoup de salariés négocient une forte indemnité supra-légale en oubliant qu'elle décale le premier versement des allocations chômage. France Travail cumule trois délais successifs :
+          </p>
+          <ul>
+            <li><strong>Le délai d'attente forfaitaire :</strong> 7 jours calendaires incompressibles.</li>
+            <li><strong>Le différé congés payés :</strong> correspond aux jours de congés payés non pris et réglés dans votre solde de tout compte.</li>
+            <li><strong>Le différé spécifique supra-légal :</strong> calculé uniquement sur la part dépassant le minimum légal, en la divisant par le diviseur indexé (109,6 €), dans la limite maximale de <strong>150 jours calendaires</strong> (environ 5 mois sans ARE). Ce différé ne réduit pas votre durée totale de droits, il en repousse simplement le démarrage.</li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+            <span class="ad-slot-note">Placement éditorial non intrusif</span>
+          </aside>
+
+          <h2>Questions fréquentes sur la rupture conventionnelle</h2>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Quelle est la formule légale de l'indemnité de rupture conventionnelle ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                1/4 de mois de salaire brut de référence par année d'ancienneté jusqu'à 10 ans, puis 1/3 de mois par année au-delà de 10 ans, avec proratisation exacte des mois incomplets.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quel salaire de référence est retenu : moyenne des 12 ou des 3 derniers mois ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                La loi impose de retenir la moyenne la plus favorable au salarié. Si vous avez perçu une prime annuelle durant les 3 derniers mois, seule sa quote-part trimestrielle (3/12e) est retenue dans la moyenne sur 3 mois.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Qu'est-ce que la contribution patronale de 30 % ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                C'est une taxe payée exclusivement par l'employeur sur la fraction de l'indemnité de rupture conventionnelle exonérée de cotisations sociales. Elle ne diminue pas le montant versé au salarié, mais pèse dans le budget de négociation de l'entreprise.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Une indemnité supra-légale décale-t-elle mes allocations France Travail ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Oui, à raison d'environ un jour de différé par tranche de 109,6 € au-delà du minimum légal, jusqu'à un plafond de 150 jours calendaires (75 jours pour un licenciement économique).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>L'indemnité de rupture conventionnelle est-elle imposable ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Le minimum légal ou conventionnel est totalement exonéré d'impôt sur le revenu et de CSG/CRDS. L'excédent supra-légal est soumis à la CSG/CRDS (9,7 %) mais reste exonéré d'impôt jusqu'à un plafond élevé (le plus élevé entre 2 fois le brut annuel N-1 ou 50 % de l'indemnité, dans la limite de 6 PASS).
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <div class="panel-title">Préparer l'après-rupture</div>
+            <ul class="sidebar-list">
+              <li><a href="tjm-freelance-vs-cdi.html"><span>Passer freelance : calculer son TJM</span><span class="mono">→</span></a></li>
+              <li><a href="brut-en-net-2026.html"><span>Convertir sa future offre Brut / Net</span><span class="mono">→</span></a></li>
+              <li><a href="vrai-salaire-horaire.html"><span>Vrai Salaire Horaire du prochain poste</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/negocier-salaire-2026.html"><span>Guide négociation salariale 2026</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand"><span class="eyebrow-dot" aria-hidden="true"></span><span>CHRONONET</span></a>
+          <p class="footer-desc">Instruments indépendants de mesure du vrai salaire horaire, du temps de vie et de la rémunération en France.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="vrai-salaire-horaire.html">Vrai salaire horaire</a></li>
+            <li><a href="prix-en-heures-de-vie.html">Prix en heures de vie</a></li>
+            <li><a href="teletravail-vs-presentiel.html">Économies télétravail</a></li>
+            <li><a href="brut-en-net-2026.html">Brut en Net 2026</a></li>
+            <li><a href="rupture-conventionnelle.html">Rupture conventionnelle</a></li>
+            <li><a href="tjm-freelance-vs-cdi.html">TJM Freelance vs CDI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides</div>
+          <ul class="footer-links">
+            <li><a href="../guides/negocier-salaire-2026.html">Négocier son salaire 2026</a></li>
+            <li><a href="../guides/bareme-frais-kilometriques-2026.html">Barème kilométrique 2026</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Cadre légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ChronoNet (chrononet.fr) — Simulations indicatives, calculs 100 % locaux.</span>
+        <button type="button" class="footer-cookie-btn" data-open-cookies>Gérer les cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/rupture-conventionnelle.js"></script>
+</body>
+</html>

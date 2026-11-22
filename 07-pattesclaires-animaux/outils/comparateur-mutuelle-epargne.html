@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur Mutuelle Animale vs Auto-Assurance (Cagnotte Santé) — PattesClaires</title>
+  <meta name="description" content="Faut-il prendre une mutuelle chien/chat ou épargner chaque mois sur un livret dédié ? Comparez le coût net sur 12 ans face à 3 scénarios vétérinaires réels.">
+  <link rel="canonical" href="https://pattesclaires.fr/outils/comparateur-mutuelle-epargne.html">
+  <meta property="og:title" content="Mutuelle Chien/Chat vs Cagnotte Épargne : Le Simulateur Impartial">
+  <meta property="og:description" content="Modélisez cotisations, franchise, plafond annuel et inflation face à un livret d'épargne de précaution sur toute la vie de votre animal.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pattesclaires.fr/outils/comparateur-mutuelle-epargne.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=JetBrains+Mono:wght@500;600&family=Nunito+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Comparateur Mutuelle Animale vs Auto-Assurance (Cagnotte Santé)",
+        "url": "https://pattesclaires.fr/outils/comparateur-mutuelle-epargne.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Simulateur financier impartial comparant le coût net d'une assurance santé chien/chat à une épargne mensuelle dédiée sur 6 à 16 ans."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://pattesclaires.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Mutuelle vs Cagnotte Santé", "item": "https://pattesclaires.fr/outils/comparateur-mutuelle-epargne.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que l'auto-assurance pour un chien ou un chat ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "L'auto-assurance consiste à virer chaque mois l'équivalent d'une cotisation de mutuelle (ex. 35 à 50 €) sur un livret d'épargne rémunéré (Livret A ou LDDS). L'argent reste disponible pour payer les urgences vétérinaires et n'est pas perdu si l'animal reste en bonne santé."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel est le principal danger de la cagnotte santé par rapport à une mutuelle ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le risque majeur se situe durant les 2 premières années : si votre chiot subit une fracture ou ingère un corps étranger à 8 mois (facture de 1 800 €), votre cagnotte à 40 €/mois ne contient encore que 320 €. Il faut donc disposer d'une épargne personnelle déjà constituée pour absorber un choc précoce."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Dans quel cas la mutuelle animale est-elle financièrement gagnante ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La mutuelle devient mathématiquement gagnante en cas de pathologie chronique au long cours (dermatite atopique, diabète, insuffisance cardiaque, épilepsie) ou de chirurgies orthopédiques multiples (double rupture des ligaments croisés), surtout sur les races prédisposées comme le Bouledogue Français, le Cavalier King Charles ou le Bouvier Bernois."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi les cotisations de mutuelle chien/chat augmentent-elles avec l'âge ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La plupart des contrats appliquent une revalorisation annuelle liée à l'inflation des actes vétérinaires (+4 à +7 %/an) ainsi qu'une surprime d'âge lorsque l'animal franchit 7, 8 ou 10 ans."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "À quoi faut-il faire attention avant de signer un contrat d'assurance animale ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Vérifiez toujours 4 clauses : le plafond annuel de remboursement (visez au moins 1 800 €), la franchise annuelle ou par acte, les délais de carence (souvent 45 jours pour la maladie et 6 mois pour les ligaments croisés) et les exclusions des maladies héréditaires ou congénitales."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-base="../">
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="2.2"/><circle cx="16" cy="7" r="2.2"/><circle cx="4.5" cy="12" r="1.9"/><circle cx="19.5" cy="12" r="1.9"/><path d="M12 11c-3 0-5.2 2.4-5.2 5.2 0 1.8 1.4 3.3 3.3 3.3 1.2 0 1.4-.5 1.9-.5s.7.5 1.9.5c1.9 0 3.3-1.5 3.3-3.3C17.2 13.4 15 11 12 11z"/></svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">PattesClaires</span>
+          <span class="brand-tag">Budget &amp; Santé Animale</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <ul class="nav-links">
+          <li><a href="budget-chien-chat-race.html">Budget Race</a></li>
+          <li><a href="ration-croquettes.html">Ration</a></li>
+          <li><a href="age-humain-reel.html">Âge Réel</a></li>
+          <li><a href="aliments-toxiques.html">Toxiques</a></li>
+          <li><a href="comparateur-mutuelle-epargne.html" aria-current="page">Mutuelle</a></li>
+          <li><a href="checklist-adoption.html">Adoption</a></li>
+          <li><a href="../guides/budget-adoption-chien-chat-2026.html">Guides</a></li>
+        </ul>
+      </nav>
+      <button type="button" id="mobile-menu-toggle" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Ouvrir le menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="mobile-drawer" class="mobile-drawer">
+      <ul>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="budget-chien-chat-race.html">Budget par Race (42 Races)</a></li>
+        <li><a href="ration-croquettes.html">Ration de Croquettes (g/j)</a></li>
+        <li><a href="age-humain-reel.html">Âge Humain Réel</a></li>
+        <li><a href="aliments-toxiques.html">Aliments Toxiques &amp; Chocolat</a></li>
+        <li><a href="comparateur-mutuelle-epargne.html" aria-current="page">Mutuelle vs Auto-Assurance</a></li>
+        <li><a href="checklist-adoption.html">Checklist Adoption 1er Mois</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#outils">Outils</a></li>
+        <li aria-current="page">Mutuelle vs Cagnotte Santé</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot"></span>Outil 05 · Analyse Actuarielle Sans Parti Pris</div>
+          <h1>Comparateur Mutuelle Animale vs Auto-Assurance (Cagnotte Santé)</h1>
+          <p class="lead">
+            Vaut-il mieux payer une assurance santé chaque mois ou virer la même somme sur un livret d’épargne dédié ? Comparez le coût net réel sur toute la vie de votre animal face à 3 scénarios vétérinaires.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="tool-hero-meta-row"><span>Scénarios testés</span><span>Robuste · Chirurgie · Chronique</span></div>
+          <div class="tool-hero-meta-row"><span>Paramètres inclus</span><span>Franchise, Plafond, Inflation</span></div>
+          <div class="tool-hero-meta-row"><span>Horizon</span><span>6 à 16 ans</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container tool-layout">
+        <!-- Paramètres -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Paramètres du comparatif</h2>
+            <span class="badge badge-accent">Simulation vie entière</span>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-row">
+              <label for="horizon-years">Durée de la simulation (espérance de vie)</label>
+              <span id="horizon-years-val" class="label-value">12 ans</span>
+            </div>
+            <input type="range" id="horizon-years" min="6" max="16" step="1" value="12">
+          </div>
+
+          <h3 style="font-size:1.02rem;margin:20px 0 12px;">1. Contrat de Mutuelle Animale</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ins-premium">Cotisation mensuelle départ (€/mois)</label>
+              <input type="number" id="ins-premium" min="10" max="180" step="1" value="38">
+            </div>
+            <div class="form-group">
+              <label for="ins-inflation">Hausse annuelle cotisation (%/an)</label>
+              <input type="number" id="ins-inflation" min="0" max="15" step="0.5" value="4">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="ins-rate">Taux de remboursement (%)</label>
+              <input type="number" id="ins-rate" min="50" max="100" step="5" value="80">
+            </div>
+            <div class="form-group">
+              <label for="ins-ceiling">Plafond annuel (€/an)</label>
+              <input type="number" id="ins-ceiling" min="500" max="5000" step="100" value="1800">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ins-franchise">Franchise annuelle déduite (€/an)</label>
+            <input type="number" id="ins-franchise" min="0" max="500" step="10" value="50">
+          </div>
+
+          <hr style="border:none;border-top:1px solid var(--border);margin:24px 0;">
+
+          <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;">
+            <h3 style="font-size:1.02rem;margin:0;">2. Cagnotte Auto-Assurance (Livret)</h3>
+            <button type="button" id="sync-save-btn" class="btn btn-secondary btn-sm">Aligner sur cotisation</button>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="save-month">Virement mensuel sur livret (€/mois)</label>
+              <input type="number" id="save-month" min="10" max="250" step="1" value="38">
+            </div>
+            <div class="form-group">
+              <label for="save-yield">Taux net du livret (%/an)</label>
+              <input type="number" id="save-yield" min="0" max="8" step="0.25" value="2.5">
+            </div>
+          </div>
+        </div>
+
+        <!-- Résultats -->
+        <div class="panel">
+          <div class="panel-header">
+            <h2 class="panel-title">Bilan comparatif sur la durée</h2>
+            <span class="badge badge-safe">Coût net réel</span>
+          </div>
+
+          <div class="kpi-grid kpi-grid-2">
+            <div class="kpi-box">
+              <div class="kpi-label">Total cotisations mutuelle</div>
+              <div id="out-total-premiums" class="kpi-value">—</div>
+              <div class="kpi-sub">Versées à fonds perdus (avec inflation)</div>
+            </div>
+            <div class="kpi-box kpi-box-accent">
+              <div class="kpi-label">Capital cagnotte (hors sinistres)</div>
+              <div id="out-save-capital" class="kpi-value">—</div>
+              <div class="kpi-sub">Épargne cumulée + intérêts composés</div>
+            </div>
+          </div>
+
+          <div class="callout callout-safe">
+            <div class="callout-title">Verdict de la simulation</div>
+            <p id="out-verdict-summary" style="margin:0;"></p>
+          </div>
+
+          <div class="chart-box">
+            <canvas id="mutuelle-chart" aria-label="Comparaison du coût net Mutuelle vs Cagnotte selon 3 scénarios"></canvas>
+            <div class="chart-caption">Plus la barre est basse, plus la solution est économique pour votre portefeuille sur la durée totale.</div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Scénario vétérinaire</th>
+                  <th class="td-num">Frais véto</th>
+                  <th class="td-num">Coût net Mutuelle</th>
+                  <th class="td-num">Coût net Cagnotte</th>
+                  <th>Gagnant</th>
+                </tr>
+              </thead>
+              <tbody id="out-scenarios-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Emplacement AdSense #1 -->
+      <div class="container">
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format responsive horizontal</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu éditorial expert -->
+    <section class="section section-subtle">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <h2>Comment comparer honnêtement une mutuelle animale et une cagnotte d’épargne ?</h2>
+          <p>
+            Le débat entre les partisans des assurances santé pour animaux (SantéVet, Dalma, Kozoo, Barkibu…) et les adeptes de l’auto-assurance sur Livret A souffre souvent d’un biais de calcul : on oublie d’un côté que <strong>les cotisations de mutuelle sont versées à fonds perdus et augmentent chaque année</strong>, et de l’autre qu’une <strong>urgence chirurgicale à 2 500 € peut survenir dès la première année</strong>, avant que la cagnotte n’ait eu le temps de se remplir.
+          </p>
+
+          <div class="formula-box">
+            Coût_net_Mutuelle = Somme(Cotisations_annuelles) + (Frais_vétérinaires − Remboursements_plafonnés)<br>
+            Coût_net_Auto_Assurance = Frais_vétérinaires_totaux − Intérêts_générés_par_le_livret
+          </div>
+
+          <p>
+            Notre simulateur applique exactement cette comptabilité patrimoniale : dans le cas de la cagnotte santé, l’argent qui n’a pas été dépensé chez le vétérinaire <strong>vous appartient toujours à la fin</strong>. Le vrai coût net de l’auto-assurance correspond donc uniquement aux factures vétérinaires payées, diminuées des intérêts produits par votre livret.
+          </p>
+
+          <h2>Barème des urgences vétérinaires courantes en France (Tarifs 2026)</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Acte ou pathologie</th>
+                  <th class="td-num">Coût moyen constaté</th>
+                  <th>Fréquence / Profil à risque</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Gastro-entérite aiguë ou otite avec traitement</strong></td>
+                  <td class="td-num">95 € à 180 €</td>
+                  <td>Très fréquent (toutes races)</td>
+                </tr>
+                <tr>
+                  <td><strong>Ingestion d’un corps étranger (endoscopie / entérotomie)</strong></td>
+                  <td class="td-num">1 100 € à 2 200 €</td>
+                  <td>Chiots joueurs, Golden, Labrador, chats</td>
+                </tr>
+                <tr>
+                  <td><strong>Rupture du ligament croisé (chirurgie TPLO + suivi)</strong></td>
+                  <td class="td-num">1 600 € à 2 600 €</td>
+                  <td>Berger Australien, Rottweiler, Labrador, Staffie</td>
+                </tr>
+                <tr>
+                  <td><strong>Syndrome brachycéphale (voile du palais + narines)</strong></td>
+                  <td class="td-num">900 € à 1 800 €</td>
+                  <td>Bouledogue Français, Carlin, Bulldog Anglais</td>
+                </tr>
+                <tr>
+                  <td><strong>Traitement dermatite atopique ou maladie chronique</strong></td>
+                  <td class="td-num">900 € à 1 500 € / an</td>
+                  <td>Chaque année à vie dès le déclenchement</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>La stratégie hybride recommandée par les vétérinaires</h2>
+          <ul>
+            <li><strong>Vous n’avez pas 2 000 € d’épargne disponible immédiatement :</strong> prenez une mutuelle (au moins les 3 à 4 premières années, période où les accidents de jeunesse sont nombreux) pour ne jamais avoir à renoncer à des soins vitaux pour une question de trésorerie.</li>
+            <li><strong>Vous adoptez une race à forte prédisposition génétique :</strong> sur un Bouledogue Français, un Cavalier King Charles ou un Bouvier Bernois, la probabilité de dépasser 6 000 € de frais sur 10 ans est élevée ; vérifiez que la race et ses pathologies ne figurent pas dans les exclusions du contrat.</li>
+            <li><strong>Vous disposez déjà d’un matelas de sécurité solide :</strong> l’auto-assurance par virement automatique de 40 à 50 €/mois sur un LDDS est statistiquement gagnante dans près de 70 % des cas.</li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-placeholder">Emplacement partenaire Google AdSense — Format in-article</div>
+          </aside>
+
+          <h2>Questions fréquentes sur les mutuelles chiens et chats</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="mfaq-1">
+                <span>À quel âge faut-il souscrire une mutuelle pour éviter les exclusions ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="mfaq-1" class="faq-panel">
+                Idéalement dès l’adoption (entre 2 et 6 mois), avant l’apparition de tout symptôme. Toute maladie constatée dans le dossier vétérinaire avant la fin du délai de carence sera considérée comme « antécédent préexistant » et exclue à vie par l’assureur.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="mfaq-2">
+                <span>Les vaccins et la stérilisation sont-ils remboursés par la mutuelle ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="mfaq-2" class="faq-panel">
+                Uniquement si votre contrat inclut un « forfait prévention » annuel (généralement de 50 € à 150 €/an). La formule de base couvre les accidents et les maladies imprévues, pas les actes programmés de confort ou d’entretien courant.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="mfaq-3">
+                <span>Jusqu’à quel âge peut-on assurer un chien ou un chat ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="mfaq-3" class="faq-panel">
+                La première souscription est généralement refusée après 5 à 8 ans selon les races. En revanche, un animal assuré jeune reste couvert jusqu’à la fin de sa vie (vérifiez la clause « garantie viagère sans baisse de plafond »).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="mfaq-4">
+                <span>Quelle formule choisir : Accident seul ou Accident + Maladie ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="mfaq-4" class="faq-panel">
+                Les formules « Accident seul » (10 à 15 €/mois) ne couvrent que les chocs traumatiques (choc voiture, chute, morsure). Or 75 % des factures vétérinaires lourdes au cours de la vie d’un animal relèvent de la maladie (tumeurs, infections, problèmes digestifs ou articulaires).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false" aria-controls="mfaq-5">
+                <span>Comment combiner mutuelle et cagnotte santé ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div id="mfaq-5" class="faq-panel">
+                Beaucoup de propriétaires avisés optent pour une formule intermédiaire (remboursement 70–80 % avec franchise de 100 € pour garder une cotisation basse autour de 25 €/mois) et placent 15 €/mois de côté pour couvrir la franchise et les soins préventifs.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside aria-label="Outils complémentaires">
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">Dossier complet</div>
+            <h3 style="margin-bottom:8px;">Budget adoption 2026</h3>
+            <p style="font-size:0.92rem;color:var(--text-secondary);">
+              Découvrez tous les postes de dépenses réels d’un chien ou d’un chat, de la première année aux soins seniors.
+            </p>
+            <a href="../guides/budget-adoption-chien-chat-2026.html" class="btn btn-secondary btn-sm btn-block">Lire le guide budget →</a>
+          </div>
+
+          <div class="sidebar-card">
+            <div class="eyebrow" style="margin-bottom:8px;">Autres calculateurs</div>
+            <ul class="sidebar-links">
+              <li><a href="budget-chien-chat-race.html">Budget vie entière par race <span>→</span></a></li>
+              <li><a href="ration-croquettes.html">Ration de croquettes (g/j) <span>→</span></a></li>
+              <li><a href="age-humain-reel.html">Âge humain réel (UCSD) <span>→</span></a></li>
+              <li><a href="aliments-toxiques.html">Aliments toxiques (64) <span>→</span></a></li>
+              <li><a href="checklist-adoption.html">Checklist Adoption 1er mois <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-name" style="color:var(--text-on-dark);margin-bottom:12px;">PattesClaires</div>
+          <p style="color:var(--text-on-dark-muted);font-size:0.92rem;">Outils gratuits et dossiers documentés sur le budget, la nutrition et la sécurité des chiens et des chats.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="budget-chien-chat-race.html">Budget par race (42 races)</a></li>
+            <li><a href="ration-croquettes.html">Ration de croquettes (g/j)</a></li>
+            <li><a href="age-humain-reel.html">Âge humain scientifique</a></li>
+            <li><a href="aliments-toxiques.html">Aliments toxiques &amp; chocolat</a></li>
+            <li><a href="comparateur-mutuelle-epargne.html">Mutuelle vs auto-assurance</a></li>
+            <li><a href="checklist-adoption.html">Checklist adoption 1er mois</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides Pratiques</div>
+          <ul class="footer-links">
+            <li><a href="../guides/budget-adoption-chien-chat-2026.html">Budget adoption 2026</a></li>
+            <li><a href="../guides/comprendre-ration-croquettes-chien.html">Comprendre la ration croquettes</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Informations Légales</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><button type="button" data-cookie-settings>Gérer mes cookies</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 PattesClaires (pattesclaires.fr)</span>
+        <span>Outil pédagogique indépendant — aucun courtage d’assurance.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/comparateur-mutuelle-epargne.js"></script>
+</body>
+</html>

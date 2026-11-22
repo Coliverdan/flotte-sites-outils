@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur &amp; Suivi de Budget Mariage (Réel vs Prévu) Gratuit — TableLibre</title>
+  <meta name="description" content="Simulez et suivez votre budget mariage sur 12 postes réalistes (traiteur, lieu, photo, tenues, DJ, fleurs, imprévus) : montants prévus vs engagés réels, graphique de répartition et sauvegarde locale sans compte.">
+  <link rel="canonical" href="https://tablelibre.fr/outils/budget-mariage.html">
+  <meta property="og:title" content="Simulateur &amp; Suivi de Budget Mariage (Réel vs Prévu) — TableLibre">
+  <meta property="og:description" content="Ventilez votre budget mariage en 1 clic sur 12 postes, suivez vos dépenses réelles et téléchargez votre graphique de répartition.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tablelibre.fr/outils/budget-mariage.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Simulateur de Budget Mariage TableLibre",
+      "url": "https://tablelibre.fr/outils/budget-mariage.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+      "description": "Outil gratuit sans inscription de ventilation et suivi réel de budget mariage sur 12 postes avec graphique Canvas et sauvegarde locale."
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://tablelibre.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Simulateur Budget Mariage", "item": "https://tablelibre.fr/outils/budget-mariage.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quel est le budget moyen d'un mariage en France ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "En France, le budget moyen d'un mariage d'environ 80 à 100 invités se situe entre 15 000 € et 22 000 €, soit 180 € à 240 € par invité tous postes confondus." }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle part du budget représente le traiteur et les boissons ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le poste traiteur et boissons absorbe en moyenne 38 % à 42 % de l'enveloppe globale. C'est le premier levier d'ajustement en jouant sur le nombre d'invités ou le format du repas." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi faut-il prévoir 5 % d'imprévus dans un budget mariage ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Des frais de dernière minute surviennent presque systématiquement : heures supplémentaires du DJ ou des serveurs, location d'un barnum en cas de pluie, droit de bouchon, retouches de tenue ou repas prestataires." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment réduire son budget mariage sans sacrifier l'ambiance ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les économies les plus efficaces portent sur la date (mariage hors haute saison ou un vendredi), la liste d'invités au repas assis, les fleurs de saison et la papeterie conçue soi-même." }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes chiffres budgétaires restent-ils confidentiels ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui. Toutes vos saisies sont enregistrées exclusivement dans le stockage local de votre navigateur. Aucune donnée financière n'est transmise à un serveur externe." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body data-root="../">
+  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a href="../index.html" class="brand">
+        <span class="brand__mark" aria-hidden="true">T</span>
+        <span class="brand__name">TableLibre</span>
+        <span class="brand__tag">Atelier Réceptions</span>
+      </a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <a href="plan-de-table.html" class="site-nav__link">Plan de table</a>
+        <a href="calculateur-boissons-reception.html" class="site-nav__link">Boissons</a>
+        <a href="budget-mariage.html" class="site-nav__link is-active">Budget</a>
+        <a href="calculateur-traiteur-portions.html" class="site-nav__link">Traiteur</a>
+        <a href="retroplanning-mariage.html" class="site-nav__link">Rétroplanning</a>
+        <a href="partage-frais-evjf-groupe.html" class="site-nav__link">Frais EVJF</a>
+        <a href="../guides/reussir-plan-de-table-mariage.html" class="site-nav__link">Guides</a>
+      </nav>
+      <div class="site-header__actions">
+        <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu">
+      <div class="mobile-menu__group" style="margin-bottom:0;">
+        <div class="mobile-menu__title">Navigation TableLibre</div>
+        <ul class="mobile-menu__list">
+          <li><a href="../index.html">Accueil</a></li>
+          <li><a href="plan-de-table.html">01. Plan de table</a></li>
+          <li><a href="calculateur-boissons-reception.html">02. Calculateur boissons</a></li>
+          <li><a href="budget-mariage.html">03. Budget mariage</a></li>
+          <li><a href="calculateur-traiteur-portions.html">04. Traiteur &amp; buffet</a></li>
+          <li><a href="retroplanning-mariage.html">05. Rétroplanning</a></li>
+          <li><a href="partage-frais-evjf-groupe.html">06. Partage frais EVJF</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb__list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb__current" aria-current="page">Simulateur &amp; Suivi Budget Mariage</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero__grid">
+        <div>
+          <span class="eyebrow">Outil 03 • Pilotage Financier</span>
+          <h1>Simulateur &amp; Suivi de Budget Mariage</h1>
+          <p class="tool-hero__lead">
+            Ventilez automatiquement votre enveloppe globale sur 12 postes réalistes, saisissez vos devis et dépenses réelles au fil des mois et gardez la maîtrise de vos écarts sans tableur complexe.
+          </p>
+        </div>
+        <div class="tool-hero__meta">
+          <span class="badge badge--sage">12 postes ventilés</span>
+          <span class="badge">Sauvegarde locale</span>
+          <span class="badge">Export graphique PNG</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace" id="budget-app">
+      <div class="container">
+        <!-- Paramètres globaux -->
+        <div class="panel no-print" style="margin-bottom:24px;">
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;">
+            <div style="display:flex;flex-wrap:wrap;gap:16px;flex:1;">
+              <div class="field" style="min-width:200px;">
+                <label class="field__label" for="budget-total">Budget cible global (€)</label>
+                <input type="number" id="budget-total" class="input input--mono" min="1000" step="500" value="18000">
+              </div>
+              <div class="field" style="min-width:160px;">
+                <label class="field__label" for="budget-guests">Nombre d'invités</label>
+                <input type="number" id="budget-guests" class="input input--mono" min="10" step="5" value="90">
+              </div>
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <button type="button" id="budget-recalc-btn" class="btn btn--primary btn--sm">Ventiler automatiquement</button>
+              <button type="button" id="budget-png-btn" class="btn btn--secondary btn--sm">Exporter graphique PNG</button>
+              <button type="button" id="budget-reset-btn" class="btn btn--ghost btn--sm">Réinitialiser</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- KPIs -->
+        <div class="kpi-grid kpi-grid--4">
+          <div class="kpi-box">
+            <div class="kpi-box__label">Somme des postes prévus</div>
+            <div class="kpi-box__value" id="kpi-planned">0 €</div>
+          </div>
+          <div class="kpi-box kpi-box--accent">
+            <div class="kpi-box__label">Total réel engagé</div>
+            <div class="kpi-box__value" id="kpi-actual">0 €</div>
+          </div>
+          <div class="kpi-box" id="kpi-remaining-box">
+            <div class="kpi-box__label">Solde disponible</div>
+            <div class="kpi-box__value" id="kpi-remaining">0 €</div>
+          </div>
+          <div class="kpi-box">
+            <div class="kpi-box__label">Budget / invité</div>
+            <div class="kpi-box__value" id="kpi-budget-guest">0 €</div>
+          </div>
+        </div>
+
+        <div style="margin-bottom:24px;">
+          <div style="display:flex;justify-content:space-between;font-size:0.86rem;margin-bottom:6px;">
+            <span id="budget-progress-label" class="mono">0 % engagé</span>
+          </div>
+          <div class="progress-track">
+            <div id="budget-progress-fill" class="progress-fill" style="width:0%;"></div>
+          </div>
+        </div>
+
+        <div class="workspace-grid workspace-grid--wide-left">
+          <!-- Tableau des 12 postes -->
+          <div class="panel">
+            <div class="panel__header">
+              <h2 class="panel__title">Suivi détaillé par poste</h2>
+              <span class="field__hint">Éditez librement les colonnes Prévu et Réel</span>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Poste de dépense</th>
+                    <th class="num">Prévu (€)</th>
+                    <th class="num">Réel (€)</th>
+                    <th class="num">Écart</th>
+                    <th>Statut</th>
+                  </tr>
+                </thead>
+                <tbody id="budget-tbody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Graphique Canvas + Légende -->
+          <div class="panel">
+            <div class="panel__header">
+              <h2 class="panel__title">Répartition visuelle</h2>
+              <div class="segmented" style="width:190px;">
+                <button type="button" class="segmented__btn is-active" data-chart-mode="planned">Prévu</button>
+                <button type="button" class="segmented__btn" data-chart-mode="actual">Réel</button>
+              </div>
+            </div>
+            <div class="chart-box">
+              <canvas id="budget-chart" width="320" height="320" aria-label="Graphique circulaire de répartition du budget mariage"></canvas>
+              <div id="budget-legend" class="chart-legend"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AdSense Slot 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot__label">Publicité — Partenaire AdSense</span>
+          <span class="ad-slot__note">Emplacement réservé anti-CLS.</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--bordered">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <span class="eyebrow">Méthodologie Budgétaire</span>
+          <h2>Comment répartir son budget mariage sans mauvaise surprise</h2>
+          <p>
+            Établir un budget de mariage réaliste suppose de raisonner d'abord en <strong>coût par invité</strong> pour les dépenses variables (traiteur, boissons, papeterie, cadeaux), puis en <strong>frais fixes</strong> indépendants du nombre de convives (photographe, DJ, tenues, alliances, lieu de réception). Cette distinction explique pourquoi passer de 70 à 120 invités n'augmente pas tous les postes de la même manière.
+          </p>
+
+          <div class="formula-box">
+            Budget total = Frais fixes (Lieu + Photo + DJ + Tenues + Fleurs + Alliances) + (Invités × Coût variable traiteur/boissons/papeterie) + 5 % Imprévus
+          </div>
+
+          <h3>Repères chiffrés selon trois niveaux d'enveloppe (base 90 invités)</h3>
+          <div class="table-wrap" style="margin:24px 0;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Poste clé</th>
+                  <th class="num">Part type</th>
+                  <th class="num">Budget 12 000 €</th>
+                  <th class="num">Budget 18 000 €</th>
+                  <th class="num">Budget 30 000 €</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Traiteur &amp; boissons</strong></td>
+                  <td class="num">38 %</td>
+                  <td class="num">4 560 €</td>
+                  <td class="num">6 840 €</td>
+                  <td class="num">11 400 €</td>
+                </tr>
+                <tr>
+                  <td><strong>Lieu de réception</strong></td>
+                  <td class="num">15 %</td>
+                  <td class="num">1 800 €</td>
+                  <td class="num">2 700 €</td>
+                  <td class="num">4 500 €</td>
+                </tr>
+                <tr>
+                  <td><strong>Photographe &amp; vidéaste</strong></td>
+                  <td class="num">10 %</td>
+                  <td class="num">1 200 €</td>
+                  <td class="num">1 800 €</td>
+                  <td class="num">3 000 €</td>
+                </tr>
+                <tr>
+                  <td><strong>Tenues &amp; mise en beauté</strong></td>
+                  <td class="num">9 %</td>
+                  <td class="num">1 080 €</td>
+                  <td class="num">1 620 €</td>
+                  <td class="num">2 700 €</td>
+                </tr>
+                <tr>
+                  <td><strong>DJ / Musique &amp; Fleurs</strong></td>
+                  <td class="num">14 %</td>
+                  <td class="num">1 680 €</td>
+                  <td class="num">2 520 €</td>
+                  <td class="num">4 200 €</td>
+                </tr>
+                <tr>
+                  <td><strong>Réserve imprévus</strong></td>
+                  <td class="num">5 %</td>
+                  <td class="num">600 €</td>
+                  <td class="num">900 €</td>
+                  <td class="num">1 500 €</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Les 5 coûts cachés qui font déraper un budget</h3>
+          <ul>
+            <li><strong>Les repas des prestataires :</strong> photographe, DJ, vidéaste et baby-sitter travaillent 10 à 14 heures sur place ; prévoyez leur menu prestataire (35 € à 55 € par personne).</li>
+            <li><strong>Les heures supplémentaires de salle et de service :</strong> vérifiez l'heure exacte de fin incluse dans le contrat (souvent 3 h ou 4 h du matin) et le tarif horaire au-delà.</li>
+            <li><strong>La TVA et les frais de livraison :</strong> certains devis de location de mobilier ou de fleurs affichent des montants HT ou excluent le démontage du dimanche matin.</li>
+            <li><strong>Le droit de bouchon et la verrerie :</strong> apporter son propre champagne n'est rentable qu'après intégration du forfait service par bouteille.</li>
+            <li><strong>La taxe SACEM et l'assurance responsabilité civile événementielle :</strong> rarement élevées, mais obligatoires sur de nombreux domaines privés.</li>
+          </ul>
+
+          <!-- AdSense Slot 2 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot__label">Publicité — Partenaire AdSense</span>
+            <span class="ad-slot__note">Espace éditorial séparé.</span>
+          </aside>
+
+          <h2>Questions fréquentes sur le budget mariage</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Quel est le budget moyen d'un mariage en France ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Pour 80 à 100 invités, le budget médian se situe entre 15 000 € et 22 000 €, avec de forts écarts selon la région (Île-de-France et Provence étant en moyenne 20 à 30 % plus chères) et la saison choisie.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Quelle part du budget représente le traiteur et les boissons ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Comptez entre 38 % et 45 % de votre budget total pour l'ensemble cocktail, dîner, dessert et boissons. Pour affiner ces deux lignes au plus juste, utilisez nos calculateurs dédiés traiteur et cave.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>À quel rythme paie-t-on les prestataires d'un mariage ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                La règle usuelle consiste en un acompte de 30 % à la signature du devis (J-12 à J-9 mois), un second versement intermédiaire de 30 % à J-3 mois, et le solde de 40 % entre J-15 et le Jour J.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Comment rééquilibrer un poste qui dépasse le montant prévu ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Saisissez immédiatement le devis réel dans la colonne « Réel (€) » : la colonne Écart passe en rouge. Vous pouvez alors puiser dans la ligne « Réserve &amp; imprévus » ou ajuster à la baisse un poste non encore signé (papeterie, décoration ou cadeaux).
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-item__trigger" aria-expanded="false">
+                <span>Mon tableau budgétaire est-il conservé si je ferme la page ?</span>
+                <span class="faq-item__icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-item__panel">
+                Oui, toutes vos modifications sont sauvegardées automatiquement dans votre navigateur. Tant que vous ne videz pas les données de site de votre navigateur, vous retrouverez votre suivi à l'euro près.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="related-box">
+          <h3 class="related-box__title">Affiner chaque poste</h3>
+          <ul class="related-list">
+            <li><a href="calculateur-boissons-reception.html"><span>02. Calculer le budget boissons</span><span class="mono">→</span></a></li>
+            <li><a href="calculateur-traiteur-portions.html"><span>04. Estimer les portions traiteur</span><span class="mono">→</span></a></li>
+            <li><a href="retroplanning-mariage.html"><span>05. Planifier vos échéances</span><span class="mono">→</span></a></li>
+            <li><a href="plan-de-table.html"><span>01. Construire le plan de table</span><span class="mono">→</span></a></li>
+            <li><a href="partage-frais-evjf-groupe.html"><span>06. Partager les frais d'EVJF</span><span class="mono">→</span></a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <div class="site-footer__brand">TableLibre</div>
+          <p class="site-footer__text">Atelier français d'organisation de mariages et réceptions, 100 % gratuit et sans création de compte.</p>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Outils gratuits</h3>
+          <ul class="site-footer__links">
+            <li><a href="plan-de-table.html">Éditeur de plan de table</a></li>
+            <li><a href="calculateur-boissons-reception.html">Calculateur boissons &amp; vin</a></li>
+            <li><a href="budget-mariage.html">Simulateur budget mariage</a></li>
+            <li><a href="calculateur-traiteur-portions.html">Calculateur traiteur &amp; buffet</a></li>
+            <li><a href="retroplanning-mariage.html">Rétroplanning personnalisé</a></li>
+            <li><a href="partage-frais-evjf-groupe.html">Partage frais EVJF / groupe</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Guides pratiques</h3>
+          <ul class="site-footer__links">
+            <li><a href="../guides/reussir-plan-de-table-mariage.html">Réussir son plan de table</a></li>
+            <li><a href="../guides/quantites-boissons-reception-guide.html">Guide quantités boissons</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="site-footer__heading">Informations légales</h3>
+          <ul class="site-footer__links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__bottom">
+        <span>© <span data-current-year>2026</span> TableLibre (tablelibre.fr)</span>
+        <span>Données sauvegardées localement sur votre appareil.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/budget-mariage.js"></script>
+</body>
+</html>

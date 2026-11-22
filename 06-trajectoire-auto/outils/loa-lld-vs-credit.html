@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur LOA / LLD vs Crédit Auto vs Comptant (2026) | Trajectoire</title>
+  <meta name="description" content="Comparez le coût net final d'une LOA (rachat ou restitution), d'une LLD, d'un crédit auto et d'un achat comptant sur 36, 48 ou 60 mois. Alerte pénalités kilomètres excédentaires incluse.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/outils/loa-lld-vs-credit.html">
+  <meta property="og:title" content="Comparateur LOA / LLD vs Crédit Auto vs Achat Comptant">
+  <meta property="og:description" content="Ne vous fiez pas au loyer d'appel : comparez le vrai coût net après revente, option d'achat et pénalités kilométriques.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/outils/loa-lld-vs-credit.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Comparateur LOA / LLD vs Crédit Auto vs Comptant",
+        "url": "https://trajectoire-auto.fr/outils/loa-lld-vs-credit.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://trajectoire-auto.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "LOA / LLD vs Crédit Auto", "item": "https://trajectoire-auto.fr/outils/loa-lld-vs-credit.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle est la différence fondamentale entre une LOA et une LLD ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La LOA (Location avec Option d'Achat) vous permet soit de restituer le véhicule, soit d'en devenir propriétaire à la fin du contrat en réglant la valeur de rachat fixée à l'avance. La LLD (Location Longue Durée) n'offre aucune option d'achat : vous restituez obligatoirement la voiture au terme, mais le loyer inclut souvent l'entretien et l'assistance." }
+          },
+          {
+            "@type": "Question",
+            "name": "La LOA coûte-t-elle vraiment plus cher qu'un crédit auto classique ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Dans la grande majorité des cas, oui : le coût total d'une LOA suivie d'un rachat est généralement supérieur de 1 500 € à 4 500 € à celui d'un crédit bancaire classique, car le taux implicite des captives constructeurs oscille souvent entre 7 % et 10 % hors opérations subventionnées." }
+          },
+          {
+            "@type": "Question",
+            "name": "Combien coûtent les kilomètres excédentaires en fin de LOA ou LLD ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les contrats prévoient habituellement une facturation de 0,08 € à 0,20 € par kilomètre excédentaire selon le segment. Rouler 15 000 km/an au lieu des 10 000 km/an d'un contrat de 48 mois génère 20 000 km de dépassement, soit 2 400 € de pénalité à 0,12 €/km." }
+          },
+          {
+            "@type": "Question",
+            "name": "Peut-on éviter les frais de remise en état en LOA ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, en levant l'option d'achat à la fin de la LOA pour revendre vous-même le véhicule sur le marché de l'occasion (ou en le conservant). Cela supprime à la fois les frais de carrosserie/jantes exigés par l'expert de restitution et la pénalité kilométrique." }
+          },
+          {
+            "@type": "Question",
+            "name": "Vaut-il mieux acheter sa voiture comptant ou garder son épargne placée ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Lorsque le TAEG d'un crédit auto (5 % à 7 %) dépasse le rendement net de votre épargne sans risque (ex. Livret A à 2,4 %), l'achat comptant reste mathématiquement la solution la plus rentable, à condition de conserver une épargne de précaution suffisante." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="duel-electrique-vs-thermique.html" class="nav-link">Duel TCO</a>
+        <a href="simulateur-malus-2026.html" class="nav-link">Malus 2026</a>
+        <a href="cout-recharge-electrique.html" class="nav-link">Recharge VE</a>
+        <a href="cout-reel-kilometrique.html" class="nav-link">PRK Réel</a>
+        <a href="loa-lld-vs-credit.html" class="nav-link active">LOA vs Crédit</a>
+        <a href="cout-trajet-autoroute.html" class="nav-link">Trajet</a>
+        <a href="../guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="duel-electrique-vs-thermique.html">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="simulateur-malus-2026.html">02 · Simulateur Malus 2026 + Carte Grise</a>
+      <a href="cout-recharge-electrique.html">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="cout-reel-kilometrique.html">04 · Calculateur PRK (Coût au Kilomètre)</a>
+      <a href="loa-lld-vs-credit.html" class="active">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="cout-trajet-autoroute.html">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Labo</div>
+      <a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a>
+      <a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a>
+      <a href="../a-propos.html">Méthodologie &amp; À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li>Outils</li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Comparateur LOA / LLD vs Crédit Auto</li>
+      </ol>
+    </div>
+
+    <section class="tool-hero">
+      <div class="container">
+        <div class="tool-hero-grid">
+          <div>
+            <span class="eyebrow">Instrument 05 · Arbitrage Financement Auto</span>
+            <h1 class="mt-2">Comparateur LOA / LLD vs Crédit Auto vs Achat Comptant</h1>
+            <p>
+              Les publicités affichent un loyer mensuel séduisant, mais masquent le premier loyer majoré, l'option d'achat finale et le coût réel en cas de dépassement kilométrique. Comparez les <strong>5 scénarios nets</strong> sur 36, 48 ou 60 mois.
+            </p>
+          </div>
+          <div class="tool-meta-box">
+            <div class="tool-meta-row"><span>Scénarios comparés</span><span>Comptant, Crédit, LOA (×2), LLD</span></div>
+            <div class="tool-meta-row"><span>Alerte contractuelle</span><span>Pénalité km excédentaires</span></div>
+            <div class="tool-meta-row"><span>Base de comparaison</span><span>Coût net après revente</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="tool-layout">
+          <form class="panel" id="fin-form" onsubmit="return false;">
+            <div class="panel-header">
+              <span class="panel-title">Paramètres de vos offres</span>
+              <span class="badge badge-accent">36 / 48 / 60 mois</span>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">1. Véhicule &amp; Durée</div>
+              <div class="field">
+                <label>Durée du contrat</label>
+                <div class="segmented" role="group" aria-label="Durée de financement">
+                  <button type="button" class="segmented-btn" data-fin-months="36">36 mois</button>
+                  <button type="button" class="segmented-btn is-active" data-fin-months="48">48 mois</button>
+                  <button type="button" class="segmented-btn" data-fin-months="60">60 mois</button>
+                </div>
+              </div>
+              <div class="form-row form-row-3">
+                <div class="field">
+                  <label for="f-price">Prix véhicule</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-price" step="500" min="3000" value="32000">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-apport">Apport / 1er loyer</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-apport" step="200" min="0" value="4000">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-resale">Revente fin durée</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-resale" step="500" min="0" value="17500">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">2. Offres LOA, LLD &amp; Crédit</div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="f-loa-month">Loyer mensuel LOA</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-loa-month" step="10" min="0" value="365">
+                    <span class="input-unit-tag">€/m</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-loa-option">Option d'achat finale LOA</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-loa-option" step="200" min="0" value="16200">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="f-lld-month">Loyer mensuel LLD</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-lld-month" step="10" min="0" value="390">
+                    <span class="input-unit-tag">€/m</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-restitution-fees">Frais remise en état (restit.)</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-restitution-fees" step="50" min="0" value="750">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="f-taeg">TAEG Crédit Auto classique</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-taeg" step="0.1" min="0" max="20" value="5.9">
+                    <span class="input-unit-tag">%</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-savings-rate">Rendement épargne renoncé</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-savings-rate" step="0.1" min="0" max="10" value="2.4">
+                    <span class="input-unit-tag">%</span>
+                  </div>
+                  <span class="field-hint">Mettre 0 % pour ignorer le coût d'opportunité du comptant.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <div class="form-section-title">3. Piège des kilomètres excédentaires (LOA / LLD)</div>
+              <div class="form-row form-row-3">
+                <div class="field">
+                  <label for="f-km-contract">Forfait contrat</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-km-contract" step="1000" min="5000" value="10000">
+                    <span class="input-unit-tag">km/an</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-km-real">Votre usage réel</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-km-real" step="1000" min="1000" value="14000">
+                    <span class="input-unit-tag">km/an</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="f-km-penalty">Pénalité / km</label>
+                  <div class="input-unit">
+                    <input type="number" id="f-km-penalty" step="0.01" min="0" value="0.12">
+                    <span class="input-unit-tag">€/km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Arbitrage financier net</span>
+                <button type="button" class="btn btn-primary btn-sm" id="f-export-png">Exporter la fiche PNG</button>
+              </div>
+
+              <div class="kpi-banner is-positive" id="f-verdict-banner">
+                <div class="kpi-banner-label">Option la moins coûteuse en net final</div>
+                <div class="kpi-banner-value" id="f-verdict-val">—</div>
+                <div class="kpi-banner-sub" id="f-verdict-sub"></div>
+              </div>
+
+              <div class="callout" id="f-km-warning" style="border-left-color:#EF4444;background-color:#261214;display:none;">
+                <div class="callout-title" style="color:#EF4444;">Alerte kilométrage excédentaire (LOA / LLD)</div>
+                <p id="f-km-warning-text" style="margin-bottom:0;color:#F2F2EE;font-size:14px;"></p>
+              </div>
+
+              <div class="kpi-grid">
+                <div class="kpi-card">
+                  <div class="kpi-label">Comptant (Net)</div>
+                  <div class="kpi-val positive" id="f-kpi-cash">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Crédit Auto (Net)</div>
+                  <div class="kpi-val" style="color:#38BDF8;" id="f-kpi-credit">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Meilleure LOA (Net)</div>
+                  <div class="kpi-val accent" id="f-kpi-loa">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">LLD (Net)</div>
+                  <div class="kpi-val" id="f-kpi-lld">—</div>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <span class="telemetry-title">Coût net final par mode de financement (après revente)</span>
+                </div>
+                <div class="canvas-wrap" style="height:260px;">
+                  <canvas id="f-chart" aria-label="Histogramme comparatif du coût net entre Comptant, Crédit, LOA et LLD"></canvas>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Mode de financement</th>
+                      <th class="num">Mensualité</th>
+                      <th class="num">Décaissé total</th>
+                      <th class="num">Revente</th>
+                      <th class="num">Coût Net Final</th>
+                    </tr>
+                  </thead>
+                  <tbody id="f-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format adaptatif anti-CLS</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid">
+          <article class="prose">
+            <h2>Pourquoi comparer la mensualité LOA et la mensualité crédit est une erreur mathématique</h2>
+            <p>
+              En concession, la <strong>LOA (Location avec Option d'Achat)</strong> représente désormais plus de la moitié des financements de véhicules neufs aux particuliers. Son attrait repose sur une illusion comptable simple : la mensualité d'une LOA ne rembourse que la décote estimée du véhicule (plus les intérêts locatifs), tandis que la mensualité d'un crédit auto amortit 100 % du capital. À la fin du crédit, vous possédez un actif revendable 15 000 € à 20 000 € ; à la fin d'une LOA restituée ou d'une LLD, votre patrimoine automobile vaut zéro euro.
+            </p>
+            <div class="formula-block">
+              Coût_Net_Propriétaire = (Apport + Total_Mensualités + Intérêts) − Valeur_Revente_Réelle<br>
+              Coût_Net_Location = Apport + (Loyer × (N − 1)) + Pénalités_Km + Frais_Remise_en_État
+            </div>
+            <p>
+              Notre comparateur rétablit une base équitable en calculant le <strong>coût net patrimonial final</strong> de chaque formule à l'issue exacte des 36, 48 ou 60 mois, y compris le coût d'opportunité de l'épargne immobilisée lors d'un achat comptant.
+            </p>
+
+            <h2>Exemple chiffré : véhicule à 32 000 € sur 48 mois (14 000 km/an réels)</h2>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Formule (Apport 4 000 € · Revente 17 500 €)</th>
+                    <th class="num">Mensualité</th>
+                    <th class="num">Déboursé total</th>
+                    <th class="num">Coût Net Final</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Achat Comptant (hors coût d'opportunité)</td>
+                    <td class="num">0 €</td>
+                    <td class="num">32 000 €</td>
+                    <td class="num text-positive">14 500 €</td>
+                  </tr>
+                  <tr>
+                    <td>Crédit Auto 5,9 % TAEG</td>
+                    <td class="num">656 €/m</td>
+                    <td class="num">35 504 €</td>
+                    <td class="num">18 004 €</td>
+                  </tr>
+                  <tr>
+                    <td>LOA 365 €/m + Option rachat 16 200 € (puis revente)</td>
+                    <td class="num">365 €/m</td>
+                    <td class="num">37 355 €</td>
+                    <td class="num">19 855 €</td>
+                  </tr>
+                  <tr>
+                    <td>LOA 365 €/m restituée (forfait 10 000 km/an dépassé)</td>
+                    <td class="num">365 €/m</td>
+                    <td class="num">23 825 €</td>
+                    <td class="num text-accent">23 825 €</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Les trois pièges majeurs des contrats LOA et LLD</h2>
+            <ul>
+              <li><strong>Le sous-dimensionnement du forfait kilométrique :</strong> les offres publicitaires sont presque toujours calibrées sur 10 000 km/an alors que la moyenne nationale avoisine 13 000 à 15 000 km/an. Chaque kilomètre supplémentaire facturé 0,10 € à 0,18 € alourdit la facture finale de plusieurs milliers d'euros.</li>
+              <li><strong>L'expertise de restitution :</strong> rayures de bouclier, jante frottée, impact pare-brise ou usure de pneus supérieure à 50 % donnent lieu à des devis de carrosserie tarif constructeur (souvent 600 € à 1 800 €).</li>
+              <li><strong>L'assurance perte financière imposée ou coûteuse :</strong> vérifiez si votre assurance auto principale couvre déjà la valeur à neuf pendant 36 mois avant de souscrire l'option perte financière du bailleur (25 € à 45 €/mois).</li>
+            </ul>
+
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format in-article responsive</div>
+            </aside>
+
+            <h2>Questions fréquentes sur la LOA, la LLD et le crédit auto</h2>
+            <div class="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Quand une LOA ou une LLD peut-elle malgré tout être intéressante&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Une LOA/LLD devient compétitive dans deux cas précis : lors d'opérations commerciales fortement subventionnées par le constructeur (taux implicite proche de 0 % ou remise réservée au financement locatif) ou lorsque vous craignez une forte décote technologique sur un véhicule électrique neuf et souhaitez transférer le risque de revente au bailleur.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Pourquoi comptez-vous (N − 1) loyers mensuels en LOA/LLD&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Dans les contrats français (ex. « 48 mois : 1er loyer majoré de 4 000 € suivi de 47 loyers de 365 € »), l'apport correspond au premier des 48 loyers. Notre formule reflète cette pratique contractuelle exacte pour ne pas gonfler artificiellement la LOA d'un mois supplémentaire.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Est-il rentable de racheter sa voiture en fin de LOA&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Très souvent, oui : si la cote réelle d'occasion du véhicule (ex. 17 500 €) est supérieure à l'option d'achat contractuelle (ex. 16 200 €), lever l'option vous permet d'empocher la différence et d'éviter simultanément les frais de remise en état et les pénalités kilométriques.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Comment intégrer le coût d'entretien inclus dans une LLD&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Si l'offre LLD que vous comparez inclut l'entretien périodique (environ 35 à 50 €/mois), déduisez simplement ce montant du loyer mensuel LLD saisi afin de comparer uniquement le financement pur à périmètre identique.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Puis-je résilier une LOA ou une LLD avant son terme&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  La résiliation anticipée d'une LLD ou d'une LOA entraîne presque toujours des indemnités de rupture très élevées (calculées selon une formule réglementaire basée sur les loyers restants). Si votre situation professionnelle ou familiale risque d'évoluer sous 24 mois, un crédit auto classique (remboursable par anticipation lors de la revente libre du véhicule) offre beaucoup plus de souplesse.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Autres instruments Trajectoire</div>
+              <ul class="sidebar-links">
+                <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique (TCO) <span>→</span></a></li>
+                <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026 &amp; Carte Grise <span>→</span></a></li>
+                <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge VE <span>→</span></a></li>
+                <li><a href="cout-reel-kilometrique.html">Calculateur PRK (Coût au km) <span>→</span></a></li>
+                <li><a href="cout-trajet-autoroute.html">Coût Trajet Autoroute &amp; Train <span>→</span></a></li>
+              </ul>
+            </div>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Dossiers liés</div>
+              <ul class="sidebar-links">
+                <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026 <span>→</span></a></li>
+                <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox 2026 <span>→</span></a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">TR</span><span>TRAJECTOIRE</span></a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">Laboratoire indépendant du coût réel automobile en France. Barèmes 2026 et outils transparents sans inscription.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/loa-lld-vs-credit.js"></script>
+</body>
+</html>

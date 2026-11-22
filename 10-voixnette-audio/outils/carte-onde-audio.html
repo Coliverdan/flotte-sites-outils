@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur d'Audiogramme &amp; Carte Waveform HD PNG — VoixNette</title>
+  <meta name="description" content="Créez une carte waveform éditoriale haute définition (1:1, 9:16, 16:9) à partir de la vraie forme d'onde de votre podcast ou extrait audio. 4 thèmes studio, export PNG gratuit sans filigrane.">
+  <link rel="canonical" href="https://voixnette.fr/outils/carte-onde-audio.html">
+  <meta property="og:title" content="Générateur d'Audiogramme / Carte Waveform HD — VoixNette">
+  <meta property="og:description" content="Extrayez la véritable forme d'onde de votre podcast dans votre navigateur et téléchargez une carte PNG 1080p/1920p prête pour LinkedIn, Instagram et YouTube.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://voixnette.fr/outils/carte-onde-audio.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "VoixNette VN-05 — Générateur d'Audiogramme & Carte Waveform HD",
+        "url": "https://voixnette.fr/outils/carte-onde-audio.html",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "Tous navigateurs modernes (WebAudio API + Canvas HD)",
+        "inLanguage": "fr-FR",
+        "isAccessibleForFree": true,
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Générateur local de cartes waveform éditoriales haute définition (1:1, 9:16, 16:9) à partir d'un vrai fichier audio avec export PNG instantané sans filigrane."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://voixnette.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils Studio", "item": "https://voixnette.fr/#rack-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Carte Onde Audiogramme", "item": "https://voixnette.fr/outils/carte-onde-audio.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "La forme d'onde dessinée sur la carte provient-elle vraiment de mon fichier audio ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Contrairement aux générateurs décoratifs qui affichent des barres aléatoires, VoixNette décode intégralement votre piste via decodeAudioData(), calcule la crête réelle de chaque tranche temporelle et la normalise sur le Canvas haute définition."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles sont les résolutions exactes des images PNG exportées ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le format Carré 1:1 est exporté en 1080×1080 px, le format Story 9:16 en 1080×1920 px et le format Paysage 16:9 en 1920×1080 px, sans filigrane et sans compression JPEG destructive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment utiliser cette carte PNG dans un outil de montage vidéo (CapCut, Premiere, Canva) ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Téléchargez d'abord votre extrait de 30 secondes via le Découpeur Audio (VN-03), générez la carte PNG assortie ici, puis superposez simplement le fichier WAV et l'image PNG dans votre éditeur vidéo pour publier un Reel, Short ou post LinkedIn natif."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel format choisir entre Carré 1:1, Story 9:16 et Paysage 16:9 ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Le Carré 1:1 fonctionne parfaitement sur LinkedIn, Instagram Feed et X ; la Story 9:16 occupe tout l'écran vertical sur TikTok, Reels et Shorts ; le Paysage 16:9 est conçu pour les vignettes YouTube, newsletters et articles de blog."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le thème Braun Ivoire convient-il pour les newsletters et présentations claires ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui. Le thème Braun Ivoire utilise un fond papier chaud #F3F1EC à fort contraste typographique, très lisible sur fond blanc (Substack, Notion, LinkedIn) tout en gardant l'accent rouge studio."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand-link" aria-label="VoixNette Accueil">
+        <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+        <span>VoixNette</span>
+        <span class="brand-tag">DSP Local</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <div class="nav-dropdown-wrap">
+          <button type="button" class="nav-dropdown-btn" aria-expanded="false" aria-haspopup="true">
+            Outils Studio <span class="mono" aria-hidden="true">▾</span>
+          </button>
+          <div class="nav-dropdown-menu" role="menu">
+            <a href="coupe-silence-vocal.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Coupe-Silence Vocal</span><span class="nav-dropdown-sub">Supprimer les blancs WhatsApp &amp; cours</span></span>
+              <span class="nav-dropdown-code">VN-01</span>
+            </a>
+            <a href="normaliseur-volume.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Normaliseur de Volume</span><span class="nav-dropdown-sub">Peak dBFS, -14 LUFS &amp; anti-saturation</span></span>
+              <span class="nav-dropdown-code">VN-02</span>
+            </a>
+            <a href="decoupeur-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Découpeur Audio Visuel</span><span class="nav-dropdown-sub">Rognage précis 0,01 s + Fade-In/Out</span></span>
+              <span class="nav-dropdown-code">VN-03</span>
+            </a>
+            <a href="vitesse-pitch-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Accélérateur 0,5× à 3,0×</span><span class="nav-dropdown-sub">Écoute rapide cours &amp; export WAV</span></span>
+              <span class="nav-dropdown-code">VN-04</span>
+            </a>
+            <a href="carte-onde-audio.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Carte Onde Audiogramme</span><span class="nav-dropdown-sub">Visuel waveform HD 1:1, 9:16, 16:9</span></span>
+              <span class="nav-dropdown-code">VN-05</span>
+            </a>
+            <a href="analyseur-micro-bruit.html" class="nav-dropdown-item" role="menuitem">
+              <span><span class="nav-dropdown-title">Analyseur Micro &amp; Bruit</span><span class="mono">VN-06</span></span>
+            </a>
+          </div>
+        </div>
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="nav-link">Guides Audio</a>
+        <a href="../a-propos.html" class="nav-link">Méthodologie</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <span class="status-pill">
+          <span class="led-dot is-green" aria-hidden="true"></span>
+          <span>100 % LOCAL · ZÉRO UPLOAD</span>
+        </span>
+        <button type="button" class="menu-toggle" id="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+          <span class="mono">≡</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer" aria-label="Navigation mobile">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Rack Outils Studio</div>
+      <div class="mobile-nav-list">
+        <a href="coupe-silence-vocal.html" class="mobile-nav-link"><span>Coupe-Silence Vocal</span><span class="mono">VN-01</span></a>
+        <a href="normaliseur-volume.html" class="mobile-nav-link"><span>Normaliseur de Volume</span><span class="mono">VN-02</span></a>
+        <a href="decoupeur-audio.html" class="mobile-nav-link"><span>Découpeur Audio Visuel</span><span class="mono">VN-03</span></a>
+        <a href="vitesse-pitch-audio.html" class="mobile-nav-link"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a>
+        <a href="carte-onde-audio.html" class="mobile-nav-link"><span>Carte Onde Audiogramme</span><span class="mono">VN-05</span></a>
+        <a href="analyseur-micro-bruit.html" class="mobile-nav-link"><span>Analyseur Micro &amp; Bruit</span><span class="mono">VN-06</span></a>
+      </div>
+    </div>
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-label">Guides &amp; Studio</div>
+      <div class="mobile-nav-list">
+        <a href="../guides/optimiser-son-podcast-sans-logiciel.html" class="mobile-nav-link"><span>Optimiser son podcast sans logiciel</span><span class="mono">→</span></a>
+        <a href="../guides/formats-audio-ogg-opus-mp3-wav.html" class="mobile-nav-link"><span>Formats OGG/OPUS, MP3 &amp; WAV</span><span class="mono">→</span></a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <nav class="breadcrumb container" aria-label="Fil d'Ariane">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li><a href="../index.html#rack-outils">Outils Studio</a></li>
+        <li class="breadcrumb-sep" aria-hidden="true">/</li>
+        <li class="breadcrumb-current" aria-current="page">VN-05 · Carte Onde Audiogramme</li>
+      </ol>
+    </nav>
+
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="hardware-badge is-rec">MODULE VN-05</span>
+            <span>CANVAS HD 1080P / 1920P · ZÉRO FILIGRANE</span>
+          </div>
+          <h1>Générateur d'Audiogramme &amp; Carte Waveform Partageable</h1>
+          <p class="tool-hero-desc">
+            Donnez une identité graphique éditoriale à vos extraits de podcasts, citations vocales ou notes audio. Chargez votre piste, saisissez votre titre et exportez instantanément une carte PNG haute définition basée sur la véritable forme d'onde de votre voix.
+          </p>
+        </div>
+
+        <div class="tool-spec-card">
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Formats HD</span>
+            <span class="spec-item-val">1:1 · 9:16 · 16:9</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Thèmes Studio</span>
+            <span class="spec-item-val">4 palettes mates</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Forme d'onde</span>
+            <span class="spec-item-val">100 % réelle</span>
+          </div>
+          <div class="tool-spec-cell">
+            <span class="spec-item-label">Export</span>
+            <span class="spec-item-val">PNG sans filigrane</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="console-panel">
+        <div class="console-header">
+          <div class="console-title-group">
+            <span class="led-dot is-red" aria-hidden="true"></span>
+            <span class="console-model">VN-05 · EDITORIAL AUDIOGRAM COMPOSER</span>
+          </div>
+          <span class="console-meta" id="ag-file-meta">Aucun fichier chargé</span>
+        </div>
+
+        <div class="console-body">
+          <div class="audio-loader-bar">
+            <label class="dropzone" id="ag-dropzone" for="ag-file-input">
+              <input type="file" id="ag-file-input" accept="audio/*,.opus,.ogg,.m4a,.mp3,.wav,.webm">
+              <span class="dropzone-copy">
+                <span class="dropzone-title">Importer l'extrait audio pour extraire sa vraie forme d'onde</span>
+                <span class="dropzone-sub">MP3, WAV, OPUS, M4A — rendu Canvas 100 % navigateur</span>
+              </span>
+              <span class="btn btn-secondary btn-sm">Choisir un fichier</span>
+            </label>
+            <button type="button" class="btn btn-secondary" id="ag-demo-btn">
+              Utiliser l'extrait démo
+            </button>
+          </div>
+
+          <div class="status-banner" id="ag-status" role="status" aria-live="polite">
+            Génération de la carte waveform haute définition...
+          </div>
+
+          <div class="audiogram-layout">
+            <!-- Colonne Réglages -->
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div class="control-group">
+                <label for="ag-badge" class="control-label">Étiquette supérieure (Épisode / Rubrique)</label>
+                <input type="text" id="ag-badge" class="field-input" value="EP. 12 · EXTRAIT PODCAST" maxlength="44">
+              </div>
+
+              <div class="control-group">
+                <label for="ag-title" class="control-label">Titre ou citation clé</label>
+                <textarea id="ag-title" class="field-textarea" maxlength="160">Un son net change la perception de votre message dès les 3 premières secondes.</textarea>
+              </div>
+
+              <div class="control-group">
+                <label for="ag-author" class="control-label">Auteur / Nom de l'émission</label>
+                <input type="text" id="ag-author" class="field-input" value="VoixNette Studio · Claire Moreau" maxlength="54">
+              </div>
+
+              <div class="control-group">
+                <span class="control-label">Format de publication</span>
+                <div class="preset-group">
+                  <button type="button" class="preset-btn is-active" data-ag-format="1:1">Carré 1:1</button>
+                  <button type="button" class="preset-btn" data-ag-format="9:16">Story 9:16</button>
+                  <button type="button" class="preset-btn" data-ag-format="16:9">Paysage 16:9</button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <span class="control-label">Thème studio mat (zéro dégradé)</span>
+                <div class="preset-group">
+                  <button type="button" class="preset-btn is-active" data-ag-theme="anthracite">Anthracite REC</button>
+                  <button type="button" class="preset-btn" data-ag-theme="ivoire">Braun Ivoire</button>
+                  <button type="button" class="preset-btn" data-ag-theme="broadcast">Broadcast Vert</button>
+                  <button type="button" class="preset-btn" data-ag-theme="ambre">Vinyle Ambre</button>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="ag-progress" class="control-label">Curseur de lecture accentué</label>
+                  <span id="ag-progress-val" class="control-value">42 %</span>
+                </div>
+                <input type="range" id="ag-progress" min="0" max="100" step="1" value="42">
+              </div>
+
+              <div class="control-group">
+                <div class="control-label-row">
+                  <label for="ag-density" class="control-label">Densité de la forme d'onde</label>
+                  <span id="ag-density-val" class="control-value">72 barres</span>
+                </div>
+                <input type="range" id="ag-density" min="36" max="120" step="4" value="72">
+              </div>
+
+              <button type="button" class="btn btn-primary" id="ag-download-btn">
+                Télécharger la carte PNG Haute Définition
+              </button>
+            </div>
+
+            <!-- Colonne Aperçu Live HD -->
+            <div class="audiogram-preview-stage">
+              <div class="waveform-toolbar" style="width:100%; margin-bottom:0;">
+                <span>APERÇU TEMPS RÉEL</span>
+                <span id="ag-canvas-spec" class="mono">Carré 1:1 (1080×1080) · PNG HD</span>
+              </div>
+              <canvas id="ag-canvas" class="audiogram-canvas" width="1080" height="1080" aria-label="Aperçu de la carte audiogramme haute définition"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="ad-slot" aria-label="Espace publicitaire">
+        <span class="ad-slot-label">Espace publicitaire</span>
+        <p class="ad-slot-note">Emplacement réservé anti-CLS — rendu Canvas HD 100 % navigateur.</p>
+      </aside>
+    </section>
+
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Pourquoi une carte waveform fidèle augmente l'engagement de vos podcasts</h2>
+          <p>
+            L'audio souffre d'un handicap structurel sur les réseaux sociaux : il est invisible dans un fil d'actualité qui se parcourt en silence à plus de 75 % sur mobile. Pour inciter un lecteur LinkedIn, Instagram ou Substack à cliquer sur un épisode ou écouter un extrait, il faut matérialiser visuellement la voix en une fraction de seconde.
+          </p>
+          <p>
+            Le module <strong>VN-05</strong> ne génère pas des barres décoratives génériques : il décode le fichier audio complet, le découpe en <code>K</code> fenêtres temporelles égales (de 36 à 120 barres selon la densité choisie), extrait la crête maximale absolue de chaque tranche et normalise la hauteur sur le Canvas haute définition :
+          </p>
+
+          <div class="formula-box">
+            Hauteur_barre[b] = ( Peak_tranche[b] / Peak_global ) × ( 0,74 × Hauteur_boîte )<br>
+            Timecode_affiché = Durée_totale × ( Progression_% / 100 )
+          </div>
+
+          <p>
+            L'utilisation de palettes mates à fort contraste (inspirées de la hi-fi Braun des années 1960 et des consoles broadcast modernes) garantit une lisibilité immédiate sur écran OLED comme en miniature dans un flux mobile, sans jamais tomber dans les effets néon surchargés.
+          </p>
+
+          <h2>Guide des formats PNG selon votre canal de diffusion</h2>
+          <div class="data-table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Format VN-05</th>
+                  <th>Résolution exacte</th>
+                  <th>Réseaux recommandés</th>
+                  <th>Conseil typographique</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Carré 1:1</strong></td>
+                  <td class="mono">1080 × 1080 px</td>
+                  <td>LinkedIn, Instagram Feed, X, Facebook</td>
+                  <td>Citation courte (10 à 18 mots max)</td>
+                </tr>
+                <tr>
+                  <td><strong>Story 9:16</strong></td>
+                  <td class="mono">1080 × 1920 px</td>
+                  <td>Instagram Stories, Reels, TikTok, Shorts</td>
+                  <td>Laissez la marge basse libre pour les boutons</td>
+                </tr>
+                <tr>
+                  <td><strong>Paysage 16:9</strong></td>
+                  <td class="mono">1920 × 1080 px</td>
+                  <td>YouTube, Newsletter, Blog, Slides</td>
+                  <td>Idéal en miniature d'épisode complet</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Workflow complet : de l'épisode brut à la publication en 3 minutes</h2>
+          <ol>
+            <li><strong>Isolez votre citation forte :</strong> découpez un passage marquant de 25 à 45 secondes dans le <a href="decoupeur-audio.html" style="text-decoration: underline;">Découpeur Audio Visuel (VN-03)</a> avec un léger Fade-Out de 0,6 s.</li>
+            <li><strong>Mettez la voix en valeur :</strong> passez cet extrait dans le <a href="normaliseur-volume.html" style="text-decoration: underline;">Normaliseur de Volume (VN-02)</a> sur le preset -14 LUFS pour un impact immédiat sur haut-parleur de smartphone.</li>
+            <li><strong>Générez la carte HD ici :</strong> importez votre extrait WAV dans VN-05, rédigez la phrase d'accroche exacte prononcée dans l'extrait et téléchargez le PNG haute définition.</li>
+          </ol>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Espace publicitaire</span>
+            <p class="ad-slot-note">Annonce non intrusive — hauteur réservée anti-CLS.</p>
+          </aside>
+
+          <h2>Questions fréquentes sur le Générateur d'Audiogramme</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>La forme d'onde affichée correspond-elle réellement à mon fichier audio ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Oui. Chaque barre verticale mesure l'amplitude crête réelle de l'intervalle correspondant dans votre piste décodée. Les silences et les syllabes fortes de votre enregistrement sont fidèlement représentés.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Les images PNG exportées comportent-elles un filigrane VoixNette ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Non. Vous êtes totalement libre de remplacer le nom d'auteur et le badge par votre propre marque ou titre de podcast : aucun filigrane imposé n'est ajouté sur votre PNG HD.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi choisir le PNG plutôt que le JPEG pour une carte typographique ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Le PNG utilise une compression sans perte qui conserve des contours de lettres et des barres de forme d'onde parfaitement nets, sans les bavures rouges caractéristiques du JPEG autour des accents vifs.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment régler la densité de barres pour un rendu optimal ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Pour un extrait court (15 à 40 secondes), une densité de <strong>60 à 80 barres</strong> offre un excellent équilibre entre finesse graphique et lisibilité sur petit écran. Pour un épisode long, montez à 96–112 barres.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Puis-je utiliser cet outil sur smartphone ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                <p>Oui. Le Canvas calcule la carte en pleine résolution 1080p/1920p même sur mobile, tout en adaptant l'aperçu visuel à la largeur de votre écran.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <h3>Autres modules du rack</h3>
+            <ul class="sidebar-links">
+              <li><a href="coupe-silence-vocal.html"><span>Coupe-Silence Vocal</span><span class="mono">VN-01</span></a></li>
+              <li><a href="normaliseur-volume.html"><span>Normaliseur de Volume</span><span class="mono">VN-02</span></a></li>
+              <li><a href="decoupeur-audio.html"><span>Découpeur Audio 0,01 s</span><span class="mono">VN-03</span></a></li>
+              <li><a href="vitesse-pitch-audio.html"><span>Accélérateur 0,5× à 3,0×</span><span class="mono">VN-04</span></a></li>
+              <li><a href="analyseur-micro-bruit.html"><span>Testeur Micro &amp; FFT</span><span class="mono">VN-06</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card">
+            <h3>Guides podcast</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html"><span>Optimiser son podcast sans logiciel</span><span class="mono">→</span></a></li>
+              <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html"><span>Formats audio OGG, MP3 &amp; WAV</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand-link mb-2">
+            <span class="brand-mark" aria-hidden="true"><span class="brand-mark-dot"></span></span>
+            <span>VoixNette</span>
+          </a>
+          <p style="font-size: 0.92rem; max-width: 34ch;">
+            Studio d'utilitaires audio gratuits propulsé par la WebAudio API. Tous vos enregistrements restent strictement sur votre appareil.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Instruments Studio</div>
+          <ul class="footer-links">
+            <li><a href="coupe-silence-vocal.html">VN-01 · Coupe-Silence Vocal</a></li>
+            <li><a href="normaliseur-volume.html">VN-02 · Normaliseur de Volume</a></li>
+            <li><a href="decoupeur-audio.html">VN-03 · Découpeur Audio Visuel</a></li>
+            <li><a href="vitesse-pitch-audio.html">VN-04 · Accélérateur 0,5× à 3,0×</a></li>
+            <li><a href="carte-onde-audio.html">VN-05 · Carte Onde Audiogramme</a></li>
+            <li><a href="analyseur-micro-bruit.html">VN-06 · Analyseur Micro &amp; Bruit</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Ressources Audio</div>
+          <ul class="footer-links">
+            <li><a href="../guides/optimiser-son-podcast-sans-logiciel.html">Optimiser son podcast sans logiciel</a></li>
+            <li><a href="../guides/formats-audio-ogg-opus-mp3-wav.html">Guide OGG/OPUS, MP3 &amp; WAV</a></li>
+            <li><a href="../a-propos.html">Méthodologie DSP &amp; À propos</a></li>
+            <li><a href="../contact.html">Signaler un bug / Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Transparence &amp; Légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="#" data-open-cookie-banner>Gérer mes préférences cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 VoixNette (voixnette.fr) — Traitement audio 100 % navigateur via WebAudio API.</span>
+        <span class="mono">PCM 16-BIT · 0 BYTE SERVER UPLOAD</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js" defer></script>
+  <script src="../assets/js/audio-engine.js" defer></script>
+  <script src="../assets/js/tools/carte-onde-audio.js" defer></script>
+</body>
+</html>

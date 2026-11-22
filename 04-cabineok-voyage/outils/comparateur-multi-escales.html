@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparateur Bagage Multi-Compagnies (Vols avec Escales) — CabineOK</title>
+  <meta name="description" content="Vol avec correspondance sur plusieurs compagnies (Ryanair, Vueling, Air France, Lufthansa, ANA) ? Calculez le plus petit dénominateur commun de votre bagage cabine pour éviter toute amende.">
+  <link rel="canonical" href="https://cabineok.fr/outils/comparateur-multi-escales.html">
+  <meta property="og:title" content="Comparateur Bagage Multi-Escales — CabineOK">
+  <meta property="og:description" content="Ajoutez 2 à 6 compagnies de votre voyage et obtenez immédiatement les dimensions et le poids maximaux acceptés sur tous vos tronçons.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cabineok.fr/outils/comparateur-multi-escales.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Comparateur Bagage Itinéraire Multi-Compagnies",
+        "url": "https://cabineok.fr/outils/comparateur-multi-escales.html",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://cabineok.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Comparateur Multi-Escales", "item": "https://cabineok.fr/outils/comparateur-multi-escales.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quelle règle de bagage cabine s’applique sur un voyage avec deux compagnies différentes ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "En cabine, contrairement à la soute régie par la règle IATA du transporteur le plus significatif (MSC), chaque compagnie applique son propre gabarit à l’embarquement de son avion. Vous devez respecter les limites de la compagnie la plus restrictive." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il si mon billet est en partage de code (codeshare) ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sur un vol en partage de code (ex. billet vendu par Air France mais opéré par KLM, Delta ou HOP!), ce sont les dimensions de la compagnie opérante (celle dont l’avion vole réellement) qui font foi en porte." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quel format de valise passe quasiment sur tous les itinéraires multi-compagnies ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Pour le coffre cabine, le format 50 × 35 × 20 cm (ou 55 × 35 × 20 cm hors Qatar Airways et Air Transat) de moins de 7 à 8 kg offre la compatibilité la plus large. Sous le siège, 38 × 25 × 20 cm passe sur presque tous les transporteurs low-cost." }
+          },
+          {
+            "@type": "Question",
+            "name": "Un vol opéré par un avion régional (ATR, Embraer, CRJ) réduit-il le gabarit ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, les coffres à bagages des avions régionaux sont plus étroits. Même avec une valise conforme, la compagnie propose souvent une mise en soute gratuite au pied de l’avion (Delivery at Aircraft) à récupérer dès la sortie." }
+          },
+          {
+            "@type": "Question",
+            "name": "L’outil fonctionne-t-il pour un voyage avec billets séparés (self-transfer) ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, c’est même le cas le plus critique : lors d’une correspondance autonome entre deux compagnies low-cost (par exemple Ryanair puis Vueling), vous repassez un contrôle de gabarit complet à chaque embarquement." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="CabineOK Accueil">
+        <span class="brand-mark">OK</span>
+        <span class="brand-text">
+          <span class="brand-name">CabineOK</span>
+          <span class="brand-tag">Contrôle Bagage &amp; Vol</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="verificateur-bagage-cabine.html" class="nav-link">Bagage Cabine</a>
+        <a href="comparateur-multi-escales.html" class="nav-link is-active">Multi-Escales</a>
+        <a href="calculateur-liquides-cabine.html" class="nav-link">Liquides 100 ml</a>
+        <a href="adaptateur-prise-voyage.html" class="nav-link">Prises &amp; Voltage</a>
+        <a href="calculateur-indemnite-vol.html" class="nav-link">Indemnité CE 261</a>
+        <a href="../guides/regles-bagages-low-cost-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="verificateur-bagage-cabine.html" class="header-cta">Vérifier mon sac →</a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Menu mobile">
+    <ul class="mobile-nav-list">
+      <li><a href="../index.html"><span>Accueil</span><span>→</span></a></li>
+      <li><a href="verificateur-bagage-cabine.html"><span>01 · Vérificateur Bagage Cabine</span><span>→</span></a></li>
+      <li><a href="comparateur-multi-escales.html"><span>02 · Comparateur Multi-Escales</span><span>→</span></a></li>
+      <li><a href="calculateur-liquides-cabine.html"><span>03 · Trousse Liquides 100 ml</span><span>→</span></a></li>
+      <li><a href="adaptateur-prise-voyage.html"><span>04 · Adaptateur Prise &amp; Voltage</span><span>→</span></a></li>
+      <li><a href="calculateur-indemnite-vol.html"><span>05 · Indemnité Vol CE 261/2004</span><span>→</span></a></li>
+      <li><a href="convertisseur-poids-volume-valise.html"><span>06 · Litres, 158 cm &amp; Poids</span><span>→</span></a></li>
+    </ul>
+  </nav>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Comparateur Multi-Escales</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="hero-compact">
+      <div class="container hero-compact-grid">
+        <div>
+          <div class="gate-badge"><span class="gate-dot"></span> GATE 02 · CORRESPONDANCES &amp; SELF-TRANSFER</div>
+          <h1>Vérificateur itinéraire multi-compagnies</h1>
+          <p class="lead mb-0">Ajoutez de 2 à 6 compagnies de votre voyage : CabineOK calcule le <strong>plus petit dénominateur commun</strong> (H × L × P et poids max) et identifie le tronçon le plus restrictif.</p>
+        </div>
+        <div>
+          <div class="mono" style="font-size:0.75rem;color:var(--text-muted);margin-bottom:8px;">ITINÉRAIRES TYPES</div>
+          <div class="chip-list">
+            <button type="button" class="chip" data-preset-route="lowcost">Low-cost (FR+VY+U2)</button>
+            <button type="button" class="chip" data-preset-route="japon">Europe-Japon (AF+LX+NH)</button>
+            <button type="button" class="chip" data-preset-route="usa">USA (TO+AF+DL)</button>
+            <button type="button" class="chip" data-preset-route="gulf">Asie via Golfe (AF+QR+SQ)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="tool-multi-escales">
+      <div class="container">
+        <div class="tool-layout">
+          <!-- GAUCHE : TRONÇONS -->
+          <div class="card">
+            <div class="card-header">
+              <h2 style="font-size:1.25rem;margin:0;">1. Vos compagnies (2 à 6 vols)</h2>
+            </div>
+
+            <div class="form-group mb-3">
+              <span class="form-label">Type de bagage comparé</span>
+              <div class="segmented">
+                <button type="button" class="segmented-btn" data-multi-mode="underSeat">Sous le siège (gratuit)</button>
+                <button type="button" class="segmented-btn is-active" data-multi-mode="cabin">Compartiment cabine</button>
+              </div>
+            </div>
+
+            <div id="multi-legs-list"></div>
+
+            <button type="button" id="btn-add-leg" class="btn btn-secondary mt-2" style="width:100%;">+ Ajouter une compagnie / escale (max 6)</button>
+          </div>
+
+          <!-- DROITE : PLUS PETIT DÉNOMINATEUR COMMUN -->
+          <div class="card">
+            <div class="summary-strip">
+              <div class="summary-box">
+                <div class="summary-box-label">Format sûr (H×L×P)</div>
+                <div id="lcd-dims" class="summary-box-val" style="color:var(--accent);font-size:1.25rem;">—</div>
+              </div>
+              <div class="summary-box">
+                <div class="summary-box-label">Poids max sûr</div>
+                <div id="lcd-weight" class="summary-box-val">—</div>
+              </div>
+              <div class="summary-box">
+                <div class="summary-box-label">Volume brut max</div>
+                <div id="lcd-volume" class="summary-box-val">—</div>
+              </div>
+            </div>
+
+            <div id="bottleneck-alert" class="callout callout-warn"></div>
+
+            <div class="sizer-stage mt-2 mb-0">
+              <div id="multi-svg-wrap"></div>
+              <div class="sizer-legend">
+                <span><span class="legend-dot" style="border:1.5px dashed #8C8980;background:#FFFFFF;"></span>Gabarit individuel de chaque compagnie</span>
+                <span><span class="legend-dot" style="background:rgba(0,71,171,0.2);border:2px solid #0047AB;"></span>Zone commune 100 % sûre sur tout le trajet</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLEAU COMPARATIF DES TRONÇONS -->
+        <div class="mt-4">
+          <h2>Détail comparatif tronçon par tronçon</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Tronçon</th>
+                  <th>Compagnie</th>
+                  <th>Hauteur max</th>
+                  <th>Largeur max</th>
+                  <th>Profondeur max</th>
+                  <th>Poids max</th>
+                  <th>Amende porte</th>
+                </tr>
+              </thead>
+              <tbody id="multi-comparison-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- MODÈLES COMPATIBLES -->
+        <div class="mt-4">
+          <h3>Modèles de sacs/valises compatibles sur 100 % de cet itinéraire</h3>
+          <div id="multi-compatible-bags"></div>
+        </div>
+
+        <!-- ADSENSE SLOT 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <span class="ad-slot-hint">Emplacement Google AdSense responsive — Hauteur réservée anti-CLS</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL EXPERT -->
+    <section class="section section-border">
+      <div class="container editorial-layout">
+        <article class="prose">
+          <h2>Pourquoi un itinéraire multi-compagnies piège-t-il autant de voyageurs ?</h2>
+          <p>Lorsque vous réservez un vol aller-retour combinant deux transporteurs différents (par exemple un aller Transavia et un retour Ryanair, ou une correspondance Air France suivie d’un vol Qatar Airways ou Lufthansa), chaque compagnie conserve sa propre souveraineté sur les dimensions acceptées en cabine. Contrairement aux bagages enregistrés en soute, qui bénéficient sur un billet unique de la résolution IATA 302 (<em>Most Significant Carrier</em>), le bagage cabine dépend strictement du gabarit physique de l’appareil et du personnel en porte d’embarquement.</p>
+
+          <div class="formula-box">
+            Zone Sûre Itinéraire = min(H₁..Hₙ) × min(L₁..Lₙ) × min(P₁..Pₙ)  |  Poids Sûr = min(kg₁..kgₙ)
+          </div>
+
+          <p>L’erreur classique consiste à ne vérifier que la compagnie la plus connue ou celle du vol principal. Prenons l’exemple très fréquent d’un trajet <strong>Air France (55 × 35 × 25 cm, 12 kg) + Ryanair (55 × 40 × 20 cm, 10 kg)</strong> : les deux compagnies autorisent pourtant un volume voisin de 44 à 48 litres, mais leur intersection réelle chute à <strong>55 × 35 × 20 cm (38,5 L) et 10 kg</strong>. Une valise parfaitement conforme chez Air France (25 cm d’épaisseur) sera refoulée chez Ryanair (max 20 cm), tandis qu’une valise Ryanair (40 cm de large) dépassera le gabarit Air France (max 35 cm) !</p>
+
+          <h2>Trois combinaisons multi-escales typiques et leurs goulets d’étranglement</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Combinaison fréquente</th>
+                  <th>Zone sûre cabine</th>
+                  <th>Poids limite</th>
+                  <th>Goulet d’étranglement critique</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Air France + Lufthansa</strong></td>
+                  <td class="mono">55 × 35 × 23 cm</td>
+                  <td class="mono">8 kg</td>
+                  <td>Largeur 35 cm (AF) + Poids 8 kg (LH)</td>
+                </tr>
+                <tr>
+                  <td><strong>Ryanair + Transavia (gratuit)</strong></td>
+                  <td class="mono">40 × 25 × 20 cm</td>
+                  <td class="mono">10 kg</td>
+                  <td>Largeur 25 cm (FR) + Poids 10 kg (TO)</td>
+                </tr>
+                <tr>
+                  <td><strong>Air France + Qatar Airways</strong></td>
+                  <td class="mono">50 × 35 × 25 cm</td>
+                  <td class="mono">7 kg</td>
+                  <td>Hauteur 50 cm &amp; 7 kg (QR) + Largeur 35 cm (AF)</td>
+                </tr>
+                <tr>
+                  <td><strong>easyJet + Vueling (cabine)</strong></td>
+                  <td class="mono">55 × 40 × 20 cm</td>
+                  <td class="mono">10 kg</td>
+                  <td>Toutes les cotes dictées par Vueling (55×40×20, 10 kg)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Nos conseils d’organisation pour voyager léger sur plusieurs compagnies</h2>
+          <ul>
+            <li><strong>Privilégiez un sac à dos cabine souple de 30 à 36 L :</strong> face à une valise rigide dont la coque ne cède pas d’un millimètre, un sac à dos souple à ouverture valise (type CabinZero 36 L, Patagonia Mini MLC 30 L ou Decathlon NH500) s’adapte facilement au passage de 35 cm à 40 cm ou de 23 cm à 20 cm d’épaisseur.</li>
+            <li><strong>Anticipez les correspondances autonomes (self-transfer) :</strong> si vous avez acheté deux billets distincts via un comparateur, vous devrez parfois repasser le contrôle sûreté à l’escale. Vérifiez alors vos liquides dans notre <a href="calculateur-liquides-cabine.html">calculateur trousse 100 ml</a> pour éviter une confiscation en transit.</li>
+            <li><strong>Pesez votre sac avant le vol le plus restrictif :</strong> si votre premier vol tolère 12 kg mais que la correspondance n’autorise que 7 ou 8 kg (Emirates, Qatar, Lufthansa, SWISS, Singapore Airlines), transférez les objets denses (batterie externe, chargeur, veste) dans les poches de votre veste lors de l’embarquement.</li>
+          </ul>
+
+          <!-- ADSENSE SLOT 2 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-hint">Emplacement Google AdSense in-article — Hauteur réservée anti-CLS</span>
+          </aside>
+
+          <h2>Questions fréquentes sur les vols multi-compagnies</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Quelle règle de bagage cabine s’applique sur un voyage avec deux compagnies différentes ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-panel">Chaque transporteur applique ses propres règles de gabarit et de poids au moment d’embarquer dans son avion. Vous devez donc toujours dimensionner votre bagage sur le plus petit dénominateur commun de tous vos tronçons.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Que se passe-t-il en cas de vol en partage de code (codeshare) ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-panel">En partage de code, c’est la compagnie opérante (celle qui exploite physiquement l’avion et gère la porte d’embarquement) qui contrôle votre bagage cabine. Sélectionnez toujours la compagnie opérante dans notre comparateur.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Quel format de valise passe quasiment sur tous les itinéraires multi-compagnies ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-panel">Pour le compartiment supérieur, un bagage de 55 × 35 × 20 cm pesant moins de 8 kg passe sur la grande majorité des lignes européennes et transatlantiques (seules Qatar Airways à 50 cm et Air Transat à 51 cm sont plus courtes).</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Les avions régionaux (ATR, Embraer, CRJ) réduisent-ils le gabarit cabine ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-panel">Oui, leurs coffres sont plus petits que sur Airbus A320 ou Boeing 737. Les compagnies récupèrent généralement les valises rigides conformes sur le tarmac (étiquette « Delivery at Aircraft ») gratuitement et les restituent au pied de l’escalier à l’arrivée.</div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>En cas de correspondance ratée, ai-je droit à une indemnité CE 261 ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-panel">Oui si l’ensemble des vols figure sur une réservation unique (un seul PNR) et que vous arrivez à votre destination finale avec 3 heures de retard ou plus. Testez votre cas dans notre <a href="calculateur-indemnite-vol.html">simulateur d’indemnité CE 261/2004</a>.</div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="card mb-3">
+            <div class="gate-badge">OUTILS COMPLÉMENTAIRES</div>
+            <h3>Poursuivre le contrôle pré-vol</h3>
+            <ul class="footer-links" style="margin-top:12px;">
+              <li><a href="verificateur-bagage-cabine.html" style="color:var(--accent);font-weight:600;">01 · Vérifier un sac précis (42 cies) →</a></li>
+              <li><a href="calculateur-liquides-cabine.html" style="color:var(--accent);font-weight:600;">03 · Trousse Liquides 100 ml →</a></li>
+              <li><a href="adaptateur-prise-voyage.html" style="color:var(--accent);font-weight:600;">04 · Adaptateur Prise &amp; Voltage →</a></li>
+              <li><a href="calculateur-indemnite-vol.html" style="color:var(--accent);font-weight:600;">05 · Indemnité Vol CE 261 →</a></li>
+              <li><a href="convertisseur-poids-volume-valise.html" style="color:var(--accent);font-weight:600;">06 · Convertisseur Litres &amp; Poids →</a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand">
+            <span class="brand-mark">OK</span>
+            <span class="brand-text">
+              <span class="brand-name">CabineOK</span>
+              <span class="brand-tag">cabineok.fr</span>
+            </span>
+          </a>
+          <p style="font-size:0.9375rem;color:#B6B9C2;margin-top:12px;">Plateforme indépendante de vérification bagages cabine, correspondances, liquides, prises électriques et droits passagers.</p>
+        </div>
+        <div>
+          <div class="footer-title">Outils Bagages &amp; Vol</div>
+          <ul class="footer-links">
+            <li><a href="verificateur-bagage-cabine.html">Vérificateur Bagage Cabine</a></li>
+            <li><a href="comparateur-multi-escales.html">Comparateur Multi-Escales</a></li>
+            <li><a href="calculateur-liquides-cabine.html">Calculateur Liquides 100 ml</a></li>
+            <li><a href="adaptateur-prise-voyage.html">Adaptateur Prise &amp; Voltage</a></li>
+            <li><a href="calculateur-indemnite-vol.html">Simulateur Indemnité CE 261</a></li>
+            <li><a href="convertisseur-poids-volume-valise.html">Convertisseur Litres &amp; Poids</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Guides Pratiques</div>
+          <ul class="footer-links">
+            <li><a href="../guides/regles-bagages-low-cost-2026.html">Règles bagages low-cost 2026</a></li>
+            <li><a href="../guides/droits-passagers-ce261.html">Droits des passagers CE 261/2004</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Informations Légales</div>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer mes cookies</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 CabineOK (cabineok.fr) — Outils informatifs gratuits et indépendants.</span>
+        <span class="mono">GATE 02 · MULTI-ESCALES</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-airlines.js"></script>
+  <script src="../assets/js/tools/comparateur-multi-escales.js"></script>
+</body>
+</html>

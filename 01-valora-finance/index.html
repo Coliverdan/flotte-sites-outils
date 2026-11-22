@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valora — Laboratoire d'outils d'épargne, pouvoir d'achat &amp; patrimoine</title>
+  <meta name="description" content="Simulateurs financiers indépendants calibrés sur la fiscalité française et les indices INSEE : coût réel des abonnements en ETF, inflation personnelle, PEA vs CTO, matelas de sécurité, crédit conso et indépendance FIRE.">
+  <link rel="canonical" href="https://valora-finance.fr/">
+  <meta property="og:title" content="Valora — Laboratoire d'outils d'épargne &amp; pouvoir d'achat">
+  <meta property="og:description" content="Des simulateurs patrimoniaux rigoureux, sans conflit d'intérêts ni inscription, adaptés à la fiscalité française (PEA, PFU, LEP, INSEE).">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://valora-finance.fr/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "name": "Valora Finance",
+        "url": "https://valora-finance.fr/",
+        "description": "Laboratoire indépendant d'outils de calcul patrimonial, d'épargne et de pouvoir d'achat adaptés à la fiscalité française."
+      },
+      {
+        "@type": "WebSite",
+        "name": "Valora Finance",
+        "url": "https://valora-finance.fr/",
+        "inLanguage": "fr-FR"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>ÉDITION PATRIMONIALE FRANCE • BARÈMES FISCAUX &amp; INDICES INSEE 2026</span>
+      <span>CALCULS 100 % LOCAUX — ZÉRO COLLECTE DE DONNÉES BANCAIRES</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Valora Finance — Accueil">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="index.html" class="active">Accueil</a>
+        <a href="outils/abonnements-etf.html">Abonnements &amp; ETF</a>
+        <a href="outils/inflation-personnelle.html">Inflation perso</a>
+        <a href="outils/interets-composes-pea.html">PEA vs CTO</a>
+        <a href="guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="index.html">Accueil</a>
+      <a href="outils/abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="outils/inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="outils/interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="outils/epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="outils/cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="outils/objectif-independance.html">06. Objectif FIRE France</a>
+      <a href="guides/fiscalite-etf-pea-2026.html">Guide : Fiscalité ETF &amp; PEA 2026</a>
+      <a href="guides/methodologie-inflation-pouvoir-achat.html">Guide : Inflation &amp; Pouvoir d'achat</a>
+      <a href="a-propos.html">À propos &amp; Méthodologie</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero asymétrique 60/40 -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Rigueur patrimoniale • Fiscalité France 2026</span>
+          <h1>Mesurez le coût réel de vos décisions financières, à l'euro près.</h1>
+          <p class="hero-lead">Valora rassemble six calculateurs indépendants conçus avec la précision d'un cabinet d'analyse financière : prélèvements sociaux du PEA, indices d'inflation INSEE par poste, plafonds réglementés des livrets et amortissement actuariel des crédits.</p>
+          <div class="hero-actions">
+            <a href="outils/abonnements-etf.html" class="btn btn-primary">Simuler mes abonnements en ETF</a>
+            <a href="#tous-les-outils" class="btn btn-secondary">Explorer les 6 outils</a>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <span class="hero-metric-val">6 outils</span>
+              <span class="hero-metric-label">Calculs temps réel sans compte ni inscription</span>
+            </div>
+            <div>
+              <span class="hero-metric-val">100 % FR</span>
+              <span class="hero-metric-label">PEA 17,2 %, PFU 30 %, LEP, INSEE COICOP</span>
+            </div>
+            <div>
+              <span class="hero-metric-val">0 € caché</span>
+              <span class="hero-metric-label">Aucune affiliation bancaire trompeuse</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Aperçu interactif chiffré à droite -->
+        <aside class="hero-widget" aria-label="Aperçu interactif : coût d'opportunité en ETF">
+          <div class="hero-widget-header">
+            <span class="hero-widget-title">Aperçu rapide : Coût d'opportunité</span>
+            <span class="badge badge-accent">ETF 8 % / PEA</span>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label for="hero-monthly">Dépense mensuelle récurrente</label>
+              <span class="field-value" id="hero-monthly-val">50 €/mois</span>
+            </div>
+            <input type="range" id="hero-monthly" min="15" max="300" step="5" value="50">
+            <div class="range-ticks"><span>15 €</span><span>150 €</span><span>300 €</span></div>
+          </div>
+          <div class="field">
+            <div class="field-label-row">
+              <label for="hero-years">Horizon d'investissement</label>
+              <span class="field-value" id="hero-years-val">10 ans</span>
+            </div>
+            <input type="range" id="hero-years" min="5" max="30" step="1" value="10">
+            <div class="range-ticks"><span>5 ans</span><span>15 ans</span><span>30 ans</span></div>
+          </div>
+          <div class="kpi-grid kpi-grid-2" style="margin-top:24px;margin-bottom:16px;">
+            <div class="kpi-card">
+              <div class="kpi-label">Cash dépensé</div>
+              <div class="kpi-value" id="hero-cash">6 000 €</div>
+            </div>
+            <div class="kpi-card kpi-card-accent">
+              <div class="kpi-label">Capital ETF net</div>
+              <div class="kpi-value" id="hero-etf">8 606 €</div>
+            </div>
+          </div>
+          <p class="mono text-accent" id="hero-delta" style="font-size:0.86rem;margin-bottom:16px;">+2 606 € d'intérêts nets (PEA)</p>
+          <a href="outils/abonnements-etf.html" class="btn btn-primary btn-block">Auditer mes 18 abonnements &amp; créer mon ticket PNG →</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Grille des 6 outils -->
+    <section class="section" id="tous-les-outils">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <span class="eyebrow">Le laboratoire</span>
+            <h2>Six simulateurs calibrés sur la réalité française</h2>
+          </div>
+          <p class="text-secondary" style="max-width:44ch;margin:0;">Chaque outil s'appuie sur des formules vérifiables, publiées en clair sous les résultats, et fonctionne intégralement dans votre navigateur.</p>
+        </div>
+
+        <div class="tools-grid">
+          <a href="outils/abonnements-etf.html" class="tool-card">
+            <div class="tool-card-top">
+              <span class="tool-num">OUTIL 01</span>
+              <span class="badge badge-accent">Export PNG Story</span>
+            </div>
+            <h3>Abonnements → Capital ETF / PEA</h3>
+            <p>Sélectionnez vos abonnements récurrents parmi 18 services courants, visualisez leur coût d'opportunité en ETF net d'impôt et téléchargez votre ticket de caisse patrimonial.</p>
+            <div class="tool-card-footer">
+              <span>Ouvrir le simulateur</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <a href="outils/inflation-personnelle.html" class="tool-card">
+            <div class="tool-card-top">
+              <span class="tool-num">OUTIL 02</span>
+              <span class="badge">Indices INSEE</span>
+            </div>
+            <h3>Mon Inflation Personnelle (2019–2026)</h3>
+            <p>Pondérez vos 6 postes de dépenses réels pour calculer votre propre taux d'inflation, mesurer l'évolution de votre salaire réel et copier un argumentaire chiffré de négociation.</p>
+            <div class="tool-card-footer">
+              <span>Calculer mon inflation</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <a href="outils/interets-composes-pea.html" class="tool-card">
+            <div class="tool-card-top">
+              <span class="tool-num">OUTIL 03</span>
+              <span class="badge">Fiscalité FR</span>
+            </div>
+            <h3>Intérêts Composés : PEA vs AV vs CTO</h3>
+            <p>Comparez la croissance nette de votre épargne sur 1 à 40 ans selon l'enveloppe fiscale : prélèvements sociaux du PEA, abattement 4 600 €/9 200 € de l'Assurance-Vie et PFU 30 %.</p>
+            <div class="tool-card-footer">
+              <span>Comparer les enveloppes</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <a href="outils/epargne-securite.html" class="tool-card">
+            <div class="tool-card-top">
+              <span class="tool-num">OUTIL 04</span>
+              <span class="badge">LEP • Livret A • LDDS</span>
+            </div>
+            <h3>Matelas de Sécurité &amp; Livrets</h3>
+            <p>Déterminez votre épargne de précaution optimale selon votre statut (CDI, freelance, famille, fonctionnaire), testez votre éligibilité LEP et répartissez vos fonds au meilleur taux net.</p>
+            <div class="tool-card-footer">
+              <span>Dimensionner mon matelas</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <a href="outils/cout-credit-conso.html" class="tool-card">
+            <div class="tool-card-top">
+              <span class="tool-num">OUTIL 05</span>
+              <span class="badge">TAEG &amp; 4× / 10× / 24×</span>
+            </div>
+            <h3>Vrai Coût d'un Crédit Conso</h3>
+            <p>Calculez le coût caché d'un paiement fractionné ou d'un prêt personnel : mensualité actuarielle, assurance, taux d'endettement, coût d'opportunité et amortissement mois par mois.</p>
+            <div class="tool-card-footer">
+              <span>Auditer un crédit</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+
+          <a href="outils/objectif-independance.html" class="tool-card">
+            <div class="tool-card-top">
+              <span class="tool-num">OUTIL 06</span>
+              <span class="badge">FIRE France</span>
+            </div>
+            <h3>Calculateur Indépendance Financière</h3>
+            <p>Estimez votre capital cible FIRE et la date exacte d'indépendance financière avec un taux de retrait sûr (3,0 % à 4,5 %) ajusté de la fiscalité française sur les plus-values.</p>
+            <div class="tool-card-footer">
+              <span>Simuler mon horizon FIRE</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides piliers éditoriaux -->
+    <section class="section section-border-top">
+      <div class="container">
+        <div class="section-header-split">
+          <div>
+            <span class="eyebrow">Analyses &amp; Dossiers de fond</span>
+            <h2>Nos guides méthodologiques de référence</h2>
+          </div>
+          <p class="text-secondary" style="max-width:44ch;margin:0;">Comprendre les règles fiscales et statistiques derrière chaque chiffre avant d'engager votre épargne.</p>
+        </div>
+
+        <div class="guides-grid">
+          <a href="guides/fiscalite-etf-pea-2026.html" class="guide-card">
+            <div class="guide-meta">
+              <span>DOSSIER FISCALITÉ</span>
+              <span>•</span>
+              <span>Lecture 9 min</span>
+              <span>•</span>
+              <span>Mis à jour 2026</span>
+            </div>
+            <h3>Fiscalité des ETF en France (2026) : PEA, Assurance-Vie ou Compte-Titres ?</h3>
+            <p class="text-secondary">Plafond de 150 000 €, règle des 5 ans, abattement annuel de l'Assurance-Vie après 8 ans, frais sur unités de compte et prélèvement forfaitaire unique : l'analyse chiffrée complète pour choisir la bonne enveloppe.</p>
+            <span class="text-accent" style="font-weight:600;font-size:0.92rem;">Lire le dossier complet →</span>
+          </a>
+
+          <a href="guides/methodologie-inflation-pouvoir-achat.html" class="guide-card">
+            <div class="guide-meta">
+              <span>DOSSIER POUVOIR D'ACHAT</span>
+              <span>•</span>
+              <span>Lecture 8 min</span>
+              <span>•</span>
+              <span>Séries INSEE 2018–2026</span>
+            </div>
+            <h3>Inflation officielle vs inflation ressentie : méthodologie INSEE et défense du salaire réel</h3>
+            <p class="text-secondary">Pourquoi l'IPC moyen masque des écarts majeurs entre ménages locataires, familles périurbaines et urbains, et comment utiliser les indices par poste pour négocier sereinement sa rémunération.</p>
+            <span class="text-accent" style="font-weight:600;font-size:0.92rem;">Lire le dossier complet →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Encart méthodologie & indépendance (E-E-A-T) -->
+    <section class="section section-border-top">
+      <div class="container">
+        <div class="editorial-grid">
+          <div class="prose">
+            <span class="eyebrow">Charte éditoriale &amp; Transparence</span>
+            <h2>Une approche inspirée de la presse financière indépendante</h2>
+            <p>La majorité des calculateurs d'épargne disponibles en ligne servent de tunnels commerciaux destinés à collecter des coordonnées ou à promouvoir des contrats chargés en frais. Valora a été conçu selon un principe inverse : offrir des instruments de mesure transparents, documentés et immédiatement exploitables.</p>
+            <p>Chaque modèle mathématique repose sur les textes en vigueur du Code général des impôts (articles 150-0 A et 125-0 A pour les valeurs mobilières et l'assurance-vie), du Code de la consommation (méthode actuarielle du TAEG) et sur les indices des prix à la consommation publiés par l'INSEE.</p>
+          </div>
+          <aside class="panel-muted">
+            <h3 style="margin-bottom:16px;">Nos 4 engagements</h3>
+            <ul style="margin:0;padding-left:20px;font-size:0.94rem;color:var(--ink-secondary);">
+              <li style="margin-bottom:10px;"><strong>Zéro serveur de données personnelles :</strong> vos salaires, montants d'épargne et crédits restent dans votre navigateur.</li>
+              <li style="margin-bottom:10px;"><strong>Formules publiques :</strong> chaque page outil expose l'équation utilisée et ses limites.</li>
+              <li style="margin-bottom:10px;"><strong>Fiscalité française exacte :</strong> prélèvements sociaux 17,2 %, PFU 30 %, plafonds LEP/Livret A/LDDS.</li>
+              <li><strong>Avertissement clair :</strong> nos outils sont pédagogiques et ne constituent pas un conseil en investissement personnalisé.</li>
+            </ul>
+            <div style="margin-top:24px;">
+              <a href="a-propos.html" class="btn btn-secondary btn-sm">Consulter notre méthodologie</a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale. Calculs exécutés localement selon les règles fiscales françaises en vigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="outils/abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="outils/inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="outils/interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="outils/epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="outils/cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="outils/objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="contact.html">Contact &amp; Corrections</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="contact.html">Signaler une erreur</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance (valora-finance.fr) — Outils à vocation pédagogique, ne constitue pas un conseil financier.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filigrane Sécurisé CNI, Passeport &amp; Fiche de Paie (100 % Local) | DossierPur</title>
+  <meta name="description" content="Ajoutez un filigrane diagonal anti-usurpation d'identité sur vos PDF, CNI, passeports et fiches de paie directement dans votre navigateur. Zéro upload serveur, incrustation permanente.">
+  <link rel="canonical" href="https://dossierpur.fr/outils/filigrane-securise.html">
+  <meta property="og:title" content="Filigrane Anti-Usurpation d'Identité 100 % Local (PDF &amp; Images) — DossierPur">
+  <meta property="og:description" content="Protégez vos justificatifs de location et pièces d'identité sans les envoyer sur Internet. Aperçu temps réel sur Canvas et export PDF/PNG sécurisé.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dossierpur.fr/outils/filigrane-securise.html">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Filigrane Anti-Usurpation d'Identité 100 % Local (PDF & Images)",
+        "url": "https://dossierpur.fr/outils/filigrane-securise.html",
+        "applicationCategory": "SecurityApplication",
+        "operatingSystem": "Tous (Navigateur Web)",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Outil 100 % local navigateur permettant d'incruster un filigrane anti-usurpation sur une carte d'identité, un passeport, un avis d'imposition ou un PDF sans envoi serveur."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://dossierpur.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils PDF", "item": "https://dossierpur.fr/#outils" },
+          { "@type": "ListItem", "position": 3, "name": "Filigrane sécurisé", "item": "https://dossierpur.fr/outils/filigrane-securise.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Un propriétaire ou une agence peut-il refuser une pièce d'identité filigranée ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Tant que les informations essentielles restent parfaitement lisibles (nom, prénoms, date de naissance, photo, date de validité), le filigrane est une précaution pleinement légale et officiellement recommandée par les pouvoirs publics (CNIL et service FiligraneFacile) pour lutter contre l'usurpation d'identité." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi le filigrane DossierPur est-il plus difficile à retirer qu'un filigrane PDF classique ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Beaucoup d'éditeurs ajoutent le filigrane comme un calque texte séparé dans le PDF, supprimable en deux clics avec un logiciel d'édition. DossierPur fusionne le motif répété directement dans les pixels de chaque page avant d'exporter le PDF ou le PNG." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle opacité choisir pour protéger un document sans le rendre illisible ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Une opacité comprise entre 22 % et 35 % avec une densité standard ou dense offre le meilleur équilibre : le texte de protection traverse les zones sensibles (photo, bande MRZ, montants fiscaux) tout en préservant une lecture confortable." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ma carte d'identité est-elle transmise sur un serveur pendant le filigranage ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Jamais. Le traitement s'effectue intégralement sur un élément Canvas HTML5 dans la mémoire RAM de votre appareil. Aucune image et aucun PDF ne quittent votre navigateur." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que doit contenir le texte d'un bon filigrane anti-usurpation ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Indiquez impérativement trois éléments : l'usage exclusif (« Exclusivement destiné à la location immobilière »), si possible le nom du destinataire ou de l'agence, et la date du jour pour empêcher toute réutilisation ultérieure." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-root-prefix="../">
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-strip__badge">
+        <span class="trust-dot" aria-hidden="true"></span>
+        0 octet envoyé sur serveur — Filigranage CNI / PDF 100 % navigateur
+      </div>
+      <div class="trust-strip__meta">FUSION PIXELS ANTI-SUPPRESSION</div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <polyline points="9 15 11 17 15 13"/>
+          </svg>
+        </span>
+        DossierPur
+        <span class="brand-tag">100 % LOCAL</span>
+      </a>
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <nav class="main-nav" data-main-nav aria-label="Navigation principale">
+        <a href="compresser-pdf-ants.html" class="nav-link">Compresser PDF</a>
+        <a href="filigrane-securise.html" class="nav-link is-active">Filigrane CNI</a>
+        <a href="fusionner-dossier-locatif.html" class="nav-link">Dossier Locatif</a>
+        <a href="images-vers-pdf.html" class="nav-link">Photos → PDF</a>
+        <a href="decouper-extraire-pdf.html" class="nav-link">Découper</a>
+        <a href="verifier-poids-checklist.html" class="nav-link">Checklist</a>
+        <a href="../guides/limites-fichiers-ants-caf-parcoursup.html" class="nav-link">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-bar" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li><a href="../index.html#outils">Outils PDF</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Filigrane anti-usurpation d'identité</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header__grid">
+        <div>
+          <span class="badge badge-trust" style="margin-bottom:12px">OUTIL 02 • PROTECTION ANTI-FRAUDE</span>
+          <h1>Filigrane Anti-Usurpation d'Identité 100 % Local</h1>
+          <p class="tool-header__lead">
+            Incrustez un motif diagonal répété sur votre carte d'identité, passeport, avis d'imposition ou fiche de paie (PDF, JPG ou PNG) directement sur votre appareil. Prévisualisation en temps réel et export sécurisé.
+          </p>
+        </div>
+        <div class="tool-header__assurance">
+          <strong>
+            <span class="trust-dot" aria-hidden="true"></span>
+            Zéro upload de pièce d'identité
+          </strong>
+          <p>Contrairement aux services en ligne qui reçoivent votre CNI sur leurs serveurs, tout reste isolé dans votre navigateur.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="container">
+        <div class="workspace-grid">
+          <!-- Colonne Gauche : Import + Contrôles Filigrane -->
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">1. Importez votre pièce (PDF, JPG ou PNG)</span>
+                <span class="badge badge-trust">RAM locale uniquement</span>
+              </div>
+
+              <div id="wm-dropzone" class="dropzone" role="button" tabindex="0" aria-label="Déposer un PDF ou une image">
+                <div class="dropzone__icon" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                  </svg>
+                </div>
+                <div class="dropzone__title">Glissez-déposez un PDF ou une photo (CNI, passeport, fiche de paie)</div>
+                <div class="dropzone__hint">Formats acceptés : .pdf, .jpg, .jpeg, .png</div>
+                <input type="file" id="wm-file-input" accept="application/pdf,image/jpeg,image/png,image/webp,.pdf,.jpg,.jpeg,.png" class="sr-only">
+              </div>
+
+              <div class="sample-bar">
+                <span>Essayer immédiatement sans document personnel :</span>
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+                  <button type="button" id="wm-sample-img-btn" class="btn btn-secondary btn-sm">
+                    Tester avec une CNI spécimen locale
+                  </button>
+                  <button type="button" id="wm-sample-pdf-btn" class="btn btn-ghost btn-sm">
+                    Tester avec un PDF exemple
+                  </button>
+                </div>
+              </div>
+
+              <div id="wm-file-info" style="margin-top:16px"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">2. Personnalisez le filigrane</span>
+              </div>
+
+              <div class="field-group">
+                <div class="field-label">Mentions types prêtes à l'emploi (datées du jour)</div>
+                <div class="preset-grid">
+                  <button type="button" class="preset-btn is-active" data-wm-preset="Document exclusivement destiné à la location immobilière – [DATE]">
+                    <strong>Location immobilière</strong>
+                    <span>Usage exclusif + date</span>
+                  </button>
+                  <button type="button" class="preset-btn" data-wm-preset="Réservé à l'organisme bancaire – [DATE]">
+                    <strong>Organisme bancaire / Crédit</strong>
+                    <span>Réservé banque + date</span>
+                  </button>
+                  <button type="button" class="preset-btn" data-wm-preset="Uniquement pour dossier administratif – [DATE]">
+                    <strong>Dossier administratif</strong>
+                    <span>Démarche ciblée + date</span>
+                  </button>
+                  <button type="button" class="preset-btn" data-wm-preset="Ne pas utiliser pour un autre usage – [DATE]">
+                    <strong>Protection générique</strong>
+                    <span>Interdiction réemploi</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="field-group">
+                <label class="field-label" for="wm-text">Texte du filigrane (libre)</label>
+                <input type="text" id="wm-text" class="input-text" maxlength="120" placeholder="Ex. Exclusivement pour Agence Dupont – 22/11/2026">
+              </div>
+
+              <div class="input-grid-3" style="margin-bottom:24px">
+                <div class="field-group" style="margin-bottom:0">
+                  <label class="field-label" for="wm-opacity">Opacité <span id="wm-opacity-val" class="mono">28 %</span></label>
+                  <input type="range" id="wm-opacity" min="10" max="75" value="28">
+                </div>
+                <div class="field-group" style="margin-bottom:0">
+                  <label class="field-label" for="wm-size">Taille <span id="wm-size-val" class="mono">26 px</span></label>
+                  <input type="range" id="wm-size" min="14" max="54" value="26">
+                </div>
+                <div class="field-group" style="margin-bottom:0">
+                  <label class="field-label" for="wm-angle">Angle <span id="wm-angle-val" class="mono">-32°</span></label>
+                  <input type="range" id="wm-angle" min="-60" max="60" value="-32">
+                </div>
+              </div>
+
+              <div class="input-grid-2">
+                <div class="field-group" style="margin-bottom:0">
+                  <div class="field-label">Densité du motif répété</div>
+                  <div class="segmented" role="group" aria-label="Densité du filigrane">
+                    <button type="button" data-wm-density="low">Aéré</button>
+                    <button type="button" data-wm-density="standard" class="is-active">Standard</button>
+                    <button type="button" data-wm-density="high">Dense</button>
+                  </div>
+                </div>
+                <div class="field-group" style="margin-bottom:0">
+                  <div class="field-label">Couleur du marquage</div>
+                  <div class="swatch-row">
+                    <button type="button" class="swatch-btn is-active" data-wm-color="#1D4ED8" style="background-color:#1D4ED8" aria-label="Bleu cobalt"></button>
+                    <button type="button" class="swatch-btn" data-wm-color="#334155" style="background-color:#334155" aria-label="Gris ardoise"></button>
+                    <button type="button" class="swatch-btn" data-wm-color="#B91C1C" style="background-color:#B91C1C" aria-label="Rouge contrôle"></button>
+                    <button type="button" class="swatch-btn" data-wm-color="#0D1B2A" style="background-color:#0D1B2A" aria-label="Encre noire"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Colonne Droite : Aperçu temps réel + Export -->
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Aperçu en direct (Canvas local)</span>
+                <div id="wm-page-nav" style="display:none;align-items:center;gap:8px">
+                  <button type="button" id="wm-prev-page" class="icon-btn" aria-label="Page précédente">←</button>
+                  <span id="wm-page-indicator" class="mono" style="font-size:13px">Page 1 / 1</span>
+                  <button type="button" id="wm-next-page" class="icon-btn" aria-label="Page suivante">→</button>
+                </div>
+              </div>
+
+              <div class="canvas-stage">
+                <canvas id="wm-preview-canvas" style="display:none"></canvas>
+                <div id="wm-preview-empty" class="canvas-empty">
+                  Chargez une image ou un PDF — ou cliquez sur <strong>« Tester avec une CNI spécimen locale »</strong> — pour visualiser le filigrane en temps réel.
+                </div>
+              </div>
+
+              <div id="wm-status" class="status-banner" style="display:none;margin-top:16px" aria-live="polite"></div>
+
+              <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px">
+                <button type="button" id="wm-download-pdf" class="btn btn-primary btn-lg" disabled>
+                  Télécharger en PDF
+                </button>
+                <button type="button" id="wm-download-png" class="btn btn-secondary btn-lg" disabled>
+                  Télécharger en PNG
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AdSense Slot 1 -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot__label">Publicité</span>
+          <span class="ad-slot__note">Emplacement réservé anti-CLS — Vos pièces d'identité ne quittent jamais votre écran</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contenu Éditorial (750+ mots) -->
+    <section class="section-tight">
+      <div class="container editorial-layout">
+        <article class="editorial-prose">
+          <h2>Pourquoi le filigrane est indispensable avant d'envoyer une pièce d'identité</h2>
+          <p>
+            Chaque année en France, des dizaines de milliers de candidats à la location transmettent par e-mail leur carte nationale d'identité, leur dernier avis d'imposition et trois bulletins de salaire à des interlocuteurs qu'ils n'ont pas encore rencontrés. Si ce dossier tombe entre les mains d'un escroc — via une fausse annonce immobilière ou une boîte mail piratée —, ces trois pièces suffisent pour souscrire un crédit à la consommation, ouvrir un compte bancaire en ligne ou créer une société fictive à votre nom.
+          </p>
+          <p>
+            Apposer un <strong>filigrane diagonal répété, daté et nominatif</strong> rend votre justificatif immédiatement inutilisable pour une autre démarche : aucun établissement bancaire ni opérateur sérieux n'acceptera une CNI barrée de la mention <em>« Document exclusivement destiné à la location immobilière – Agence X – 22/11/2026 »</em> pour valider une ouverture de compte.
+          </p>
+
+          <div class="callout callout--trust">
+            <strong>Incrustation directe dans les pixels (aplatissement sécurisé)</strong>
+            Lorsque vous exportez en PDF ou en PNG sur DossierPur, le filigrane n'est pas ajouté comme une simple annotation flottante. Chaque page est rendue puis fusionnée en une seule image aplatie : il devient impossible pour un tiers de sélectionner et supprimer la couche texte du filigrane dans un éditeur PDF classique.
+          </div>
+
+          <h2>Réglages recommandés selon le type de justificatif</h2>
+          <p>
+            Un bon filigrane doit respecter un équilibre précis : couvrir l'ensemble de la surface (y compris la photo, le numéro de titre et la bande optique MRZ) sans rendre les chiffres ou l'identité illisibles pour un vérificateur légitime.
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Type de pièce</th>
+                  <th>Opacité conseillée</th>
+                  <th>Densité</th>
+                  <th>Mention recommandée</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Carte d'identité (CNI) / Passeport</strong></td>
+                  <td class="mono">25 % – 32 %</td>
+                  <td>Dense</td>
+                  <td>Exclusivement location [Ville/Agence] – [Date]</td>
+                </tr>
+                <tr>
+                  <td><strong>Avis d'imposition (DGFiP)</strong></td>
+                  <td class="mono">22 % – 28 %</td>
+                  <td>Standard</td>
+                  <td>Réservé dossier locatif – [Date] (préserve le QR 2D-DOC)</td>
+                </tr>
+                <tr>
+                  <td><strong>Bulletins de salaire (3 mois)</strong></td>
+                  <td class="mono">24 % – 30 %</td>
+                  <td>Standard</td>
+                  <td>Justificatif de revenus – [Destinataire] – [Date]</td>
+                </tr>
+                <tr>
+                  <td><strong>RIB / Justificatif bancaire</strong></td>
+                  <td class="mono">25 % – 35 %</td>
+                  <td>Dense</td>
+                  <td>Réservé à [Organisme] – Ne pas réutiliser – [Date]</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Erreurs courantes qui affaiblissent la protection</h2>
+          <ul>
+            <li><strong>Placer le filigrane uniquement dans la marge blanche :</strong> un fraudeur recadrera l'image en deux secondes pour supprimer la mention. Le motif doit impérativement traverser le texte, le visage et les numéros officiels en diagonale.</li>
+            <li><strong>Utiliser un filigrane sans date :</strong> un document portant uniquement « Pour location » peut être réutilisé des mois plus tard pour une autre arnaque locative. L'ajout automatique de la date du jour par DossierPur limite la fenêtre de validité.</li>
+            <li><strong>Téléverser sa CNI sur un site de filigranage cloud non vérifié :</strong> c'est un paradoxe fréquent. Protéger sa pièce d'identité en l'envoyant sur un serveur inconnu crée un nouveau point de fuite. Vérifiez toujours que le traitement est 100 % local.</li>
+          </ul>
+
+          <p>
+            Une fois vos justificatifs protégés, vous pouvez les réunir dans un fichier unique avec page de garde via notre <a href="fusionner-dossier-locatif.html">assembleur de dossier locatif PDF</a>, ou consulter notre <a href="../guides/proteger-papiers-usurpation-identite.html">guide complet anti-usurpation d'identité</a>.
+          </p>
+
+          <!-- AdSense Slot 2 -->
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot__label">Publicité</span>
+            <span class="ad-slot__note">Emplacement in-article réservé anti-CLS</span>
+          </aside>
+
+          <h2>Questions fréquentes sur le filigrane sécurisé</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-question" aria-expanded="true">
+                Un propriétaire ou une agence peut-il refuser une pièce d'identité filigranée ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Non. Tant que le document reste parfaitement lisible, l'ajout d'un filigrane est une mesure de sécurité reconnue et encouragée par l'État français et la CNIL. Un interlocuteur qui exige une copie brute « sans aucune mention » avant même toute visite constitue au contraire un signal d'alerte sérieux.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Le filigrane empêche-t-il la lecture du code 2D-DOC sur un avis d'imposition ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Avec une opacité modérée (20 % à 28 %) en bleu ou gris clair, le code 2D-DOC reste généralement lisible par les lecteurs optiques grâce à sa correction d'erreur intégrée. Si un portail automatisé échoue à le scanner, abaissez légèrement l'opacité à 20 % en densité « Standard ».
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Puis-je filigraner un PDF de plusieurs pages d'un seul coup ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui. Déposez votre PDF multi-pages (par exemple vos 3 bulletins de salaire regroupés) : vous pouvez prévisualiser chaque page avec les flèches de navigation, et l'export « Télécharger en PDF » applique le filigrane identique sur l'ensemble des pages.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Le filigrane augmente-t-il le poids de mon fichier PDF ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                L'aplatissement en pixels à haute netteté peut légèrement augmenter le poids d'un PDF purement textuel. Si votre dossier dépasse ensuite 2 Mo (ANTS) ou 5 Mo (location), passez le fichier filigrané dans notre <a href="compresser-pdf-ants.html">compresseur PDF à taille cible</a>.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question" aria-expanded="false">
+                Faut-il filigraner ses pièces pour un dépôt officiel sur ANTS ou Impots.gouv ?
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-answer">
+                Pour les téléservices officiels de l'État (ANTS, Impots.gouv, CAF) dont l'adresse se termine par <span class="mono">.gouv.fr</span>, il est préférable de déposer des justificatifs nets sans filigrane afin d'éviter un rejet de contrôle automatique. Réservez le filigrane aux échanges avec des tiers privés (bailleurs, agences, particuliers, courtiers).
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="editorial-sidebar">
+          <div class="sidebar-card">
+            <h3>Enchaîner votre dossier</h3>
+            <ul class="sidebar-links">
+              <li><a href="fusionner-dossier-locatif.html">Assembler le dossier locatif <span>→</span></a></li>
+              <li><a href="compresser-pdf-ants.html">Compresser le PDF (&lt; 2/5 Mo) <span>→</span></a></li>
+              <li><a href="images-vers-pdf.html">Photos → PDF A4 (Scan) <span>→</span></a></li>
+              <li><a href="decouper-extraire-pdf.html">Découper &amp; pivoter PDF <span>→</span></a></li>
+              <li><a href="verifier-poids-checklist.html">Vérifier la checklist location <span>→</span></a></li>
+            </ul>
+          </div>
+
+          <div class="sidebar-card">
+            <h3>Guide recommandé</h3>
+            <ul class="sidebar-links">
+              <li><a href="../guides/proteger-papiers-usurpation-identite.html">Guide anti-usurpation d'identité <span>→</span></a></li>
+              <li><a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Plafonds ANTS / CAF / ALUR <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DossierPur</div>
+          <p class="footer-desc">Studio PDF administratif 100 % local navigateur. Zéro transfert serveur, confidentialité vérifiable.</p>
+          <span class="badge badge-trust">0 octet envoyé • Traitement local</span>
+        </div>
+        <div class="footer-col">
+          <h4>Outils PDF Locaux</h4>
+          <ul class="footer-links">
+            <li><a href="compresser-pdf-ants.html">Compresseur PDF ANTS (2 Mo)</a></li>
+            <li><a href="filigrane-securise.html">Filigrane anti-usurpation</a></li>
+            <li><a href="fusionner-dossier-locatif.html">Assembleur dossier locatif</a></li>
+            <li><a href="images-vers-pdf.html">Photos smartphone → PDF A4</a></li>
+            <li><a href="decouper-extraire-pdf.html">Découper &amp; pivoter PDF</a></li>
+            <li><a href="verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="../guides/proteger-papiers-usurpation-identite.html">Protéger ses papiers (CNI / Location)</a></li>
+            <li><a href="../guides/limites-fichiers-ants-caf-parcoursup.html">Limites ANTS, CAF &amp; Parcoursup</a></li>
+            <li><a href="../a-propos.html">À propos &amp; Méthodologie</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Conformité &amp; Légal</h4>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#" data-open-cookie-prefs>Gérer mes cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 DossierPur.fr — Service indépendant 100 % local.</span>
+        <span class="mono">Traitement 100 % côté client</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/filigrane-securise.js"></script>
+</body>
+</html>

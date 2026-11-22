@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duel Électrique vs Thermique (TCO 10 ans) — Simulateur 2026 | Trajectoire</title>
+  <meta name="description" content="Comparez le coût total de possession (TCO) sur 10 ans entre deux voitures (électrique, essence, hybride ou diesel). Base de 34 modèles, point de bascule exact et courbe Canvas.">
+  <link rel="canonical" href="https://trajectoire-auto.fr/outils/duel-electrique-vs-thermique.html">
+  <meta property="og:title" content="Duel Électrique vs Thermique par Modèle — Simulateur TCO 10 ans">
+  <meta property="og:description" content="Calculez au mois près quand une voiture électrique devient plus rentable qu'une thermique ou hybride selon votre kilométrage et votre mix de recharge.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trajectoire-auto.fr/outils/duel-electrique-vs-thermique.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Duel Électrique vs Thermique — Simulateur TCO 10 ans",
+        "url": "https://trajectoire-auto.fr/outils/duel-electrique-vs-thermique.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://trajectoire-auto.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Duel Électrique vs Thermique", "item": "https://trajectoire-auto.fr/outils/duel-electrique-vs-thermique.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Au bout de combien de kilomètres une voiture électrique est-elle rentable face à une essence ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sur une citadine (ex. Peugeot e-208 vs 208 essence), avec 80 % de recharge à domicile au tarif Bleu et 15 000 km/an, le surcoût d'achat est généralement amorti entre 75 000 et 115 000 km, soit 5 à 7 ans hors bonus écologique. Avec un bonus ou un malus élevé sur le modèle thermique (ex. BMW Série 3 vs Tesla Model 3), la rentabilité intervient dès le premier jour." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi inclure 8 % de pertes de recharge sur la voiture électrique ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Lorsqu'une batterie emmagasine 50 kWh, votre compteur Linky facture en réalité entre 53 et 56 kWh en raison des pertes thermiques du chargeur embarqué et du câble. Intégrer 8 % de pertes évite de sous-estimer le budget électricité réel." }
+          },
+          {
+            "@type": "Question",
+            "name": "La voiture électrique reste-t-elle avantageuse si je recharge uniquement sur bornes publiques ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Si vous rechargez à 100 % sur des bornes rapides d'autoroute à 0,59 €/kWh, le coût aux 100 km atteint environ 10,50 € à 11,50 €, soit presque autant qu'une essence ou une hybride sobre. L'accès à une prise domestique ou une Wallbox reste le principal levier de rentabilité d'un véhicule électrique." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'entretien d'une voiture électrique coûte-t-il réellement moins cher ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Oui, en moyenne 35 % à 45 % moins cher sur 5 ans. Il n'y a ni vidange d'huile moteur, ni courroie de distribution, ni embrayage, ni filtre à particules, et le freinage régénératif double souvent la durée de vie des plaquettes. Seuls les pneumatiques peuvent s'user légèrement plus vite en raison du couple et de la masse." }
+          },
+          {
+            "@type": "Question",
+            "name": "Faut-il raisonner en coût cumulé décaissé ou en TCO net après revente ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Les deux indicateurs sont complémentaires. Le coût cumulé décaissé indique votre effort de trésorerie réel année par année si vous conservez le véhicule jusqu'au bout. Le TCO net après revente à 5 ans intègre la décote estimée et correspond au vrai coût patrimonial si vous changez de voiture régulièrement." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand" aria-label="Trajectoire — Accueil">
+        <span class="brand-mark" aria-hidden="true">TR</span>
+        <span>TRAJECTOIRE</span>
+        <span class="brand-sub">LABO COÛT RÉEL</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="duel-electrique-vs-thermique.html" class="nav-link active">Duel TCO</a>
+        <a href="simulateur-malus-2026.html" class="nav-link">Malus 2026</a>
+        <a href="cout-recharge-electrique.html" class="nav-link">Recharge VE</a>
+        <a href="cout-reel-kilometrique.html" class="nav-link">PRK Réel</a>
+        <a href="loa-lld-vs-credit.html" class="nav-link">LOA vs Crédit</a>
+        <a href="cout-trajet-autoroute.html" class="nav-link">Trajet</a>
+        <a href="../guides/bareme-malus-ecologique-2026.html" class="nav-link">Guides</a>
+      </nav>
+      <button type="button" class="menu-toggle" data-menu-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5H17M3 10H17M3 15H17" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"/>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 Calculateurs</div>
+      <a href="duel-electrique-vs-thermique.html" class="active">01 · Duel Électrique vs Thermique (TCO)</a>
+      <a href="simulateur-malus-2026.html">02 · Simulateur Malus 2026 + Carte Grise</a>
+      <a href="cout-recharge-electrique.html">03 · Coût &amp; Temps de Recharge Électrique</a>
+      <a href="cout-reel-kilometrique.html">04 · Calculateur PRK (Coût au Kilomètre)</a>
+      <a href="loa-lld-vs-credit.html">05 · Comparateur LOA / LLD vs Crédit Auto</a>
+      <a href="cout-trajet-autoroute.html">06 · Coût Trajet Autoroute &amp; Covoiturage</a>
+    </div>
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Guides &amp; Labo</div>
+      <a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a>
+      <a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a>
+      <a href="../a-propos.html">Méthodologie &amp; À propos</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container breadcrumb">
+      <ol class="breadcrumb-list">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li>Outils</li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Duel Électrique vs Thermique</li>
+      </ol>
+    </div>
+
+    <section class="tool-hero">
+      <div class="container">
+        <div class="tool-hero-grid">
+          <div>
+            <span class="eyebrow">Instrument 01 · Coût Total de Possession (TCO)</span>
+            <h1 class="mt-2">Duel Électrique vs Thermique / Hybride sur 10 ans</h1>
+            <p>
+              Sélectionnez deux véhicules parmi nos 34 modèles pré-calibrés (ou modifiez chaque paramètre librement), ajustez votre kilométrage et votre part de recharge à domicile pour identifier le <strong>point de bascule exact</strong>.
+            </p>
+          </div>
+          <div class="tool-meta-box">
+            <div class="tool-meta-row"><span>Base modèles</span><span>34 véhicules France 2026</span></div>
+            <div class="tool-meta-row"><span>Horizon d'analyse</span><span>10 ans (calcul mensuel)</span></div>
+            <div class="tool-meta-row"><span>Pertes charge VE</span><span>+8 % inclus à la prise</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="tool-layout">
+          <!-- COLONNE GAUCHE : PARAMÈTRES -->
+          <form class="panel" id="duel-form" onsubmit="return false;">
+            <div class="panel-header">
+              <span class="panel-title">Paramètres du duel</span>
+              <button type="button" class="btn btn-ghost btn-sm" id="duel-swap">Inverser A / B</button>
+            </div>
+
+            <!-- VÉHICULE A -->
+            <div class="form-section">
+              <div class="form-section-title">Véhicule A (Courbe Orange)</div>
+              <div class="field">
+                <label for="car-a-select">Choisir un modèle pré-rempli</label>
+                <select id="car-a-select"></select>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="a-name">Nom affiché</label>
+                  <input type="text" id="a-name">
+                </div>
+                <div class="field">
+                  <label for="a-fuel">Énergie</label>
+                  <select id="a-fuel">
+                    <option value="electrique">Électrique</option>
+                    <option value="essence">Essence</option>
+                    <option value="hybride">Hybride (HEV)</option>
+                    <option value="diesel">Diesel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="a-price">Prix net (bonus/malus incl.)</label>
+                  <div class="input-unit">
+                    <input type="number" id="a-price" step="100" min="0">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="a-conso">Conso réelle</label>
+                  <div class="input-unit">
+                    <input type="number" id="a-conso" step="0.1" min="0">
+                    <span class="input-unit-tag" id="a-conso-unit">kWh/100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row form-row-3">
+                <div class="field">
+                  <label for="a-maint">Entretien/an</label>
+                  <div class="input-unit">
+                    <input type="number" id="a-maint" step="10" min="0">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="a-ins">Assurance/an</label>
+                  <div class="input-unit">
+                    <input type="number" id="a-ins" step="10" min="0">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="a-dep5">Décote 5 ans</label>
+                  <div class="input-unit">
+                    <input type="number" id="a-dep5" step="1" min="10" max="85">
+                    <span class="input-unit-tag">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- VÉHICULE B -->
+            <div class="form-section">
+              <div class="form-section-title" style="color:#9BA3AE;">Véhicule B (Courbe Grise)</div>
+              <div class="field">
+                <label for="car-b-select">Choisir un modèle pré-rempli</label>
+                <select id="car-b-select"></select>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="b-name">Nom affiché</label>
+                  <input type="text" id="b-name">
+                </div>
+                <div class="field">
+                  <label for="b-fuel">Énergie</label>
+                  <select id="b-fuel">
+                    <option value="electrique">Électrique</option>
+                    <option value="essence">Essence</option>
+                    <option value="hybride">Hybride (HEV)</option>
+                    <option value="diesel">Diesel</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="b-price">Prix net (bonus/malus incl.)</label>
+                  <div class="input-unit">
+                    <input type="number" id="b-price" step="100" min="0">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="b-conso">Conso réelle</label>
+                  <div class="input-unit">
+                    <input type="number" id="b-conso" step="0.1" min="0">
+                    <span class="input-unit-tag" id="b-conso-unit">L/100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-row form-row-3">
+                <div class="field">
+                  <label for="b-maint">Entretien/an</label>
+                  <div class="input-unit">
+                    <input type="number" id="b-maint" step="10" min="0">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="b-ins">Assurance/an</label>
+                  <div class="input-unit">
+                    <input type="number" id="b-ins" step="10" min="0">
+                    <span class="input-unit-tag">€</span>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="b-dep5">Décote 5 ans</label>
+                  <div class="input-unit">
+                    <input type="number" id="b-dep5" step="1" min="10" max="85">
+                    <span class="input-unit-tag">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- USAGE & TARIFS ÉNERGIE -->
+            <div class="form-section">
+              <div class="form-section-title">Usage &amp; Tarifs Énergie 2026</div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="u-km">Kilométrage annuel</label>
+                  <span class="field-value-badge" id="u-km-val">15 000 km/an</span>
+                </div>
+                <input type="range" id="u-km" min="5000" max="45000" step="1000" value="15000">
+              </div>
+              <div class="field">
+                <div class="field-label-row">
+                  <label for="u-home-share">Mix recharge VE (Domicile / Autoroute)</label>
+                  <span class="field-value-badge" id="u-home-share-val">80 % dom. / 20 % rapide</span>
+                </div>
+                <input type="range" id="u-home-share" min="0" max="100" step="5" value="80">
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="u-elec-home">Élec. domicile (€/kWh)</label>
+                  <input type="number" id="u-elec-home" step="0.01" value="0.2016">
+                </div>
+                <div class="field">
+                  <label for="u-elec-fast">Borne rapide (€/kWh)</label>
+                  <input type="number" id="u-elec-fast" step="0.01" value="0.59">
+                </div>
+              </div>
+              <div class="form-row form-row-2">
+                <div class="field">
+                  <label for="u-essence">SP95-E10 (€/L)</label>
+                  <input type="number" id="u-essence" step="0.01" value="1.78">
+                </div>
+                <div class="field">
+                  <label for="u-diesel">Gazole B7 (€/L)</label>
+                  <input type="number" id="u-diesel" step="0.01" value="1.69">
+                </div>
+              </div>
+            </div>
+          </form>
+
+          <!-- COLONNE DROITE : RÉSULTATS & GRAPHIQUE -->
+          <div>
+            <div class="panel">
+              <div class="panel-header">
+                <span class="panel-title">Bilan TCO sur 10 ans</span>
+                <button type="button" class="btn btn-primary btn-sm" id="duel-export-png">Exporter la carte PNG</button>
+              </div>
+
+              <div class="kpi-banner" id="duel-verdict-banner">
+                <div class="kpi-banner-label" id="duel-verdict-label">Point de bascule TCO</div>
+                <div class="kpi-banner-value" id="duel-verdict-value">Calcul en cours...</div>
+                <div class="kpi-banner-sub" id="duel-verdict-sub"></div>
+              </div>
+
+              <div class="kpi-grid kpi-grid-3">
+                <div class="kpi-card">
+                  <div class="kpi-label">Coût A à 5 ans</div>
+                  <div class="kpi-val accent" id="kpi-a-5y">—</div>
+                  <div class="kpi-note" id="kpi-a-annual">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Coût B à 5 ans</div>
+                  <div class="kpi-val" id="kpi-b-5y">—</div>
+                  <div class="kpi-note" id="kpi-b-annual">—</div>
+                </div>
+                <div class="kpi-card">
+                  <div class="kpi-label">Écart cumulé à 5 ans</div>
+                  <div class="kpi-val" id="kpi-diff-5y">—</div>
+                  <div class="kpi-note">À 10 ans : <span id="kpi-diff-10y" class="mono">—</span></div>
+                </div>
+              </div>
+
+              <div class="chart-box">
+                <div class="chart-head">
+                  <span class="telemetry-title">Coût cumulé décaissé (0 à 10 ans)</span>
+                  <div class="chart-legend">
+                    <span class="legend-item"><span class="legend-dot" style="background:#E85D04;"></span><span id="legend-a-name">Véhicule A</span></span>
+                    <span class="legend-item"><span class="legend-dot" style="background:#9BA3AE;"></span><span id="legend-b-name">Véhicule B</span></span>
+                  </div>
+                </div>
+                <div class="canvas-wrap">
+                  <canvas id="duel-chart" aria-label="Courbe comparée du coût total de possession sur 10 ans"></canvas>
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Échéance</th>
+                      <th class="num">Cumul Véhicule A</th>
+                      <th class="num">Cumul Véhicule B</th>
+                      <th class="num">Avantage A</th>
+                    </tr>
+                  </thead>
+                  <tbody id="duel-table-body"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- EMPLACEMENT ADSENSE 1 (SOUS RÉSULTATS, ANTI-CLS) -->
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format adaptatif (728×90 / Responsive)</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL EXPERT (750+ MOTS) -->
+    <section class="section">
+      <div class="container">
+        <div class="editorial-grid">
+          <article class="prose">
+            <h2>Méthodologie du Duel TCO : comment est calculé le point de bascule&nbsp;?</h2>
+            <p>
+              Comparer une voiture électrique et une voiture thermique uniquement sur leur prix catalogue conduit presque toujours à une erreur d'arbitrage. L'électrique demande un ticket d'entrée plus élevé, tandis que la thermique concentre sa dépense dans le temps via le carburant, l'entretien mécanique et, depuis le durcissement du <strong>barème 2026</strong>, le malus écologique. L'indicateur de référence utilisé par les gestionnaires de flottes automobiles est le <strong>TCO (Total Cost of Ownership)</strong>, ou coût total de possession.
+            </p>
+            <p>
+              Notre calculateur modélise l'évolution mensuelle de la dépense cumulée sur dix ans (120 mois) en intégrant le prix d'achat net (malus CO₂ 2026 inclus pour les modèles pré-sélectionnés), le poste énergie pondéré selon votre mix de recharge, la maintenance périodique et l'assurance annuelle.
+            </p>
+            <div class="formula-block">
+              TCO_cumulé(t) = Prix_net + t × [ (Km/100 × Conso_réelle × Prix_énergie) + Entretien_annuel + Assurance_annuelle ]
+            </div>
+            <p>
+              Pour les véhicules électriques, le prix moyen du kilowattheure est pondéré entre votre recharge à domicile et vos recharges rapides sur autoroute, puis majoré d'un coefficient réaliste de <strong>8 % de pertes de conversion électrique</strong> (chargeur embarqué et câblage). Le point de bascule correspond à l'instant exact où la courbe du véhicule le plus cher à l'achat croise celle de son rival.
+            </p>
+
+            <h2>Exemples chiffrés 2026 : citadine, compacte et berline familiale</h2>
+            <p>
+              Le seuil de rentabilité varie fortement selon le segment automobile. Sur les citadines d'entrée de gamme, l'écart tarifaire reste significatif entre essence et électrique. Sur les berlines et SUV familiaux, le malus CO₂ 2026 bouleverse totalement l'équation dès la signature du bon de commande.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Duel (15 000 km/an · 80 % domicile)</th>
+                    <th class="num">Écart achat</th>
+                    <th class="num">Économie / an</th>
+                    <th class="num">Point de bascule</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Peugeot e-208 156 ch vs 208 PureTech 100</td>
+                    <td class="num">+12 060 €</td>
+                    <td class="num">1 065 €/an</td>
+                    <td class="num">~11,3 ans (ou 6,8 ans à 25 000 km/an)</td>
+                  </tr>
+                  <tr>
+                    <td>Citroën ë-C3 (44 kWh) vs C3 Turbo 100</td>
+                    <td class="num">+6 150 €</td>
+                    <td class="num">1 040 €/an</td>
+                    <td class="num">5 ans et 11 mois</td>
+                  </tr>
+                  <tr>
+                    <td>Renault 5 E-Tech vs Clio V TCe 90</td>
+                    <td class="num">+12 730 €</td>
+                    <td class="num">1 030 €/an</td>
+                    <td class="num">~12,3 ans (hors bonus)</td>
+                  </tr>
+                  <tr>
+                    <td>Tesla Model 3 Propulsion vs BMW Série 3 320i</td>
+                    <td class="num">-15 694 €</td>
+                    <td class="num">2 030 €/an</td>
+                    <td class="num text-positive">Rentable dès le jour 1</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Les quatre pièges qui faussent la comparaison électrique vs thermique</h2>
+            <ul>
+              <li><strong>Oublier le profil de recharge :</strong> un automobiliste qui roule 20 000 km/an et charge à domicile en option Tempo Heures Creuses (0,1296 €/kWh) divise sa facture énergie par cinq par rapport à une essence. À l'inverse, un conducteur urbain sans prise privée payant 0,45 à 0,59 €/kWh sur borne publique perd l'essentiel de son avantage énergétique.</li>
+              <li><strong>Négliger le malus CO₂ 2026 sur les thermiques :</strong> dès 140 g/km, le malus dépasse 2 200 €. À 160 g/km, il atteint 8 165 €. Ce surcoût fiscal immédiat réduit drastiquement, voire inverse, l'écart d'achat avec une électrique équivalente.</li>
+              <li><strong>Utiliser la consommation WLTP officielle :</strong> nos modèles pré-calibrés retiennent des consommations routières réelles (notamment +12 à +18 % sur autoroute en électrique et +14 % sur essence/hybride).</li>
+              <li><strong>Ignorer la valeur de revente :</strong> le tableau ci-dessus affiche la ligne <em>TCO Net à 5 ans (revente déduite)</em> afin d'intégrer l'écart éventuel de décote entre deux motorisations.</li>
+            </ul>
+
+            <div class="callout">
+              <div class="callout-title">Conseil du laboratoire</div>
+              <p style="margin-bottom:0;">
+                Vous hésitez à installer une borne à domicile pour optimiser votre mix de recharge&nbsp;? Utilisez notre <a href="cout-recharge-electrique.html">calculateur de coût et temps de recharge</a> et lisez notre <a href="../guides/recharge-domicile-wallbox-guide.html">guide complet Wallbox 2026</a>.
+              </p>
+            </div>
+
+            <!-- EMPLACEMENT ADSENSE 2 (ENTRE MÉTHODOLOGIE ET FAQ) -->
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <div class="ad-slot-inner">Emplacement publicitaire Google AdSense — Format in-article responsive</div>
+            </aside>
+
+            <h2>Questions fréquentes sur le Duel Électrique vs Thermique</h2>
+            <div class="faq-list">
+              <div class="faq-item is-open">
+                <button type="button" class="faq-trigger" aria-expanded="true">
+                  <span>Au bout de combien de kilomètres une voiture électrique est-elle rentable&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Tout dépend de l'écart d'achat initial (bonus déduit, malus inclus) et de votre accès à la recharge domestique. Sur une citadine à 15 000 km/an avec 80 % de charge à domicile, le point de bascule se situe entre 75 000 et 115 000 km hors aide. Dès que le kilométrage atteint 22 000 km/an ou que le modèle thermique concurrent subit un malus CO₂ élevé, la bascule intervient souvent sous 3 à 4 ans, voire dès le premier jour sur les berlines et SUV.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Pourquoi ajoutez-vous 8 % de pertes de charge à la consommation électrique&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  L'ordinateur de bord d'un véhicule électrique indique les kilowattheures consommés par le moteur en sortie de batterie, pas l'électricité tirée au compteur. Entre la prise et les cellules lithium-ion, le chargeur embarqué dissipe entre 7 % et 12 % d'énergie en chaleur. Appliquer +8 % reflète votre facture réelle EDF.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Une hybride non rechargeable (HEV) est-elle un meilleur compromis&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Une hybride comme la Toyota Yaris, la Corolla ou la Renault Clio E-Tech offre un excellent TCO pour les conducteurs ne pouvant pas recharger chez eux ou roulant moins de 12 000 km/an : elle échappe au malus CO₂ 2026 tout en consommant 4,1 à 5,2 L/100 km. Testez-la directement dans la liste Véhicule B ci-dessus.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Comment est estimé le coût d'entretien annuel des 34 modèles&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Les montants pré-remplis correspondent à une moyenne lissée sur 5 ans comprenant les révisions constructeurs périodiques, les filtres, le liquide de frein et l'usure courante hors sinistre. Sur un modèle électrique, l'absence de vidange, de distribution et l'usure réduite des freins abaissent la facture de 35 % à 45 %. Vous pouvez ajuster ce montant selon vos devis réels.
+                </div>
+              </div>
+              <div class="faq-item">
+                <button type="button" class="faq-trigger" aria-expanded="false">
+                  <span>Dois-je ajouter le coût d'installation d'une Wallbox au prix du véhicule électrique&nbsp;?</span>
+                  <span class="faq-icon" aria-hidden="true">+</span>
+                </button>
+                <div class="faq-panel">
+                  Si vous n'avez pas encore de point de charge, oui : ajoutez simplement 900 € à 1 400 € (déduction faite des aides disponibles) directement dans le champ « Prix net » du Véhicule A. Si vous roulez moins de 50 km par jour, une prise renforcée Green'Up posée autour de 450 € suffit souvent largement.
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <aside>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Autres instruments Trajectoire</div>
+              <ul class="sidebar-links">
+                <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026 &amp; Carte Grise <span>→</span></a></li>
+                <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge VE <span>→</span></a></li>
+                <li><a href="cout-reel-kilometrique.html">Calculateur PRK (Coût au km) <span>→</span></a></li>
+                <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto <span>→</span></a></li>
+                <li><a href="cout-trajet-autoroute.html">Coût Trajet Autoroute &amp; Train <span>→</span></a></li>
+              </ul>
+            </div>
+            <div class="sidebar-box">
+              <div class="sidebar-title">Dossiers liés</div>
+              <ul class="sidebar-links">
+                <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026 <span>→</span></a></li>
+                <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox 2026 <span>→</span></a></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true">TR</span><span>TRAJECTOIRE</span></a>
+          <p class="mt-2" style="font-size:14px;max-width:340px;">Laboratoire indépendant du coût réel automobile en France. Barèmes 2026 et outils transparents sans inscription.</p>
+        </div>
+        <div>
+          <div class="footer-col-title">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="duel-electrique-vs-thermique.html">Duel Électrique vs Thermique</a></li>
+            <li><a href="simulateur-malus-2026.html">Simulateur Malus 2026</a></li>
+            <li><a href="cout-recharge-electrique.html">Coût &amp; Temps de Recharge</a></li>
+            <li><a href="cout-reel-kilometrique.html">Calculateur PRK Réel</a></li>
+            <li><a href="loa-lld-vs-credit.html">LOA / LLD vs Crédit Auto</a></li>
+            <li><a href="cout-trajet-autoroute.html">Coût Trajet &amp; Covoiturage</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Dossiers &amp; Labo</div>
+          <ul class="footer-links">
+            <li><a href="../guides/bareme-malus-ecologique-2026.html">Barème Malus Écologique 2026</a></li>
+            <li><a href="../guides/recharge-domicile-wallbox-guide.html">Guide Recharge &amp; Wallbox</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contacter la rédaction</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Informations</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#cookies" data-open-cookie-settings>Gérer mes cookies</a></li>
+            <li><a href="../sitemap.xml">Plan du site (XML)</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Trajectoire (trajectoire-auto.fr) — Tous droits réservés.</span>
+        <span class="mono">Données indicatives France 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/data-cars.js"></script>
+  <script src="../assets/js/tools/duel-electrique-vs-thermique.js"></script>
+</body>
+</html>

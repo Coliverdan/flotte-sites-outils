@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DossierPur — Studio PDF Administratif 100 % Local (Zéro Upload)</title>
+  <meta name="description" content="Compressez un PDF sous 2 Mo (ANTS, Parcoursup, CAF), ajoutez un filigrane anti-usurpation d'identité ou assemblez votre dossier locatif 100 % dans votre navigateur. Zéro fichier envoyé sur serveur.">
+  <link rel="canonical" href="https://dossierpur.fr/">
+  <meta property="og:title" content="DossierPur — Studio PDF Administratif 100 % Local (Zéro Upload)">
+  <meta property="og:description" content="Six outils PDF gratuits et confidentiels exécutés localement dans votre navigateur : compression ANTS 2 Mo, filigrane CNI, dossier locatif, scan A4 et checklist.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dossierpur.fr/">
+  <meta property="og:locale" content="fr_FR">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Source+Sans+3:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "DossierPur",
+        "url": "https://dossierpur.fr/",
+        "inLanguage": "fr-FR",
+        "description": "Studio PDF administratif 100 % local navigateur : compression ANTS 2 Mo, filigrane anti-usurpation, fusion de dossier locatif et conversion scan A4."
+      },
+      {
+        "@type": "Organization",
+        "name": "DossierPur",
+        "url": "https://dossierpur.fr/",
+        "email": "contact@dossierpur.fr"
+      }
+    ]
+  }
+  </script>
+</head>
+<body data-root-prefix="">
+  <!-- Bandeau de confiance institutionnel -->
+  <div class="trust-strip">
+    <div class="container trust-strip__inner">
+      <div class="trust-strip__badge">
+        <span class="trust-dot" aria-hidden="true"></span>
+        0 octet envoyé sur serveur — Traitement 100 % navigateur (JavaScript / Canvas / PDF-lib)
+      </div>
+      <div class="trust-strip__meta">CONFIDENTIALITÉ VÉRIFIABLE • MODE HORS-LIGNE COMPATIBLE</div>
+    </div>
+  </div>
+
+  <!-- En-tête Sticky -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="DossierPur Accueil">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <polyline points="9 15 11 17 15 13"/>
+          </svg>
+        </span>
+        DossierPur
+        <span class="brand-tag">100 % LOCAL</span>
+      </a>
+
+      <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-label="Ouvrir le menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+
+      <nav class="main-nav" data-main-nav aria-label="Navigation principale">
+        <a href="outils/compresser-pdf-ants.html" class="nav-link">Compresser PDF</a>
+        <a href="outils/filigrane-securise.html" class="nav-link">Filigrane CNI</a>
+        <a href="outils/fusionner-dossier-locatif.html" class="nav-link">Dossier Locatif</a>
+        <a href="outils/images-vers-pdf.html" class="nav-link">Photos → PDF</a>
+        <a href="outils/decouper-extraire-pdf.html" class="nav-link">Découper</a>
+        <a href="outils/verifier-poids-checklist.html" class="nav-link">Checklist</a>
+        <a href="guides/limites-fichiers-ants-caf-parcoursup.html" class="nav-link">Guides</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Asymétrique 7/5 -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-eyebrow">Studio PDF Administratif • Architecture Zéro Serveur</div>
+          <h1>Préparez vos pièces administratives sans jamais les envoyer sur Internet.</h1>
+          <p class="hero-lead">
+            Carte d'identité, fiches de paie, avis d'imposition ou dossier de location : DossierPur compresse, filigrane, fusionne et vérifie vos PDF directement dans la mémoire de votre navigateur. Aucune donnée personnelle ne quitte votre appareil.
+          </p>
+          <div class="hero-actions">
+            <a href="outils/compresser-pdf-ants.html" class="btn btn-primary btn-lg">Compresser un PDF (&lt; 2 Mo ANTS)</a>
+            <a href="outils/filigrane-securise.html" class="btn btn-secondary btn-lg">Filigraner une pièce d'identité</a>
+          </div>
+          <div class="hero-proof-row">
+            <div class="hero-proof-item">
+              <strong>0 octet</strong>
+              <span>Transféré vers un serveur distant</span>
+            </div>
+            <div class="hero-proof-item">
+              <strong>6 outils</strong>
+              <span>Calibration ANTS, CAF, Parcoursup, ALUR</span>
+            </div>
+            <div class="hero-proof-item">
+              <strong>Sans compte</strong>
+              <span>Gratuit, immédiat, sans filigrane publicitaire</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panneau Inspecteur de Confidentialité Interactif -->
+        <aside class="hero-inspector" aria-label="Vérification technique du traitement local">
+          <div class="inspector-head">
+            <span class="inspector-title">Moniteur d'isolation navigateur</span>
+            <span class="badge badge-trust">Vérifiable (F12)</span>
+          </div>
+          <div class="inspector-list">
+            <div class="inspector-row">
+              <span>Upload de fichiers (HTTP POST)</span>
+              <strong class="ok">0 requête / 0 o</strong>
+            </div>
+            <div class="inspector-row">
+              <span>Moteur de rendu &amp; compression</span>
+              <strong>PDF.js + pdf-lib (RAM)</strong>
+            </div>
+            <div class="inspector-row">
+              <span>Stockage serveur / Cloud</span>
+              <strong class="ok">Aucun (100 % éphémère)</strong>
+            </div>
+            <div class="inspector-row">
+              <span>Fonctionnement hors connexion</span>
+              <strong class="ok">Actif une fois chargé</strong>
+            </div>
+          </div>
+          <button type="button" id="home-test-local-btn" class="btn btn-secondary" style="width:100%">
+            Vérifier le moteur local dans ce navigateur
+          </button>
+          <div id="home-test-output" aria-live="polite"></div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Grille des 6 outils interactifs -->
+    <section class="section" id="outils">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Six outils calibrés pour les démarches françaises</h2>
+            <p>Chaque module intègre un bouton de test avec document spécimen généré localement pour essayer l'outil en un clic avant de charger vos propres justificatifs.</p>
+          </div>
+          <a href="outils/verifier-poids-checklist.html" class="btn btn-ghost btn-sm">Vérifier un dossier complet →</a>
+        </div>
+
+        <div class="tools-grid">
+          <a href="outils/compresser-pdf-ants.html" class="tool-card">
+            <div class="tool-card__top">
+              <span class="tool-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="4 14 10 14 10 20"/><polyline points="20 10 14 10 14 4"/>
+                  <line x1="14" y1="10" x2="21" y2="3"/><line x1="3" y1="21" x2="10" y2="14"/>
+                </svg>
+              </span>
+              <span class="tool-card__num">OUTIL 01</span>
+            </div>
+            <h3>Compresseur PDF à Taille Cible Exacte</h3>
+            <p>Réduit automatiquement la résolution et la compression JPEG par recherche dichotomique pour tomber juste sous 2 Mo (ANTS, Parcoursup), 4 Mo (CAF) ou 5 Mo (location).</p>
+            <div class="tool-card__footer">
+              <span>Ouvrir le compresseur →</span>
+              <span class="tool-card__spec">&lt; 2 Mo / 4 Mo / 5 Mo</span>
+            </div>
+          </a>
+
+          <a href="outils/filigrane-securise.html" class="tool-card">
+            <div class="tool-card__top">
+              <span class="tool-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </span>
+              <span class="tool-card__num">OUTIL 02</span>
+            </div>
+            <h3>Filigrane Anti-Usurpation d'Identité</h3>
+            <p>Protégez CNI, passeport, avis d'imposition et fiches de paie (PDF, JPG, PNG) avec un motif diagonal répété incrusté dans les pixels, avec aperçu en direct.</p>
+            <div class="tool-card__footer">
+              <span>Protéger une pièce →</span>
+              <span class="tool-card__spec">PDF • JPG • PNG</span>
+            </div>
+          </a>
+
+          <a href="outils/fusionner-dossier-locatif.html" class="tool-card">
+            <div class="tool-card__top">
+              <span class="tool-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="14" height="14" rx="1"/>
+                  <path d="M7 21h12a2 2 0 0 0 2-2V7"/>
+                </svg>
+              </span>
+              <span class="tool-card__num">OUTIL 03</span>
+            </div>
+            <h3>Assembleur de Dossier Locatif PDF</h3>
+            <p>Fusionnez PDF et photos en un seul dossier ordonné, avec génération automatique d'une page de garde professionnelle et sommaire paginé des pièces.</p>
+            <div class="tool-card__footer">
+              <span>Assembler mon dossier →</span>
+              <span class="tool-card__spec">Page de garde + Index</span>
+            </div>
+          </a>
+
+          <a href="outils/images-vers-pdf.html" class="tool-card">
+            <div class="tool-card__top">
+              <span class="tool-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="18" height="18" rx="2"/>
+                  <circle cx="8.5" cy="8.5" r="1.5"/>
+                  <polyline points="21 15 16 10 5 21"/>
+                </svg>
+              </span>
+              <span class="tool-card__num">OUTIL 04</span>
+            </div>
+            <h3>Photos Smartphone → PDF A4 (Mode Scan)</h3>
+            <p>Transformez vos photos de factures ou justificatifs en PDF A4 net. Le filtre Mode Scan N&amp;B blanchit le papier ombré et renforce la lisibilité du texte.</p>
+            <div class="tool-card__footer">
+              <span>Convertir en scan A4 →</span>
+              <span class="tool-card__spec">Filtre Scan N&amp;B</span>
+            </div>
+          </a>
+
+          <a href="outils/decouper-extraire-pdf.html" class="tool-card">
+            <div class="tool-card__top">
+              <span class="tool-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+                  <line x1="20" y1="4" x2="8.12" y2="15.88"/>
+                  <line x1="14.47" y1="14.48" x2="20" y2="20"/>
+                  <line x1="8.12" y1="8.12" x2="12" y2="12"/>
+                </svg>
+              </span>
+              <span class="tool-card__num">OUTIL 05</span>
+            </div>
+            <h3>Découpeur, Extracteur &amp; Rotation PDF</h3>
+            <p>Affichez les miniatures de chaque page, cochez uniquement celles utiles, redressez les scans à l'envers de 90° et exportez un nouveau PDF sans perte.</p>
+            <div class="tool-card__footer">
+              <span>Extraire des pages →</span>
+              <span class="tool-card__spec">Miniatures + 90°</span>
+            </div>
+          </a>
+
+          <a href="outils/verifier-poids-checklist.html" class="tool-card">
+            <div class="tool-card__top">
+              <span class="tool-card__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M9 11l3 3L22 4"/>
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+              </span>
+              <span class="tool-card__num">OUTIL 06</span>
+            </div>
+            <h3>Vérificateur &amp; Checklist Dossier</h3>
+            <p>Contrôlez instantanément le format et le poids de toutes vos pièces face aux plafonds ANTS, Location, Crédit ou Université, avec checklist mémorisée localement.</p>
+            <div class="tool-card__footer">
+              <span>Contrôler mes pièces →</span>
+              <span class="tool-card__spec">4 démarches types</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Emplacement AdSense discret anti-CLS -->
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot__label">Publicité</span>
+          <span class="ad-slot__note">Emplacement réservé (728×90 / responsive) — Aucun suivi des fichiers traités localement</span>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Comparatif Sécurité Local vs Services Cloud -->
+    <section class="section section-surface">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Pourquoi un traitement 100 % navigateur change tout pour vos justificatifs</h2>
+            <p>Les convertisseurs PDF classiques téléversent votre passeport, votre avis d'imposition ou vos bulletins de paie sur des serveurs distants. DossierPur inverse le modèle.</p>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Critère de sécurité &amp; fiabilité</th>
+                <th>DossierPur (100 % Local Navigateur)</th>
+                <th>Outils PDF Cloud classiques</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Envoi des pièces sur un serveur tiers</strong></td>
+                <td><span class="badge badge-trust">Aucun (0 octet transmis)</span></td>
+                <td>Upload intégral obligatoire sur serveur distant</td>
+              </tr>
+              <tr>
+                <td><strong>Exposition en cas de fuite serveur</strong></td>
+                <td><span class="badge badge-trust">Nulle (aucun fichier stocké)</span></td>
+                <td>Risque de conservation temporaire ou de logs</td>
+              </tr>
+              <tr>
+                <td><strong>Vérification indépendante par l'utilisateur</strong></td>
+                <td>Vérifiable dans l'onglet <em>Réseau</em> (F12) ou en coupant le Wi-Fi</td>
+                <td>Impossible à auditer côté utilisateur</td>
+              </tr>
+              <tr>
+                <td><strong>Calibration sur les plafonds français</strong></td>
+                <td>Cibles exactes ANTS (&lt; 2 Mo), CAF (&lt; 4 Mo), ALUR (&lt; 5 Mo)</td>
+                <td>Compression générique « faible / moyenne / forte » imprécise</td>
+              </tr>
+              <tr>
+                <td><strong>Limites quotidiennes &amp; création de compte</strong></td>
+                <td>Illimité, sans inscription, sans filigrane commercial</td>
+                <td>Souvent limité à 2 fichiers/jour puis abonnement payant</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Guides Piliers Documentés -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Guides pratiques &amp; références administratives</h2>
+            <p>Comprendre les plafonds techniques des portails publics et sécuriser efficacement vos documents d'identité contre la fraude.</p>
+          </div>
+        </div>
+
+        <div class="guides-grid">
+          <a href="guides/proteger-papiers-usurpation-identite.html" class="guide-card">
+            <span class="guide-card__meta">GUIDE SÉCURITÉ • LECTURE 7 MIN</span>
+            <h3>Comment protéger ses papiers contre l'usurpation d'identité (CNI, fiche de paie, location)</h3>
+            <p>Méthode complète pour filigraner efficacement vos justificatifs, distinguer les pièces légalement exigibles en location (décret n° 2015-1437) et réagir en cas d'usage frauduleux.</p>
+            <span class="guide-card__cta">Lire le guide complet →</span>
+          </a>
+
+          <a href="guides/limites-fichiers-ants-caf-parcoursup.html" class="guide-card">
+            <span class="guide-card__meta">RÉFÉRENTIEL TECHNIQUE • LECTURE 6 MIN</span>
+            <h3>Limites de poids et formats acceptés : ANTS, CAF, Ameli, Parcoursup, Impôts &amp; DossierFacile</h3>
+            <p>Tableau récapitulatif des tailles maximales en Mo, résolutions DPI recommandées et astuces pour éviter les rejets automatiques lors du dépôt de pièces justificatives.</p>
+            <span class="guide-card__cta">Consulter le référentiel →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Méthodologie & Transparence E-E-A-T -->
+    <section class="section section-surface">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <h2>Architecture ouverte et méthodologie transparente</h2>
+            <p style="margin-top:16px;color:var(--ink-secondary)">
+              DossierPur s'appuie exclusivement sur deux moteurs standards open-source chargés dans votre navigateur : <strong>PDF.js</strong> (développé par Mozilla pour le rendu fidèle des pages PDF sur Canvas HTML5) et <strong>pdf-lib</strong> (pour l'assemblage, l'extraction sans perte et la reconstruction de documents conformes à la norme PDF).
+            </p>
+            <p style="color:var(--ink-secondary)">
+              Lorsque vous fermez l'onglet, la mémoire RAM allouée à vos fichiers est immédiatement libérée par votre navigateur. Aucune base de données ne reçoit, n'indexe ou ne conserve vos justificatifs.
+            </p>
+            <div style="margin-top:24px;display:flex;gap:16px;flex-wrap:wrap">
+              <a href="a-propos.html" class="btn btn-secondary">Notre démarche &amp; engagements</a>
+              <a href="confidentialite.html" class="btn btn-ghost">Politique de confidentialité</a>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Comment vérifier l'absence d'upload ?</span>
+              <span class="badge badge-accent">Test 10 secondes</span>
+            </div>
+            <ol style="margin:0;padding-left:20px;color:var(--ink-secondary);font-size:15px">
+              <li style="margin-bottom:10px">Ouvrez n'importe quel outil DossierPur (par exemple le <a href="outils/filigrane-securise.html">filigrane sécurisé</a>).</li>
+              <li style="margin-bottom:10px">Activez le <strong>Mode Avion</strong> ou déconnectez temporairement votre Wi-Fi une fois la page chargée.</li>
+              <li style="margin-bottom:10px">Déposez votre PDF ou générez un exemple : le traitement et le téléchargement fonctionnent intégralement hors ligne.</li>
+              <li>Vous pouvez également ouvrir les outils développeur (touche <span class="mono">F12</span> → onglet <em>Réseau</em>) : aucune requête sortante n'apparaît lors du traitement.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Institutionnel 4 Colonnes -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DossierPur</div>
+          <p class="footer-desc">
+            Studio PDF administratif 100 % local navigateur. Compression à taille cible ANTS, filigrane anti-usurpation, assemblage locatif et scan A4 sans aucun transfert serveur.
+          </p>
+          <span class="badge badge-trust">0 octet envoyé • Traitement local</span>
+        </div>
+
+        <div class="footer-col">
+          <h4>Outils PDF Locaux</h4>
+          <ul class="footer-links">
+            <li><a href="outils/compresser-pdf-ants.html">Compresseur PDF ANTS (2 Mo)</a></li>
+            <li><a href="outils/filigrane-securise.html">Filigrane anti-usurpation</a></li>
+            <li><a href="outils/fusionner-dossier-locatif.html">Assembleur dossier locatif</a></li>
+            <li><a href="outils/images-vers-pdf.html">Photos smartphone → PDF A4</a></li>
+            <li><a href="outils/decouper-extraire-pdf.html">Découper &amp; pivoter PDF</a></li>
+            <li><a href="outils/verifier-poids-checklist.html">Vérificateur &amp; Checklist</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="guides/proteger-papiers-usurpation-identite.html">Protéger ses papiers (CNI / Location)</a></li>
+            <li><a href="guides/limites-fichiers-ants-caf-parcoursup.html">Limites ANTS, CAF &amp; Parcoursup</a></li>
+            <li><a href="a-propos.html">À propos &amp; Méthodologie</a></li>
+            <li><a href="contact.html">Contact &amp; Signalement</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Conformité &amp; Légal</h4>
+          <ul class="footer-links">
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="#" data-open-cookie-prefs>Gérer mes cookies</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 DossierPur.fr — Service indépendant non affilié à l'ANTS, la CAF ou DossierFacile.</span>
+        <span class="mono">Traitement 100 % côté client (RAM locale)</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/common.js"></script>
+</body>
+</html>

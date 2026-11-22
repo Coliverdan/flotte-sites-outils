@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulateur Abonnements → Capital ETF / PEA (avec Ticket PNG) — Valora</title>
+  <meta name="description" content="Calculez combien vos abonnements mensuels (Netflix, Spotify, sport, IA, cloud) rapporteraient investis en ETF sur un PEA ou CTO. Téléchargez votre ticket de caisse patrimonial PNG.">
+  <link rel="canonical" href="https://valora-finance.fr/outils/abonnements-etf.html">
+  <meta property="og:title" content="Simulateur Abonnements → Capital ETF / PEA — Valora">
+  <meta property="og:description" content="Auditez 18 abonnements courants, comparez cash dépensé vs capital ETF net d'impôt et générez votre ticket de caisse PNG 1080×1920.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Simulateur Abonnements vers Capital ETF / PEA",
+        "url": "https://valora-finance.fr/outils/abonnements-etf.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "fr-FR",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://valora-finance.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Outils", "item": "https://valora-finance.fr/#tous-les-outils" },
+          { "@type": "ListItem", "position": 3, "name": "Abonnements → Capital ETF", "item": "https://valora-finance.fr/outils/abonnements-etf.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Pourquoi utiliser un rendement annuel de 8 % par défaut pour un ETF ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "L'indice MSCI World dividendes réinvestis affiche un rendement nominal annualisé proche de 8 % à 9 % sur plusieurs décennies. Ce taux reste une hypothèse historique non garantie et peut être ajusté entre 4 % et 11 % dans le simulateur." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelle différence fiscale entre le PEA et le Compte-Titres Ordinaire ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Après 5 ans de détention, les plus-values réalisées dans un PEA sont exonérées d'impôt sur le revenu et ne supportent que 17,2 % de prélèvements sociaux, contre 30 % de PFU (Flat Tax) sur un CTO." }
+          },
+          {
+            "@type": "Question",
+            "name": "Que se passe-t-il si je retire de mon PEA avant 5 ans ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Un retrait avant le cinquième anniversaire du plan entraîne sa clôture (sauf exceptions légales) et l'imposition des gains au taux global de 30 % (PFU). Notre simulateur bascule automatiquement sur 30 % si l'horizon choisi est inférieur à 5 ans." }
+          },
+          {
+            "@type": "Question",
+            "name": "L'inflation est-elle déduite du capital affiché ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Le capital calculé à 8 % est exprimé en euros courants (nominal). Pour raisonner en pouvoir d'achat constant (euros réels), abaissez simplement le curseur de rendement d'environ 2 points, autour de 6 %." }
+          },
+          {
+            "@type": "Question",
+            "name": "Mes données d'abonnements sont-elles enregistrées lorsque je génère le ticket PNG ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Non. Le ticket de caisse 1080×1920 est dessiné localement dans votre navigateur via HTML5 Canvas et téléchargé directement sur votre appareil sans aucun envoi serveur." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="top-edition-bar">
+    <div class="container">
+      <span>OUTIL 01 • COÛT D'OPPORTUNITÉ &amp; CAPITALISATION ETF</span>
+      <span>FISCALITÉ PEA 17,2 % / CTO PFU 30 %</span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true">V</span>
+        <span class="brand-name">Valora</span>
+        <span class="brand-tag">Laboratoire Patrimonial</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="../index.html">Accueil</a>
+        <a href="abonnements-etf.html" class="active">Abonnements &amp; ETF</a>
+        <a href="inflation-personnelle.html">Inflation perso</a>
+        <a href="interets-composes-pea.html">PEA vs CTO</a>
+        <a href="../guides/fiscalite-etf-pea-2026.html">Guides</a>
+        <a href="../a-propos.html">Méthodologie</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile">
+      <a href="../index.html">Accueil</a>
+      <a href="abonnements-etf.html">01. Abonnements → Capital ETF</a>
+      <a href="inflation-personnelle.html">02. Mon Inflation Personnelle</a>
+      <a href="interets-composes-pea.html">03. Intérêts Composés PEA / AV / CTO</a>
+      <a href="epargne-securite.html">04. Matelas de Sécurité &amp; Livrets</a>
+      <a href="cout-credit-conso.html">05. Vrai Coût Crédit Conso &amp; 4×</a>
+      <a href="objectif-independance.html">06. Objectif FIRE France</a>
+      <a href="../guides/fiscalite-etf-pea-2026.html">Guide : Fiscalité ETF &amp; PEA</a>
+    </nav>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><a href="../index.html#tous-les-outils">Outils</a></li>
+        <li aria-current="page">Abonnements → Capital ETF / PEA</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <section class="tool-header">
+      <div class="container tool-header-grid">
+        <div>
+          <span class="eyebrow">Outil 01 • Audit des dépenses récurrentes</span>
+          <h1>Simulateur Abonnements → Capital ETF / PEA</h1>
+          <p class="text-secondary" style="margin-top:8px;max-width:64ch;">Cochez vos abonnements mensuels ou ajustez leurs tarifs pour découvrir combien cette somme capitalisée chaque mois sur un ETF diversifié représenterait en capital net d'impôt.</p>
+        </div>
+        <div class="tool-header-meta">
+          <strong>Inclus :</strong> 18 abonnements France modifiables + ajout personnalisé + export <strong>Ticket de Caisse PNG (1080×1920)</strong> prêt à partager.
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <!-- Sélection des abonnements -->
+        <div class="panel" style="margin-bottom:32px;">
+          <div class="panel-title">
+            <span>1. Sélectionnez vos abonnements mensuels</span>
+            <span class="badge badge-accent" id="kpi-count">6 abonnements actifs</span>
+          </div>
+
+          <div class="preset-row">
+            <button type="button" class="preset-btn" data-preset="reset">Profil standard</button>
+            <button type="button" class="preset-btn" data-preset="streaming">Tout streaming</button>
+            <button type="button" class="preset-btn" data-preset="urbain">Urbain connecté</button>
+            <button type="button" class="preset-btn" data-preset="clear">Tout décocher</button>
+          </div>
+
+          <div class="subs-grid" id="subs-grid"></div>
+
+          <!-- Ajout personnalisé -->
+          <form id="custom-sub-form" class="panel-muted" style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;">
+            <div style="flex:2 1 220px;">
+              <label for="custom-sub-name" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">Ajouter un abonnement personnalisé</label>
+              <input type="text" id="custom-sub-name" class="input" placeholder="Ex. Adobe Creative Cloud, Box Vin, Salle Yoga…">
+            </div>
+            <div style="flex:1 1 140px;">
+              <label for="custom-sub-price" style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;">Tarif mensuel (€)</label>
+              <input type="number" id="custom-sub-price" class="input input-mono" min="0.5" max="500" step="0.01" placeholder="19.99">
+            </div>
+            <div>
+              <button type="submit" class="btn btn-secondary">+ Ajouter</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Paramètres + Résultats & Graphique -->
+        <div class="tool-layout">
+          <div class="panel">
+            <div class="panel-title">2. Paramètres d'investissement ETF</div>
+
+            <div class="field">
+              <div class="field-label-row">
+                <label for="sub-horizon">Horizon de placement</label>
+                <span class="field-value" id="sub-horizon-val">10 ans</span>
+              </div>
+              <input type="range" id="sub-horizon" min="1" max="30" step="1" value="10">
+              <div class="range-ticks"><span>1 an</span><span>10 ans</span><span>20 ans</span><span>30 ans</span></div>
+            </div>
+
+            <div class="field">
+              <div class="field-label-row">
+                <label for="sub-rate">Rendement annuel brut ETF</label>
+                <span class="field-value" id="sub-rate-val">8,0 %</span>
+              </div>
+              <input type="range" id="sub-rate" min="4" max="11" step="0.5" value="8">
+              <div class="range-ticks"><span>4 % (prudent)</span><span>8 % (MSCI World)</span><span>11 %</span></div>
+            </div>
+
+            <div class="field">
+              <label style="margin-bottom:8px;">Enveloppe fiscale</label>
+              <div class="segmented" role="group" aria-label="Choix de l'enveloppe fiscale">
+                <button type="button" class="active" data-env="pea">PEA (17,2 % PS)</button>
+                <button type="button" data-env="cto">CTO (30 % PFU)</button>
+              </div>
+              <span class="field-hint" id="sub-tax-note">PEA détenu 5 ans ou plus : seuls les 17,2 % de prélèvements sociaux s'appliquent sur les gains.</span>
+            </div>
+
+            <div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--border);">
+              <button type="button" id="btn-download-receipt" class="btn btn-primary btn-block">Télécharger mon Ticket de Caisse (PNG Story)</button>
+              <span class="field-hint" style="text-align:center;">Format vertical HD 1080×1920 généré localement — prêt pour partage ou archivage.</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="kpi-grid kpi-grid-3">
+              <div class="kpi-card">
+                <div class="kpi-label">Coût mensuel</div>
+                <div class="kpi-value" id="kpi-monthly">86,57 €</div>
+                <div class="kpi-sub" id="kpi-annual">1 039 € / an</div>
+              </div>
+              <div class="kpi-card kpi-card-danger">
+                <div class="kpi-label">Cash dépensé</div>
+                <div class="kpi-value" id="kpi-cash">10 388 €</div>
+                <div class="kpi-sub">Sortie nette cumulée</div>
+              </div>
+              <div class="kpi-card kpi-card-accent">
+                <div class="kpi-label">Capital ETF net</div>
+                <div class="kpi-value" id="kpi-etf">14 900 €</div>
+                <div class="kpi-sub">Manque à gagner : <strong id="kpi-gain">+4 512 €</strong></div>
+              </div>
+            </div>
+
+            <div class="chart-box">
+              <div class="chart-header">
+                <span class="chart-title">Cash dépensé vs Capital potentiel en ETF (net d'impôt)</span>
+                <div class="chart-legend">
+                  <span class="legend-item"><span class="legend-dot" style="background:#0F5132;"></span>Capital ETF net</span>
+                  <span class="legend-item"><span class="legend-dot" style="background:#A62C2B;"></span>Cash dépensé</span>
+                </div>
+              </div>
+              <div class="canvas-wrap">
+                <canvas id="subs-chart" aria-label="Graphique comparant le cash dépensé en abonnements au capital potentiel en ETF"></canvas>
+              </div>
+            </div>
+
+            <!-- Emplacement AdSense 1 : discret sous le bloc résultat -->
+            <aside class="ad-slot" aria-label="Espace publicitaire">
+              <span class="ad-slot-label">Publicité</span>
+              <span class="ad-slot-note">Emplacement réservé AdSense (Format adaptatif — hauteur anti-CLS)</span>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contenu éditorial expert (750+ mots) -->
+    <section class="editorial">
+      <div class="container editorial-grid">
+        <article class="prose">
+          <h2>Comprendre le coût d'opportunité caché des abonnements</h2>
+          <p>En France, l'économie par abonnement s'est imposée sur l'ensemble des postes du quotidien : streaming vidéo, musique, stockage cloud, intelligence artificielle, salles de sport, livraisons ou options télécoms. Pris isolément, un prélèvement de 11,12 € ou 13,49 € par mois paraît indolore. Pourtant, l'accumulation de six à huit services dépasse fréquemment 90 € à 140 € mensuels, soit plus de 1 200 € par an prélevés automatiquement sans arbitrage actif.</p>
+          <p>L'analyse patrimoniale ne se limite pas à additionner les sommes déboursées. Elle intègre le <strong>coût d'opportunité</strong> : ce que ces mêmes montants auraient produit s'ils avaient été versés chaque mois en investissement programmé (<em>Dollar-Cost Averaging</em>) sur un ETF actions mondiales éligible au Plan d'Épargne en Actions (PEA).</p>
+
+          <h3>Formule mathématique utilisée</h3>
+          <p>Pour un montant mensuel constant <code>PMT</code> investi au taux annuel nominal <code>R</code> pendant <code>N</code> années (soit <code>n = 12 × N</code> mensualités au taux mensuel <code>r = R / 12</code>), la valeur future brute s'exprime par la formule de la suite géométrique des versements périodiques :</p>
+          <div class="formula-box">
+            Capital_brut = PMT × [ ((1 + r)^n − 1) / r ]<br>
+            Plus_value = Capital_brut − (PMT × n)<br>
+            Capital_net = (PMT × n) + Plus_value × (1 − Taux_fiscal)
+          </div>
+          <p>Conformément au régime fiscal français en vigueur, <code>Taux_fiscal</code> vaut <strong>17,2 %</strong> (prélèvements sociaux seuls) pour un PEA ouvert depuis au moins 5 ans, et <strong>30 %</strong> (Prélèvement Forfaitaire Unique : 12,8 % d'impôt sur le revenu + 17,2 % de prélèvements sociaux) sur un Compte-Titres Ordinaire ou en cas de rachat PEA avant 5 ans.</p>
+
+          <h3>Exemples chiffrés concrets (ETF 8 % / an en PEA)</h3>
+          <p>Le tableau ci-dessous illustre l'écart spectaculaire entre le cash cumulé et le capital net obtenu en redirigeant trois niveaux typiques d'abonnements superflus vers un PEA :</p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Économie mensuelle</th>
+                  <th class="num">Sur 10 ans (cash)</th>
+                  <th class="num">ETF net 10 ans</th>
+                  <th class="num">Sur 20 ans (cash)</th>
+                  <th class="num">ETF net 20 ans</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>35 € / mois</strong> (2 plateformes)</td>
+                  <td class="num">4 200 €</td>
+                  <td class="num text-accent"><strong>6 024 €</strong></td>
+                  <td class="num">8 400 €</td>
+                  <td class="num text-accent"><strong>18 525 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>85 € / mois</strong> (panier moyen)</td>
+                  <td class="num">10 200 €</td>
+                  <td class="num text-accent"><strong>14 630 €</strong></td>
+                  <td class="num">20 400 €</td>
+                  <td class="num text-accent"><strong>44 989 €</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>150 € / mois</strong> (audit complet)</td>
+                  <td class="num">18 000 €</td>
+                  <td class="num text-accent"><strong>25 818 €</strong></td>
+                  <td class="num">36 000 €</td>
+                  <td class="num text-accent"><strong>79 392 €</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Les 3 pièges fréquents à éviter</h3>
+          <ul>
+            <li><strong>Confondre rendement moyen et rendement linéaire :</strong> un ETF actions (MSCI World, S&amp;P 500) peut reculer de 20 % à 35 % lors d'une crise boursière avant de rebondir. Un horizon inférieur à 8 ans expose au risque de perte en capital.</li>
+            <li><strong>Négliger les frais de courtage et d'enveloppe :</strong> pour des petits versements mensuels (50 € à 100 €), privilégiez un courtier en ligne dont les frais d'ordre sont plafonnés à 0,5 % (plafond légal du PEA) et sans droits de garde.</li>
+            <li><strong>Couper sans discernement :</strong> l'objectif n'est pas l'austérité absolue, mais la chasse aux abonnements « zombies » inutilisés (salle de sport non fréquentée, doublon streaming, options télécoms obsolètes) et l'alternance mensuelle des plateformes.</li>
+          </ul>
+
+          <!-- Emplacement AdSense 2 : entre méthodologie et FAQ -->
+          <aside class="ad-slot ad-slot-rect" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <span class="ad-slot-note">Emplacement réservé AdSense (Rectangle éditorial anti-CLS)</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Pourquoi utiliser un rendement annuel de 8 % par défaut pour un ETF ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>L'indice MSCI World dividendes réinvestis affiche un rendement nominal annualisé proche de 8 % à 9 % sur plusieurs décennies. Ce taux reste une moyenne historique non garantie : vous pouvez tester un scénario plus conservateur à 5 % ou 6 % grâce au curseur.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Quelle différence fiscale entre le PEA et le Compte-Titres Ordinaire ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Après 5 ans de détention, les plus-values réalisées dans un PEA échappent à l'impôt sur le revenu (12,8 %) et ne supportent que 17,2 % de prélèvements sociaux, contre 30 % de PFU sur un Compte-Titres Ordinaire. Consultez notre <a href="interets-composes-pea.html">comparateur PEA vs Assurance-Vie vs CTO</a> pour mesurer l'écart sur le long terme.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Que se passe-t-il si je retire de mon PEA avant 5 ans ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Tout retrait avant le 5<sup>e</sup> anniversaire du plan entraîne sa clôture (hors cas légaux de licenciement, invalidité ou création d'entreprise) et l'imposition des gains au taux global de 30 %. Notre simulateur applique automatiquement ce taux dès que l'horizon sélectionné est inférieur à 5 ans.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>L'inflation est-elle déduite du capital final affiché ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Non, le calcul à 8 % est exprimé en euros courants. Pour estimer votre capital en euros constants (pouvoir d'achat d'aujourd'hui), déduisez environ 2 % d'inflation moyenne en réglant le rendement annuel sur 6 %.</p>
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-q" aria-expanded="false">
+                <span>Mes données sont-elles stockées lors du téléchargement du Ticket de Caisse PNG ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-a">
+                <p>Jamais. L'image PNG 1080×1920 est dessinée intégralement dans votre navigateur via l'API Canvas HTML5. Aucune information sur vos dépenses ne transite par un serveur distant.</p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside>
+          <div class="sidebar-box">
+            <h3>Autres outils Valora</h3>
+            <ul class="sidebar-links">
+              <li><a href="inflation-personnelle.html"><span>02. Mon Inflation Personnelle</span><span>→</span></a></li>
+              <li><a href="interets-composes-pea.html"><span>03. PEA vs AV vs CTO</span><span>→</span></a></li>
+              <li><a href="epargne-securite.html"><span>04. Matelas de Sécurité</span><span>→</span></a></li>
+              <li><a href="cout-credit-conso.html"><span>05. Vrai Coût Crédit Conso</span><span>→</span></a></li>
+              <li><a href="objectif-independance.html"><span>06. Calculateur FIRE France</span><span>→</span></a></li>
+            </ul>
+          </div>
+          <div class="sidebar-box">
+            <h3>Dossier recommandé</h3>
+            <p class="text-secondary" style="font-size:0.9rem;">Découvrez comment optimiser votre fiscalité boursière grâce au PEA et aux ETF capitalisants.</p>
+            <a href="../guides/fiscalite-etf-pea-2026.html" class="btn btn-secondary btn-sm btn-block">Lire le guide Fiscalité ETF 2026</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">Valora</div>
+          <p class="footer-desc">Laboratoire indépendant d'outils d'épargne, de pouvoir d'achat et de projection patrimoniale calibrés sur la fiscalité française.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils patrimoniaux</h4>
+          <ul>
+            <li><a href="abonnements-etf.html">Abonnements → Capital ETF</a></li>
+            <li><a href="inflation-personnelle.html">Mon Inflation Personnelle</a></li>
+            <li><a href="interets-composes-pea.html">Intérêts Composés PEA / CTO</a></li>
+            <li><a href="epargne-securite.html">Matelas de Sécurité &amp; Livrets</a></li>
+            <li><a href="cout-credit-conso.html">Vrai Coût Crédit Conso</a></li>
+            <li><a href="objectif-independance.html">Calculateur FIRE France</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Guides &amp; Ressources</h4>
+          <ul>
+            <li><a href="../guides/fiscalite-etf-pea-2026.html">Fiscalité ETF &amp; PEA 2026</a></li>
+            <li><a href="../guides/methodologie-inflation-pouvoir-achat.html">Inflation &amp; Pouvoir d'achat</a></li>
+            <li><a href="../a-propos.html">Méthodologie &amp; Sources</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations légales</h4>
+          <ul>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Politique de confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Valora Finance — Simulations à titre indicatif, ne constitue pas un conseil en investissement.</span>
+        <button type="button" class="footer-cookie-btn js-open-cookies">Gérer mes préférences cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/abonnements-etf.js"></script>
+</body>
+</html>

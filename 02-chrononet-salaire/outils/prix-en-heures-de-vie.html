@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convertisseur Prix en Heures & Jours de Travail — ChronoNet</title>
+  <meta name="description" content="Convertissez n'importe quel achat (iPhone, loyer, voiture, restaurant, vacances) en heures, journées et semaines de travail net. Liste comparative sauvegardée localement.">
+  <link rel="canonical" href="https://chrononet.fr/outils/prix-en-heures-de-vie.html">
+  <meta property="og:title" content="Convertisseur Prix → Heures & Jours de Vie — ChronoNet">
+  <meta property="og:description" content="Combien d'heures de votre vie coûte vraiment cet achat ? Calculez et comparez vos dépenses selon votre taux horaire net.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chrononet.fr/outils/prix-en-heures-de-vie.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Convertisseur Prix en Heures de Vie — ChronoNet",
+      "url": "https://chrononet.fr/outils/prix-en-heures-de-vie.html",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "All",
+      "inLanguage": "fr-FR",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://chrononet.fr/" },
+        { "@type": "ListItem", "position": 2, "name": "Prix en Heures de Vie", "item": "https://chrononet.fr/outils/prix-en-heures-de-vie.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Faut-il utiliser son taux horaire affiché ou son vrai taux horaire net ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pour mesurer l'effort réel nécessaire à un achat, il est vivement conseillé d'utiliser votre vrai taux horaire net après impôt, trajets et frais professionnels. Vous évitez ainsi de sous-estimer de 25 à 35 % le temps de vie réellement échangé." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont calculées les journées et semaines de travail ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Les heures nécessaires (Prix / Taux horaire) sont divisées par votre durée quotidienne de travail paramétrable (7 h par défaut) pour obtenir des journées, et par votre durée hebdomadaire (35 h par défaut) pour obtenir des semaines." }
+        },
+        {
+          "@type": "Question",
+          "name": "Ma liste comparative d'achats est-elle sauvegardée automatiquement ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Oui, votre liste est enregistrée dans le stockage local (localStorage) de votre navigateur. Elle reste disponible lors de votre prochaine visite sans création de compte et sans envoi sur un serveur." }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi convertir un prix en heures réduit-il les achats impulsifs ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Le cerveau abstrait facilement les montants en euros, surtout lors d'un paiement sans contact ou en plusieurs fois. Traduire 1 200 € en 13 journées complètes de travail rend immédiatement tangible le coût d'opportunité." }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment évaluer le coût en temps d'un abonnement mensuel ?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Multipliez le coût mensuel par 12 afin de visualiser son poids annuel. Un abonnement de 15 € par mois représente 180 € par an, soit une à deux journées de travail entières chaque année." }
+        }
+      ]
+    }
+  ]
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>CHRONONET</span>
+        <span class="brand-tag">REF. CN-02</span>
+      </a>
+      <nav class="nav-desktop" aria-label="Navigation principale">
+        <a href="vrai-salaire-horaire.html" class="nav-link">Vrai Salaire</a>
+        <a href="prix-en-heures-de-vie.html" class="nav-link active">Prix / Heures</a>
+        <a href="teletravail-vs-presentiel.html" class="nav-link">Télétravail</a>
+        <a href="brut-en-net-2026.html" class="nav-link">Brut / Net</a>
+        <a href="rupture-conventionnelle.html" class="nav-link">Rupture</a>
+        <a href="tjm-freelance-vs-cdi.html" class="nav-link">TJM vs CDI</a>
+      </nav>
+      <div class="header-actions">
+        <a href="vrai-salaire-horaire.html" class="btn btn-primary btn-sm">Mon vrai taux</a>
+        <button type="button" class="nav-toggle" data-nav-toggle aria-label="Menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 5H18M2 10H18M2 15H18" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-mobile" data-nav-mobile aria-label="Navigation mobile">
+    <div class="nav-mobile-group">
+      <div class="nav-mobile-title">Les 6 instruments</div>
+      <a href="vrai-salaire-horaire.html"><span>01 — Vrai salaire horaire</span><span class="mono">→</span></a>
+      <a href="prix-en-heures-de-vie.html"><span>02 — Prix en heures de vie</span><span class="mono">→</span></a>
+      <a href="teletravail-vs-presentiel.html"><span>03 — Économies télétravail</span><span class="mono">→</span></a>
+      <a href="brut-en-net-2026.html"><span>04 — Brut ↔ Net 2026</span><span class="mono">→</span></a>
+      <a href="rupture-conventionnelle.html"><span>05 — Rupture conventionnelle</span><span class="mono">→</span></a>
+      <a href="tjm-freelance-vs-cdi.html"><span>06 — TJM Freelance vs CDI</span><span class="mono">→</span></a>
+    </div>
+  </nav>
+
+  <nav class="breadcrumb" aria-label="Fil d'Ariane">
+    <div class="container">
+      <ol>
+        <li><a href="../index.html">Accueil</a></li>
+        <li aria-current="page">Convertisseur Prix en Heures de Vie</li>
+      </ol>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <div class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span>INSTRUMENT CN-02 • ÉCONOMIE DU TEMPS</span></div>
+          <h1 style="margin-top:16px;">Convertisseur Prix → Heures &amp; Jours de Travail</h1>
+          <p class="hero-lead" style="margin-top:16px;">
+            Avant de sortir votre carte bancaire, traduisez instantanément n'importe quel montant en heures de travail net, en journées complètes et en pourcentage de votre mois.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <span>MÉMOIRE : LISTE COMPARATIVE LOCALE</span>
+          <span>PRESETS : 8 DÉPENSES COURANTES</span>
+          <span>UNITÉS : HEURES / JOURS / SEMAINES</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="workbench-section">
+      <div class="container">
+        <div class="workbench">
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">1. Votre valeur horaire</span>
+              <span class="mono" id="pv-out-taux-effectif" style="font-size:13px; color:var(--accent); font-weight:600;">14,50 € / h</span>
+            </div>
+
+            <div class="field">
+              <div class="segmented" role="group" aria-label="Mode de saisie du revenu">
+                <button type="button" class="segmented-btn active" data-mode-btn="taux" aria-pressed="true">Taux horaire net</button>
+                <button type="button" class="segmented-btn" data-mode-btn="mensuel" aria-pressed="false">Salaire mensuel net</button>
+              </div>
+            </div>
+
+            <div id="pv-box-taux" class="field">
+              <div class="field-head">
+                <label for="pv-taux-horaire" class="field-label">Votre taux horaire net</label>
+                <a href="vrai-salaire-horaire.html" class="field-hint" style="margin:0; text-decoration:underline; color:var(--accent);">Calculer mon vrai taux</a>
+              </div>
+              <div class="input-wrap">
+                <input type="number" id="pv-taux-horaire" class="input-control mono-input input-has-unit" value="14.50" min="1" max="500" step="0.5">
+                <span class="input-unit">€/h</span>
+              </div>
+            </div>
+
+            <div id="pv-box-mensuel" class="field" style="display:none;">
+              <div class="field-head">
+                <label for="pv-salaire-mensuel" class="field-label">Salaire net mensuel (après impôt)</label>
+              </div>
+              <div class="input-wrap">
+                <input type="number" id="pv-salaire-mensuel" class="input-control mono-input input-has-unit" value="2300" min="300" max="30000" step="50">
+                <span class="input-unit">€</span>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="pv-heures-jour" class="field-label">Heures / journée</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="pv-heures-jour" class="input-control mono-input input-has-unit" value="7" min="1" max="14" step="0.5">
+                  <span class="input-unit">h</span>
+                </div>
+              </div>
+              <div>
+                <div class="field-head"><label for="pv-heures-semaine" class="field-label">Heures / semaine</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="pv-heures-semaine" class="input-control mono-input input-has-unit" value="35" min="5" max="70" step="1">
+                  <span class="input-unit">h</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel-header" style="margin-top:24px;">
+              <span class="panel-title">2. Achat à évaluer</span>
+            </div>
+
+            <div class="field">
+              <div class="preset-grid">
+                <button type="button" class="preset-btn active" data-preset data-label="iPhone" data-price="1200">iPhone <span class="preset-price">1 200 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Loyer mensuel" data-price="950">Loyer <span class="preset-price">950 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Café en terrasse" data-price="4">Café <span class="preset-price">4 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Restaurant" data-price="45">Resto <span class="preset-price">45 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Voiture neuve" data-price="22000">Voiture <span class="preset-price">22 000 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Vacances d'été" data-price="1800">Vacances <span class="preset-price">1 800 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Vélo électrique" data-price="2100">VAE <span class="preset-price">2 100 €</span></button>
+                <button type="button" class="preset-btn" data-preset data-label="Streaming (1 an)" data-price="180">Streaming/an <span class="preset-price">180 €</span></button>
+              </div>
+            </div>
+
+            <div class="field field-row">
+              <div>
+                <div class="field-head"><label for="pv-item-label" class="field-label">Libellé</label></div>
+                <input type="text" id="pv-item-label" class="input-control" value="iPhone" maxlength="40">
+              </div>
+              <div>
+                <div class="field-head"><label for="pv-item-price" class="field-label">Prix TTC</label></div>
+                <div class="input-wrap">
+                  <input type="number" id="pv-item-price" class="input-control mono-input input-has-unit" value="1200" min="0" max="500000" step="1">
+                  <span class="input-unit">€</span>
+                </div>
+              </div>
+            </div>
+
+            <button type="button" id="pv-add-list" class="btn btn-dark btn-block">+ Ajouter à ma liste comparative</button>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <span class="panel-title">Équivalent en temps de vie</span>
+              <span class="instrument-led">INSTANTANÉ</span>
+            </div>
+
+            <div class="kpi-hero-row">
+              <div class="kpi-box highlight">
+                <div class="kpi-label">Temps de travail requis</div>
+                <div class="kpi-value" id="pv-out-heures">82 h 46 min</div>
+                <div class="kpi-sub">Temps net consacré à cet achat</div>
+              </div>
+              <div class="kpi-box accent-box">
+                <div class="kpi-label">En journées de travail</div>
+                <div class="kpi-value" id="pv-out-jours">11,8 j</div>
+                <div class="kpi-sub">Journées complètes travaillées</div>
+              </div>
+            </div>
+
+            <div class="kpi-mini-grid">
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Semaines de vie pro</div>
+                <div class="kpi-mini-value" id="pv-out-semaines">2,36 sem.</div>
+              </div>
+              <div class="kpi-mini">
+                <div class="kpi-mini-label">Part de votre salaire mensuel</div>
+                <div class="kpi-mini-value" id="pv-out-pct-mois">54,6 %</div>
+              </div>
+            </div>
+
+            <div class="callout" style="margin-top:0;">
+              <div class="callout-title">Synthèse directe</div>
+              <p id="pv-out-summary" style="margin:0; font-size:15px;"></p>
+            </div>
+
+            <div class="chart-box">
+              <div class="chart-header">
+                <span class="chart-title">Comparatif visuel en heures de travail</span>
+              </div>
+              <div class="canvas-frame">
+                <canvas id="pv-chart" aria-label="Graphique comparatif des achats en heures de travail"></canvas>
+              </div>
+            </div>
+
+            <div class="panel-header" style="margin-top:16px; margin-bottom:8px;">
+              <span class="panel-title">Ma liste comparative (sauvegardée)</span>
+              <button type="button" id="pv-clear-list" class="btn btn-secondary btn-sm">Vider</button>
+            </div>
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+              <span class="field-hint" style="margin:0;">Cumul de votre liste :</span>
+              <span class="mono" id="pv-saved-total" style="font-size:13px; font-weight:600;">0 € • 0 h</span>
+            </div>
+            <div id="pv-saved-list" class="saved-list"></div>
+          </div>
+        </div>
+
+        <aside class="ad-slot" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+          <span class="ad-slot-note">Format adaptatif horizontal — Hauteur stabilisée anti-CLS</span>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container editorial-layout">
+        <article class="editorial-article">
+          <h2>Penser ses achats en temps de vie : la méthode la plus efficace contre l'illusion monétaire</h2>
+          <p>
+            Chaque euro que vous dépensez représente une fraction irréversible de votre temps libre que vous avez échangée contre un salaire. Pourtant, les mécanismes commerciaux modernes — paiement en un clic, mensualités « sans frais », abonnements silencieux — sont conçus pour anesthésier la perception de cet échange. Convertir un prix affiché en <strong>heures et journées de travail net</strong> rétablit instantanément la symétrie : vous ne payez pas un objet avec des chiffres sur un écran, mais avec vos lundis matins.
+          </p>
+          <p>
+            Popularisée en finances personnelles par l'ouvrage de référence <em>Votre argent ou votre vie</em> (Vicki Robin et Joe Dominguez), cette discipline transforme radicalement les arbitrages budgétaires. Plutôt que de vous imposer des restrictions arbitraires, vous évaluez si la satisfaction durable procurée par un bien vaut réellement les 12 jours ou les 6 mois de travail exigés en contrepartie.
+          </p>
+
+          <h2>Formule de conversion et choix du bon taux horaire</h2>
+          <div class="formula-box">
+            Heures de vie = Prix TTC de l'achat / Taux horaire net réel<br>
+            Journées de travail = Heures de vie / Durée quotidienne (ex. 7 h)<br>
+            Semaines de vie pro = Heures de vie / Durée hebdomadaire (ex. 35 h)
+          </div>
+          <p>
+            L'erreur classique consiste à diviser un prix par son taux horaire brut, voire par son taux net avant impôt. Or, vous payez vos achats avec de l'argent <strong>net d'impôt sur le revenu et net de frais professionnels</strong>. Pour un salarié gagnant 2 200 € nets avant impôt mais disposant d'un vrai taux horaire net de 12,50 €/h après trajets et impôt, un smartphone à 1 200 € ne coûte pas 82 heures, mais <strong>96 heures</strong>, soit presque trois semaines pleines de travail.
+          </p>
+
+          <h2>Combien d'heures de vie coûtent les grandes dépenses en France ?</h2>
+          <p>
+            Voici un repère concret comparant trois niveaux de vrai taux horaire net : SMIC/début de carrière (10 €/h réel), salarié médian (14,50 €/h réel) et cadre confirmé (24 €/h réel).
+          </p>
+
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Dépense courante</th>
+                  <th class="num">Prix TTC</th>
+                  <th class="num">À 10 €/h</th>
+                  <th class="num">À 14,50 €/h</th>
+                  <th class="num">À 24 €/h</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Café + viennoiserie (1 an ouvré)</td>
+                  <td class="num">1 050 €</td>
+                  <td class="num">15,0 jours</td>
+                  <td class="num">10,3 jours</td>
+                  <td class="num">6,3 jours</td>
+                </tr>
+                <tr>
+                  <td>Smartphone haut de gamme</td>
+                  <td class="num">1 200 €</td>
+                  <td class="num">17,1 jours</td>
+                  <td class="num">11,8 jours</td>
+                  <td class="num">7,1 jours</td>
+                </tr>
+                <tr>
+                  <td>Semaine de vacances (vol + hôtel)</td>
+                  <td class="num">1 800 €</td>
+                  <td class="num">25,7 jours</td>
+                  <td class="num">17,7 jours</td>
+                  <td class="num">10,7 jours</td>
+                </tr>
+                <tr>
+                  <td>Voiture citadine neuve</td>
+                  <td class="num">22 000 €</td>
+                  <td class="num">314 jours (1,4 an)</td>
+                  <td class="num">217 jours (1,0 an)</td>
+                  <td class="num">131 jours (6 mois)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Trois réflexes pour utiliser votre liste comparative</h2>
+          <ul>
+            <li><strong>Annualisez toujours les petites habitudes :</strong> 4 € de café ou 12 € de déjeuner livré paraissent indolores à l'unité, mais ajoutés sur 200 jours travaillés ils représentent souvent deux à quatre semaines de votre année.</li>
+            <li><strong>Intégrez le coût de possession :</strong> une voiture à 22 000 € ne coûte pas uniquement son prix d'achat ; son assurance, son entretien et sa décote consomment environ 4 000 € supplémentaires chaque année, soit plus d'un mois de travail récurrent.</li>
+            <li><strong>Comparez avec la valeur de votre épargne :</strong> en remplaçant une dépense superflue de 150 €/mois par une épargne régulière, vous rachetez progressivement des journées de liberté future.</li>
+          </ul>
+
+          <aside class="ad-slot" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Annonce • Espace réservé Google AdSense</span>
+            <span class="ad-slot-note">Placement éditorial non intrusif</span>
+          </aside>
+
+          <h2>Questions fréquentes</h2>
+          <div class="faq-list">
+            <div class="faq-item open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Faut-il utiliser son taux horaire affiché ou son vrai taux horaire net ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Utilisez idéalement votre vrai taux horaire net (calculable en 30 secondes sur notre outil CN-01). C'est le seul indicateur qui intègre vos trajets, vos frais liés au travail et vos heures réelles.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment sont calculées les journées et semaines de travail ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Le total d'heures (Prix / Taux horaire) est divisé par votre durée de journée (7 h par défaut) pour exprimer le coût en journées travaillées, puis par votre durée hebdomadaire (35 h par défaut) pour obtenir des semaines.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Ma liste comparative d'achats est-elle sauvegardée automatiquement ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Oui, la liste est enregistrée uniquement dans le <code>localStorage</code> de votre navigateur. Personne d'autre n'y a accès et vous pouvez la vider en un clic.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Pourquoi convertir un prix en heures réduit-il les achats impulsifs ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Visualiser qu'un achat équivaut à 12 jours complets au bureau recrée un lien concret entre l'effort fourni et le plaisir attendu, ce qui freine naturellement les dépenses impulsives.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment évaluer le coût en temps d'un abonnement mensuel ?</span>
+                <span class="faq-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="faq-panel">
+                Multipliez simplement la mensualité par 12 et ajoutez le total annuel à votre liste comparative. C'est la meilleure méthode pour repérer les abonnements qui absorbent silencieusement plusieurs journées de travail par an.
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <aside class="sidebar-sticky">
+          <div class="sidebar-card">
+            <div class="panel-title">Autres instruments ChronoNet</div>
+            <ul class="sidebar-list">
+              <li><a href="vrai-salaire-horaire.html"><span>Calculateur Vrai Salaire Horaire</span><span class="mono">→</span></a></li>
+              <li><a href="teletravail-vs-presentiel.html"><span>Économies du Télétravail</span><span class="mono">→</span></a></li>
+              <li><a href="brut-en-net-2026.html"><span>Brut ↔ Net ↔ Super-Brut 2026</span><span class="mono">→</span></a></li>
+              <li><a href="rupture-conventionnelle.html"><span>Indemnité Rupture Conventionnelle</span><span class="mono">→</span></a></li>
+              <li><a href="tjm-freelance-vs-cdi.html"><span>TJM Freelance vs CDI</span><span class="mono">→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="../index.html" class="footer-brand"><span class="eyebrow-dot" aria-hidden="true"></span><span>CHRONONET</span></a>
+          <p class="footer-desc">Instruments indépendants de mesure du vrai salaire horaire, du temps de vie et de la rémunération en France.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Calculateurs</div>
+          <ul class="footer-links">
+            <li><a href="vrai-salaire-horaire.html">Vrai salaire horaire</a></li>
+            <li><a href="prix-en-heures-de-vie.html">Prix en heures de vie</a></li>
+            <li><a href="teletravail-vs-presentiel.html">Économies télétravail</a></li>
+            <li><a href="brut-en-net-2026.html">Brut en Net 2026</a></li>
+            <li><a href="rupture-conventionnelle.html">Rupture conventionnelle</a></li>
+            <li><a href="tjm-freelance-vs-cdi.html">TJM Freelance vs CDI</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Guides</div>
+          <ul class="footer-links">
+            <li><a href="../guides/negocier-salaire-2026.html">Négocier son salaire 2026</a></li>
+            <li><a href="../guides/bareme-frais-kilometriques-2026.html">Barème kilométrique 2026</a></li>
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Cadre légal</div>
+          <ul class="footer-links">
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité &amp; RGPD</a></li>
+            <li><a href="../sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ChronoNet (chrononet.fr) — Simulations indicatives, calculs 100 % locaux.</span>
+        <button type="button" class="footer-cookie-btn" data-open-cookies>Gérer les cookies</button>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/prix-en-heures-de-vie.js"></script>
+</body>
+</html>

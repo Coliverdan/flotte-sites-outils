@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Générateur de Facture &amp; Devis Conforme 2026 (PDF &amp; XML Local) — ComptaBrut</title>
+  <meta name="description" content="Créez gratuitement vos factures et devis conformes aux mentions obligatoires 2026 (SIREN client, catégorie d’opération, TVA 293 B, pénalités) avec aperçu A4 temps réel, sauvegarde locale, export PDF et XML Factur-X.">
+  <link rel="canonical" href="https://comptabrut.fr/outils/generateur-facture-devis.html">
+  <meta property="og:title" content="Générateur de Facture &amp; Devis Conforme 2026 — ComptaBrut">
+  <meta property="og:description" content="Éditeur de facture et devis 100 % local avec aperçu A4 en direct, mentions réforme 2026 et export PDF/XML EN 16931.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Générateur de Facture & Devis Conforme 2026",
+        "url": "https://comptabrut.fr/outils/generateur-facture-devis.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" },
+        "description": "Éditeur local de factures et devis conformes aux mentions obligatoires françaises 2026 avec impression PDF propre et export XML EN 16931."
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://comptabrut.fr/" },
+          { "@type": "ListItem", "position": 2, "name": "Générateur Facture & Devis 2026", "item": "https://comptabrut.fr/outils/generateur-facture-devis.html" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment enregistrer ma facture au format PDF proprement ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Cliquez sur « Imprimer / Export PDF » : notre feuille de style @media print masque automatiquement toute l'interface du site pour imprimer uniquement votre document A4 net. Choisissez simplement « Enregistrer au format PDF » comme imprimante." }
+          },
+          {
+            "@type": "Question",
+            "name": "Mes informations clients et montants sont-ils stockés sur vos serveurs ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Jamais. Votre brouillon est sauvegardé uniquement dans le stockage local (localStorage) de votre navigateur afin que vous ne perdiez pas votre saisie. Vous pouvez l'effacer à tout moment en cliquant sur « Réinitialiser »." }
+          },
+          {
+            "@type": "Question",
+            "name": "Quelles mentions légales doit porter un micro-entrepreneur non assujetti à la TVA ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Il doit obligatoirement indiquer la mention « Entrepreneur Individuel » ou « EI » accolée à son nom, son numéro SIREN, et la formule exacte « TVA non applicable, art. 293 B du CGI »." }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi faut-il indiquer la catégorie d'opération et le SIREN du client ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ces mentions sont rendues obligatoires par le décret n° 2022-1299 dans le cadre de la réforme de la facturation électronique 2026-2027 afin de permettre le routage sur les plateformes PDP et le pré-remplissage de la TVA." }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment respecter la règle de numérotation chronologique des factures ?",
+            "acceptedAnswer": { "@type": "Answer", "text": "La numérotation doit suivre une séquence chronologique continue sans rupture (par exemple FA-2026-0001, FA-2026-0002). Il est interdit de supprimer une facture émise : en cas d'erreur, il faut émettre un avoir." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand"><span class="brand-mark">CB</span><span>ComptaBrut</span><span class="brand-tag">2026</span></a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <a href="inspecteur-factur-x.html" class="nav-link">Factur-X</a>
+        <a href="simulateur-urssaf-micro-2026.html" class="nav-link">URSSAF 2026</a>
+        <a href="suivi-seuils-tva-ca.html" class="nav-link">Seuils TVA</a>
+        <a href="generateur-facture-devis.html" class="nav-link is-active">Factures</a>
+        <a href="calculateur-tva-marge.html" class="nav-link">TVA &amp; Marge</a>
+        <a href="verificateur-iban-siret.html" class="nav-link">IBAN / SIREN</a>
+        <a href="../guides/reforme-facturation-electronique-2026-2027.html" class="nav-link">Guides</a>
+      </nav>
+      <a href="inspecteur-factur-x.html" class="header-cta">Inspecter un Factur-X</a>
+      <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-group">
+      <div class="mobile-nav-title">Outils 100 % locaux</div>
+      <ul class="mobile-nav-list">
+        <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+        <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+        <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+        <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+        <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+        <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li><a href="../index.html">Accueil</a></li>
+        <li class="breadcrumb-sep">/</li>
+        <li aria-current="page">Générateur de Facture &amp; Devis Conforme 2026</li>
+      </ol>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="tool-hero">
+      <div class="container tool-hero-grid">
+        <div>
+          <span class="eyebrow">Outil 04 · Mentions Décret 2022-1299 · Sauvegarde Locale</span>
+          <h1>Générateur de Facture &amp; Devis Conforme 2026</h1>
+          <p class="hero-lead" style="margin-top:12px;margin-bottom:0;">
+            Éditez une facture ou un devis conforme aux nouvelles mentions françaises (SIREN client, catégorie d’opération, franchise art. 293 B, pénalités) avec aperçu A4 temps réel et export PDF ou XML Factur-X.
+          </p>
+        </div>
+        <div class="tool-hero-meta">
+          <div class="meta-row"><span>Brouillon automatique</span><span style="color:var(--accent);">localStorage actif</span></div>
+          <div class="meta-row"><span>Format impression</span><span>A4 Portrait @media print</span></div>
+          <div class="meta-row"><span>Bonus conformité</span><span>Export XML EN 16931</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tool-workspace">
+      <div class="container">
+        <div class="invoice-layout">
+          <!-- COLONNE ÉDITEUR -->
+          <div class="card invoice-editor-col no-print">
+            <div class="panel-title">
+              <span>Éditeur de document</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="inv-reset-btn">Réinitialiser</button>
+            </div>
+
+            <div class="form-group">
+              <div class="segmented">
+                <button type="button" class="segmented-btn is-active" data-doc-type="FACTURE">Facture</button>
+                <button type="button" class="segmented-btn" data-doc-type="DEVIS">Devis</button>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="inv-number" class="form-label">Numéro</label>
+                <input type="text" id="inv-number" class="input input-mono">
+              </div>
+              <div class="form-group">
+                <label for="inv-op-cat" class="form-label">Catégorie (Mention 2026)</label>
+                <select id="inv-op-cat" class="select">
+                  <option value="Prestation de services">Prestation de services</option>
+                  <option value="Livraison de biens">Livraison de biens</option>
+                  <option value="Opération mixte (biens et services)">Mixte (biens et services)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="inv-issue-date" class="form-label">Date d’émission</label>
+                <input type="date" id="inv-issue-date" class="input input-mono">
+              </div>
+              <div class="form-group">
+                <label for="inv-due-date" class="form-label">Échéance / Validité</label>
+                <input type="date" id="inv-due-date" class="input input-mono">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="toggle-row" for="inv-franchise">
+                <div class="toggle-text">
+                  <strong>Franchise en base de TVA (Art. 293 B CGI)</strong>
+                  <span>Désactive la TVA et affiche la mention légale obligatoire</span>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" id="inv-franchise">
+                  <span class="switch-track"></span>
+                </span>
+              </label>
+            </div>
+
+            <div id="inv-tva-fields" style="display:none;margin-bottom:24px;padding:16px;background:var(--bg-page);border:1px solid var(--border);border-radius:6px;">
+              <div class="form-group">
+                <label for="inv-seller-tva" class="form-label">N° TVA Intracommunautaire émetteur</label>
+                <input type="text" id="inv-seller-tva" class="input input-mono" placeholder="FR XX 123456789">
+              </div>
+              <label class="toggle-row" for="inv-tva-debits" style="background:#FFFFFF;">
+                <div class="toggle-text">
+                  <strong>Option TVA d’après les débits</strong>
+                  <span>Mention obligatoire 2026 si option exercée</span>
+                </div>
+                <span class="switch">
+                  <input type="checkbox" id="inv-tva-debits">
+                  <span class="switch-track"></span>
+                </span>
+              </label>
+            </div>
+
+            <h3 style="font-size:0.98rem;margin:24px 0 12px 0;padding-top:16px;border-top:1px solid var(--border);">Émetteur (Votre entreprise)</h3>
+            <div class="form-group">
+              <label for="inv-seller-name" class="form-label">Nom / Raison sociale &amp; statut (EI, SASU…)</label>
+              <input type="text" id="inv-seller-name" class="input">
+            </div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="inv-seller-siren" class="form-label">SIREN / SIRET</label>
+                <input type="text" id="inv-seller-siren" class="input input-mono">
+              </div>
+              <div class="form-group">
+                <label for="inv-seller-contact" class="form-label">Email / Téléphone</label>
+                <input type="text" id="inv-seller-contact" class="input">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inv-seller-address" class="form-label">Adresse complète</label>
+              <textarea id="inv-seller-address" class="textarea" rows="2"></textarea>
+            </div>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="inv-seller-iban" class="form-label">IBAN de règlement</label>
+                <input type="text" id="inv-seller-iban" class="input input-mono">
+              </div>
+              <div class="form-group">
+                <label for="inv-seller-bic" class="form-label">BIC</label>
+                <input type="text" id="inv-seller-bic" class="input input-mono">
+              </div>
+            </div>
+
+            <h3 style="font-size:0.98rem;margin:24px 0 12px 0;padding-top:16px;border-top:1px solid var(--border);">Client (Acheteur)</h3>
+            <div class="grid-2">
+              <div class="form-group">
+                <label for="inv-buyer-name" class="form-label">Raison sociale / Nom</label>
+                <input type="text" id="inv-buyer-name" class="input">
+              </div>
+              <div class="form-group">
+                <label for="inv-buyer-siren" class="form-label">SIREN acheteur (Obligatoire 2026)</label>
+                <input type="text" id="inv-buyer-siren" class="input input-mono">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inv-buyer-address" class="form-label">Adresse de facturation</label>
+              <textarea id="inv-buyer-address" class="textarea" rows="2"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="inv-delivery-address" class="form-label">Adresse de livraison (si différente)</label>
+              <input type="text" id="inv-delivery-address" class="input" placeholder="Laisser vide si identique à l'adresse de facturation">
+            </div>
+
+            <h3 style="font-size:0.98rem;margin:24px 0 12px 0;padding-top:16px;border-top:1px solid var(--border);">Lignes de facturation</h3>
+            <div id="inv-lines-editor"></div>
+            <button type="button" class="btn btn-secondary btn-sm" id="inv-add-line" style="margin-bottom:24px;">+ Ajouter une ligne</button>
+
+            <h3 style="font-size:0.98rem;margin:0 0 12px 0;padding-top:16px;border-top:1px solid var(--border);">Conditions &amp; Pénalités légales</h3>
+            <div class="form-group">
+              <label for="inv-payment-terms" class="form-label">Conditions de règlement</label>
+              <textarea id="inv-payment-terms" class="textarea" rows="2"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom:0;">
+              <label for="inv-penalties" class="form-label">Pénalités de retard &amp; indemnité 40 €</label>
+              <textarea id="inv-penalties" class="textarea" rows="2"></textarea>
+            </div>
+          </div>
+
+          <!-- COLONNE APERÇU A4 TEMPS RÉEL -->
+          <div class="invoice-preview-col">
+            <div class="btn-row no-print" style="margin-bottom:16px;justify-content:space-between;">
+              <span class="badge badge-ok">Aperçu A4 temps réel</span>
+              <div class="btn-row">
+                <button type="button" class="btn btn-secondary btn-sm" id="inv-xml-btn">Exporter XML Factur-X</button>
+                <button type="button" class="btn btn-primary btn-sm" id="inv-print-btn">Imprimer / Export PDF</button>
+              </div>
+            </div>
+
+            <article class="invoice-sheet" aria-label="Aperçu du document A4">
+              <div class="inv-top">
+                <div>
+                  <div class="inv-doc-type" id="pv-doc-type">FACTURE</div>
+                  <div class="mono" style="font-size:0.95rem;font-weight:600;color:var(--accent);margin-top:4px;">N° <span id="pv-doc-number">FA-2026-0012</span></div>
+                </div>
+                <div style="text-align:right;font-size:0.84rem;">
+                  <div>Date d’émission : <strong class="mono" id="pv-issue-date">—</strong></div>
+                  <div><span id="pv-due-label">Échéance</span> : <strong class="mono" id="pv-due-date">—</strong></div>
+                  <div style="margin-top:4px;color:var(--text-secondary);">Nature : <strong id="pv-op-cat">—</strong></div>
+                </div>
+              </div>
+
+              <div class="inv-parties">
+                <div class="inv-party-box">
+                  <div class="inv-party-label">Émetteur</div>
+                  <strong id="pv-seller-name" style="display:block;margin-bottom:4px;">—</strong>
+                  <div id="pv-seller-address" style="margin-bottom:6px;color:var(--text-secondary);">—</div>
+                  <div style="font-size:0.82rem;">SIREN : <span class="mono" id="pv-seller-siren">—</span></div>
+                  <div id="pv-seller-tva-row" style="font-size:0.82rem;display:none;">N° TVA : <span class="mono" id="pv-seller-tva">—</span></div>
+                  <div id="pv-seller-contact" style="font-size:0.8rem;color:var(--text-muted);margin-top:4px;"></div>
+                </div>
+
+                <div class="inv-party-box">
+                  <div class="inv-party-label">Client / Acheteur</div>
+                  <strong id="pv-buyer-name" style="display:block;margin-bottom:4px;">—</strong>
+                  <div id="pv-buyer-address" style="margin-bottom:6px;color:var(--text-secondary);">—</div>
+                  <div style="font-size:0.82rem;">SIREN acheteur : <strong class="mono" id="pv-buyer-siren">—</strong></div>
+                  <div id="pv-delivery-block" style="display:none;margin-top:8px;padding-top:6px;border-top:1px solid var(--border);font-size:0.8rem;">
+                    <strong>Livraison :</strong> <span id="pv-delivery-address"></span>
+                  </div>
+                </div>
+              </div>
+
+              <table class="inv-table">
+                <thead>
+                  <tr>
+                    <th>Désignation</th>
+                    <th class="num-col">Qté</th>
+                    <th class="num-col">PU HT</th>
+                    <th class="num-col">TVA</th>
+                    <th class="num-col">Total HT</th>
+                  </tr>
+                </thead>
+                <tbody id="pv-lines-tbody"></tbody>
+              </table>
+
+              <div class="inv-totals" id="pv-totals"></div>
+
+              <div class="inv-legal-footer" id="pv-legal-footer"></div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ADSENSE 1 -->
+        <aside class="ad-slot no-print" aria-label="Espace publicitaire">
+          <span class="ad-slot-label">Publicité</span>
+          <div class="ad-slot-inner">Emplacement publicitaire réactif — format horizontal (728×90 / fluide)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTENU ÉDITORIAL -->
+    <section class="section section-bordered editorial-section" style="background:var(--bg-surface);">
+      <div class="container">
+        <div class="editorial">
+          <h2>Mentions obligatoires sur une facture en France (Mise à jour 2026)</h2>
+          <p>
+            Une facture professionnelle mal rédigée expose l’émetteur à une amende fiscale de <strong>15 € par mention manquante ou inexacte</strong> (plafonnée au quart du montant de la facture), sans compter les pénalités commerciales pouvant atteindre 75 000 € pour une personne physique. Avec la réforme de la facturation électronique 2026–2027 (décret n° 2022-1299), quatre nouvelles mentions s’ajoutent aux exigences historiques du Code de commerce et du Code général des impôts.
+          </p>
+
+          <h3>Tableau de vérification des mentions obligatoires 2026</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Catégorie</th>
+                  <th>Mentions exigées</th>
+                  <th>Nouveauté 2026 ?</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Émetteur</strong></td>
+                  <td>Nom/Raison sociale + mention « EI » (pour entrepreneur individuel), adresse, SIREN, N° TVA intra (si redevable) ou « TVA non applicable, art. 293 B du CGI ».</td>
+                  <td>Obligatoire existant</td>
+                </tr>
+                <tr>
+                  <td><strong>Acheteur B2B</strong></td>
+                  <td>Raison sociale, adresse de facturation et <strong>numéro SIREN à 9 chiffres du client</strong>.</td>
+                  <td><span class="badge badge-ok">Nouveau 2026</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Opération</strong></td>
+                  <td><strong>Catégorie d’opération</strong> (livraison de biens, prestation de services ou mixte) et adresse de livraison si différente.</td>
+                  <td><span class="badge badge-ok">Nouveau 2026</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TVA &amp; Paiement</strong></td>
+                  <td>Taux et montant de TVA par ligne, <strong>option TVA sur les débits</strong> (si applicable), date d’échéance, taux de pénalités de retard et indemnité forfaitaire de 40 €.</td>
+                  <td><span class="badge badge-ok">Option débits 2026</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h3>Export PDF propre et fichier XML EN 16931</h3>
+          <p>
+            Notre générateur vous permet d’imprimer directement une mise en page A4 sans en-tête parasite (via <code>@media print</code>) et propose également un export structuré <strong>XML Factur-X EN 16931</strong> que vous pouvez immédiatement vérifier dans notre <a href="inspecteur-factur-x.html">Inspecteur Factur-X</a>. Rappel important : à compter du 1er septembre 2027 pour les TPE et micro-entreprises, la transmission de vos factures B2B domestiques devra impérativement passer par une Plateforme de Dématérialisation Partenaire (PDP).
+          </p>
+
+          <!-- ADSENSE 2 -->
+          <aside class="ad-slot ad-slot-rect no-print" aria-label="Espace publicitaire">
+            <span class="ad-slot-label">Publicité</span>
+            <div class="ad-slot-inner">Emplacement publicitaire — format rectangle (336×280 / fluide)</div>
+          </aside>
+
+          <h2>Questions fréquentes sur la facturation freelance</h2>
+          <div class="faq-list">
+            <div class="faq-item is-open">
+              <button type="button" class="faq-trigger" aria-expanded="true">
+                <span>Comment exporter ma facture en PDF sans les boutons du site ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Cliquez sur « Imprimer / Export PDF » au-dessus de l’aperçu. La feuille de style d’impression isole uniquement la page A4 de votre facture ou devis. Sélectionnez « Enregistrer au format PDF » dans la boîte de dialogue d’impression de votre navigateur.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>La mention « EI » ou « Entrepreneur Individuel » est-elle obligatoire ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Oui. Depuis mai 2022 (décret n° 2022-725), tous les entrepreneurs individuels (y compris les micro-entrepreneurs) doivent faire figurer la mention « Entrepreneur Individuel » ou les initiales « EI » immédiatement avant ou après leur nom sur leurs factures, devis et documents commerciaux.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Faut-il afficher l’indemnité de 40 € sur un devis ou sur une facture à un particulier ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                L’indemnité forfaitaire de recouvrement de 40 € (art. L441-10 du Code de commerce) s’applique uniquement aux factures adressées à des <strong>clients professionnels (B2B)</strong>. Notre éditeur la masque automatiquement lorsque vous basculez en mode Devis.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Comment gérer la numérotation de mes factures sans erreur ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Utilisez une séquence chronologique continue sans trou ni doublon (ex. <code>FA-2026-0001</code>, <code>FA-2026-0002</code>). Une facture émise ne peut jamais être supprimée ; en cas d’annulation ou de remise ultérieure, émettez une facture d’avoir référençant la facture initiale.
+              </div>
+            </div>
+            <div class="faq-item">
+              <button type="button" class="faq-trigger" aria-expanded="false">
+                <span>Combien de temps dois-je conserver mes factures émises et reçues ?</span>
+                <span class="faq-icon">+</span>
+              </button>
+              <div class="faq-answer">
+                Le Code de commerce impose une durée de conservation de <strong>10 ans</strong> à compter de la clôture de l’exercice comptable (et 6 ans minimum sur le plan fiscal). Archivez toujours une copie sécurisée de vos PDF et flux XML.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tight section-bordered related-section">
+      <div class="container">
+        <h2 style="font-size:1.35rem;">Outils complémentaires ComptaBrut</h2>
+        <div class="related-grid">
+          <a href="inspecteur-factur-x.html" class="related-card">
+            <strong>Inspecteur Factur-X 2026</strong>
+            <span>Testez directement le fichier XML EN 16931 généré par notre éditeur.</span>
+          </a>
+          <a href="verificateur-iban-siret.html" class="related-card">
+            <strong>Validateur IBAN &amp; SIREN</strong>
+            <span>Contrôlez le SIREN acheteur et votre IBAN avant d’émettre la facture.</span>
+          </a>
+          <a href="suivi-seuils-tva-ca.html" class="related-card">
+            <strong>Suivi Seuils TVA</strong>
+            <span>Vérifiez quand retirer la mention « TVA non applicable, art. 293 B du CGI ».</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="../index.html" class="brand" style="margin-bottom:12px;"><span class="brand-mark">CB</span><span>ComptaBrut</span></a>
+          <p style="font-size:0.9rem;">Outils financiers et conformité Factur-X 2026–2027, 100 % locaux dans votre navigateur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Outils Facturation &amp; TVA</h4>
+          <ul class="footer-links">
+            <li><a href="inspecteur-factur-x.html">Inspecteur Factur-X 2026</a></li>
+            <li><a href="generateur-facture-devis.html">Générateur Facture &amp; Devis</a></li>
+            <li><a href="suivi-seuils-tva-ca.html">Prorata &amp; Seuils TVA</a></li>
+            <li><a href="calculateur-tva-marge.html">Calculateur TVA &amp; Marge</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Charges &amp; Guides</h4>
+          <ul class="footer-links">
+            <li><a href="simulateur-urssaf-micro-2026.html">Simulateur URSSAF 2026</a></li>
+            <li><a href="verificateur-iban-siret.html">Validateur IBAN / SIREN</a></li>
+            <li><a href="../guides/reforme-facturation-electronique-2026-2027.html">Guide Réforme 2026–2027</a></li>
+            <li><a href="../guides/seuils-micro-entreprise-tva-2026.html">Guide Seuils Micro 2026</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Informations</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">À propos</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../confidentialite.html">Confidentialité</a></li>
+            <li><a href="#" data-open-cookies>Gérer les cookies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 ComptaBrut (comptabrut.fr)</span>
+        <span class="mono">100 % LOCAL · FRANCE</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/common.js"></script>
+  <script src="../assets/js/tools/generateur-facture-devis.js"></script>
+</body>
+</html>
